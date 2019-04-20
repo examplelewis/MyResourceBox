@@ -1,0 +1,104 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - CocoaLumberjack (3.4.2):
+    - CocoaLumberjack/Default (= 3.4.2)
+    - CocoaLumberjack/Extensions (= 3.4.2)
+  - CocoaLumberjack/Default (3.4.2)
+  - CocoaLumberjack/Extensions (3.4.2):
+    - CocoaLumberjack/Default
+  - DateTools (2.0.0)
+  - DTWebArchive (0.0.3):
+    - DTWebArchive/Core (= 0.0.3)
+    - DTWebArchive/iOS (= 0.0.3)
+  - DTWebArchive/Core (0.0.3)
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
+  - hpple (0.2.0)
+  - JSONKit-NoWarning (1.2)
+  - JSONModel (1.7.0)
+  - JXHTTP (3.0.2)
+  - Masonry (1.1.0)
+  - Spectacles (1.0.1)
+  - TMTumblrSDK (4.0.5):
+    - TMTumblrSDK/Activity (= 4.0.5)
+    - TMTumblrSDK/APIClient (= 4.0.5)
+    - TMTumblrSDK/AppClient (= 4.0.5)
+    - TMTumblrSDK/Core (= 4.0.5)
+  - TMTumblrSDK/APIClient (4.0.5):
+    - JXHTTP
+    - TMTumblrSDK/APIClient/Authentication (= 4.0.5)
+  - TMTumblrSDK/APIClient/Authentication (4.0.5):
+    - JXHTTP
+    - TMTumblrSDK/Core
+  - TMTumblrSDK/Core (4.0.5):
+    - Spectacles (~> 1.0)
+
+DEPENDENCIES:
+  - AFNetworking
+  - BlocksKit
+  - CocoaLumberjack
+  - DateTools
+  - DTWebArchive
+  - FMDB
+  - hpple
+  - JSONKit-NoWarning
+  - JSONModel
+  - Masonry
+  - TMTumblrSDK (~> 4.0.4)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - BlocksKit
+    - CocoaLumberjack
+    - DateTools
+    - DTWebArchive
+    - FMDB
+    - hpple
+    - JSONKit-NoWarning
+    - JSONModel
+    - JXHTTP
+    - Masonry
+    - Spectacles
+    - TMTumblrSDK
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
+  DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
+  DTWebArchive: 2029610e2e2fda5b6d51a386b13b1484b7b197ba
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  hpple: 3b765f96fc2cd56ad1a49aef6f7be5cb2aa64b57
+  JSONKit-NoWarning: 3d27e6f9e6846ecf741e8c64dcadd7d5aa7193cb
+  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  JXHTTP: c37120f210cd2dfcb3470d70239f5253335e2f1a
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  Spectacles: 8dc60711140320653724560e2d6bbb8a8f0940e4
+  TMTumblrSDK: bafecf74bb5dae10d42536d35229e40c18e9e4a1
+
+PODFILE CHECKSUM: bfaf4ae28dca6fc026a052b8ee357a08eee6ad72
+
+COCOAPODS: 1.5.0

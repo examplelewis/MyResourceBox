@@ -1,0 +1,1270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Application-->
+        <scene sceneID="JPo-4y-FX3">
+            <objects>
+                <application id="hnw-xV-0zn" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+                        <items>
+                            <menuItem title="MyResourceBox" id="1Xt-HY-uBw">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="MyResourceBox" systemMenu="apple" id="uQy-DD-JDr">
+                                    <items>
+                                        <menuItem title="About MyResourceBox" id="5kV-Vb-QxS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
+                                        <menuItem title="Services" id="NMo-om-nkz">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
+                                        <menuItem title="Hide MyResourceBox" keyEquivalent="h" id="Olw-nP-bQN">
+                                            <connections>
+                                                <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Hide Others" keyEquivalent="h" id="Vdr-fp-XzO">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="hideOtherApplications:" target="Ady-hI-5gd" id="VT4-aY-XCT"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Show All" id="Kd2-mp-pUS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="unhideAllApplications:" target="Ady-hI-5gd" id="Dhg-Le-xox"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
+                                        <menuItem title="Quit MyResourceBox" keyEquivalent="q" id="4sb-4s-VLi">
+                                            <connections>
+                                                <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="File" id="dMs-cI-mzQ">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="File" id="bib-Uj-vzu">
+                                    <items>
+                                        <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="toggleFullScreen:" target="Ady-hI-5gd" id="dU3-MA-1Rq"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
+                                            <connections>
+                                                <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Edit" id="5QF-Oa-p0T">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Edit" id="W48-6f-4Dl">
+                                    <items>
+                                        <menuItem title="Undo" keyEquivalent="z" id="dRJ-4n-Yzg">
+                                            <connections>
+                                                <action selector="undo:" target="Ady-hI-5gd" id="M6e-cu-g7V"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Redo" keyEquivalent="Z" id="6dh-zS-Vam">
+                                            <connections>
+                                                <action selector="redo:" target="Ady-hI-5gd" id="oIA-Rs-6OD"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="WRV-NI-Exz"/>
+                                        <menuItem title="Cut" keyEquivalent="x" id="uRl-iY-unG">
+                                            <connections>
+                                                <action selector="cut:" target="Ady-hI-5gd" id="YJe-68-I9s"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Copy" keyEquivalent="c" id="x3v-GG-iWU">
+                                            <connections>
+                                                <action selector="copy:" target="Ady-hI-5gd" id="G1f-GL-Joy"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste" keyEquivalent="v" id="gVA-U4-sdL">
+                                            <connections>
+                                                <action selector="paste:" target="Ady-hI-5gd" id="UvS-8e-Qdg"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste and Match Style" keyEquivalent="V" id="WeT-3V-zwk">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="pasteAsPlainText:" target="Ady-hI-5gd" id="cEh-KX-wJQ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Delete" id="pa3-QI-u2k">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="delete:" target="Ady-hI-5gd" id="0Mk-Ml-PaM"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Select All" keyEquivalent="a" id="Ruw-6m-B2m">
+                                            <connections>
+                                                <action selector="selectAll:" target="Ady-hI-5gd" id="VNm-Mi-diN"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="uyl-h8-XO2"/>
+                                        <menuItem title="Font" id="Gi5-1S-RQB">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Font" systemMenu="font" id="aXa-aM-Jaq">
+                                                <items>
+                                                    <menuItem title="Show Fonts" keyEquivalent="t" id="Q5e-8K-NDq"/>
+                                                    <menuItem title="Bold" tag="2" keyEquivalent="b" id="GB9-OM-e27"/>
+                                                    <menuItem title="Italic" tag="1" keyEquivalent="i" id="Vjx-xi-njq"/>
+                                                    <menuItem title="Underline" keyEquivalent="u" id="WRG-CD-K1S">
+                                                        <connections>
+                                                            <action selector="underline:" target="Ady-hI-5gd" id="FYS-2b-JAY"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="5gT-KC-WSO"/>
+                                                    <menuItem title="Bigger" tag="3" keyEquivalent="+" id="Ptp-SP-VEL"/>
+                                                    <menuItem title="Smaller" tag="4" keyEquivalent="-" id="i1d-Er-qST"/>
+                                                    <menuItem isSeparatorItem="YES" id="kx3-Dk-x3B"/>
+                                                    <menuItem title="Kern" id="jBQ-r6-VK2">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="Kern" id="tlD-Oa-oAM">
+                                                            <items>
+                                                                <menuItem title="Use Default" id="GUa-eO-cwY">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="useStandardKerning:" target="Ady-hI-5gd" id="6dk-9l-Ckg"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Use None" id="cDB-IK-hbR">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="turnOffKerning:" target="Ady-hI-5gd" id="U8a-gz-Maa"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Tighten" id="46P-cB-AYj">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="tightenKerning:" target="Ady-hI-5gd" id="hr7-Nz-8ro"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Loosen" id="ogc-rX-tC1">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="loosenKerning:" target="Ady-hI-5gd" id="8i4-f9-FKE"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem title="Ligatures" id="o6e-r0-MWq">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="Ligatures" id="w0m-vy-SC9">
+                                                            <items>
+                                                                <menuItem title="Use Default" id="agt-UL-0e3">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="useStandardLigatures:" target="Ady-hI-5gd" id="7uR-wd-Dx6"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Use None" id="J7y-lM-qPV">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="turnOffLigatures:" target="Ady-hI-5gd" id="iX2-gA-Ilz"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Use All" id="xQD-1f-W4t">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="useAllLigatures:" target="Ady-hI-5gd" id="KcB-kA-TuK"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem title="Baseline" id="OaQ-X3-Vso">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="Baseline" id="ijk-EB-dga">
+                                                            <items>
+                                                                <menuItem title="Use Default" id="3Om-Ey-2VK">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="unscript:" target="Ady-hI-5gd" id="0vZ-95-Ywn"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Superscript" id="Rqc-34-cIF">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="superscript:" target="Ady-hI-5gd" id="3qV-fo-wpU"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Subscript" id="I0S-gh-46l">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="subscript:" target="Ady-hI-5gd" id="Q6W-4W-IGz"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Raise" id="2h7-ER-AoG">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="raiseBaseline:" target="Ady-hI-5gd" id="4sk-31-7Q9"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="Lower" id="1tx-W0-xDw">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="lowerBaseline:" target="Ady-hI-5gd" id="OF1-bc-KW4"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="Ndw-q3-faq"/>
+                                                    <menuItem title="Show Colors" keyEquivalent="C" id="bgn-CT-cEk">
+                                                        <connections>
+                                                            <action selector="orderFrontColorPanel:" target="Ady-hI-5gd" id="mSX-Xz-DV3"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="iMs-zA-UFJ"/>
+                                                    <menuItem title="Copy Style" keyEquivalent="c" id="5Vv-lz-BsD">
+                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                                        <connections>
+                                                            <action selector="copyFont:" target="Ady-hI-5gd" id="GJO-xA-L4q"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Paste Style" keyEquivalent="v" id="vKC-jM-MkH">
+                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                                        <connections>
+                                                            <action selector="pasteFont:" target="Ady-hI-5gd" id="JfD-CL-leO"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Text" id="Fal-I4-PZk">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Text" id="d9c-me-L2H">
+                                                <items>
+                                                    <menuItem title="Align Left" keyEquivalent="{" id="ZM1-6Q-yy1">
+                                                        <connections>
+                                                            <action selector="alignLeft:" target="Ady-hI-5gd" id="zUv-R1-uAa"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Center" keyEquivalent="|" id="VIY-Ag-zcb">
+                                                        <connections>
+                                                            <action selector="alignCenter:" target="Ady-hI-5gd" id="spX-mk-kcS"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Justify" id="J5U-5w-g23">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="alignJustified:" target="Ady-hI-5gd" id="ljL-7U-jND"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Align Right" keyEquivalent="}" id="wb2-vD-lq4">
+                                                        <connections>
+                                                            <action selector="alignRight:" target="Ady-hI-5gd" id="r48-bG-YeY"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="4s2-GY-VfK"/>
+                                                    <menuItem title="Writing Direction" id="H1b-Si-o9J">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="Writing Direction" id="8mr-sm-Yjd">
+                                                            <items>
+                                                                <menuItem title="Paragraph" enabled="NO" id="ZvO-Gk-QUH">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem id="YGs-j5-SAR">
+                                                                    <string key="title">	Default</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="makeBaseWritingDirectionNatural:" target="Ady-hI-5gd" id="qtV-5e-UBP"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem id="Lbh-J2-qVU">
+                                                                    <string key="title">	Left to Right</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="makeBaseWritingDirectionLeftToRight:" target="Ady-hI-5gd" id="S0X-9S-QSf"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem id="jFq-tB-4Kx">
+                                                                    <string key="title">	Right to Left</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="makeBaseWritingDirectionRightToLeft:" target="Ady-hI-5gd" id="5fk-qB-AqJ"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem isSeparatorItem="YES" id="swp-gr-a21"/>
+                                                                <menuItem title="Selection" enabled="NO" id="cqv-fj-IhA">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem id="Nop-cj-93Q">
+                                                                    <string key="title">	Default</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="makeTextWritingDirectionNatural:" target="Ady-hI-5gd" id="lPI-Se-ZHp"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem id="BgM-ve-c93">
+                                                                    <string key="title">	Left to Right</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="makeTextWritingDirectionLeftToRight:" target="Ady-hI-5gd" id="caW-Bv-w94"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem id="RB4-Sm-HuC">
+                                                                    <string key="title">	Right to Left</string>
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="makeTextWritingDirectionRightToLeft:" target="Ady-hI-5gd" id="EXD-6r-ZUu"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="fKy-g9-1gm"/>
+                                                    <menuItem title="Show Ruler" id="vLm-3I-IUL">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleRuler:" target="Ady-hI-5gd" id="FOx-HJ-KwY"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Copy Ruler" keyEquivalent="c" id="MkV-Pr-PK5">
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                                        <connections>
+                                                            <action selector="copyRuler:" target="Ady-hI-5gd" id="71i-fW-3W2"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Paste Ruler" keyEquivalent="v" id="LVM-kO-fVI">
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                                        <connections>
+                                                            <action selector="pasteRuler:" target="Ady-hI-5gd" id="cSh-wd-qM2"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="h0E-9d-y0h"/>
+                                        <menuItem title="Find" id="4EN-yA-p0u">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Find" id="1b7-l0-nxx">
+                                                <items>
+                                                    <menuItem title="Find…" tag="1" keyEquivalent="f" id="Xz5-n4-O0W">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="cD7-Qs-BN4"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Find and Replace…" tag="12" keyEquivalent="f" id="YEy-JH-Tfz">
+                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="WD3-Gg-5AJ"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Find Next" tag="2" keyEquivalent="g" id="q09-fT-Sye">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="NDo-RZ-v9R"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="OwM-mh-QMV">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="HOh-sY-3ay"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="buJ-ug-pKt">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="U76-nv-p5D"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Jump to Selection" keyEquivalent="j" id="S0p-oC-mLd">
+                                                        <connections>
+                                                            <action selector="centerSelectionInVisibleArea:" target="Ady-hI-5gd" id="IOG-6D-g5B"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Substitutions" id="9ic-FL-obx">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Substitutions" id="FeM-D8-WVr">
+                                                <items>
+                                                    <menuItem title="Show Substitutions" id="z6F-FW-3nz">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="orderFrontSubstitutionsPanel:" target="Ady-hI-5gd" id="oku-mr-iSq"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="gPx-C9-uUO"/>
+                                                    <menuItem title="Smart Copy/Paste" id="9yt-4B-nSM">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleSmartInsertDelete:" target="Ady-hI-5gd" id="3IJ-Se-DZD"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Quotes" id="hQb-2v-fYv">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticQuoteSubstitution:" target="Ady-hI-5gd" id="ptq-xd-QOA"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Dashes" id="rgM-f4-ycn">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticDashSubstitution:" target="Ady-hI-5gd" id="oCt-pO-9gS"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Links" id="cwL-P1-jid">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticLinkDetection:" target="Ady-hI-5gd" id="Gip-E3-Fov"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Data Detectors" id="tRr-pd-1PS">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticDataDetection:" target="Ady-hI-5gd" id="R1I-Nq-Kbl"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Text Replacement" id="HFQ-gK-NFA">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticTextReplacement:" target="Ady-hI-5gd" id="DvP-Fe-Py6"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Transformations" id="2oI-Rn-ZJC">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Transformations" id="c8a-y6-VQd">
+                                                <items>
+                                                    <menuItem title="Make Upper Case" id="vmV-6d-7jI">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="uppercaseWord:" target="Ady-hI-5gd" id="sPh-Tk-edu"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Make Lower Case" id="d9M-CD-aMd">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="lowercaseWord:" target="Ady-hI-5gd" id="iUZ-b5-hil"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Capitalize" id="UEZ-Bs-lqG">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="capitalizeWord:" target="Ady-hI-5gd" id="26H-TL-nsh"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Operation" id="Glu-T2-6Lx">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Operation" id="xtJ-DM-ian">
+                                    <items>
+                                        <menuItem title="从输入框中解析" tag="1" keyEquivalent="1" id="ZC9-di-UzD">
+                                            <connections>
+                                                <action selector="processingAnalysis:" target="Voe-Tx-rLC" id="aSo-9k-8JE"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="从文件中解析" tag="2" keyEquivalent="2" id="Y5G-DZ-gQ5">
+                                            <connections>
+                                                <action selector="processingAnalysis:" target="Voe-Tx-rLC" id="BVm-Bx-0vx"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="pho-xK-W1o"/>
+                                        <menuItem title="半次元" id="dGg-1g-NIR">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="半次元" id="qg8-ZX-OEP">
+                                                <items>
+                                                    <menuItem title="从输入框中获取图片" tag="1" id="XJ6-xd-w3E">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingBCY:" target="Voe-Tx-rLC" id="535-J0-NFM"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="从输入框中获取图片[不查重]" tag="5" id="EeS-p0-YZn">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingBCY:" target="Voe-Tx-rLC" id="icJ-kj-bAe"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="从书签文件中获取图片" tag="2" id="Fgl-sp-rZs">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingBCY:" target="Voe-Tx-rLC" id="yB5-f3-dXp"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="从输入框中解析HTML" tag="3" id="2QK-iP-RCQ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingBCY:" target="Voe-Tx-rLC" id="yON-u6-ZdD"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="绝对领域" id="Qj0-kv-Cz8">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="绝对领域" id="i9w-Tf-IR9">
+                                                <items>
+                                                    <menuItem title="从输入框中获取图片" tag="1" id="tJd-w5-xwn">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingJDLingyu:" target="Voe-Tx-rLC" id="VNp-ib-BKz"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="微博" id="IGe-q3-Vvc">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="微博" id="nk5-Le-E3d">
+                                                <items>
+                                                    <menuItem title="获取微博收藏列表" tag="1" id="5gQ-7Z-hSd">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="Cya-8a-cdm"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="wkT-5K-r4x"/>
+                                                    <menuItem title="打开网页请求授权" tag="3" id="34j-Rr-Vq0">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="8vc-Eq-IPT"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="显示授权详细信息" tag="4" id="180-yp-gHQ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="7yl-f5-1c8"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="Ecl-HL-kcH"/>
+                                                    <menuItem title="通过内容获取边界" tag="5" id="G6L-19-kBU">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="du6-su-muJ"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="把最新的收藏标记为边界" tag="6" id="ius-9m-GPG">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="LQe-ES-NH9"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Deviantart" id="Cdb-MI-fD3">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Deviantart" id="0Qt-5C-Afr">
+                                                <items>
+                                                    <menuItem title="获取时间线" tag="1" id="XHA-hH-uf0">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingDeviantart:" target="Voe-Tx-rLC" id="BPO-cL-1CD"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="vvt-U5-cAD"/>
+                                                    <menuItem title="获取用户的上传的图片" tag="2" id="Znb-tC-Ayg">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingDeviantart:" target="Voe-Tx-rLC" id="Rwg-Z7-Utr"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="ExHentai" id="OUf-dg-YPd">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="ExHentai" id="Azz-E1-f5P">
+                                                <items>
+                                                    <menuItem title="下载用户上传的图包" tag="1" id="m1c-oX-veD">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingExHentai:" target="Voe-Tx-rLC" id="XAH-04-6bb"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="解析部分ExHentai页面" tag="2" id="se6-cj-qBo">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingExHentai:" target="Voe-Tx-rLC" id="7U7-xu-FyO"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="批量获取种子文件" tag="3" id="y6B-qK-RLC">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingExHentai:" target="Voe-Tx-rLC" id="fRo-Hg-EtX"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="解析评论区中的Pixiv地址" tag="4" id="VvB-Oq-P5f">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingExHentai:" target="Voe-Tx-rLC" id="4mX-xa-lKE"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Gelbooru" id="IxD-Jk-7NU">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Gelbooru" id="lBu-IK-Hrc">
+                                                <items>
+                                                    <menuItem title="获取日常图片地址" tag="1" id="zhS-it-0qk">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="mN8-29-le0"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载并整理日常图片" tag="2" id="AQZ-Kr-oFT">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="raX-WC-Y1m"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="移动整理好的日常图片" tag="3" id="aqv-GQ-sYv">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="3bB-Yq-azD"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="SMI-We-vsb"/>
+                                                    <menuItem title="下载 Fate 图片" tag="11" id="WMy-cj-Yhx">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="Hpk-hZ-h0U"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载 碧蓝航线 图片" tag="12" id="qWP-ai-ClL">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="xwe-Ww-tcy"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载 Overwatch 图片" tag="13" id="QxK-iu-8Ji">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="yWL-mX-1Wh"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载 动漫 图片" tag="14" id="Q6L-7F-rqd">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="epc-W3-L6R"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载 游戏 图片" tag="15" id="TZi-Tb-xa4">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="lO7-KG-AUU"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="i83-5q-Q9z"/>
+                                                    <menuItem title="整理下载的动漫图片" tag="21" id="WSL-0c-13Z">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="Pnn-LY-I5C"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="整理下载的游戏图片" tag="22" id="Xxa-7K-PbZ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="SI7-gF-Isw"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="deK-X9-obk"/>
+                                                    <menuItem title="获取特定标签图片地址" tag="31" id="5zn-Uc-vol">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="Tjk-wL-aZr"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Pixiv" id="YTH-ib-90A">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Pixiv" id="XHg-SF-s9M">
+                                                <items>
+                                                    <menuItem title="获取用户的图片" tag="1" id="gkF-je-Ls2">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="cDq-4U-AJF"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="获取illust的图片" tag="2" id="oz0-Jt-Wrz">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="f6S-ne-Q6O"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载图片" tag="3" id="nKf-Iz-bnK">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="b0f-ZQ-ERU"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="更新关注用户的ID" tag="4" id="Gov-TU-zcO">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="FFo-Vx-EqV"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="vQv-Pn-ZHR"/>
+                                                    <menuItem title="解析黑名单信息" tag="11" id="0Da-1w-kIm">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="jb2-pT-On6"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="更新确定拉黑的用户" tag="12" id="iWX-vt-bY4">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="v42-eS-sMk"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="2Vq-L2-mDI"/>
+                                                    <menuItem title="是否关注了用户" tag="21" id="1WG-X8-too">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="IFe-lM-Q8f"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="是否拉黑过用户" tag="22" id="BKS-j3-5Dj">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="T6V-28-vUA"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="是否抓取过用户" tag="23" id="sIq-pN-Iz7">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="iyC-GD-ki7"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="ffj-SK-2b3"/>
+                                                    <menuItem title="整理ExHentai导出的用户" tag="31" id="dlH-bb-rc9">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="ATa-rm-2jt"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="kJl-cT-xPJ"/>
+                                                    <menuItem title="整理下载好的用户" tag="91" id="SrW-Qj-z2t">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="zMN-q4-mE3"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Tumblr" id="DHj-5F-oU9">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Tumblr" id="vEY-LV-N6P">
+                                                <items>
+                                                    <menuItem title="获取我收藏的图片" tag="2" id="Tld-c5-t7o">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTumblr:" target="Voe-Tx-rLC" id="Htt-PE-Trh"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="获取我收藏的视频" tag="3" id="CcC-UA-AtS">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTumblr:" target="Voe-Tx-rLC" id="sZy-go-A4T"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="jMr-ZG-89A"/>
+                                                    <menuItem title="获取用户发布图片" tag="4" id="88N-V3-uXn">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTumblr:" target="Voe-Tx-rLC" id="fZn-5F-76f"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="获取用户发布视频" tag="5" id="Mwd-Dp-10J">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTumblr:" target="Voe-Tx-rLC" id="0gA-Ut-CNa"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="OWf-p3-s8Q"/>
+                                                    <menuItem title="获取用户收藏图片" tag="6" id="Tuk-Dr-DGj">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTumblr:" target="Voe-Tx-rLC" id="S57-TD-eI1"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="获取用户收藏视频" tag="7" id="YsI-I3-Y1f">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTumblr:" target="Voe-Tx-rLC" id="AMI-O5-Mq1"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="WorldCosplay" id="6uX-1t-Aa7">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="WorldCosplay" id="APK-jh-MOn">
+                                                <items>
+                                                    <menuItem title="解析输入的HTML" tag="1" id="ILX-tu-3ty">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWorldCosplay:" target="Voe-Tx-rLC" id="XIq-Cs-hbd"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="解析输入的网页地址" tag="2" id="wBZ-r0-QF2">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWorldCosplay:" target="Voe-Tx-rLC" id="Y0t-fF-mYM"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="其他资源" id="E3X-N9-bN5">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="其他资源" id="3CD-yi-K3F">
+                                                <items>
+                                                    <menuItem title="未添加" id="rUk-g0-4bb">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="p6z-q9-Mv4"/>
+                                        <menuItem title="资源整理" id="Qxr-gf-ahS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="资源整理" id="Qpy-CQ-zjW">
+                                                <items>
+                                                    <menuItem title="半次元" tag="4" id="9fQ-7l-QOg">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingBCY:" target="Voe-Tx-rLC" id="dV2-X6-Z8w"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="绝对领域" tag="2" id="cW0-Hv-9iC">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingJDLingyu:" target="Voe-Tx-rLC" id="0KY-kj-B0c"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="微博" tag="2" id="wOe-Xh-zG3">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="wZ0-NL-zRm"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Lofter" tag="3" id="NrJ-VM-ogc">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingLofter:" target="Voe-Tx-rLC" id="VAP-av-5RF"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="WNACG" tag="2" id="IJj-hy-Yil">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWNACG:" target="Voe-Tx-rLC" id="EX9-ZP-VGf"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Tumblr" tag="1" id="yNn-eA-n0H">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTumblr:" target="Voe-Tx-rLC" id="Qce-fK-aEE"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="VGR-vl-FxP"/>
+                                        <menuItem title="下载" id="pxB-ZK-4gf">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="下载" id="cW8-ck-1FH">
+                                                <items>
+                                                    <menuItem title="默认设置" tag="1" keyEquivalent="1" id="O48-if-XFj">
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                                        <connections>
+                                                            <action selector="processingDownload:" target="Voe-Tx-rLC" id="axN-lN-r3x"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="自定义设置" tag="2" keyEquivalent="2" id="nTk-L3-Wqb">
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                                        <connections>
+                                                            <action selector="processingDownload:" target="Voe-Tx-rLC" id="VmC-te-xek"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="oxS-3N-o5i"/>
+                                                    <menuItem title="同时下载一个" tag="3" keyEquivalent="3" id="JFU-AZ-0Ap">
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                                        <connections>
+                                                            <action selector="processingDownload:" target="Voe-Tx-rLC" id="xbb-CG-tyX"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="同时下载五个" tag="4" keyEquivalent="4" id="wJU-Rx-7jZ">
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                                        <connections>
+                                                            <action selector="processingDownload:" target="Voe-Tx-rLC" id="0WM-I9-aV8"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="同时下载十个" tag="5" keyEquivalent="5" id="8QX-su-YTA">
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                                        <connections>
+                                                            <action selector="processingDownload:" target="Voe-Tx-rLC" id="kXC-QS-ztn"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="nlz-bP-ig0"/>
+                                                    <menuItem title="适用于 视频" tag="6" keyEquivalent="6" id="dbQ-j8-OPV">
+                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                                        <connections>
+                                                            <action selector="processingDownload:" target="Voe-Tx-rLC" id="EOC-d0-Ffb"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="工具" id="5wH-zA-k6X">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="工具" id="grn-fW-4TI">
+                                                <items>
+                                                    <menuItem title="整理 Day 中的图片" tag="1" keyEquivalent="3" id="siZ-H5-irB">
+                                                        <connections>
+                                                            <action selector="processingTool:" target="Voe-Tx-rLC" id="1aI-1y-fJ1"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="整理导出的图片" tag="2" id="LOc-8C-xYF">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTool:" target="Voe-Tx-rLC" id="tx6-az-Ieb"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="整理筛选好的图片" id="d0f-2u-VEf">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="整理筛选好的图片" id="tEv-uQ-Afc">
+                                                            <items>
+                                                                <menuItem title="整理数据库" tag="3" id="RZq-h6-fqw">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="processingTool:" target="Voe-Tx-rLC" id="bxR-Xw-TE1"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="整理图片" tag="4" id="dyP-ip-Uev">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="processingTool:" target="Voe-Tx-rLC" id="dZW-aB-Dd6"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem title="复制文件夹的层级" tag="5" id="HHj-9D-pRD">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTool:" target="Voe-Tx-rLC" id="ZRM-X0-CPy"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="rIp-Ma-bWi"/>
+                                                    <menuItem title="解析WebArchive文件" tag="11" id="jsR-Rr-nG1">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTool:" target="Voe-Tx-rLC" id="IjP-IC-JEi"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="还原视频的默认软件为IINA" tag="12" id="MJN-Z4-omO">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTool:" target="Voe-Tx-rLC" id="oq7-bq-JZG"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="转换GoAgentX的规则" tag="13" id="qRf-CC-cM8">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTool:" target="Voe-Tx-rLC" id="nq3-CX-yhr"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="qIo-K6-KEI"/>
+                                                    <menuItem title="图片转视频(输入根文件夹)" tag="21" id="D3N-37-s4O">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTool:" target="Voe-Tx-rLC" id="QP5-J7-3Q6"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="chS-ar-ZHU"/>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Help" id="wpr-3q-Mcd">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
+                                    <items>
+                                        <menuItem title="MyResourceBox 帮助文档" id="FKE-Sm-Kum">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="openHelpingDocument:" target="Voe-Tx-rLC" id="xoY-sX-gOg"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="查看最新的日志文件" id="Tfk-Zz-cHg">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="openLogFile:" target="Voe-Tx-rLC" id="Ey9-PU-z0w"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="打开授权配置文件" id="bbv-c4-PBE">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="openAuthorizationFile:" target="Voe-Tx-rLC" id="SBP-UY-H9o"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="打开参数配置文件" id="Yjv-Xk-RO0">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="openPreferenceFile:" target="Voe-Tx-rLC" id="iw5-EN-jxY"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="最近编译：" id="MqX-oM-S4S">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="版本号：" id="UJO-Ag-Zta">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                    </connections>
+                </application>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
+                    <connections>
+                        <outlet property="buildTimeItem" destination="MqX-oM-S4S" id="Nt0-Kl-Lvd"/>
+                        <outlet property="buildVerItem" destination="UJO-Ag-Zta" id="L1E-Gm-7NC"/>
+                    </connections>
+                </customObject>
+                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-209" y="-138"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="R2V-B0-nI4">
+            <objects>
+                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                    <window key="window" title="主界面" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="1024" height="640"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="1024" height="640"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="dlN-Fj-PDc"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                    </connections>
+                </windowController>
+                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114" y="277"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hIz-AP-VOD">
+            <objects>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="640"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0tN-cH-v8y">
+                                <rect key="frame" x="62" y="592" width="94" height="32"/>
+                                <buttonCell key="cell" type="push" title="导出输入" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gCb-Ht-uci">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="processingExportInput:" target="XfG-lQ-9wD" id="peU-Jw-Bz1"/>
+                                </connections>
+                            </button>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgR-Yu-4ZH">
+                                <rect key="frame" x="20" y="95" width="364" height="496"/>
+                                <clipView key="contentView" drawsBackground="NO" id="Wfw-0J-Os6">
+                                    <rect key="frame" x="1" y="1" width="362" height="494"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="F0B-Y0-ZEn">
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="494"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="362" height="494"/>
+                                            <size key="maxSize" width="790" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="496" id="BEN-RY-HPS"/>
+                                    <constraint firstAttribute="width" constant="364" id="SUY-Lz-a54"/>
+                                </constraints>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="li7-lc-bfc">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="47Q-De-Gky">
+                                    <rect key="frame" x="347" y="1" width="16" height="494"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jaN-bm-gLf">
+                                <rect key="frame" x="19" y="599" width="31" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="rd2-zb-RoB"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="输入" id="VH9-Ae-GhK">
+                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VQJ-ha-HYA">
+                                <rect key="frame" x="403" y="599" width="31" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="CLv-tC-OSf"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="日志" id="Bsf-pf-efe">
+                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <scrollView wantsLayer="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvG-4t-YjL">
+                                <rect key="frame" x="404" y="95" width="600" height="496"/>
+                                <clipView key="contentView" drawsBackground="NO" id="88d-PJ-wLz">
+                                    <rect key="frame" x="1" y="1" width="598" height="494"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="DgS-6a-90d">
+                                            <rect key="frame" x="0.0" y="0.0" width="598" height="494"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="598" height="494"/>
+                                            <size key="maxSize" width="662" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="496" id="Oah-ct-gGB"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="600" id="sPy-VN-F1n"/>
+                                </constraints>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="pyH-MV-OZA">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="wa4-ov-5lj">
+                                    <rect key="frame" x="583" y="1" width="16" height="494"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cpf-GE-6vb">
+                                <rect key="frame" x="974" y="58" width="32" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0 / 0" id="Vbm-AT-vLX">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="OTL-QI-P7r">
+                                <rect key="frame" x="20" y="19" width="984" height="20"/>
+                            </progressIndicator>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JZZ-Ys-NZ7">
+                                <rect key="frame" x="446" y="592" width="94" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="I7n-hd-yyi"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="清除日志" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QH0-BA-ihZ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cleanLog:" target="XfG-lQ-9wD" id="lvp-en-i0B"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L1h-A4-yv6">
+                                <rect key="frame" x="322" y="592" width="67" height="32"/>
+                                <buttonCell key="cell" type="push" title="临时" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v6t-Dj-6ox">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="processingTemp:" target="XfG-lQ-9wD" id="y4K-FM-QRe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="BgR-Yu-4ZH" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="1eb-Xt-Vh3"/>
+                            <constraint firstItem="L1h-A4-yv6" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="AMu-9k-f3G"/>
+                            <constraint firstAttribute="trailing" secondItem="AvG-4t-YjL" secondAttribute="trailing" constant="20" id="COo-iM-cPD"/>
+                            <constraint firstItem="AvG-4t-YjL" firstAttribute="top" secondItem="VQJ-ha-HYA" secondAttribute="bottom" constant="8" id="Fcd-ct-VQd"/>
+                            <constraint firstItem="VQJ-ha-HYA" firstAttribute="leading" secondItem="DgS-6a-90d" secondAttribute="leading" id="I9R-2H-Fey"/>
+                            <constraint firstItem="jaN-bm-gLf" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="NDB-Mp-HgZ"/>
+                            <constraint firstItem="AvG-4t-YjL" firstAttribute="top" secondItem="JZZ-Ys-NZ7" secondAttribute="bottom" constant="8" id="QVe-iB-5hq"/>
+                            <constraint firstItem="AvG-4t-YjL" firstAttribute="leading" secondItem="BgR-Yu-4ZH" secondAttribute="trailing" constant="20" id="RLz-e7-Bz9"/>
+                            <constraint firstItem="VQJ-ha-HYA" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="SdS-CB-JRa"/>
+                            <constraint firstAttribute="bottom" secondItem="OTL-QI-P7r" secondAttribute="bottom" constant="20" id="V43-gT-oYV"/>
+                            <constraint firstItem="OTL-QI-P7r" firstAttribute="top" secondItem="Cpf-GE-6vb" secondAttribute="bottom" constant="20" id="Zur-1y-h3E"/>
+                            <constraint firstItem="BgR-Yu-4ZH" firstAttribute="top" secondItem="0tN-cH-v8y" secondAttribute="bottom" constant="8" id="b2f-Og-C8l"/>
+                            <constraint firstItem="0tN-cH-v8y" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="dIG-6t-SOV"/>
+                            <constraint firstItem="OTL-QI-P7r" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="euE-QF-l1p"/>
+                            <constraint firstItem="JZZ-Ys-NZ7" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="ezQ-eV-gXj"/>
+                            <constraint firstItem="JZZ-Ys-NZ7" firstAttribute="leading" secondItem="VQJ-ha-HYA" secondAttribute="trailing" constant="20" id="fcX-Hk-SfF"/>
+                            <constraint firstAttribute="trailing" secondItem="Cpf-GE-6vb" secondAttribute="trailing" constant="20" id="gm8-HI-Mr7"/>
+                            <constraint firstItem="L1h-A4-yv6" firstAttribute="trailing" secondItem="F0B-Y0-ZEn" secondAttribute="trailing" id="hh9-aE-hWQ"/>
+                            <constraint firstItem="Cpf-GE-6vb" firstAttribute="top" secondItem="BgR-Yu-4ZH" secondAttribute="bottom" constant="20" id="ixt-uM-yra"/>
+                            <constraint firstItem="jaN-bm-gLf" firstAttribute="leading" secondItem="F0B-Y0-ZEn" secondAttribute="leading" id="jFM-36-2sl"/>
+                            <constraint firstItem="BgR-Yu-4ZH" firstAttribute="top" secondItem="jaN-bm-gLf" secondAttribute="bottom" constant="8" id="jdp-j1-CSO"/>
+                            <constraint firstItem="Cpf-GE-6vb" firstAttribute="top" secondItem="AvG-4t-YjL" secondAttribute="bottom" constant="20" id="nub-Ju-RkR"/>
+                            <constraint firstItem="0tN-cH-v8y" firstAttribute="leading" secondItem="jaN-bm-gLf" secondAttribute="trailing" constant="20" id="odP-eJ-91l"/>
+                            <constraint firstAttribute="trailing" secondItem="OTL-QI-P7r" secondAttribute="trailing" constant="20" id="wVe-td-HLc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="inputTextView" destination="F0B-Y0-ZEn" id="r62-Ky-eEQ"/>
+                        <outlet property="logTextView" destination="DgS-6a-90d" id="TrP-oJ-WdJ"/>
+                        <outlet property="numberLabel" destination="Cpf-GE-6vb" id="Wy5-Ie-Tm1"/>
+                        <outlet property="progress" destination="OTL-QI-P7r" id="FCl-eJ-vfr"/>
+                    </connections>
+                </viewController>
+                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114" y="1027"/>
+        </scene>
+    </scenes>
+</document>

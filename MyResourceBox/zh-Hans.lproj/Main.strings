@@ -1,0 +1,531 @@
+
+/* Class = "NSMenuItem"; title = "显示授权详细信息"; ObjectID = "180-yp-gHQ"; */
+"180-yp-gHQ.title" = "显示授权详细信息";
+
+/* Class = "NSMenuItem"; title = "MyResourceBox"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "MyResourceBox";
+
+/* Class = "NSMenu"; title = "Find"; ObjectID = "1b7-l0-nxx"; */
+"1b7-l0-nxx.title" = "查找";
+
+/* Class = "NSMenuItem"; title = "Lower"; ObjectID = "1tx-W0-xDw"; */
+"1tx-W0-xDw.title" = "降低";
+
+/* Class = "NSMenuItem"; title = "从输入框中解析HTML"; ObjectID = "2QK-iP-RCQ"; */
+"2QK-iP-RCQ.title" = "从输入框中解析HTML";
+
+/* Class = "NSMenuItem"; title = "Raise"; ObjectID = "2h7-ER-AoG"; */
+"2h7-ER-AoG.title" = "升高";
+
+/* Class = "NSMenuItem"; title = "Transformations"; ObjectID = "2oI-Rn-ZJC"; */
+"2oI-Rn-ZJC.title" = "转换";
+
+/* Class = "NSMenuItem"; title = "打开网页请求授权"; ObjectID = "34j-Rr-Vq0"; */
+"34j-Rr-Vq0.title" = "打开网页请求授权";
+
+/* Class = "NSMenu"; title = "其他资源"; ObjectID = "3CD-yi-K3F"; */
+"3CD-yi-K3F.title" = "其他资源";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "3Om-Ey-2VK"; */
+"3Om-Ey-2VK.title" = "使用默认";
+
+/* Class = "NSMenuItem"; title = "Tighten"; ObjectID = "46P-cB-AYj"; */
+"46P-cB-AYj.title" = "Tighten";
+
+/* Class = "NSMenuItem"; title = "Find"; ObjectID = "4EN-yA-p0u"; */
+"4EN-yA-p0u.title" = "查找";
+
+/* Class = "NSMenuItem"; title = "Enter Full Screen"; ObjectID = "4J7-dP-txa"; */
+"4J7-dP-txa.title" = "进入全屏幕";
+
+/* Class = "NSMenuItem"; title = "Quit MyResourceBox"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "退出 MyResourceBox";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
+"5QF-Oa-p0T.title" = "编辑";
+
+/* Class = "NSMenuItem"; title = "Copy Style"; ObjectID = "5Vv-lz-BsD"; */
+"5Vv-lz-BsD.title" = "拷贝样式";
+
+/* Class = "NSMenuItem"; title = "获取微博收藏列表"; ObjectID = "5gQ-7Z-hSd"; */
+"5gQ-7Z-hSd.title" = "获取微博收藏列表";
+
+/* Class = "NSMenuItem"; title = "About MyResourceBox"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "关于 MyResourceBox";
+
+/* Class = "NSMenuItem"; title = "工具"; ObjectID = "5wH-zA-k6X"; */
+"5wH-zA-k6X.title" = "工具";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "6dh-zS-Vam"; */
+"6dh-zS-Vam.title" = "重做";
+
+/* Class = "NSMenuItem"; title = "WorldCosplay"; ObjectID = "6uX-1t-Aa7"; */
+"6uX-1t-Aa7.title" = "WorldCosplay";
+
+/* Class = "NSMenuItem"; title = "获取用户发布图片"; ObjectID = "88N-V3-uXn"; */
+"88N-V3-uXn.title" = "获取用户发布图片";
+
+/* Class = "NSMenuItem"; title = "同时下载十个"; ObjectID = "8QX-su-YTA"; */
+"8QX-su-YTA.title" = "同时下载十个";
+
+/* Class = "NSMenu"; title = "Writing Direction"; ObjectID = "8mr-sm-Yjd"; */
+"8mr-sm-Yjd.title" = "书写方向";
+
+/* Class = "NSMenuItem"; title = "半次元"; ObjectID = "9fQ-7l-QOg"; */
+"9fQ-7l-QOg.title" = "半次元";
+
+/* Class = "NSMenuItem"; title = "Substitutions"; ObjectID = "9ic-FL-obx"; */
+"9ic-FL-obx.title" = "替换";
+
+/* Class = "NSMenuItem"; title = "Smart Copy/Paste"; ObjectID = "9yt-4B-nSM"; */
+"9yt-4B-nSM.title" = "智能拷贝/粘贴";
+
+/* Class = "NSMenu"; title = "WorldCosplay"; ObjectID = "APK-jh-MOn"; */
+"APK-jh-MOn.title" = "WorldCosplay";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "主菜单";
+
+/* Class = "NSMenu"; title = "ExHentai"; ObjectID = "Azz-E1-f5P"; */
+"Azz-E1-f5P.title" = "ExHentai";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "偏好设置…";
+
+/* Class = "NSMenuItem"; title = "\tLeft to Right"; ObjectID = "BgM-ve-c93"; */
+"BgM-ve-c93.title" = "\t从左到右";
+
+/* Class = "NSTextFieldCell"; title = "日志"; ObjectID = "Bsf-pf-efe"; */
+"Bsf-pf-efe.title" = "日志";
+
+/* Class = "NSMenuItem"; title = "获取我收藏的视频"; ObjectID = "CcC-UA-AtS"; */
+"CcC-UA-AtS.title" = "获取我收藏的视频";
+
+/* Class = "NSMenuItem"; title = "Tumblr"; ObjectID = "DHj-5F-oU9"; */
+"DHj-5F-oU9.title" = "Tumblr";
+
+/* Class = "NSMenuItem"; title = "Close"; ObjectID = "DVo-aG-piG"; */
+"DVo-aG-piG.title" = "关闭";
+
+/* Class = "NSMenuItem"; title = "其他资源"; ObjectID = "E3X-N9-bN5"; */
+"E3X-N9-bN5.title" = "其他资源";
+
+/* Class = "NSMenuItem"; title = "从输入框中获取图片[不查重]"; ObjectID = "EeS-p0-YZn"; */
+"EeS-p0-YZn.title" = "从输入框中获取图片[不查重]";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
+"F2S-fz-NVQ.title" = "帮助";
+
+/* Class = "NSMenuItem"; title = "MyResourceBox 帮助文档"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "MyResourceBox 帮助文档";
+
+/* Class = "NSMenuItem"; title = "Text"; ObjectID = "Fal-I4-PZk"; */
+"Fal-I4-PZk.title" = "文本";
+
+/* Class = "NSMenu"; title = "Substitutions"; ObjectID = "FeM-D8-WVr"; */
+"FeM-D8-WVr.title" = "替换";
+
+/* Class = "NSMenuItem"; title = "从书签文件中获取图片"; ObjectID = "Fgl-sp-rZs"; */
+"Fgl-sp-rZs.title" = "从书签文件中获取图片";
+
+/* Class = "NSMenuItem"; title = "通过内容获取边界"; ObjectID = "G6L-19-kBU"; */
+"G6L-19-kBU.title" = "通过内容获取边界";
+
+/* Class = "NSMenuItem"; title = "Bold"; ObjectID = "GB9-OM-e27"; */
+"GB9-OM-e27.title" = "粗体";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "GUa-eO-cwY"; */
+"GUa-eO-cwY.title" = "使用默认";
+
+/* Class = "NSMenuItem"; title = "Font"; ObjectID = "Gi5-1S-RQB"; */
+"Gi5-1S-RQB.title" = "字体";
+
+/* Class = "NSMenuItem"; title = "Operation"; ObjectID = "Glu-T2-6Lx"; */
+"Glu-T2-6Lx.title" = "Operation";
+
+/* Class = "NSMenuItem"; title = "Writing Direction"; ObjectID = "H1b-Si-o9J"; */
+"H1b-Si-o9J.title" = "书写方向";
+
+/* Class = "NSMenuItem"; title = "Text Replacement"; ObjectID = "HFQ-gK-NFA"; */
+"HFQ-gK-NFA.title" = "文本替换";
+
+/* Class = "NSMenuItem"; title = "Subscript"; ObjectID = "I0S-gh-46l"; */
+"I0S-gh-46l.title" = "下标";
+
+/* Class = "NSMenuItem"; title = "微博"; ObjectID = "IGe-q3-Vvc"; */
+"IGe-q3-Vvc.title" = "微博";
+
+/* Class = "NSMenuItem"; title = "WNACG"; ObjectID = "IJj-hy-Yil"; */
+"IJj-hy-Yil.title" = "WNACG";
+
+/* Class = "NSMenuItem"; title = "解析输入的HTML"; ObjectID = "ILX-tu-3ty"; */
+"ILX-tu-3ty.title" = "解析输入的HTML";
+
+/* Class = "NSWindow"; title = "主界面"; ObjectID = "IQv-IB-iLA"; */
+"IQv-IB-iLA.title" = "主界面";
+
+/* Class = "NSMenuItem"; title = "Justify"; ObjectID = "J5U-5w-g23"; */
+"J5U-5w-g23.title" = "两端对齐";
+
+/* Class = "NSMenuItem"; title = "Use None"; ObjectID = "J7y-lM-qPV"; */
+"J7y-lM-qPV.title" = "都不使用";
+
+/* Class = "NSMenuItem"; title = "同时下载一个"; ObjectID = "JFU-AZ-0Ap"; */
+"JFU-AZ-0Ap.title" = "同时下载一个";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "显示全部";
+
+/* Class = "NSMenuItem"; title = "整理导出的图片"; ObjectID = "LOc-8C-xYF"; */
+"LOc-8C-xYF.title" = "整理导出的图片";
+
+/* Class = "NSMenuItem"; title = "Paste Ruler"; ObjectID = "LVM-kO-fVI"; */
+"LVM-kO-fVI.title" = "粘贴标尺";
+
+/* Class = "NSMenuItem"; title = "\tLeft to Right"; ObjectID = "Lbh-J2-qVU"; */
+"Lbh-J2-qVU.title" = "\t从左到右";
+
+/* Class = "NSMenuItem"; title = "还原视频的默认软件为IINA"; ObjectID = "MJN-Z4-omO"; */
+"MJN-Z4-omO.title" = "还原视频的默认软件为IINA";
+
+/* Class = "NSMenuItem"; title = "Copy Ruler"; ObjectID = "MkV-Pr-PK5"; */
+"MkV-Pr-PK5.title" = "拷贝标尺";
+
+/* Class = "NSMenuItem"; title = "最近编译："; ObjectID = "MqX-oM-S4S"; */
+"MqX-oM-S4S.title" = "最近编译：";
+
+/* Class = "NSMenuItem"; title = "获取用户发布视频"; ObjectID = "Mwd-Dp-10J"; */
+"Mwd-Dp-10J.title" = "获取用户发布视频";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "\tDefault"; ObjectID = "Nop-cj-93Q"; */
+"Nop-cj-93Q.title" = "\t默认";
+
+/* Class = "NSMenuItem"; title = "Lofter"; ObjectID = "NrJ-VM-ogc"; */
+"NrJ-VM-ogc.title" = "Lofter";
+
+/* Class = "NSMenuItem"; title = "默认设置"; ObjectID = "O48-if-XFj"; */
+"O48-if-XFj.title" = "默认设置";
+
+/* Class = "NSMenuItem"; title = "ExHentai"; ObjectID = "OUf-dg-YPd"; */
+"OUf-dg-YPd.title" = "ExHentai";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "最小化";
+
+/* Class = "NSMenuItem"; title = "Baseline"; ObjectID = "OaQ-X3-Vso"; */
+"OaQ-X3-Vso.title" = "基线";
+
+/* Class = "NSMenuItem"; title = "Hide MyResourceBox"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "隐藏 MyResourceBox";
+
+/* Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "OwM-mh-QMV"; */
+"OwM-mh-QMV.title" = "查找前一个";
+
+/* Class = "NSMenuItem"; title = "Bigger"; ObjectID = "Ptp-SP-VEL"; */
+"Ptp-SP-VEL.title" = "较大";
+
+/* Class = "NSMenuItem"; title = "Show Fonts"; ObjectID = "Q5e-8K-NDq"; */
+"Q5e-8K-NDq.title" = "显示字体";
+
+/* Class = "NSButtonCell"; title = "清除日志"; ObjectID = "QH0-BA-ihZ"; */
+"QH0-BA-ihZ.title" = "清除日志";
+
+/* Class = "NSMenuItem"; title = "绝对领域"; ObjectID = "Qj0-kv-Cz8"; */
+"Qj0-kv-Cz8.title" = "绝对领域";
+
+/* Class = "NSMenu"; title = "资源整理"; ObjectID = "Qpy-CQ-zjW"; */
+"Qpy-CQ-zjW.title" = "资源整理";
+
+/* Class = "NSMenuItem"; title = "资源整理"; ObjectID = "Qxr-gf-ahS"; */
+"Qxr-gf-ahS.title" = "资源整理";
+
+/* Class = "NSMenuItem"; title = "\tRight to Left"; ObjectID = "RB4-Sm-HuC"; */
+"RB4-Sm-HuC.title" = "\t从右到左";
+
+/* Class = "NSMenuItem"; title = "Superscript"; ObjectID = "Rqc-34-cIF"; */
+"Rqc-34-cIF.title" = "上标";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "Ruw-6m-B2m"; */
+"Ruw-6m-B2m.title" = "选择全部";
+
+/* Class = "NSMenuItem"; title = "Jump to Selection"; ObjectID = "S0p-oC-mLd"; */
+"S0p-oC-mLd.title" = "跳转到选择";
+
+/* Class = "NSMenuItem"; title = "查看最新的日志文件"; ObjectID = "Tfk-Zz-cHg"; */
+"Tfk-Zz-cHg.title" = "查看最新的日志文件";
+
+/* Class = "NSMenuItem"; title = "获取我收藏的图片"; ObjectID = "Tld-c5-t7o"; */
+"Tld-c5-t7o.title" = "获取我收藏的图片";
+
+/* Class = "NSMenuItem"; title = "获取用户收藏图片"; ObjectID = "Tuk-Dr-DGj"; */
+"Tuk-Dr-DGj.title" = "获取用户收藏图片";
+
+/* Class = "NSMenuItem"; title = "Capitalize"; ObjectID = "UEZ-Bs-lqG"; */
+"UEZ-Bs-lqG.title" = "首字母大写";
+
+/* Class = "NSMenuItem"; title = "版本号："; ObjectID = "UJO-Ag-Zta"; */
+"UJO-Ag-Zta.title" = "版本号：";
+
+/* Class = "NSTextFieldCell"; title = "输入"; ObjectID = "VH9-Ae-GhK"; */
+"VH9-Ae-GhK.title" = "输入";
+
+/* Class = "NSMenuItem"; title = "Center"; ObjectID = "VIY-Ag-zcb"; */
+"VIY-Ag-zcb.title" = "居中";
+
+/* Class = "NSTextFieldCell"; title = "0 / 0"; ObjectID = "Vbm-AT-vLX"; */
+"Vbm-AT-vLX.title" = "0 / 0";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "隐藏其他";
+
+/* Class = "NSMenuItem"; title = "Italic"; ObjectID = "Vjx-xi-njq"; */
+"Vjx-xi-njq.title" = "斜体";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "W48-6f-4Dl"; */
+"W48-6f-4Dl.title" = "编辑";
+
+/* Class = "NSMenuItem"; title = "Underline"; ObjectID = "WRG-CD-K1S"; */
+"WRG-CD-K1S.title" = "加下划线";
+
+/* Class = "NSMenuItem"; title = "Paste and Match Style"; ObjectID = "WeT-3V-zwk"; */
+"WeT-3V-zwk.title" = "粘贴并匹配样式";
+
+/* Class = "NSMenu"; title = "Pixiv"; ObjectID = "XHg-SF-s9M"; */
+"XHg-SF-s9M.title" = "Pixiv";
+
+/* Class = "NSMenuItem"; title = "从输入框中获取图片"; ObjectID = "XJ6-xd-w3E"; */
+"XJ6-xd-w3E.title" = "从输入框中获取图片";
+
+/* Class = "NSMenuItem"; title = "Find…"; ObjectID = "Xz5-n4-O0W"; */
+"Xz5-n4-O0W.title" = "查找…";
+
+/* Class = "NSMenuItem"; title = "从文件中解析"; ObjectID = "Y5G-DZ-gQ5"; */
+"Y5G-DZ-gQ5.title" = "从文件中解析";
+
+/* Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "YEy-JH-Tfz"; */
+"YEy-JH-Tfz.title" = "查找并替换…";
+
+/* Class = "NSMenuItem"; title = "\tDefault"; ObjectID = "YGs-j5-SAR"; */
+"YGs-j5-SAR.title" = "\t默认";
+
+/* Class = "NSMenuItem"; title = "Pixiv"; ObjectID = "YTH-ib-90A"; */
+"YTH-ib-90A.title" = "Pixiv";
+
+/* Class = "NSMenuItem"; title = "打开参数配置文件"; ObjectID = "Yjv-Xk-RO0"; */
+"Yjv-Xk-RO0.title" = "打开参数配置文件";
+
+/* Class = "NSMenuItem"; title = "获取用户收藏视频"; ObjectID = "YsI-I3-Y1f"; */
+"YsI-I3-Y1f.title" = "获取用户收藏视频";
+
+/* Class = "NSMenuItem"; title = "从输入框中解析"; ObjectID = "ZC9-di-UzD"; */
+"ZC9-di-UzD.title" = "从输入框中解析";
+
+/* Class = "NSMenuItem"; title = "Align Left"; ObjectID = "ZM1-6Q-yy1"; */
+"ZM1-6Q-yy1.title" = "左对齐";
+
+/* Class = "NSMenuItem"; title = "Paragraph"; ObjectID = "ZvO-Gk-QUH"; */
+"ZvO-Gk-QUH.title" = "段落";
+
+/* Class = "NSMenu"; title = "Font"; ObjectID = "aXa-aM-Jaq"; */
+"aXa-aM-Jaq.title" = "字体";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "agt-UL-0e3"; */
+"agt-UL-0e3.title" = "使用默认";
+
+/* Class = "NSMenuItem"; title = "打开授权配置文件"; ObjectID = "bbv-c4-PBE"; */
+"bbv-c4-PBE.title" = "打开授权配置文件";
+
+/* Class = "NSMenuItem"; title = "Show Colors"; ObjectID = "bgn-CT-cEk"; */
+"bgn-CT-cEk.title" = "显示颜色";
+
+/* Class = "NSMenu"; title = "File"; ObjectID = "bib-Uj-vzu"; */
+"bib-Uj-vzu.title" = "文件";
+
+/* Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "buJ-ug-pKt"; */
+"buJ-ug-pKt.title" = "查找所选内容";
+
+/* Class = "NSMenu"; title = "Transformations"; ObjectID = "c8a-y6-VQd"; */
+"c8a-y6-VQd.title" = "转换";
+
+/* Class = "NSMenuItem"; title = "Use None"; ObjectID = "cDB-IK-hbR"; */
+"cDB-IK-hbR.title" = "都不使用";
+
+/* Class = "NSMenuItem"; title = "绝对领域"; ObjectID = "cW0-Hv-9iC"; */
+"cW0-Hv-9iC.title" = "绝对领域";
+
+/* Class = "NSMenu"; title = "下载"; ObjectID = "cW8-ck-1FH"; */
+"cW8-ck-1FH.title" = "下载";
+
+/* Class = "NSMenuItem"; title = "Selection"; ObjectID = "cqv-fj-IhA"; */
+"cqv-fj-IhA.title" = "所选";
+
+/* Class = "NSMenuItem"; title = "Smart Links"; ObjectID = "cwL-P1-jid"; */
+"cwL-P1-jid.title" = "智能链接";
+
+/* Class = "NSMenuItem"; title = "Make Lower Case"; ObjectID = "d9M-CD-aMd"; */
+"d9M-CD-aMd.title" = "变为小写";
+
+/* Class = "NSMenu"; title = "Text"; ObjectID = "d9c-me-L2H"; */
+"d9c-me-L2H.title" = "文本";
+
+/* Class = "NSMenuItem"; title = "半次元"; ObjectID = "dGg-1g-NIR"; */
+"dGg-1g-NIR.title" = "半次元";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "dMs-cI-mzQ"; */
+"dMs-cI-mzQ.title" = "File";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "dRJ-4n-Yzg"; */
+"dRJ-4n-Yzg.title" = "恢复";
+
+/* Class = "NSMenuItem"; title = "适用于 视频"; ObjectID = "dbQ-j8-OPV"; */
+"dbQ-j8-OPV.title" = "适用于 视频";
+
+/* Class = "NSButtonCell"; title = "导出输入"; ObjectID = "gCb-Ht-uci"; */
+"gCb-Ht-uci.title" = "导出输入";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "gVA-U4-sdL"; */
+"gVA-U4-sdL.title" = "粘贴";
+
+/* Class = "NSMenuItem"; title = "获取用户的图片"; ObjectID = "gkF-je-Ls2"; */
+"gkF-je-Ls2.title" = "获取用户的图片";
+
+/* Class = "NSMenu"; title = "工具"; ObjectID = "grn-fW-4TI"; */
+"grn-fW-4TI.title" = "工具";
+
+/* Class = "NSMenuItem"; title = "Smart Quotes"; ObjectID = "hQb-2v-fYv"; */
+"hQb-2v-fYv.title" = "智能引号";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "Smaller"; ObjectID = "i1d-Er-qST"; */
+"i1d-Er-qST.title" = "较小";
+
+/* Class = "NSMenu"; title = "绝对领域"; ObjectID = "i9w-Tf-IR9"; */
+"i9w-Tf-IR9.title" = "绝对领域";
+
+/* Class = "NSMenu"; title = "Baseline"; ObjectID = "ijk-EB-dga"; */
+"ijk-EB-dga.title" = "基线";
+
+/* Class = "NSMenuItem"; title = "Kern"; ObjectID = "jBQ-r6-VK2"; */
+"jBQ-r6-VK2.title" = "字距调整";
+
+/* Class = "NSMenuItem"; title = "\tRight to Left"; ObjectID = "jFq-tB-4Kx"; */
+"jFq-tB-4Kx.title" = "\t从右到左";
+
+/* Class = "NSMenuItem"; title = "解析WebArchive文件"; ObjectID = "jsR-Rr-nG1"; */
+"jsR-Rr-nG1.title" = "解析WebArchive文件";
+
+/* Class = "NSMenuItem"; title = "下载用户上传的图包"; ObjectID = "m1c-oX-veD"; */
+"m1c-oX-veD.title" = "下载用户上传的图包";
+
+/* Class = "NSMenuItem"; title = "下载图片"; ObjectID = "nKf-Iz-bnK"; */
+"nKf-Iz-bnK.title" = "下载图片";
+
+/* Class = "NSMenu"; title = "微博"; ObjectID = "nk5-Le-E3d"; */
+"nk5-Le-E3d.title" = "微博";
+
+/* Class = "NSMenuItem"; title = "Ligatures"; ObjectID = "o6e-r0-MWq"; */
+"o6e-r0-MWq.title" = "使用连字";
+
+/* Class = "NSMenuItem"; title = "Loosen"; ObjectID = "ogc-rX-tC1"; */
+"ogc-rX-tC1.title" = "Loosen";
+
+/* Class = "NSMenuItem"; title = "获取illust的图片"; ObjectID = "oz0-Jt-Wrz"; */
+"oz0-Jt-Wrz.title" = "获取illust的图片";
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "pa3-QI-u2k"; */
+"pa3-QI-u2k.title" = "删除";
+
+/* Class = "NSMenuItem"; title = "下载"; ObjectID = "pxB-ZK-4gf"; */
+"pxB-ZK-4gf.title" = "下载";
+
+/* Class = "NSMenuItem"; title = "Find Next"; ObjectID = "q09-fT-Sye"; */
+"q09-fT-Sye.title" = "查找下一个";
+
+/* Class = "NSMenuItem"; title = "转换GoAgentX的规则"; ObjectID = "qRf-CC-cM8"; */
+"qRf-CC-cM8.title" = "转换GoAgentX的规则";
+
+/* Class = "NSMenu"; title = "半次元"; ObjectID = "qg8-ZX-OEP"; */
+"qg8-ZX-OEP.title" = "半次元";
+
+/* Class = "NSMenuItem"; title = "未添加"; ObjectID = "rUk-g0-4bb"; */
+"rUk-g0-4bb.title" = "未添加";
+
+/* Class = "NSMenuItem"; title = "Smart Dashes"; ObjectID = "rgM-f4-ycn"; */
+"rgM-f4-ycn.title" = "智能破折号";
+
+/* Class = "NSMenuItem"; title = "解析部分ExHentai页面"; ObjectID = "se6-cj-qBo"; */
+"se6-cj-qBo.title" = "解析部分ExHentai页面";
+
+/* Class = "NSMenuItem"; title = "整理 Day 中的图片"; ObjectID = "siZ-H5-irB"; */
+"siZ-H5-irB.title" = "整理 Day 中的图片";
+
+/* Class = "NSMenuItem"; title = "从输入框中获取图片"; ObjectID = "tJd-w5-xwn"; */
+"tJd-w5-xwn.title" = "从输入框中获取图片";
+
+/* Class = "NSMenuItem"; title = "Data Detectors"; ObjectID = "tRr-pd-1PS"; */
+"tRr-pd-1PS.title" = "数据检测器";
+
+/* Class = "NSMenu"; title = "Kern"; ObjectID = "tlD-Oa-oAM"; */
+"tlD-Oa-oAM.title" = "字距调整";
+
+/* Class = "NSMenu"; title = "MyResourceBox"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "MyResourceBox";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "uRl-iY-unG"; */
+"uRl-iY-unG.title" = "剪切";
+
+/* Class = "NSButtonCell"; title = "临时"; ObjectID = "v6t-Dj-6ox"; */
+"v6t-Dj-6ox.title" = "临时";
+
+/* Class = "NSMenu"; title = "Tumblr"; ObjectID = "vEY-LV-N6P"; */
+"vEY-LV-N6P.title" = "Tumblr";
+
+/* Class = "NSMenuItem"; title = "Paste Style"; ObjectID = "vKC-jM-MkH"; */
+"vKC-jM-MkH.title" = "粘贴样式";
+
+/* Class = "NSMenuItem"; title = "Show Ruler"; ObjectID = "vLm-3I-IUL"; */
+"vLm-3I-IUL.title" = "显示标尺";
+
+/* Class = "NSMenuItem"; title = "Make Upper Case"; ObjectID = "vmV-6d-7jI"; */
+"vmV-6d-7jI.title" = "变为大写";
+
+/* Class = "NSMenu"; title = "Ligatures"; ObjectID = "w0m-vy-SC9"; */
+"w0m-vy-SC9.title" = "连字";
+
+/* Class = "NSMenuItem"; title = "解析输入的网页地址"; ObjectID = "wBZ-r0-QF2"; */
+"wBZ-r0-QF2.title" = "解析输入的网页地址";
+
+/* Class = "NSMenuItem"; title = "同时下载五个"; ObjectID = "wJU-Rx-7jZ"; */
+"wJU-Rx-7jZ.title" = "同时下载五个";
+
+/* Class = "NSMenuItem"; title = "微博"; ObjectID = "wOe-Xh-zG3"; */
+"wOe-Xh-zG3.title" = "微博";
+
+/* Class = "NSMenuItem"; title = "Align Right"; ObjectID = "wb2-vD-lq4"; */
+"wb2-vD-lq4.title" = "右对齐";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "帮助";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "x3v-GG-iWU"; */
+"x3v-GG-iWU.title" = "拷贝";
+
+/* Class = "NSMenuItem"; title = "Use All"; ObjectID = "xQD-1f-W4t"; */
+"xQD-1f-W4t.title" = "全部使用";
+
+/* Class = "NSMenu"; title = "Operation"; ObjectID = "xtJ-DM-ian"; */
+"xtJ-DM-ian.title" = "Operation";
+
+/* Class = "NSMenuItem"; title = "批量获取种子文件"; ObjectID = "y6B-qK-RLC"; */
+"y6B-qK-RLC.title" = "批量获取种子文件";
+
+/* Class = "NSMenuItem"; title = "Tumblr"; ObjectID = "yNn-eA-n0H"; */
+"yNn-eA-n0H.title" = "Tumblr";
+
+/* Class = "NSMenuItem"; title = "Show Substitutions"; ObjectID = "z6F-FW-3nz"; */
+"z6F-FW-3nz.title" = "显示替换";

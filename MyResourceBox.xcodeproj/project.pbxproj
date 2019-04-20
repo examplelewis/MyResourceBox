@@ -1,0 +1,1167 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7DD98B59A739879607997CD9 /* libPods-MyResourceBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD74EB7EFE1808C528C0641 /* libPods-MyResourceBox.a */; };
+		AC19E14C1E4844660084A510 /* PAPIAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E1411E4844660084A510 /* PAPIAuthor.m */; };
+		AC19E14D1E4844660084A510 /* PAPIIllust.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E1431E4844660084A510 /* PAPIIllust.m */; };
+		AC19E14E1E4844660084A510 /* PAPIIllustList.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E1451E4844660084A510 /* PAPIIllustList.m */; };
+		AC19E14F1E4844660084A510 /* PixivAPI.js in Resources */ = {isa = PBXBuildFile; fileRef = AC19E1471E4844660084A510 /* PixivAPI.js */; };
+		AC19E1501E4844660084A510 /* PixivAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E1481E4844660084A510 /* PixivAPI.m */; };
+		AC19E1511E4844660084A510 /* SAPIIllust.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E14B1E4844660084A510 /* SAPIIllust.m */; };
+		AC19E1581E4857020084A510 /* PixivMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E1571E4857020084A510 /* PixivMethod.m */; };
+		AC19E15B1E4857210084A510 /* PixivUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E15A1E4857210084A510 /* PixivUserManager.m */; };
+		AC19E15E1E4857410084A510 /* PixivIllustManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E15D1E4857410084A510 /* PixivIllustManager.m */; };
+		AC2D1B151DD0191C0085F8E0 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2D1B131DD0191C0085F8E0 /* DeviceInfo.m */; };
+		AC315BE01DEBBE8800DBFA0A /* Consts.m in Sources */ = {isa = PBXBuildFile; fileRef = AC315BDF1DEBBE8800DBFA0A /* Consts.m */; };
+		AC47543F1DCC461800880934 /* OrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC47543E1DCC461800880934 /* OrganizeManager.m */; };
+		AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4754411DCC5B1600880934 /* DownloadMethod.m */; };
+		AC75C6531F8657800060CF6B /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC75C6521F8657800060CF6B /* HttpManager.m */; };
+		AC789C651DE1466200523A12 /* CookieInfoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C631DE1466200523A12 /* CookieInfoObject.m */; };
+		AC789C681DE1467000523A12 /* CookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C661DE1467000523A12 /* CookieManager.m */; };
+		AC789C731DE159B700523A12 /* BCYMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C6E1DE159B700523A12 /* BCYMethod.m */; };
+		AC789C741DE159B700523A12 /* TumblrMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C701DE159B700523A12 /* TumblrMethod.m */; };
+		AC789C751DE159B700523A12 /* WeiboMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C721DE159B700523A12 /* WeiboMethod.m */; };
+		AC789C7D1DE159E100523A12 /* ExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C781DE159E100523A12 /* ExHentaiManager.m */; };
+		AC789C7E1DE159E100523A12 /* ExHentaiPagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C7A1DE159E100523A12 /* ExHentaiPagesManager.m */; };
+		AC789C7F1DE159E100523A12 /* ExHentaiUrlsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C7C1DE159E100523A12 /* ExHentaiUrlsManager.m */; };
+		AC789C821DE15A1D00523A12 /* JDLingyuMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C811DE15A1D00523A12 /* JDLingyuMethod.m */; };
+		AC789C881DE15A3600523A12 /* WorldCosplayMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C871DE15A3600523A12 /* WorldCosplayMethod.m */; };
+		AC789C8B1DE1602500523A12 /* AnalysisMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C8A1DE1602500523A12 /* AnalysisMethod.m */; };
+		AC79E1CD1F4EA125008432B9 /* ExHentaiTorrentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC79E1CC1F4EA125008432B9 /* ExHentaiTorrentManager.m */; };
+		AC8508CE1DB39146004AFE84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8508CD1DB39146004AFE84 /* AppDelegate.m */; };
+		AC8508D11DB39146004AFE84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8508D01DB39146004AFE84 /* main.m */; };
+		AC8508D41DB39146004AFE84 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8508D31DB39146004AFE84 /* ViewController.m */; };
+		AC8508D61DB39146004AFE84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC8508D51DB39146004AFE84 /* Assets.xcassets */; };
+		AC8508D91DB39146004AFE84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8508D71DB39146004AFE84 /* Main.storyboard */; };
+		AC8508E41DB39147004AFE84 /* MyResourceBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8508E31DB39147004AFE84 /* MyResourceBoxTests.m */; };
+		AC8508EF1DB39147004AFE84 /* MyResourceBoxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8508EE1DB39147004AFE84 /* MyResourceBoxUITests.m */; };
+		AC85090B1DB39677004AFE84 /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509031DB39677004AFE84 /* HttpRequest.m */; };
+		AC85090C1DB39677004AFE84 /* MyAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509051DB39677004AFE84 /* MyAlert.m */; };
+		AC85090D1DB39677004AFE84 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509071DB39677004AFE84 /* UserInfo.m */; };
+		AC85090E1DB39677004AFE84 /* UtilityFile.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509091DB39677004AFE84 /* UtilityFile.m */; };
+		AC8509191DB39692004AFE84 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509111DB39692004AFE84 /* FileManager.m */; };
+		AC85091B1DB39692004AFE84 /* WebArchiveMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509161DB39692004AFE84 /* WebArchiveMethod.m */; };
+		AC8509211DB3970D004AFE84 /* WeiboTokenWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC85091F1DB3970D004AFE84 /* WeiboTokenWindowController.m */; };
+		AC8509221DB3970D004AFE84 /* WeiboTokenWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8509201DB3970D004AFE84 /* WeiboTokenWindowController.xib */; };
+		AC883A291DBB920800CC579E /* WeiboRequestTokenWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC883A271DBB920800CC579E /* WeiboRequestTokenWindowController.m */; };
+		AC883A2A1DBB920800CC579E /* WeiboRequestTokenWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC883A281DBB920800CC579E /* WeiboRequestTokenWindowController.xib */; };
+		AC883A331DBB9D9500CC579E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC883A321DBB9D9500CC579E /* WebKit.framework */; };
+		AC883A371DBB9DCD00CC579E /* WeiboRequestTokenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC883A351DBB9DCD00CC579E /* WeiboRequestTokenViewController.m */; };
+		AC883A381DBB9DCD00CC579E /* WeiboRequestTokenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC883A361DBB9DCD00CC579E /* WeiboRequestTokenViewController.xib */; };
+		AC9870561E4C4A650076DC92 /* TumblrPhotoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC98704E1E4C4A650076DC92 /* TumblrPhotoObject.m */; };
+		AC9870571E4C4A650076DC92 /* TumblrVideoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870501E4C4A650076DC92 /* TumblrVideoObject.m */; };
+		AC9870581E4C4A650076DC92 /* WeiboStatusObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870521E4C4A650076DC92 /* WeiboStatusObject.m */; };
+		AC9870591E4C4A650076DC92 /* WNACGFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870541E4C4A650076DC92 /* WNACGFileModel.m */; };
+		AC9870611E4C4A980076DC92 /* PixivDownloadObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC98705C1E4C4A980076DC92 /* PixivDownloadObject.m */; };
+		AC9870621E4C4A980076DC92 /* PixivMangaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC98705E1E4C4A980076DC92 /* PixivMangaObject.m */; };
+		AC9870631E4C4A980076DC92 /* PixivMasterObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870601E4C4A980076DC92 /* PixivMasterObject.m */; };
+		AC9870691E4C4AB90076DC92 /* SQLiteFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870661E4C4AB90076DC92 /* SQLiteFMDBManager.m */; };
+		AC98706A1E4C4AB90076DC92 /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870681E4C4AB90076DC92 /* SQLiteManager.m */; };
+		AC9CA3D9210AC04C00F1AA08 /* OrganizingPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9CA3D8210AC04C00F1AA08 /* OrganizingPhotos.m */; };
+		AC9F4C6B1E499B0E00FD01C5 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C6A1E499B0E00FD01C5 /* DownloadOperation.m */; };
+		AC9F4C6E1E499BBB00FD01C5 /* DownloadQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C6D1E499BBB00FD01C5 /* DownloadQueueManager.m */; };
+		AC9F4C711E49B06E00FD01C5 /* PixivDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C701E49B06E00FD01C5 /* PixivDownloadManager.m */; };
+		ACA0F05221E19E200097D144 /* ExHentaiPixivUrlsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA0F05121E19E200097D144 /* ExHentaiPixivUrlsManager.m */; };
+		ACA3C1871DD09F5100A9B31D /* DownloadInfoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA3C1861DD09F5100A9B31D /* DownloadInfoObject.m */; };
+		ACA5162D220175F20074AB73 /* DeviantartMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA5162C220175F20074AB73 /* DeviantartMethod.m */; };
+		ACA9C91A21FD933500B33CB4 /* PixivHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9C91921FD933500B33CB4 /* PixivHttpSessionManager.m */; };
+		ACA9C91D21FD950E00B33CB4 /* PixivAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9C91C21FD950E00B33CB4 /* PixivAPIManager.m */; };
+		ACA9C92021FD954E00B33CB4 /* PixivLoginUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9C91F21FD954E00B33CB4 /* PixivLoginUserManager.m */; };
+		ACACB51E21C382D700C8D164 /* GelbooruTagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACACB51D21C382D700C8D164 /* GelbooruTagManager.m */; };
+		ACAFAADB21FDB13100323A0A /* PixivGeneralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAFAADA21FDB13100323A0A /* PixivGeneralManager.m */; };
+		ACB62B9C2109B19D00A55C1F /* Images2Mp4.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB62B9B2109B19D00A55C1F /* Images2Mp4.m */; };
+		ACB62BA02109B1EA00A55C1F /* HJImagesToVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB62B9E2109B1EA00A55C1F /* HJImagesToVideo.m */; };
+		ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3145B217726D900DA5276 /* GelbooruMethod.m */; };
+		ACC3149B21773BFF00DA5276 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3149A21773BFF00DA5276 /* XMLReader.m */; };
+		ACCAA0341E1B80FB0017EDDA /* OrganizingDayFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */; };
+		ACCAA0371E1B81250017EDDA /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0351E1B81250017EDDA /* ImageManager.m */; };
+		ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */; };
+		ACE554C41F962CA900B99348 /* FileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE554C31F962CA900B99348 /* FileTools.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC8508E01DB39147004AFE84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC8508C11DB39146004AFE84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC8508C81DB39146004AFE84;
+			remoteInfo = MyResourceBox;
+		};
+		AC8508EB1DB39147004AFE84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC8508C11DB39146004AFE84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC8508C81DB39146004AFE84;
+			remoteInfo = MyResourceBox;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E6EF246B14293D67685967F /* Pods-MyResourceBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyResourceBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyResourceBox/Pods-MyResourceBox.release.xcconfig"; sourceTree = "<group>"; };
+		2BD74EB7EFE1808C528C0641 /* libPods-MyResourceBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyResourceBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F06A2677008C24265A66745 /* Pods-MyResourceBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyResourceBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyResourceBox/Pods-MyResourceBox.debug.xcconfig"; sourceTree = "<group>"; };
+		AC19E1401E4844660084A510 /* PAPIAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPIAuthor.h; sourceTree = "<group>"; };
+		AC19E1411E4844660084A510 /* PAPIAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPIAuthor.m; sourceTree = "<group>"; };
+		AC19E1421E4844660084A510 /* PAPIIllust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPIIllust.h; sourceTree = "<group>"; };
+		AC19E1431E4844660084A510 /* PAPIIllust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPIIllust.m; sourceTree = "<group>"; };
+		AC19E1441E4844660084A510 /* PAPIIllustList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPIIllustList.h; sourceTree = "<group>"; };
+		AC19E1451E4844660084A510 /* PAPIIllustList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPIIllustList.m; sourceTree = "<group>"; };
+		AC19E1461E4844660084A510 /* PixivAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivAPI.h; sourceTree = "<group>"; };
+		AC19E1471E4844660084A510 /* PixivAPI.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = PixivAPI.js; sourceTree = "<group>"; };
+		AC19E1481E4844660084A510 /* PixivAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivAPI.m; sourceTree = "<group>"; };
+		AC19E1491E4844660084A510 /* PixivDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivDefines.h; sourceTree = "<group>"; };
+		AC19E14A1E4844660084A510 /* SAPIIllust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPIIllust.h; sourceTree = "<group>"; };
+		AC19E14B1E4844660084A510 /* SAPIIllust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPIIllust.m; sourceTree = "<group>"; };
+		AC19E1561E4857020084A510 /* PixivMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivMethod.h; sourceTree = "<group>"; };
+		AC19E1571E4857020084A510 /* PixivMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivMethod.m; sourceTree = "<group>"; };
+		AC19E1591E4857210084A510 /* PixivUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivUserManager.h; sourceTree = "<group>"; };
+		AC19E15A1E4857210084A510 /* PixivUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivUserManager.m; sourceTree = "<group>"; };
+		AC19E15C1E4857410084A510 /* PixivIllustManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivIllustManager.h; sourceTree = "<group>"; };
+		AC19E15D1E4857410084A510 /* PixivIllustManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivIllustManager.m; sourceTree = "<group>"; };
+		AC2D1B131DD0191C0085F8E0 /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
+		AC2D1B141DD0191C0085F8E0 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
+		AC315BDE1DEBBE8800DBFA0A /* Consts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
+		AC315BDF1DEBBE8800DBFA0A /* Consts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Consts.m; sourceTree = "<group>"; };
+		AC47543D1DCC461800880934 /* OrganizeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizeManager.h; sourceTree = "<group>"; };
+		AC47543E1DCC461800880934 /* OrganizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizeManager.m; sourceTree = "<group>"; };
+		AC4754401DCC5B1600880934 /* DownloadMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadMethod.h; sourceTree = "<group>"; };
+		AC4754411DCC5B1600880934 /* DownloadMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadMethod.m; sourceTree = "<group>"; };
+		AC75C6511F8657800060CF6B /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpManager.h; sourceTree = "<group>"; };
+		AC75C6521F8657800060CF6B /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpManager.m; sourceTree = "<group>"; };
+		AC789C631DE1466200523A12 /* CookieInfoObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieInfoObject.m; sourceTree = "<group>"; };
+		AC789C641DE1466200523A12 /* CookieInfoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieInfoObject.h; sourceTree = "<group>"; };
+		AC789C661DE1467000523A12 /* CookieManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieManager.m; sourceTree = "<group>"; };
+		AC789C671DE1467000523A12 /* CookieManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieManager.h; sourceTree = "<group>"; };
+		AC789C6D1DE159B700523A12 /* BCYMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCYMethod.h; sourceTree = "<group>"; };
+		AC789C6E1DE159B700523A12 /* BCYMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCYMethod.m; sourceTree = "<group>"; };
+		AC789C6F1DE159B700523A12 /* TumblrMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrMethod.h; sourceTree = "<group>"; };
+		AC789C701DE159B700523A12 /* TumblrMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumblrMethod.m; sourceTree = "<group>"; };
+		AC789C711DE159B700523A12 /* WeiboMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboMethod.h; sourceTree = "<group>"; };
+		AC789C721DE159B700523A12 /* WeiboMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboMethod.m; sourceTree = "<group>"; };
+		AC789C771DE159E100523A12 /* ExHentaiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExHentaiManager.h; sourceTree = "<group>"; };
+		AC789C781DE159E100523A12 /* ExHentaiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExHentaiManager.m; sourceTree = "<group>"; };
+		AC789C791DE159E100523A12 /* ExHentaiPagesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExHentaiPagesManager.h; sourceTree = "<group>"; };
+		AC789C7A1DE159E100523A12 /* ExHentaiPagesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExHentaiPagesManager.m; sourceTree = "<group>"; };
+		AC789C7B1DE159E100523A12 /* ExHentaiUrlsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExHentaiUrlsManager.h; sourceTree = "<group>"; };
+		AC789C7C1DE159E100523A12 /* ExHentaiUrlsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExHentaiUrlsManager.m; sourceTree = "<group>"; };
+		AC789C801DE15A1D00523A12 /* JDLingyuMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDLingyuMethod.h; sourceTree = "<group>"; };
+		AC789C811DE15A1D00523A12 /* JDLingyuMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDLingyuMethod.m; sourceTree = "<group>"; };
+		AC789C861DE15A3600523A12 /* WorldCosplayMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldCosplayMethod.h; sourceTree = "<group>"; };
+		AC789C871DE15A3600523A12 /* WorldCosplayMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldCosplayMethod.m; sourceTree = "<group>"; };
+		AC789C891DE1602500523A12 /* AnalysisMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalysisMethod.h; sourceTree = "<group>"; };
+		AC789C8A1DE1602500523A12 /* AnalysisMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalysisMethod.m; sourceTree = "<group>"; };
+		AC79E1CB1F4EA125008432B9 /* ExHentaiTorrentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExHentaiTorrentManager.h; sourceTree = "<group>"; };
+		AC79E1CC1F4EA125008432B9 /* ExHentaiTorrentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExHentaiTorrentManager.m; sourceTree = "<group>"; };
+		AC8508C91DB39146004AFE84 /* MyResourceBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyResourceBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC8508CC1DB39146004AFE84 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AC8508CD1DB39146004AFE84 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AC8508D01DB39146004AFE84 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AC8508D21DB39146004AFE84 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AC8508D31DB39146004AFE84 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AC8508D51DB39146004AFE84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC8508D81DB39146004AFE84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC8508DA1DB39146004AFE84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC8508DF1DB39147004AFE84 /* MyResourceBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyResourceBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC8508E31DB39147004AFE84 /* MyResourceBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyResourceBoxTests.m; sourceTree = "<group>"; };
+		AC8508E51DB39147004AFE84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC8508EA1DB39147004AFE84 /* MyResourceBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyResourceBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC8508EE1DB39147004AFE84 /* MyResourceBoxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyResourceBoxUITests.m; sourceTree = "<group>"; };
+		AC8508F01DB39147004AFE84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC8508FD1DB39629004AFE84 /* MyResourceBox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyResourceBox-Prefix.pch"; sourceTree = "<group>"; };
+		AC8509021DB39677004AFE84 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
+		AC8509031DB39677004AFE84 /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequest.m; sourceTree = "<group>"; };
+		AC8509041DB39677004AFE84 /* MyAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlert.h; sourceTree = "<group>"; };
+		AC8509051DB39677004AFE84 /* MyAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlert.m; sourceTree = "<group>"; };
+		AC8509061DB39677004AFE84 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		AC8509071DB39677004AFE84 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		AC8509081DB39677004AFE84 /* UtilityFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilityFile.h; sourceTree = "<group>"; };
+		AC8509091DB39677004AFE84 /* UtilityFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityFile.m; sourceTree = "<group>"; };
+		AC8509101DB39692004AFE84 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		AC8509111DB39692004AFE84 /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		AC8509151DB39692004AFE84 /* WebArchiveMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebArchiveMethod.h; sourceTree = "<group>"; };
+		AC8509161DB39692004AFE84 /* WebArchiveMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebArchiveMethod.m; sourceTree = "<group>"; };
+		AC85091E1DB3970D004AFE84 /* WeiboTokenWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboTokenWindowController.h; sourceTree = "<group>"; };
+		AC85091F1DB3970D004AFE84 /* WeiboTokenWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboTokenWindowController.m; sourceTree = "<group>"; };
+		AC8509201DB3970D004AFE84 /* WeiboTokenWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeiboTokenWindowController.xib; sourceTree = "<group>"; };
+		AC883A261DBB920800CC579E /* WeiboRequestTokenWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboRequestTokenWindowController.h; sourceTree = "<group>"; };
+		AC883A271DBB920800CC579E /* WeiboRequestTokenWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboRequestTokenWindowController.m; sourceTree = "<group>"; };
+		AC883A281DBB920800CC579E /* WeiboRequestTokenWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeiboRequestTokenWindowController.xib; sourceTree = "<group>"; };
+		AC883A321DBB9D9500CC579E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		AC883A341DBB9DCD00CC579E /* WeiboRequestTokenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboRequestTokenViewController.h; sourceTree = "<group>"; };
+		AC883A351DBB9DCD00CC579E /* WeiboRequestTokenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboRequestTokenViewController.m; sourceTree = "<group>"; };
+		AC883A361DBB9DCD00CC579E /* WeiboRequestTokenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeiboRequestTokenViewController.xib; sourceTree = "<group>"; };
+		AC88DFDF20157AE3008DA7FB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		AC98704D1E4C4A650076DC92 /* TumblrPhotoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrPhotoObject.h; sourceTree = "<group>"; };
+		AC98704E1E4C4A650076DC92 /* TumblrPhotoObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumblrPhotoObject.m; sourceTree = "<group>"; };
+		AC98704F1E4C4A650076DC92 /* TumblrVideoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrVideoObject.h; sourceTree = "<group>"; };
+		AC9870501E4C4A650076DC92 /* TumblrVideoObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumblrVideoObject.m; sourceTree = "<group>"; };
+		AC9870511E4C4A650076DC92 /* WeiboStatusObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboStatusObject.h; sourceTree = "<group>"; };
+		AC9870521E4C4A650076DC92 /* WeiboStatusObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboStatusObject.m; sourceTree = "<group>"; };
+		AC9870531E4C4A650076DC92 /* WNACGFileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNACGFileModel.h; sourceTree = "<group>"; };
+		AC9870541E4C4A650076DC92 /* WNACGFileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNACGFileModel.m; sourceTree = "<group>"; };
+		AC98705B1E4C4A980076DC92 /* PixivDownloadObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivDownloadObject.h; sourceTree = "<group>"; };
+		AC98705C1E4C4A980076DC92 /* PixivDownloadObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivDownloadObject.m; sourceTree = "<group>"; };
+		AC98705D1E4C4A980076DC92 /* PixivMangaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivMangaObject.h; sourceTree = "<group>"; };
+		AC98705E1E4C4A980076DC92 /* PixivMangaObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivMangaObject.m; sourceTree = "<group>"; };
+		AC98705F1E4C4A980076DC92 /* PixivMasterObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivMasterObject.h; sourceTree = "<group>"; };
+		AC9870601E4C4A980076DC92 /* PixivMasterObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivMasterObject.m; sourceTree = "<group>"; };
+		AC9870651E4C4AB90076DC92 /* SQLiteFMDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteFMDBManager.h; sourceTree = "<group>"; };
+		AC9870661E4C4AB90076DC92 /* SQLiteFMDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteFMDBManager.m; sourceTree = "<group>"; };
+		AC9870671E4C4AB90076DC92 /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
+		AC9870681E4C4AB90076DC92 /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
+		AC9CA3D7210AC04C00F1AA08 /* OrganizingPhotos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizingPhotos.h; sourceTree = "<group>"; };
+		AC9CA3D8210AC04C00F1AA08 /* OrganizingPhotos.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizingPhotos.m; sourceTree = "<group>"; };
+		AC9F4C691E499B0E00FD01C5 /* DownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperation.h; sourceTree = "<group>"; };
+		AC9F4C6A1E499B0E00FD01C5 /* DownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperation.m; sourceTree = "<group>"; };
+		AC9F4C6C1E499BBB00FD01C5 /* DownloadQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadQueueManager.h; sourceTree = "<group>"; };
+		AC9F4C6D1E499BBB00FD01C5 /* DownloadQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadQueueManager.m; sourceTree = "<group>"; };
+		AC9F4C6F1E49B06E00FD01C5 /* PixivDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivDownloadManager.h; sourceTree = "<group>"; };
+		AC9F4C701E49B06E00FD01C5 /* PixivDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivDownloadManager.m; sourceTree = "<group>"; };
+		ACA0F05021E19E200097D144 /* ExHentaiPixivUrlsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExHentaiPixivUrlsManager.h; sourceTree = "<group>"; };
+		ACA0F05121E19E200097D144 /* ExHentaiPixivUrlsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExHentaiPixivUrlsManager.m; sourceTree = "<group>"; };
+		ACA3C1851DD09F5100A9B31D /* DownloadInfoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadInfoObject.h; sourceTree = "<group>"; };
+		ACA3C1861DD09F5100A9B31D /* DownloadInfoObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadInfoObject.m; sourceTree = "<group>"; };
+		ACA5162B220175F20074AB73 /* DeviantartMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviantartMethod.h; sourceTree = "<group>"; };
+		ACA5162C220175F20074AB73 /* DeviantartMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviantartMethod.m; sourceTree = "<group>"; };
+		ACA9C91821FD933500B33CB4 /* PixivHttpSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivHttpSessionManager.h; sourceTree = "<group>"; };
+		ACA9C91921FD933500B33CB4 /* PixivHttpSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivHttpSessionManager.m; sourceTree = "<group>"; };
+		ACA9C91B21FD950E00B33CB4 /* PixivAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivAPIManager.h; sourceTree = "<group>"; };
+		ACA9C91C21FD950E00B33CB4 /* PixivAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivAPIManager.m; sourceTree = "<group>"; };
+		ACA9C91E21FD954E00B33CB4 /* PixivLoginUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivLoginUserManager.h; sourceTree = "<group>"; };
+		ACA9C91F21FD954E00B33CB4 /* PixivLoginUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivLoginUserManager.m; sourceTree = "<group>"; };
+		ACACB51C21C382D700C8D164 /* GelbooruTagManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruTagManager.h; sourceTree = "<group>"; };
+		ACACB51D21C382D700C8D164 /* GelbooruTagManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruTagManager.m; sourceTree = "<group>"; };
+		ACAFAAD921FDB13100323A0A /* PixivGeneralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivGeneralManager.h; sourceTree = "<group>"; };
+		ACAFAADA21FDB13100323A0A /* PixivGeneralManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivGeneralManager.m; sourceTree = "<group>"; };
+		ACB62B9A2109B19D00A55C1F /* Images2Mp4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Images2Mp4.h; sourceTree = "<group>"; };
+		ACB62B9B2109B19D00A55C1F /* Images2Mp4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Images2Mp4.m; sourceTree = "<group>"; };
+		ACB62B9E2109B1EA00A55C1F /* HJImagesToVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJImagesToVideo.m; sourceTree = "<group>"; };
+		ACB62B9F2109B1EA00A55C1F /* HJImagesToVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJImagesToVideo.h; sourceTree = "<group>"; };
+		ACC3145A217726D900DA5276 /* GelbooruMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruMethod.h; sourceTree = "<group>"; };
+		ACC3145B217726D900DA5276 /* GelbooruMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruMethod.m; sourceTree = "<group>"; };
+		ACC3149921773BFF00DA5276 /* XMLReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		ACC3149A21773BFF00DA5276 /* XMLReader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizingDayFolder.m; sourceTree = "<group>"; };
+		ACCAA0331E1B80FB0017EDDA /* OrganizingDayFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizingDayFolder.h; sourceTree = "<group>"; };
+		ACCAA0351E1B81250017EDDA /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
+		ACCAA0361E1B81250017EDDA /* ImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
+		ACD1AA35225B44660017A8D3 /* PixivExHentaiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivExHentaiManager.h; sourceTree = "<group>"; };
+		ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivExHentaiManager.m; sourceTree = "<group>"; };
+		ACE554C21F962CA900B99348 /* FileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTools.h; sourceTree = "<group>"; };
+		ACE554C31F962CA900B99348 /* FileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTools.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC8508C61DB39146004AFE84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC883A331DBB9D9500CC579E /* WebKit.framework in Frameworks */,
+				7DD98B59A739879607997CD9 /* libPods-MyResourceBox.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC8508DC1DB39147004AFE84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC8508E71DB39147004AFE84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B82EE09030C83694D988C07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC883A321DBB9D9500CC579E /* WebKit.framework */,
+				2BD74EB7EFE1808C528C0641 /* libPods-MyResourceBox.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		80A17C94FCD65F9A63CE2D11 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3F06A2677008C24265A66745 /* Pods-MyResourceBox.debug.xcconfig */,
+				0E6EF246B14293D67685967F /* Pods-MyResourceBox.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC19E13F1E4844660084A510 /* PixivAPI */ = {
+			isa = PBXGroup;
+			children = (
+				AC19E1401E4844660084A510 /* PAPIAuthor.h */,
+				AC19E1411E4844660084A510 /* PAPIAuthor.m */,
+				AC19E1421E4844660084A510 /* PAPIIllust.h */,
+				AC19E1431E4844660084A510 /* PAPIIllust.m */,
+				AC19E1441E4844660084A510 /* PAPIIllustList.h */,
+				AC19E1451E4844660084A510 /* PAPIIllustList.m */,
+				AC19E1461E4844660084A510 /* PixivAPI.h */,
+				AC19E1471E4844660084A510 /* PixivAPI.js */,
+				AC19E1481E4844660084A510 /* PixivAPI.m */,
+				AC19E1491E4844660084A510 /* PixivDefines.h */,
+				AC19E14A1E4844660084A510 /* SAPIIllust.h */,
+				AC19E14B1E4844660084A510 /* SAPIIllust.m */,
+			);
+			path = PixivAPI;
+			sourceTree = "<group>";
+		};
+		AC19E1551E4857020084A510 /* Pixiv */ = {
+			isa = PBXGroup;
+			children = (
+				AC19E1561E4857020084A510 /* PixivMethod.h */,
+				AC19E1571E4857020084A510 /* PixivMethod.m */,
+				AC19E1591E4857210084A510 /* PixivUserManager.h */,
+				AC19E15A1E4857210084A510 /* PixivUserManager.m */,
+				AC19E15C1E4857410084A510 /* PixivIllustManager.h */,
+				AC19E15D1E4857410084A510 /* PixivIllustManager.m */,
+				AC9F4C6F1E49B06E00FD01C5 /* PixivDownloadManager.h */,
+				AC9F4C701E49B06E00FD01C5 /* PixivDownloadManager.m */,
+				ACA9C91E21FD954E00B33CB4 /* PixivLoginUserManager.h */,
+				ACA9C91F21FD954E00B33CB4 /* PixivLoginUserManager.m */,
+				ACA9C91821FD933500B33CB4 /* PixivHttpSessionManager.h */,
+				ACA9C91921FD933500B33CB4 /* PixivHttpSessionManager.m */,
+				ACA9C91B21FD950E00B33CB4 /* PixivAPIManager.h */,
+				ACA9C91C21FD950E00B33CB4 /* PixivAPIManager.m */,
+				ACAFAAD921FDB13100323A0A /* PixivGeneralManager.h */,
+				ACAFAADA21FDB13100323A0A /* PixivGeneralManager.m */,
+				ACD1AA35225B44660017A8D3 /* PixivExHentaiManager.h */,
+				ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */,
+			);
+			path = Pixiv;
+			sourceTree = "<group>";
+		};
+		AC789C6C1DE159B700523A12 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				AC789C6D1DE159B700523A12 /* BCYMethod.h */,
+				AC789C6E1DE159B700523A12 /* BCYMethod.m */,
+				ACC3145A217726D900DA5276 /* GelbooruMethod.h */,
+				ACC3145B217726D900DA5276 /* GelbooruMethod.m */,
+				AC789C801DE15A1D00523A12 /* JDLingyuMethod.h */,
+				AC789C811DE15A1D00523A12 /* JDLingyuMethod.m */,
+				AC789C6F1DE159B700523A12 /* TumblrMethod.h */,
+				AC789C701DE159B700523A12 /* TumblrMethod.m */,
+				AC789C711DE159B700523A12 /* WeiboMethod.h */,
+				AC789C721DE159B700523A12 /* WeiboMethod.m */,
+				AC789C861DE15A3600523A12 /* WorldCosplayMethod.h */,
+				AC789C871DE15A3600523A12 /* WorldCosplayMethod.m */,
+				AC19E1551E4857020084A510 /* Pixiv */,
+				AC789C761DE159E100523A12 /* ExHentai */,
+				ACA5162B220175F20074AB73 /* DeviantartMethod.h */,
+				ACA5162C220175F20074AB73 /* DeviantartMethod.m */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		AC789C761DE159E100523A12 /* ExHentai */ = {
+			isa = PBXGroup;
+			children = (
+				AC789C771DE159E100523A12 /* ExHentaiManager.h */,
+				AC789C781DE159E100523A12 /* ExHentaiManager.m */,
+				AC789C791DE159E100523A12 /* ExHentaiPagesManager.h */,
+				AC789C7A1DE159E100523A12 /* ExHentaiPagesManager.m */,
+				AC79E1CB1F4EA125008432B9 /* ExHentaiTorrentManager.h */,
+				AC79E1CC1F4EA125008432B9 /* ExHentaiTorrentManager.m */,
+				AC789C7B1DE159E100523A12 /* ExHentaiUrlsManager.h */,
+				AC789C7C1DE159E100523A12 /* ExHentaiUrlsManager.m */,
+				ACA0F05021E19E200097D144 /* ExHentaiPixivUrlsManager.h */,
+				ACA0F05121E19E200097D144 /* ExHentaiPixivUrlsManager.m */,
+			);
+			path = ExHentai;
+			sourceTree = "<group>";
+		};
+		AC8508C01DB39146004AFE84 = {
+			isa = PBXGroup;
+			children = (
+				AC8508CB1DB39146004AFE84 /* MyResourceBox */,
+				AC8508E21DB39147004AFE84 /* MyResourceBoxTests */,
+				AC8508ED1DB39147004AFE84 /* MyResourceBoxUITests */,
+				AC8508CA1DB39146004AFE84 /* Products */,
+				80A17C94FCD65F9A63CE2D11 /* Pods */,
+				5B82EE09030C83694D988C07 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AC8508CA1DB39146004AFE84 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC8508C91DB39146004AFE84 /* MyResourceBox.app */,
+				AC8508DF1DB39147004AFE84 /* MyResourceBoxTests.xctest */,
+				AC8508EA1DB39147004AFE84 /* MyResourceBoxUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC8508CB1DB39146004AFE84 /* MyResourceBox */ = {
+			isa = PBXGroup;
+			children = (
+				AC8508CC1DB39146004AFE84 /* AppDelegate.h */,
+				AC8508CD1DB39146004AFE84 /* AppDelegate.m */,
+				AC8508D21DB39146004AFE84 /* ViewController.h */,
+				AC8508D31DB39146004AFE84 /* ViewController.m */,
+				AC8508D71DB39146004AFE84 /* Main.storyboard */,
+				AC85091D1DB3970D004AFE84 /* Controller */,
+				AC85090F1DB39692004AFE84 /* Managers */,
+				AC8509141DB39692004AFE84 /* Method */,
+				AC8508FE1DB39677004AFE84 /* Model */,
+				AC8509011DB39677004AFE84 /* UtilityFile */,
+				AC8508CF1DB39146004AFE84 /* Supporting Files */,
+			);
+			path = MyResourceBox;
+			sourceTree = "<group>";
+		};
+		AC8508CF1DB39146004AFE84 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC8508D51DB39146004AFE84 /* Assets.xcassets */,
+				AC8508DA1DB39146004AFE84 /* Info.plist */,
+				AC8508D01DB39146004AFE84 /* main.m */,
+				AC8508FD1DB39629004AFE84 /* MyResourceBox-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AC8508E21DB39147004AFE84 /* MyResourceBoxTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC8508E31DB39147004AFE84 /* MyResourceBoxTests.m */,
+				AC8508E51DB39147004AFE84 /* Info.plist */,
+			);
+			path = MyResourceBoxTests;
+			sourceTree = "<group>";
+		};
+		AC8508ED1DB39147004AFE84 /* MyResourceBoxUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AC8508EE1DB39147004AFE84 /* MyResourceBoxUITests.m */,
+				AC8508F01DB39147004AFE84 /* Info.plist */,
+			);
+			path = MyResourceBoxUITests;
+			sourceTree = "<group>";
+		};
+		AC8508FE1DB39677004AFE84 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3C1851DD09F5100A9B31D /* DownloadInfoObject.h */,
+				ACA3C1861DD09F5100A9B31D /* DownloadInfoObject.m */,
+				AC789C641DE1466200523A12 /* CookieInfoObject.h */,
+				AC789C631DE1466200523A12 /* CookieInfoObject.m */,
+				AC98704A1E4C4A650076DC92 /* Resource */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC8509011DB39677004AFE84 /* UtilityFile */ = {
+			isa = PBXGroup;
+			children = (
+				AC315BDE1DEBBE8800DBFA0A /* Consts.h */,
+				AC315BDF1DEBBE8800DBFA0A /* Consts.m */,
+				AC2D1B141DD0191C0085F8E0 /* DeviceInfo.h */,
+				AC2D1B131DD0191C0085F8E0 /* DeviceInfo.m */,
+				AC8509021DB39677004AFE84 /* HttpRequest.h */,
+				AC8509031DB39677004AFE84 /* HttpRequest.m */,
+				AC8509041DB39677004AFE84 /* MyAlert.h */,
+				AC8509051DB39677004AFE84 /* MyAlert.m */,
+				AC8509061DB39677004AFE84 /* UserInfo.h */,
+				AC8509071DB39677004AFE84 /* UserInfo.m */,
+				AC8509081DB39677004AFE84 /* UtilityFile.h */,
+				AC8509091DB39677004AFE84 /* UtilityFile.m */,
+				ACC3149921773BFF00DA5276 /* XMLReader.h */,
+				ACC3149A21773BFF00DA5276 /* XMLReader.m */,
+				AC19E13F1E4844660084A510 /* PixivAPI */,
+			);
+			path = UtilityFile;
+			sourceTree = "<group>";
+		};
+		AC85090F1DB39692004AFE84 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AC789C671DE1467000523A12 /* CookieManager.h */,
+				AC789C661DE1467000523A12 /* CookieManager.m */,
+				AC8509101DB39692004AFE84 /* FileManager.h */,
+				AC8509111DB39692004AFE84 /* FileManager.m */,
+				ACACB51C21C382D700C8D164 /* GelbooruTagManager.h */,
+				ACACB51D21C382D700C8D164 /* GelbooruTagManager.m */,
+				AC75C6511F8657800060CF6B /* HttpManager.h */,
+				AC75C6521F8657800060CF6B /* HttpManager.m */,
+				ACCAA0361E1B81250017EDDA /* ImageManager.h */,
+				ACCAA0351E1B81250017EDDA /* ImageManager.m */,
+				AC47543D1DCC461800880934 /* OrganizeManager.h */,
+				AC47543E1DCC461800880934 /* OrganizeManager.m */,
+				AC9F4C621E499AD600FD01C5 /* Download */,
+				AC9870641E4C4AB90076DC92 /* SQLite */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		AC8509141DB39692004AFE84 /* Method */ = {
+			isa = PBXGroup;
+			children = (
+				AC789C891DE1602500523A12 /* AnalysisMethod.h */,
+				AC789C8A1DE1602500523A12 /* AnalysisMethod.m */,
+				AC4754401DCC5B1600880934 /* DownloadMethod.h */,
+				AC4754411DCC5B1600880934 /* DownloadMethod.m */,
+				AC8509151DB39692004AFE84 /* WebArchiveMethod.h */,
+				AC8509161DB39692004AFE84 /* WebArchiveMethod.m */,
+				AC789C6C1DE159B700523A12 /* Resource */,
+				ACCAA0311E1B80F30017EDDA /* Single */,
+			);
+			path = Method;
+			sourceTree = "<group>";
+		};
+		AC85091D1DB3970D004AFE84 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AC883A261DBB920800CC579E /* WeiboRequestTokenWindowController.h */,
+				AC883A271DBB920800CC579E /* WeiboRequestTokenWindowController.m */,
+				AC883A281DBB920800CC579E /* WeiboRequestTokenWindowController.xib */,
+				AC883A341DBB9DCD00CC579E /* WeiboRequestTokenViewController.h */,
+				AC883A351DBB9DCD00CC579E /* WeiboRequestTokenViewController.m */,
+				AC883A361DBB9DCD00CC579E /* WeiboRequestTokenViewController.xib */,
+				AC85091E1DB3970D004AFE84 /* WeiboTokenWindowController.h */,
+				AC85091F1DB3970D004AFE84 /* WeiboTokenWindowController.m */,
+				AC8509201DB3970D004AFE84 /* WeiboTokenWindowController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AC98704A1E4C4A650076DC92 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				AC98704D1E4C4A650076DC92 /* TumblrPhotoObject.h */,
+				AC98704E1E4C4A650076DC92 /* TumblrPhotoObject.m */,
+				AC98704F1E4C4A650076DC92 /* TumblrVideoObject.h */,
+				AC9870501E4C4A650076DC92 /* TumblrVideoObject.m */,
+				AC9870511E4C4A650076DC92 /* WeiboStatusObject.h */,
+				AC9870521E4C4A650076DC92 /* WeiboStatusObject.m */,
+				AC9870531E4C4A650076DC92 /* WNACGFileModel.h */,
+				AC9870541E4C4A650076DC92 /* WNACGFileModel.m */,
+				AC98705A1E4C4A980076DC92 /* PixivObject */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		AC98705A1E4C4A980076DC92 /* PixivObject */ = {
+			isa = PBXGroup;
+			children = (
+				AC98705B1E4C4A980076DC92 /* PixivDownloadObject.h */,
+				AC98705C1E4C4A980076DC92 /* PixivDownloadObject.m */,
+				AC98705D1E4C4A980076DC92 /* PixivMangaObject.h */,
+				AC98705E1E4C4A980076DC92 /* PixivMangaObject.m */,
+				AC98705F1E4C4A980076DC92 /* PixivMasterObject.h */,
+				AC9870601E4C4A980076DC92 /* PixivMasterObject.m */,
+			);
+			path = PixivObject;
+			sourceTree = "<group>";
+		};
+		AC9870641E4C4AB90076DC92 /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				AC9870651E4C4AB90076DC92 /* SQLiteFMDBManager.h */,
+				AC9870661E4C4AB90076DC92 /* SQLiteFMDBManager.m */,
+				AC9870671E4C4AB90076DC92 /* SQLiteManager.h */,
+				AC9870681E4C4AB90076DC92 /* SQLiteManager.m */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
+		AC9F4C621E499AD600FD01C5 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				AC9F4C6C1E499BBB00FD01C5 /* DownloadQueueManager.h */,
+				AC9F4C6D1E499BBB00FD01C5 /* DownloadQueueManager.m */,
+				AC9F4C691E499B0E00FD01C5 /* DownloadOperation.h */,
+				AC9F4C6A1E499B0E00FD01C5 /* DownloadOperation.m */,
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
+		ACB62B992109B17A00A55C1F /* Images2Mp4 */ = {
+			isa = PBXGroup;
+			children = (
+				ACB62B9D2109B1EA00A55C1F /* HJImagesToVideo */,
+				ACB62B9A2109B19D00A55C1F /* Images2Mp4.h */,
+				ACB62B9B2109B19D00A55C1F /* Images2Mp4.m */,
+			);
+			path = Images2Mp4;
+			sourceTree = "<group>";
+		};
+		ACB62B9D2109B1EA00A55C1F /* HJImagesToVideo */ = {
+			isa = PBXGroup;
+			children = (
+				ACB62B9F2109B1EA00A55C1F /* HJImagesToVideo.h */,
+				ACB62B9E2109B1EA00A55C1F /* HJImagesToVideo.m */,
+			);
+			path = HJImagesToVideo;
+			sourceTree = "<group>";
+		};
+		ACCAA0311E1B80F30017EDDA /* Single */ = {
+			isa = PBXGroup;
+			children = (
+				ACB62B992109B17A00A55C1F /* Images2Mp4 */,
+				ACCAA0331E1B80FB0017EDDA /* OrganizingDayFolder.h */,
+				ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */,
+				ACE554C21F962CA900B99348 /* FileTools.h */,
+				ACE554C31F962CA900B99348 /* FileTools.m */,
+				AC9CA3D7210AC04C00F1AA08 /* OrganizingPhotos.h */,
+				AC9CA3D8210AC04C00F1AA08 /* OrganizingPhotos.m */,
+			);
+			path = Single;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC8508C81DB39146004AFE84 /* MyResourceBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC8508F31DB39147004AFE84 /* Build configuration list for PBXNativeTarget "MyResourceBox" */;
+			buildPhases = (
+				7A08DDA7CEC8A9DF6AB79D71 /* [CP] Check Pods Manifest.lock */,
+				AC8508C51DB39146004AFE84 /* Sources */,
+				AC8508C61DB39146004AFE84 /* Frameworks */,
+				AC8508C71DB39146004AFE84 /* Resources */,
+				AC8508FC1DB391B3004AFE84 /* ShellScript */,
+				6D127BD605CC10F0FFF24689 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyResourceBox;
+			productName = MyResourceBox;
+			productReference = AC8508C91DB39146004AFE84 /* MyResourceBox.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AC8508DE1DB39147004AFE84 /* MyResourceBoxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC8508F61DB39147004AFE84 /* Build configuration list for PBXNativeTarget "MyResourceBoxTests" */;
+			buildPhases = (
+				AC8508DB1DB39147004AFE84 /* Sources */,
+				AC8508DC1DB39147004AFE84 /* Frameworks */,
+				AC8508DD1DB39147004AFE84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC8508E11DB39147004AFE84 /* PBXTargetDependency */,
+			);
+			name = MyResourceBoxTests;
+			productName = MyResourceBoxTests;
+			productReference = AC8508DF1DB39147004AFE84 /* MyResourceBoxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AC8508E91DB39147004AFE84 /* MyResourceBoxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC8508F91DB39147004AFE84 /* Build configuration list for PBXNativeTarget "MyResourceBoxUITests" */;
+			buildPhases = (
+				AC8508E61DB39147004AFE84 /* Sources */,
+				AC8508E71DB39147004AFE84 /* Frameworks */,
+				AC8508E81DB39147004AFE84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC8508EC1DB39147004AFE84 /* PBXTargetDependency */,
+			);
+			name = MyResourceBoxUITests;
+			productName = MyResourceBoxUITests;
+			productReference = AC8508EA1DB39147004AFE84 /* MyResourceBoxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC8508C11DB39146004AFE84 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = gongyuTest;
+				TargetAttributes = {
+					AC8508C81DB39146004AFE84 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					AC8508DE1DB39147004AFE84 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AC8508C81DB39146004AFE84;
+					};
+					AC8508E91DB39147004AFE84 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AC8508C81DB39146004AFE84;
+					};
+				};
+			};
+			buildConfigurationList = AC8508C41DB39146004AFE84 /* Build configuration list for PBXProject "MyResourceBox" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = AC8508C01DB39146004AFE84;
+			productRefGroup = AC8508CA1DB39146004AFE84 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC8508C81DB39146004AFE84 /* MyResourceBox */,
+				AC8508DE1DB39147004AFE84 /* MyResourceBoxTests */,
+				AC8508E91DB39147004AFE84 /* MyResourceBoxUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC8508C71DB39146004AFE84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC19E14F1E4844660084A510 /* PixivAPI.js in Resources */,
+				AC8508D61DB39146004AFE84 /* Assets.xcassets in Resources */,
+				AC8509221DB3970D004AFE84 /* WeiboTokenWindowController.xib in Resources */,
+				AC883A2A1DBB920800CC579E /* WeiboRequestTokenWindowController.xib in Resources */,
+				AC883A381DBB9DCD00CC579E /* WeiboRequestTokenViewController.xib in Resources */,
+				AC8508D91DB39146004AFE84 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC8508DD1DB39147004AFE84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC8508E81DB39147004AFE84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6D127BD605CC10F0FFF24689 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MyResourceBox/Pods-MyResourceBox-resources.sh",
+				"${PODS_ROOT}/DateTools/DateTools/DateTools/DateTools.bundle",
+				"${PODS_ROOT}/TMTumblrSDK/TMTumblrSDK.podspec.json",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DateTools.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TMTumblrSDK.podspec.json",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyResourceBox/Pods-MyResourceBox-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A08DDA7CEC8A9DF6AB79D71 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyResourceBox-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC8508FC1DB391B3004AFE84 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC8508C51DB39146004AFE84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC789C681DE1467000523A12 /* CookieManager.m in Sources */,
+				AC9F4C6E1E499BBB00FD01C5 /* DownloadQueueManager.m in Sources */,
+				AC789C881DE15A3600523A12 /* WorldCosplayMethod.m in Sources */,
+				AC789C8B1DE1602500523A12 /* AnalysisMethod.m in Sources */,
+				ACA0F05221E19E200097D144 /* ExHentaiPixivUrlsManager.m in Sources */,
+				AC9870571E4C4A650076DC92 /* TumblrVideoObject.m in Sources */,
+				AC19E14C1E4844660084A510 /* PAPIAuthor.m in Sources */,
+				AC19E15B1E4857210084A510 /* PixivUserManager.m in Sources */,
+				AC85090C1DB39677004AFE84 /* MyAlert.m in Sources */,
+				AC9870591E4C4A650076DC92 /* WNACGFileModel.m in Sources */,
+				AC85091B1DB39692004AFE84 /* WebArchiveMethod.m in Sources */,
+				ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */,
+				ACCAA0341E1B80FB0017EDDA /* OrganizingDayFolder.m in Sources */,
+				AC8509211DB3970D004AFE84 /* WeiboTokenWindowController.m in Sources */,
+				AC883A371DBB9DCD00CC579E /* WeiboRequestTokenViewController.m in Sources */,
+				AC8508D41DB39146004AFE84 /* ViewController.m in Sources */,
+				ACB62BA02109B1EA00A55C1F /* HJImagesToVideo.m in Sources */,
+				AC47543F1DCC461800880934 /* OrganizeManager.m in Sources */,
+				AC9F4C711E49B06E00FD01C5 /* PixivDownloadManager.m in Sources */,
+				AC883A291DBB920800CC579E /* WeiboRequestTokenWindowController.m in Sources */,
+				AC19E1511E4844660084A510 /* SAPIIllust.m in Sources */,
+				AC8508D11DB39146004AFE84 /* main.m in Sources */,
+				AC9870611E4C4A980076DC92 /* PixivDownloadObject.m in Sources */,
+				AC8508CE1DB39146004AFE84 /* AppDelegate.m in Sources */,
+				AC9870631E4C4A980076DC92 /* PixivMasterObject.m in Sources */,
+				ACA3C1871DD09F5100A9B31D /* DownloadInfoObject.m in Sources */,
+				AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */,
+				AC85090E1DB39677004AFE84 /* UtilityFile.m in Sources */,
+				ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */,
+				AC9870621E4C4A980076DC92 /* PixivMangaObject.m in Sources */,
+				AC2D1B151DD0191C0085F8E0 /* DeviceInfo.m in Sources */,
+				AC789C821DE15A1D00523A12 /* JDLingyuMethod.m in Sources */,
+				AC789C7E1DE159E100523A12 /* ExHentaiPagesManager.m in Sources */,
+				ACACB51E21C382D700C8D164 /* GelbooruTagManager.m in Sources */,
+				AC79E1CD1F4EA125008432B9 /* ExHentaiTorrentManager.m in Sources */,
+				AC85090B1DB39677004AFE84 /* HttpRequest.m in Sources */,
+				ACA5162D220175F20074AB73 /* DeviantartMethod.m in Sources */,
+				AC789C731DE159B700523A12 /* BCYMethod.m in Sources */,
+				AC9F4C6B1E499B0E00FD01C5 /* DownloadOperation.m in Sources */,
+				AC9CA3D9210AC04C00F1AA08 /* OrganizingPhotos.m in Sources */,
+				AC789C741DE159B700523A12 /* TumblrMethod.m in Sources */,
+				ACB62B9C2109B19D00A55C1F /* Images2Mp4.m in Sources */,
+				ACA9C91A21FD933500B33CB4 /* PixivHttpSessionManager.m in Sources */,
+				AC85090D1DB39677004AFE84 /* UserInfo.m in Sources */,
+				AC789C751DE159B700523A12 /* WeiboMethod.m in Sources */,
+				ACA9C91D21FD950E00B33CB4 /* PixivAPIManager.m in Sources */,
+				ACC3149B21773BFF00DA5276 /* XMLReader.m in Sources */,
+				AC789C7F1DE159E100523A12 /* ExHentaiUrlsManager.m in Sources */,
+				AC19E1581E4857020084A510 /* PixivMethod.m in Sources */,
+				AC789C651DE1466200523A12 /* CookieInfoObject.m in Sources */,
+				ACCAA0371E1B81250017EDDA /* ImageManager.m in Sources */,
+				AC315BE01DEBBE8800DBFA0A /* Consts.m in Sources */,
+				AC789C7D1DE159E100523A12 /* ExHentaiManager.m in Sources */,
+				ACA9C92021FD954E00B33CB4 /* PixivLoginUserManager.m in Sources */,
+				AC8509191DB39692004AFE84 /* FileManager.m in Sources */,
+				AC75C6531F8657800060CF6B /* HttpManager.m in Sources */,
+				AC9870581E4C4A650076DC92 /* WeiboStatusObject.m in Sources */,
+				AC19E15E1E4857410084A510 /* PixivIllustManager.m in Sources */,
+				AC19E14D1E4844660084A510 /* PAPIIllust.m in Sources */,
+				ACAFAADB21FDB13100323A0A /* PixivGeneralManager.m in Sources */,
+				AC9870691E4C4AB90076DC92 /* SQLiteFMDBManager.m in Sources */,
+				AC9870561E4C4A650076DC92 /* TumblrPhotoObject.m in Sources */,
+				AC19E14E1E4844660084A510 /* PAPIIllustList.m in Sources */,
+				AC19E1501E4844660084A510 /* PixivAPI.m in Sources */,
+				ACE554C41F962CA900B99348 /* FileTools.m in Sources */,
+				AC98706A1E4C4AB90076DC92 /* SQLiteManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC8508DB1DB39147004AFE84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC8508E41DB39147004AFE84 /* MyResourceBoxTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC8508E61DB39147004AFE84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC8508EF1DB39147004AFE84 /* MyResourceBoxUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC8508E11DB39147004AFE84 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC8508C81DB39146004AFE84 /* MyResourceBox */;
+			targetProxy = AC8508E01DB39147004AFE84 /* PBXContainerItemProxy */;
+		};
+		AC8508EC1DB39147004AFE84 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC8508C81DB39146004AFE84 /* MyResourceBox */;
+			targetProxy = AC8508EB1DB39147004AFE84 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AC8508D71DB39146004AFE84 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC8508D81DB39146004AFE84 /* Base */,
+				AC88DFDF20157AE3008DA7FB /* zh-Hans */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC8508F11DB39147004AFE84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyResourceBox/MyResourceBox-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AC8508F21DB39147004AFE84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyResourceBox/MyResourceBox-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AC8508F41DB39147004AFE84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F06A2677008C24265A66745 /* Pods-MyResourceBox.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MyResourceBox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gongyuTest.MyResourceBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AC8508F51DB39147004AFE84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E6EF246B14293D67685967F /* Pods-MyResourceBox.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MyResourceBox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gongyuTest.MyResourceBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AC8508F71DB39147004AFE84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MyResourceBoxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gongyuTest.MyResourceBoxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyResourceBox.app/Contents/MacOS/MyResourceBox";
+			};
+			name = Debug;
+		};
+		AC8508F81DB39147004AFE84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MyResourceBoxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gongyuTest.MyResourceBoxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyResourceBox.app/Contents/MacOS/MyResourceBox";
+			};
+			name = Release;
+		};
+		AC8508FA1DB39147004AFE84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MyResourceBoxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gongyuTest.MyResourceBoxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyResourceBox;
+			};
+			name = Debug;
+		};
+		AC8508FB1DB39147004AFE84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MyResourceBoxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gongyuTest.MyResourceBoxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyResourceBox;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC8508C41DB39146004AFE84 /* Build configuration list for PBXProject "MyResourceBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC8508F11DB39147004AFE84 /* Debug */,
+				AC8508F21DB39147004AFE84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC8508F31DB39147004AFE84 /* Build configuration list for PBXNativeTarget "MyResourceBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC8508F41DB39147004AFE84 /* Debug */,
+				AC8508F51DB39147004AFE84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC8508F61DB39147004AFE84 /* Build configuration list for PBXNativeTarget "MyResourceBoxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC8508F71DB39147004AFE84 /* Debug */,
+				AC8508F81DB39147004AFE84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC8508F91DB39147004AFE84 /* Build configuration list for PBXNativeTarget "MyResourceBoxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC8508FA1DB39147004AFE84 /* Debug */,
+				AC8508FB1DB39147004AFE84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC8508C11DB39146004AFE84 /* Project object */;
+}
