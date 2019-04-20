@@ -55,6 +55,8 @@ static GelbooruMethod *method;
 }
 
 - (void)configMethod:(NSInteger)cellRow {
+    [UtilityFile resetCurrentDate];
+    
     switch (cellRow) {
         case 1:
             [self fetchDailyPostUrl];
@@ -98,8 +100,7 @@ static GelbooruMethod *method;
 
 #pragma mark - 获取 Fate 和 ACG 图片地址
 - (void)fetchDailyPostUrl {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取 Fate 和 ACG 图片地址：已经准备就绪"];
+    [[UtilityFile sharedInstance] showLogWithFormat:@"获取 Fate 和 ACG 图片地址，流程开始"];
     
     curPage = 0;
     fatePosts = [NSMutableArray array];
@@ -232,6 +233,8 @@ static GelbooruMethod *method;
 
 #pragma mark - 获取特定标签的图片地址
 - (void)fetchSpecificTagPostUrl {
+    [[UtilityFile sharedInstance] showLogWithFormat:@"获取特定标签的图片地址，流程开始"];
+    
     NSString *inputString = [AppDelegate defaultVC].inputTextView.string;
     if (inputString.length == 0) {
         [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
@@ -311,9 +314,10 @@ static GelbooruMethod *method;
 
 #pragma mark - 下载并整理日常图片
 - (void)downloadAndOrganize {
+    [[UtilityFile sharedInstance] showLogWithFormat:@"下载并整理日常图片，流程开始"];
+    
     switch (totalDownloadStep) {
         case 0: {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"下载并整理日常图片，流程开始"];
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Fate 图片, 开始"];
             
             totalDownloadStep += 1;
