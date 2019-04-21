@@ -52,7 +52,9 @@
 
 // Step 1: 将 url 全部修正成 https://www.pixiv.net/member_illust.php?id=xxx 的格式
 - (void)fixPixivUrls {
-    for (NSInteger i = 0; i < fixedUserUrls.count; i++) {
+    NSMutableArray *useless = [NSMutableArray array]; // 无用的
+    
+    for (NSInteger i = fixedUserUrls.count - 1; i >= 0; i--) {
         NSString *url = fixedUserUrls[i];
         
         if ([url containsString:@"fanbox"]) {
@@ -63,9 +65,19 @@
             url = [url stringByReplacingOccurrencesOfString:@"http://" withString:@"https://"];
             url = [url stringByReplacingOccurrencesOfString:@"member.php" withString:@"member_illust.php"];
         }
+        
+        if (![url containsString:@"www.pixiv.net"] || ![url containsString:@"="]) {
+            NSLog(@"useless: %@", url);
+            [useless addObject:fixedUserUrls];
+            [fixedUserUrls removeObjectAtIndex:i];
+        }
     }
     
     [[UtilityFile sharedInstance] showLogWithFormat:@"获取到 %ld 条记录", fixedUserUrls.count];
+    if (useless.count > 0) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"有 %ld 条无用记录", useless.count];
+        [UtilityFile exportArray:useless atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivUselessUrls.txt"];
+    }
 }
 
 // Step 2: 去重
