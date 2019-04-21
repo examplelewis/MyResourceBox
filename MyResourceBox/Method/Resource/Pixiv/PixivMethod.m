@@ -534,26 +534,26 @@ static PixivMethod *instance;
             userId = [urlComp[1] integerValue];
         }
         
-        NSDictionary *user = nil;
+        NSInteger blockLevel = -100; // -100 表示没有从数据库中查找到数据
         FMResultSet *rs = [db executeQuery:@"select * from pixivBlockUser where member_id = ?", @(userId)];
         while ([rs next]) {
-            user = @{@"userId": @([rs intForColumn:@"member_id"]), @"userName": [rs stringForColumn:@"user_name"], @"blockLevel": @([rs intForColumn:@"block_level"])};
+            blockLevel = [rs intForColumn:@"block_level"];
         }
         [rs close];
         
         // 如果数据表中没有这个人的记录，那么添加一条记录；如果有记录，并且 block_level 不是 1，即便是 2，也修改成 1
-        if (!user) {
+        if (blockLevel == -100) {
             BOOL success = [db executeUpdate:@"INSERT INTO pixivBlockUser (id, member_id, user_name, block_level) values(?, ?, ?, ?)", NULL, @(userId), NULL, @(1)];
             if (!success) {
                 [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:pixivBlockUser中插入数据时发生错误：%@", [db lastErrorMessage]];
                 [[UtilityFile sharedInstance] showLogWithFormat:@"数据：userId: %ld", userId];
             }
         } else {
-            if ([user[@"blockLevel"] integerValue] != 1) {
+            if (blockLevel != 1) {
                 BOOL success = [db executeUpdate:@"UPDATE pixivBlockUser SET block_level = 1 WHERE member_id = ?", @(userId)];
                 if (!success) {
                     [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:pixivBlockUser中更新数据时发生错误：%@", [db lastErrorMessage]];
-                    [[UtilityFile sharedInstance] showLogWithFormat:@"数据：", user];
+                    [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", @{@"userId": @(userId), @"blockLevel": @(blockLevel)}];
                 }
             }
         }
