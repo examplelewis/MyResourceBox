@@ -286,8 +286,8 @@ static GelbooruMethod *method;
         
         [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", strongSelf->specificTag, strongSelf->curTagPage + 1];
         
-        // 超过 200 页，就报错了
-        if (strongSelf->curTagPage >= strongSelf->maxPage) {
+        // 超过 200 页，就报错了；如果某一页小于100条原始数据，说明是最后一页
+        if (strongSelf->curTagPage >= strongSelf->maxPage || array.count != 100) {
             [strongSelf fetchSpecificTagPostsSucceed];
         } else {
             strongSelf->curTagPage += 1;
