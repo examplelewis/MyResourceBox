@@ -60,15 +60,18 @@
         if ([url containsString:@"fanbox"]) {
             // https://www.pixiv.net/fanbox/creator/24872309
             url = [NSString stringWithFormat:@"https://www.pixiv.net/member_illust.php?id=%@", url.lastPathComponent];
+            
+            [fixedUserUrls replaceObjectAtIndex:i withObject:url];
         } else {
             // https://www.pixiv.net/member.php?id=24872309
             url = [url stringByReplacingOccurrencesOfString:@"http://" withString:@"https://"];
             url = [url stringByReplacingOccurrencesOfString:@"member.php" withString:@"member_illust.php"];
+            
+            [fixedUserUrls replaceObjectAtIndex:i withObject:url];
         }
         
         if (![url containsString:@"www.pixiv.net"] || ![url containsString:@"="]) {
-            NSLog(@"useless: %@", url);
-            [useless addObject:fixedUserUrls];
+            [useless addObject:url];
             [fixedUserUrls removeObjectAtIndex:i];
         }
     }
