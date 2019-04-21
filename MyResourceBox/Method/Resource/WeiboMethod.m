@@ -145,6 +145,7 @@ static WeiboMethod *method;
                 }
             }
             statusKey = [statusKey stringByAppendingFormat:@"【%@-%@】", object.user_screen_name, object.created_at_readable_str];
+            statusKey = [statusKey stringByReplacingOccurrencesOfString:@"/" withString:@" "]; // 防止有 / 出现
             
             [self->weiboStatuses setObject:object.img_urls forKey:statusKey];
             [self->weiboImages addObjectsFromArray:object.img_urls];
