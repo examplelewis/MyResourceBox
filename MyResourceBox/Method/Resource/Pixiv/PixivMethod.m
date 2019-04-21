@@ -114,6 +114,10 @@ static PixivMethod *instance;
             [self updateBlockLevel1PixivUser];
         }
             break;
+        case 13: {
+            [self updateBlockLevel2PixivUser];
+        }
+            break;
         case 21: {
             [self checkPixivUserHasFollowed];
         }
@@ -562,6 +566,77 @@ static PixivMethod *instance;
     [db close];
     
     [[UtilityFile sharedInstance] showLogWithFormat:@"更新Pixiv屏蔽用户名单，流程结束"];
+    if (useless.count > 0) {
+        [UtilityFile exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilUpdateBlockUseless.txt"];
+    }
+}
+- (void)updateBlockLevel2PixivUser {
+    [[UtilityFile sharedInstance] showLogWithFormat:@"更新Pixiv不确定屏蔽用户名单，流程开始"];
+    
+    NSString *input = [AppDelegate defaultVC].inputTextView.string;
+    if (input.length == 0) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[UtilityFile sharedInstance] showLogWithFormat:@"更新Pixiv不确定屏蔽用户名单，流程结束"];
+        return;
+    }
+    
+    NSMutableArray *useless = [NSMutableArray array]; // 非 pixiv 的地址
+    
+    db = [FMDatabase databaseWithPath:[[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
+    //判断数据库是否已经打开，如果没有打开，提示失败
+    if (![db open]) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"更新Pixiv不确定屏蔽用户名单 时发生错误：%@", [db lastErrorMessage]];
+        [[UtilityFile sharedInstance] showLogWithFormat:@"更新Pixiv不确定屏蔽用户名单，流程结束"];
+        return;
+    }
+    //为数据库设置缓存，提高查询效率
+    [db setShouldCacheStatements:YES];
+    
+    NSArray *urls = [input componentsSeparatedByString:@"\n"];
+    for (NSInteger i = 0; i < urls.count; i++) {
+        NSString *url = urls[i];
+        NSInteger userId = [url integerValue]; // 先看看是否是数字
+        
+        if (userId == 0) {
+            // 既不是数字，也不是包含 pixiv.net 的字符串，判定为非 pixiv 的地址
+            if (![url containsString:@"pixiv.net"]) {
+                [useless addObject:url];
+                continue;
+            }
+            
+            // 如果字符串包含 pixiv.net，那么从字符串中解析 userId
+            NSArray *urlComp = [url componentsSeparatedByString:@"="];
+            userId = [urlComp[1] integerValue];
+        }
+        
+        NSInteger blockLevel = -100; // -100 表示没有从数据库中查找到数据
+        FMResultSet *rs = [db executeQuery:@"select * from pixivBlockUser where member_id = ?", @(userId)];
+        while ([rs next]) {
+            blockLevel = [rs intForColumn:@"block_level"];
+        }
+        [rs close];
+        
+        // 如果数据表中没有这个人的记录，那么添加一条记录；如果有记录，只有 block_level 是 0，才修改成 1
+        if (blockLevel == -100) {
+            BOOL success = [db executeUpdate:@"INSERT INTO pixivBlockUser (id, member_id, user_name, block_level) values(?, ?, ?, ?)", NULL, @(userId), NULL, @(2)];
+            if (!success) {
+                [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:pixivBlockUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+                [[UtilityFile sharedInstance] showLogWithFormat:@"数据：userId: %ld", userId];
+            }
+        } else {
+            if (blockLevel == 0) {
+                BOOL success = [db executeUpdate:@"UPDATE pixivBlockUser SET block_level = 2 WHERE member_id = ?", @(userId)];
+                if (!success) {
+                    [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:pixivBlockUser中更新数据时发生错误：%@", [db lastErrorMessage]];
+                    [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", @{@"userId": @(userId), @"blockLevel": @(blockLevel)}];
+                }
+            }
+        }
+    }
+    
+    [db close];
+    
+    [[UtilityFile sharedInstance] showLogWithFormat:@"更新Pixiv不确定屏蔽用户名单，流程结束"];
     if (useless.count > 0) {
         [UtilityFile exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilUpdateBlockUseless.txt"];
     }

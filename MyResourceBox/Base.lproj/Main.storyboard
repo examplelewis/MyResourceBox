@@ -745,6 +745,12 @@
                                                             <action selector="processingPixiv:" target="Voe-Tx-rLC" id="v42-eS-sMk"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="更新不确定拉黑的用户" tag="13" id="qMq-O5-D8B">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="itC-lS-a1Z"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="2Vq-L2-mDI"/>
                                                     <menuItem title="是否关注了用户" tag="21" id="1WG-X8-too">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
