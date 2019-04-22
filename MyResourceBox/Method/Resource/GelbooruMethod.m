@@ -284,7 +284,7 @@ static GelbooruMethod *method;
         
         [UtilityFile exportArray:specificTagUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostUrl.txt", strongSelf->specificTag]];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", strongSelf->specificTag, strongSelf->curTagPage + 1];
+        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", strongSelf->specificTag, strongSelf->curTagPage];
         
         // 如果某一页小于100条原始数据，说明是最后一页
         if (strongSelf->curTagPage >= strongSelf->maxPage || array.count != 100) {
