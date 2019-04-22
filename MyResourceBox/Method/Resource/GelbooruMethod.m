@@ -504,20 +504,18 @@ static GelbooruMethod *method;
     [self moveFilesToDayFolderFromFolder:@"/Users/Mercury/Downloads/~Fate/"];
     [self moveFilesToDayFolderFromFolder:@"/Users/Mercury/Downloads/~Azur/"];
     [self moveFilesToDayFolderFromFolder:@"/Users/Mercury/Downloads/~Overwatch/"];
-    NSArray *animeFolders = [[FileManager defaultManager] getSubFoldersPathInFolder:@"/Users/Mercury/Downloads/~Anime/"];
-    for (NSInteger i = 0; i < animeFolders.count; i++) {
-        NSString *animeFolder = animeFolders[i];
-        [self moveFilesToDayFolderFromFolder:animeFolder];
-    }
-    NSArray *gameFolders = [[FileManager defaultManager] getSubFoldersPathInFolder:@"/Users/Mercury/Downloads/~Game/"];
-    for (NSInteger i = 0; i < gameFolders.count; i++) {
-        NSString *gameFolder = gameFolders[i];
-        [self moveFilesToDayFolderFromFolder:gameFolder];
-    }
+    [self moveFilesToDayFolderFromFolder:@"/Users/Mercury/Downloads/~Anime/"];
+    [self moveFilesToDayFolderFromFolder:@"/Users/Mercury/Downloads/~Game/"];
     
     [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程结束"];
 }
 - (void)moveFilesToDayFolderFromFolder:(NSString *)fromFolder {
+    if (![[FileManager defaultManager] isContentExistAtPath:fromFolder]) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 文件夹不存在，无法移动内容到 Day 文件夹中", fromFolder];
+        
+        return;
+    }
+    
     NSString *toFolder = [fromFolder stringByReplacingOccurrencesOfString:@"/Users/Mercury/Downloads/" withString:@"/Users/Mercury/Pictures/Day/"];
     [[FileManager defaultManager] createFolderAtPathIfNotExist:toFolder];
     
@@ -530,6 +528,9 @@ static GelbooruMethod *method;
     }
     
     [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 文件内所有文件以及移动到 %@ 中", fromFolder, toFolder];
+    
+    [[FileManager defaultManager] trashFileAtPath:fromFolder resultItemURL:nil];
+    [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 文件夹已被移动到废纸篓中", fromFolder];
 }
 
 @end
