@@ -244,10 +244,10 @@ static GelbooruMethod *method;
     NSArray *inputComps = [inputString componentsSeparatedByString:@"|"];
     specificTag = inputComps[0];
     if (inputComps.count == 1) {
-        minPage = 0;
+        minPage = 1;
         maxPage = 40;
     } else if (inputComps.count == 2) {
-        minPage = 0;
+        minPage = 1;
         maxPage = [inputComps[1] integerValue];
     } else {
         minPage = [inputComps[1] integerValue];
@@ -262,7 +262,7 @@ static GelbooruMethod *method;
 }
 - (void)fetchSingleSepcificTagPostUrl {
     __weak typeof(self) weakSelf = self;
-    [[HttpRequest shareIndex] getSpecificTagPicFromGelbooruTag:specificTag page:curTagPage progress:^(NSProgress *downloadProgress) {
+    [[HttpRequest shareIndex] getSpecificTagPicFromGelbooruTag:specificTag page:curTagPage - 1 progress:^(NSProgress *downloadProgress) {
         
     } success:^(NSArray *array) {
         __strong typeof(self) strongSelf = weakSelf;
@@ -286,7 +286,7 @@ static GelbooruMethod *method;
         
         [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", strongSelf->specificTag, strongSelf->curTagPage + 1];
         
-        // 超过 200 页，就报错了；如果某一页小于100条原始数据，说明是最后一页
+        // 如果某一页小于100条原始数据，说明是最后一页
         if (strongSelf->curTagPage >= strongSelf->maxPage || array.count != 100) {
             [strongSelf fetchSpecificTagPostsSucceed];
         } else {
