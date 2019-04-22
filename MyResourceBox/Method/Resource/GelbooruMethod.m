@@ -403,6 +403,8 @@ static GelbooruMethod *method;
 - (void)downloadGelbooruPic:(NSString *)fetchedFilePath targetFolderPath:(NSString *)targetFolderPath organizeAfterDownload:(BOOL)organize {
     if (![[FileManager defaultManager] isContentExistAtPath:fetchedFilePath]) {
         [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 不存在", fetchedFilePath.lastPathComponent];
+        [self downloadAndOrganize];
+        
         return;
     }
     
@@ -447,12 +449,11 @@ static GelbooruMethod *method;
     for (NSInteger i = 0; i < renameInfo.allKeys.count; i++) {
         NSString *key = renameInfo.allKeys[i]; // key 是下载好的文件名
         NSString *value = renameInfo[key];
-        NSString *animeTag = [value componentsSeparatedByString:@" - "].firstObject;
+        value = [value stringByReplacingOccurrencesOfString:@"/" withString:@" "];
+        value = [value stringByReplacingOccurrencesOfString:@":" withString:@" "];
         NSString *downloadPath = [NSString stringWithFormat:@"%@%@", animeRootFodlerPath, key];
-        NSString *targetPath = [NSString stringWithFormat:@"%@%@/%@", animeRootFodlerPath, animeTag, key];
-        NSString *folderPath = [NSString stringWithFormat:@"%@%@/", animeRootFodlerPath, animeTag];
+        NSString *targetPath = [NSString stringWithFormat:@"%@%@", animeRootFodlerPath, value];
         
-        [[FileManager defaultManager] createFolderAtPathIfNotExist:folderPath];
         [[FileManager defaultManager] moveItemAtPath:downloadPath toDestPath:targetPath];
     }
     
@@ -479,12 +480,11 @@ static GelbooruMethod *method;
     for (NSInteger i = 0; i < renameInfo.allKeys.count; i++) {
         NSString *key = renameInfo.allKeys[i]; // key 是下载好的文件名
         NSString *value = renameInfo[key];
-        NSString *animeTag = [value componentsSeparatedByString:@" - "].firstObject;
+        value = [value stringByReplacingOccurrencesOfString:@"/" withString:@" "];
+        value = [value stringByReplacingOccurrencesOfString:@":" withString:@" "];
         NSString *downloadPath = [NSString stringWithFormat:@"%@%@", gameRootFodlerPath, key];
-        NSString *targetPath = [NSString stringWithFormat:@"%@%@/%@", gameRootFodlerPath, animeTag, key];
-        NSString *folderPath = [NSString stringWithFormat:@"%@%@/", gameRootFodlerPath, animeTag];
+        NSString *targetPath = [NSString stringWithFormat:@"%@%@", gameRootFodlerPath, value];
         
-        [[FileManager defaultManager] createFolderAtPathIfNotExist:folderPath];
         [[FileManager defaultManager] moveItemAtPath:downloadPath toDestPath:targetPath];
     }
     

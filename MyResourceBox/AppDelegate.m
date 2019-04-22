@@ -32,6 +32,7 @@
 #import "OrganizingPhotos.h"
 
 #import "GelbooruTagManager.h"
+#import "CatchCrashManager.h"
 
 @interface AppDelegate ()
 
@@ -43,6 +44,9 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    // 注册异常处理函数
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    
     [[UserInfo defaultUser] configureData];
     [[GelbooruTagManager defaultManager] readAllNeededTags];
     
