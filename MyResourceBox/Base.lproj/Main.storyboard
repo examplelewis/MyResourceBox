@@ -695,10 +695,16 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="deK-X9-obk"/>
-                                                    <menuItem title="获取特定标签图片地址" tag="31" id="5zn-Uc-vol">
+                                                    <menuItem title="获取特定标签图片地址【页数】" tag="31" id="5zn-Uc-vol">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="Tjk-wL-aZr"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="获取特定标签图片地址【截止时间】" tag="32" id="sa2-Ns-y6E">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="IKM-Ar-xqk"/>
                                                         </connections>
                                                     </menuItem>
                                                 </items>
