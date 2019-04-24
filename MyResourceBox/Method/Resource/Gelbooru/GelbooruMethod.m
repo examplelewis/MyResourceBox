@@ -12,7 +12,7 @@
 #import "DownloadMethod.h"
 #import "DownloadQueueManager.h"
 
-#import "GelbooruTagEndTimeManager.h"
+#import "GelbooruTagEndTimePicManager.h"
 
 @interface GelbooruMethod () {
     NSInteger curPage;
@@ -96,7 +96,8 @@ static GelbooruMethod *method;
             [self fetchSpecificTagPostUrl];
             break;
         case 32: {
-            [self fetchTagPostUrlByTagAndEndTime];
+            GelbooruTagEndTimePicManager *mananger = [GelbooruTagEndTimePicManager new];
+            [mananger prepareFetching];
         }
             break;
         default:
@@ -319,13 +320,6 @@ static GelbooruMethod *method;
     specificTag = nil;
     maxPage = 0;
 }
-- (void)fetchTagPostUrlByTagAndEndTime {
-    
-    
-    GelbooruTagEndTimeManager *tagM = [GelbooruTagEndTimeManager new];
-    [tagM prepareFetching];
-}
-
 #pragma mark - 下载并整理日常图片
 - (void)downloadAndOrganize {
     [[UtilityFile sharedInstance] showLogWithFormat:@"下载并整理日常图片，流程开始"];

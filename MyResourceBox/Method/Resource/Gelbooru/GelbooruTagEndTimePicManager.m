@@ -1,15 +1,15 @@
 //
-//  GelbooruTagEndTimeManager.m
+//  GelbooruTagEndTimePicManager.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 19/04/23.
 //  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import "GelbooruTagEndTimeManager.h"
+#import "GelbooruTagEndTimePicManager.h"
 #import "HttpRequest.h"
 
-@interface GelbooruTagEndTimeManager () {
+@interface GelbooruTagEndTimePicManager () {
     NSString *tag;
     NSInteger page;
     NSDate *endDate;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation GelbooruTagEndTimeManager
+@implementation GelbooruTagEndTimePicManager
 
 - (void)prepareFetching {
     NSString *input = [AppDelegate defaultVC].inputTextView.string;

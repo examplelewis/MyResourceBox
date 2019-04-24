@@ -77,7 +77,7 @@
 		ACAFAADB21FDB13100323A0A /* PixivGeneralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAFAADA21FDB13100323A0A /* PixivGeneralManager.m */; };
 		ACB62B9C2109B19D00A55C1F /* Images2Mp4.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB62B9B2109B19D00A55C1F /* Images2Mp4.m */; };
 		ACB62BA02109B1EA00A55C1F /* HJImagesToVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB62B9E2109B1EA00A55C1F /* HJImagesToVideo.m */; };
-		ACC1DCB8226F071F001243C1 /* GelbooruTagEndTimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimeManager.m */; };
+		ACC1DCB8226F071F001243C1 /* GelbooruTagEndTimePicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimePicManager.m */; };
 		ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3145B217726D900DA5276 /* GelbooruMethod.m */; };
 		ACC3149B21773BFF00DA5276 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3149A21773BFF00DA5276 /* XMLReader.m */; };
 		ACCAA0341E1B80FB0017EDDA /* OrganizingDayFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */; };
@@ -245,8 +245,8 @@
 		ACB62B9B2109B19D00A55C1F /* Images2Mp4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Images2Mp4.m; sourceTree = "<group>"; };
 		ACB62B9E2109B1EA00A55C1F /* HJImagesToVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJImagesToVideo.m; sourceTree = "<group>"; };
 		ACB62B9F2109B1EA00A55C1F /* HJImagesToVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJImagesToVideo.h; sourceTree = "<group>"; };
-		ACC1DCB6226F071F001243C1 /* GelbooruTagEndTimeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruTagEndTimeManager.h; sourceTree = "<group>"; };
-		ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruTagEndTimeManager.m; sourceTree = "<group>"; };
+		ACC1DCB6226F071F001243C1 /* GelbooruTagEndTimePicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruTagEndTimePicManager.h; sourceTree = "<group>"; };
+		ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimePicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruTagEndTimePicManager.m; sourceTree = "<group>"; };
 		ACC3145A217726D900DA5276 /* GelbooruMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruMethod.h; sourceTree = "<group>"; };
 		ACC3145B217726D900DA5276 /* GelbooruMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruMethod.m; sourceTree = "<group>"; };
 		ACC3149921773BFF00DA5276 /* XMLReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
@@ -625,8 +625,8 @@
 				ACACB51D21C382D700C8D164 /* GelbooruTagStore.m */,
 				ACC3145A217726D900DA5276 /* GelbooruMethod.h */,
 				ACC3145B217726D900DA5276 /* GelbooruMethod.m */,
-				ACC1DCB6226F071F001243C1 /* GelbooruTagEndTimeManager.h */,
-				ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimeManager.m */,
+				ACC1DCB6226F071F001243C1 /* GelbooruTagEndTimePicManager.h */,
+				ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimePicManager.m */,
 			);
 			path = Gelbooru;
 			sourceTree = "<group>";
@@ -846,7 +846,7 @@
 				AC789C8B1DE1602500523A12 /* AnalysisMethod.m in Sources */,
 				ACA0F05221E19E200097D144 /* ExHentaiPixivUrlsManager.m in Sources */,
 				AC9870571E4C4A650076DC92 /* TumblrVideoObject.m in Sources */,
-				ACC1DCB8226F071F001243C1 /* GelbooruTagEndTimeManager.m in Sources */,
+				ACC1DCB8226F071F001243C1 /* GelbooruTagEndTimePicManager.m in Sources */,
 				AC19E14C1E4844660084A510 /* PAPIAuthor.m in Sources */,
 				AC19E15B1E4857210084A510 /* PixivUserManager.m in Sources */,
 				AC85090C1DB39677004AFE84 /* MyAlert.m in Sources */,

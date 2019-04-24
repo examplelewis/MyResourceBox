@@ -1,5 +1,5 @@
 //
-//  GelbooruTagEndTimeManager.h
+//  GelbooruTagEndTimePicManager.h
 //  MyResourceBox
 //
 //  Created by 龚宇 on 19/04/23.
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GelbooruTagEndTimeManager : NSObject
+@interface GelbooruTagEndTimePicManager : NSObject
 
 - (void)prepareFetching;
 
