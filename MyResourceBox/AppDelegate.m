@@ -31,7 +31,6 @@
 #import "Images2Mp4.h"
 #import "OrganizingPhotos.h"
 
-#import "GelbooruTagManager.h"
 #import "CatchCrashManager.h"
 
 @interface AppDelegate ()
@@ -48,7 +47,6 @@
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     [[UserInfo defaultUser] configureData];
-    [[GelbooruTagManager defaultManager] readAllNeededTags];
     
     [self setLogger];
     [self setBuildTime];

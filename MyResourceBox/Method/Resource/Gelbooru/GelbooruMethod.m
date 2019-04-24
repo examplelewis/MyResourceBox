@@ -8,9 +8,10 @@
 
 #import "GelbooruMethod.h"
 #import "HttpRequest.h"
-#import "GelbooruTagManager.h"
+#import "GelbooruTagStore.h"
 #import "DownloadMethod.h"
 #import "DownloadQueueManager.h"
+
 #import "GelbooruTagEndTimeManager.h"
 
 @interface GelbooruMethod () {
@@ -107,6 +108,8 @@ static GelbooruMethod *method;
 - (void)fetchDailyPostUrl {
     [[UtilityFile sharedInstance] showLogWithFormat:@"获取 Fate 和 ACG 图片地址，流程开始"];
     
+    [[GelbooruTagStore defaultManager] readAllNeededTags]; // 先读取 neededTags
+    
     curPage = 0;
     fatePosts = [NSMutableArray array];
     azurPosts = [NSMutableArray array];
@@ -155,7 +158,7 @@ static GelbooruMethod *method;
                 continue;
             }
             
-            NSString *animeTags = [[GelbooruTagManager defaultManager] getAnimeTags:data[@"tags"]];
+            NSString *animeTags = [[GelbooruTagStore defaultManager] getAnimeTags:data[@"tags"]];
             if (animeTags.length > 0) {
                 [self->animePosts addObject:data];
                 
@@ -164,7 +167,7 @@ static GelbooruMethod *method;
                 
                 continue;
             }
-            NSString *gameTags = [[GelbooruTagManager defaultManager] getGameTags:data[@"tags"]];
+            NSString *gameTags = [[GelbooruTagStore defaultManager] getGameTags:data[@"tags"]];
             if (gameTags.length > 0) {
                 [self->gamePosts addObject:data];
                 

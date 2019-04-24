@@ -73,7 +73,7 @@
 		ACA9C91A21FD933500B33CB4 /* PixivHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9C91921FD933500B33CB4 /* PixivHttpSessionManager.m */; };
 		ACA9C91D21FD950E00B33CB4 /* PixivAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9C91C21FD950E00B33CB4 /* PixivAPIManager.m */; };
 		ACA9C92021FD954E00B33CB4 /* PixivLoginUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9C91F21FD954E00B33CB4 /* PixivLoginUserManager.m */; };
-		ACACB51E21C382D700C8D164 /* GelbooruTagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACACB51D21C382D700C8D164 /* GelbooruTagManager.m */; };
+		ACACB51E21C382D700C8D164 /* GelbooruTagStore.m in Sources */ = {isa = PBXBuildFile; fileRef = ACACB51D21C382D700C8D164 /* GelbooruTagStore.m */; };
 		ACAFAADB21FDB13100323A0A /* PixivGeneralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAFAADA21FDB13100323A0A /* PixivGeneralManager.m */; };
 		ACB62B9C2109B19D00A55C1F /* Images2Mp4.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB62B9B2109B19D00A55C1F /* Images2Mp4.m */; };
 		ACB62BA02109B1EA00A55C1F /* HJImagesToVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB62B9E2109B1EA00A55C1F /* HJImagesToVideo.m */; };
@@ -237,8 +237,8 @@
 		ACA9C91C21FD950E00B33CB4 /* PixivAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivAPIManager.m; sourceTree = "<group>"; };
 		ACA9C91E21FD954E00B33CB4 /* PixivLoginUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivLoginUserManager.h; sourceTree = "<group>"; };
 		ACA9C91F21FD954E00B33CB4 /* PixivLoginUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivLoginUserManager.m; sourceTree = "<group>"; };
-		ACACB51C21C382D700C8D164 /* GelbooruTagManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruTagManager.h; sourceTree = "<group>"; };
-		ACACB51D21C382D700C8D164 /* GelbooruTagManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruTagManager.m; sourceTree = "<group>"; };
+		ACACB51C21C382D700C8D164 /* GelbooruTagStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruTagStore.h; sourceTree = "<group>"; };
+		ACACB51D21C382D700C8D164 /* GelbooruTagStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruTagStore.m; sourceTree = "<group>"; };
 		ACAFAAD921FDB13100323A0A /* PixivGeneralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivGeneralManager.h; sourceTree = "<group>"; };
 		ACAFAADA21FDB13100323A0A /* PixivGeneralManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivGeneralManager.m; sourceTree = "<group>"; };
 		ACB62B9A2109B19D00A55C1F /* Images2Mp4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Images2Mp4.h; sourceTree = "<group>"; };
@@ -504,8 +504,6 @@
 				AC789C661DE1467000523A12 /* CookieManager.m */,
 				AC8509101DB39692004AFE84 /* FileManager.h */,
 				AC8509111DB39692004AFE84 /* FileManager.m */,
-				ACACB51C21C382D700C8D164 /* GelbooruTagManager.h */,
-				ACACB51D21C382D700C8D164 /* GelbooruTagManager.m */,
 				AC75C6511F8657800060CF6B /* HttpManager.h */,
 				AC75C6521F8657800060CF6B /* HttpManager.m */,
 				ACCAA0361E1B81250017EDDA /* ImageManager.h */,
@@ -623,6 +621,8 @@
 			isa = PBXGroup;
 			children = (
 				ACC8DDBA226FF493005228D7 /* GelbooruHeader.h */,
+				ACACB51C21C382D700C8D164 /* GelbooruTagStore.h */,
+				ACACB51D21C382D700C8D164 /* GelbooruTagStore.m */,
 				ACC3145A217726D900DA5276 /* GelbooruMethod.h */,
 				ACC3145B217726D900DA5276 /* GelbooruMethod.m */,
 				ACC1DCB6226F071F001243C1 /* GelbooruTagEndTimeManager.h */,
@@ -875,7 +875,7 @@
 				AC2D1B151DD0191C0085F8E0 /* DeviceInfo.m in Sources */,
 				AC789C821DE15A1D00523A12 /* JDLingyuMethod.m in Sources */,
 				AC789C7E1DE159E100523A12 /* ExHentaiPagesManager.m in Sources */,
-				ACACB51E21C382D700C8D164 /* GelbooruTagManager.m in Sources */,
+				ACACB51E21C382D700C8D164 /* GelbooruTagStore.m in Sources */,
 				AC79E1CD1F4EA125008432B9 /* ExHentaiTorrentManager.m in Sources */,
 				AC85090B1DB39677004AFE84 /* HttpRequest.m in Sources */,
 				ACA5162D220175F20074AB73 /* DeviantartMethod.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  GelbooruTagManager.h
+//  GelbooruTagStore.h
 //  MyResourceBox
 //
 //  Created by 龚宇 on 18/12/14.
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GelbooruTagManager : NSObject
+@interface GelbooruTagStore : NSObject
 
-+ (GelbooruTagManager *)defaultManager;
++ (GelbooruTagStore *)defaultManager;
 - (void)readAllNeededTags;
 //- (void)readyToOrganize;
 //- (void)filterAllTags;

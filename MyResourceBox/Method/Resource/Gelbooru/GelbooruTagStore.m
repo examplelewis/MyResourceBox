@@ -1,16 +1,16 @@
 //
-//  GelbooruTagManager.m
+//  GelbooruTagStore.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 18/12/14.
 //  Copyright © 2018 gongyuTest. All rights reserved.
 //
 
-#import "GelbooruTagManager.h"
+#import "GelbooruTagStore.h"
 #import "XMLReader.h"
 #import "HttpRequest.h"
 
-@interface GelbooruTagManager () {
+@interface GelbooruTagStore () {
     NSString *preferencePath; // Preference.plist 文件的路径
     NSString *tagsFolderPath; // Tags 文件夹的路径
     NSString *totalTagsFilePath; // tags-gelbooru_com.xml 文件的路径
@@ -28,14 +28,14 @@
 
 @end
 
-@implementation GelbooruTagManager
+@implementation GelbooruTagStore
 
-static GelbooruTagManager *request;
-+ (GelbooruTagManager *)defaultManager {
+static GelbooruTagStore *request;
++ (GelbooruTagStore *)defaultManager {
     static dispatch_once_t predicate;
     
     dispatch_once(&predicate, ^{
-        request = [[GelbooruTagManager alloc] init];
+        request = [[GelbooruTagStore alloc] init];
     });
     
     return request;
@@ -73,9 +73,14 @@ static GelbooruTagManager *request;
     
     return self;
 }
+
 - (void)readAllNeededTags {
     if ([[FileManager defaultManager] getFilePathsInFolder:neededTagsFolderPath].count == 0) {
         return;
+    }
+    
+    if (neededTags && neededTags.count > 0) {
+        return; // 说明已经读取过 neededTags，不用再读取
     }
     
     NSMutableArray *array = [NSMutableArray array];
@@ -89,7 +94,7 @@ static GelbooruTagManager *request;
         [array addObject:values];
     }
     
-    neededTags = [array copy];
+    neededTags = [NSArray arrayWithArray:array];
 }
 
 - (void)fetchAllTags {
