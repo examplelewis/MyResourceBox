@@ -15,6 +15,7 @@
 #import "GelbooruDailyPicManager.h"
 #import "GelbooruTagEndTimePicManager.h"
 #import "GelbooruTagPagePicManager.h"
+#import "GelbooruFileMoveManager.h"
 
 @interface GelbooruMethod () {
     NSInteger totalDownloadStep; // -1: Not use == Finished, 0: Initial, 1: Fate, 2: Azur, 3: Overwatch, 4: Anime, 5: Game, 6: Organize Anime, 7: Organize Game
@@ -56,8 +57,17 @@ static GelbooruMethod *method;
             [self downloadAndOrganize];
         }
             break;
-        case 3:
-            [self movePicToDayFolder];
+        case 3: {
+            [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程开始"];
+            
+            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruFateRootFolderPath];
+            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruAzurRootFolderPath];
+            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruOverwatchRootFolderPath];
+            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruAnimeRootFolderPath];
+            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruGameRootFolderPath];
+            
+            [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程结束"];
+        }
             break;
         case 11:
             [self downloadFatePic];
@@ -274,42 +284,6 @@ static GelbooruMethod *method;
     if (totalDownloadStep != -1) {
         [self downloadAndOrganize];
     }
-}
-
-#pragma mark - 移动整理好的日常图片
-- (void)movePicToDayFolder {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程开始"];
-    
-    [self moveFilesToDayFolderFromFolder:GelbooruFateRootFolderPath];
-    [self moveFilesToDayFolderFromFolder:GelbooruAzurRootFolderPath];
-    [self moveFilesToDayFolderFromFolder:GelbooruOverwatchRootFolderPath];
-    [self moveFilesToDayFolderFromFolder:GelbooruAnimeRootFolderPath];
-    [self moveFilesToDayFolderFromFolder:GelbooruGameRootFolderPath];
-    
-    [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程结束"];
-}
-- (void)moveFilesToDayFolderFromFolder:(NSString *)fromFolder {
-    if (![[FileManager defaultManager] isContentExistAtPath:fromFolder]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 文件夹不存在，无法移动内容到 Day 文件夹中", fromFolder];
-        
-        return;
-    }
-    
-    NSString *toFolder = [fromFolder stringByReplacingOccurrencesOfString:@"/Users/Mercury/Downloads/" withString:@"/Users/Mercury/Pictures/Day/"];
-    [[FileManager defaultManager] createFolderAtPathIfNotExist:toFolder];
-    
-    NSArray *fromFiles = [[FileManager defaultManager] getFilePathsInFolder:fromFolder];
-    for (NSInteger i = 0; i < fromFiles.count; i++) {
-        NSString *fromFile = fromFiles[i];
-        NSString *toFile = [fromFile stringByReplacingOccurrencesOfString:@"/Users/Mercury/Downloads/" withString:@"/Users/Mercury/Pictures/Day/"];
-        
-        [[FileManager defaultManager] moveItemAtPath:fromFile toDestPath:toFile];
-    }
-    
-    [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 文件内所有文件以及移动到 %@ 中", fromFolder, toFolder];
-    
-    [[FileManager defaultManager] trashFileAtPath:fromFolder resultItemURL:nil];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 文件夹已被移动到废纸篓中", fromFolder];
 }
 
 @end
