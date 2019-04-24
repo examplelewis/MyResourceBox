@@ -13,14 +13,17 @@
 
 @interface GelbooruDailyPicManager () {
     NSInteger curPage;
+    
     NSMutableArray *webmPosts; // webm
     NSMutableArray *fatePosts; // fate
     NSMutableArray *azurPosts; // 碧蓝航线
     NSMutableArray *overwatchPosts; // overwatch
     NSMutableArray *animePosts; // 动漫
     NSMutableArray *gamePosts; // 游戏
+    
     NSMutableDictionary *animeNameInfo;
     NSMutableDictionary *gameNameInfo;
+    
     NSDictionary *latestPost;
     NSDictionary *newestPost;
 }
@@ -50,7 +53,7 @@
 }
 
 - (void)startFetching {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取 Fate 和 ACG 图片地址，流程开始"];
+    [[UtilityFile sharedInstance] showLogWithFormat:@"获取日常图片地址，流程开始"];
     
     [[GelbooruTagStore defaultManager] readAllNeededTags]; // 先读取 neededTags
     
@@ -137,7 +140,7 @@
         [self->animeNameInfo writeToFile:GelbooruAnimePostRenamePlistPath atomically:YES];
         [self->gameNameInfo writeToFile:GelbooruGamePostRenamePlistPath atomically:YES];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 Fate 和 ACG 图片地址：第 %ld 页已获取", self->curPage + 1];
+        [[UtilityFile sharedInstance] showLogWithFormat:@"获取日常图片地址：第 %ld 页已获取", self->curPage + 1];
         
         // 超过 200 页，就报错了
         if (self->curPage >= 199) {
@@ -154,8 +157,8 @@
         }
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
         DDLogError(@"%@: %@", errorTitle, errorMsg);
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 Fate 和 ACG 图片地址，遇到错误：%@: %@", errorTitle, errorMsg];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 Fate 和 ACG 图片地址：流程结束"];
+        [[UtilityFile sharedInstance] showLogWithFormat:@"获取日常图片地址，遇到错误：%@: %@", errorTitle, errorMsg];
+        [[UtilityFile sharedInstance] showLogWithFormat:@"获取日常图片地址：流程结束"];
     }];
 }
 - (void)fetchFatePostsSucceed {
@@ -174,7 +177,7 @@
     }
     
     [[UtilityFile sharedInstance] cleanLog];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取 Fate 和 ACG 图片地址：流程结束"];
+    [[UtilityFile sharedInstance] showLogWithFormat:@"获取日常图片地址：流程结束"];
 }
 
 @end
