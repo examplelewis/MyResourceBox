@@ -8,6 +8,7 @@
 
 #import "GelbooruTagEndTimePicManager.h"
 #import "HttpRequest.h"
+#import "GelbooruHeader.h"
 
 @interface GelbooruTagEndTimePicManager () {
     NSString *tag;

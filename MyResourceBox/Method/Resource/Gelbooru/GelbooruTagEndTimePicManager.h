@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GelbooruHeader.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
