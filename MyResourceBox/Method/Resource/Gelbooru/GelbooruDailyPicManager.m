@@ -13,6 +13,7 @@
 
 @interface GelbooruDailyPicManager () {
     NSInteger curPage;
+    NSMutableArray *webmPosts; // webm
     NSMutableArray *fatePosts; // fate
     NSMutableArray *azurPosts; // 碧蓝航线
     NSMutableArray *overwatchPosts; // overwatch
@@ -32,6 +33,7 @@
     self = [super init];
     if (self) {
         curPage = 0;
+        webmPosts = [NSMutableArray array];
         fatePosts = [NSMutableArray array];
         azurPosts = [NSMutableArray array];
         overwatchPosts = [NSMutableArray array];
@@ -72,6 +74,11 @@
                 continue;
             }
             
+            if ([[data[@"tags"] pathExtension] isEqualToString:@"webm"]) {
+                [self->webmPosts addObject:data];
+                continue;
+            }
+            
             if ([data[@"tags"] containsString:@"fate"]) {
                 [self->fatePosts addObject:data];
                 continue;
@@ -105,6 +112,15 @@
                 
                 continue;
             }
+        }
+        
+        if (self->webmPosts.count > 0) {
+            NSArray *webmIds = [self->webmPosts valueForKey:@"id"];
+            NSMutableArray *webmUrls = [NSMutableArray array];
+            for (NSInteger i = 0; i < webmIds.count; i++) {
+                [webmUrls addObject:[NSString stringWithFormat:@"https://gelbooru.com/index.php?page=post&s=view&id=%@", webmIds[i]]];
+            }
+            [UtilityFile exportArray:webmUrls atPath:GelbooruWebmPostTxtPath];
         }
         
         NSArray *fateUrls = [self->fatePosts valueForKey:@"file_url"];

@@ -9,6 +9,7 @@
 #ifndef GelbooruHeader_h
 #define GelbooruHeader_h
 
+static NSString * const GelbooruWebmPostTxtPath = @"/Users/Mercury/Downloads/GelbooruWebmPostUrl.txt";
 static NSString * const GelbooruFatePostTxtPath = @"/Users/Mercury/Downloads/GelbooruFatePostUrl.txt";
 static NSString * const GelbooruAzurPostTxtPath = @"/Users/Mercury/Downloads/GelbooruAzurPostUrl.txt";
 static NSString * const GelbooruOverwatchPostTxtPath = @"/Users/Mercury/Downloads/GelbooruOverwatchPostUrl.txt";
