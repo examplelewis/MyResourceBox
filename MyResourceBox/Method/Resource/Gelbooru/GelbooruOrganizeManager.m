@@ -52,8 +52,8 @@
     
     [[UtilityFile sharedInstance] showLogWithFormat:@"整理 %@ 内的图片, 流程结束", rootFolderPath.lastPathComponent];
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(gelbooruOrganzieManagerDidFinishOrganizing)]) {
-        [self.delegate gelbooruOrganzieManagerDidFinishOrganizing];
+    if (self.finishBlock) {
+        self.finishBlock();
     }
 }
 

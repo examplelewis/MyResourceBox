@@ -10,16 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol GelbooruDownloadDelegate <NSObject>
-
-@optional
-- (void)gelbooruDownloadManagerDidFinishDownloading;
-
-@end
-
 @interface GelbooruDownloadManager : NSObject
 
-@property (weak) id <GelbooruDownloadDelegate> delegate;
 @property (copy) void(^finishBlock)(void);
 
 - (instancetype)initWithTXTFilePath:(NSString *)filePath targetFolderPath:(NSString *)folderPath;

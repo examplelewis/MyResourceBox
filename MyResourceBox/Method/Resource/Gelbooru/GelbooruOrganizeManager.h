@@ -10,16 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol GelbooruOrganizeDelegate <NSObject>
-
-@optional
-- (void)gelbooruOrganzieManagerDidFinishOrganizing;
-
-@end
-
 @interface GelbooruOrganizeManager : NSObject
 
-@property (weak) id <GelbooruOrganizeDelegate> delegate;
+@property (copy) void(^finishBlock)(void);
 
 - (instancetype)initWithPlistFilePath:(NSString *)filePath targetFolderPath:(NSString *)folderPath;
 - (void)startOrganizing;
