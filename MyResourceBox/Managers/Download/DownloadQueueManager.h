@@ -10,14 +10,14 @@
 
 @interface DownloadQueueManager : NSObject
 
-@property (nonatomic, copy) NSString *downloadPath;
-@property (nonatomic, copy) NSDictionary *httpHeaders;
-@property (nonatomic, copy) void(^finishBlock)(void);
+@property (copy) NSString *downloadPath;
+@property (copy) NSDictionary *httpHeaders;
+@property (copy) void(^finishBlock)(void);
 
-@property (nonatomic, assign) BOOL showAlertAfterFinished;
-@property (nonatomic, assign) NSInteger maxConcurrentOperationCount;
-@property (nonatomic, assign) NSInteger maxRedownloadTimes;
-@property (nonatomic, assign) NSTimeInterval timeoutInterval;
+@property (assign) BOOL showAlertAfterFinished;
+@property (assign) NSInteger maxConcurrentOperationCount;
+@property (assign) NSInteger maxRedownloadTimes;
+@property (assign) NSTimeInterval timeoutInterval;
 
 - (instancetype)initWithUrls:(NSArray<NSString *> *)urls;
 - (void)startDownload;
