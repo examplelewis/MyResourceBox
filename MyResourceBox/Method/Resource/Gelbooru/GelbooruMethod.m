@@ -7,10 +7,7 @@
 //
 
 #import "GelbooruMethod.h"
-#import "HttpRequest.h"
-#import "GelbooruTagStore.h"
-#import "DownloadMethod.h"
-#import "DownloadQueueManager.h"
+#import "GelbooruHeader.h"
 
 #import "GelbooruDailyPicManager.h"
 #import "GelbooruTagEndTimePicManager.h"
@@ -18,23 +15,9 @@
 #import "GelbooruDownloadManager.h"
 #import "GelbooruOrganizeManager.h"
 #import "GelbooruFileMoveManager.h"
-
-@interface GelbooruMethod () {
-    NSInteger totalDownloadStep; // -1: Not use == Finished, 0: Initial, 1: Fate, 2: Azur, 3: Overwatch, 4: Anime, 5: Game, 6: Organize Anime, 7: Organize Game
-}
-
-@end
+#import "GelbooruDownloadAndOrganizeManager.h"
 
 @implementation GelbooruMethod
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        totalDownloadStep = -1;
-    }
-    
-    return self;
-}
 
 + (void)configMethod:(NSInteger)cellRow {
     [UtilityFile resetCurrentDate];
@@ -46,8 +29,8 @@
         }
             break;
         case 2: {
-            totalDownloadStep = 0;
-            [self downloadAndOrganize];
+            GelbooruDownloadAndOrganizeManager *manager = [GelbooruDownloadAndOrganizeManager new];
+            [manager startOperation];
         }
             break;
         case 3: {
@@ -109,110 +92,6 @@
             break;
         default:
             break;
-    }
-}
-
-#pragma mark - 下载并整理日常图片
-- (void)downloadAndOrganize {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"下载并整理日常图片，流程开始"];
-    
-    switch (totalDownloadStep) {
-        case 0: {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Fate 图片, 开始"];
-            
-            totalDownloadStep += 1;
-            [self downloadFatePic];
-        }
-            break;
-        case 1: {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Fate 图片, 结束"];
-            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Azur 图片, 开始"];
-            
-            [[FileManager defaultManager] trashFileAtPath:GelbooruFatePostTxtPath resultItemURL:nil];
-            totalDownloadStep += 1;
-            [self downloadAzurPic];
-        }
-            break;
-        case 2: {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Azur 图片, 结束"];
-            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Overwatch 图片, 开始"];
-            
-            [[FileManager defaultManager] trashFileAtPath:GelbooruAzurPostTxtPath resultItemURL:nil];
-            totalDownloadStep += 1;
-            [self downloadOverwatchPic];
-        }
-            break;
-        case 3: {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Overwatch 图片, 结束"];
-            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Anime 图片, 开始"];
-            
-            [[FileManager defaultManager] trashFileAtPath:GelbooruOverwatchPostTxtPath resultItemURL:nil];
-            totalDownloadStep += 1;
-            [self downloadAnimePic];
-        }
-            break;
-        case 4: {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Anime 图片, 结束"];
-            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Game 图片, 开始"];
-            
-            [[FileManager defaultManager] trashFileAtPath:GelbooruAnimePostTxtPath resultItemURL:nil];
-            totalDownloadStep += 1;
-            [self downloadGamePic];
-        }
-            break;
-        case 5: {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Game 图片, 结束"];
-            
-            [[FileManager defaultManager] trashFileAtPath:GelbooruGamePostTxtPath resultItemURL:nil];
-            totalDownloadStep += 1;
-            [self organizeAnimePic];
-        }
-            break;
-        case 6: {
-            totalDownloadStep += 1;
-            [self organizeGamePic];
-        }
-            break;
-        case 7: {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"下载并整理日常图片，流程结束"];
-            
-            totalDownloadStep = -1;
-        }
-            break;
-        default:
-            break;
-    }
-}
-
-#pragma mark - 下载图片
-- (void)downloadFatePic {
-    
-}
-- (void)downloadAzurPic {
-    
-}
-- (void)downloadOverwatchPic {
-    
-}
-- (void)downloadAnimePic {
-    
-}
-- (void)downloadGamePic {
-    
-}
-- (void)downloadGelbooruPic:(NSString *)fetchedFilePath targetFolderPath:(NSString *)targetFolderPath organizeAfterDownload:(BOOL)organize {
-    
-}
-
-#pragma mark - 整理图片
-- (void)organizeAnimePic {
-    if (totalDownloadStep != -1) {
-        [self downloadAndOrganize];
-    }
-}
-- (void)organizeGamePic {
-    if (totalDownloadStep != -1) {
-        [self downloadAndOrganize];
     }
 }
 
