@@ -12,8 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GelbooruMethod : NSObject
 
-+ (GelbooruMethod *)defaultMethod;
-- (void)configMethod:(NSInteger)cellRow;
++ (void)configMethod:(NSInteger)cellRow;
 
 @end
 

@@ -27,15 +27,6 @@
 
 @implementation GelbooruMethod
 
-static GelbooruMethod *method;
-+ (GelbooruMethod *)defaultMethod {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        method = [[GelbooruMethod alloc] init];
-    });
-    
-    return method;
-}
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -45,7 +36,7 @@ static GelbooruMethod *method;
     return self;
 }
 
-- (void)configMethod:(NSInteger)cellRow {
++ (void)configMethod:(NSInteger)cellRow {
     [UtilityFile resetCurrentDate];
     
     switch (cellRow) {
