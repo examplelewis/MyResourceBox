@@ -14,15 +14,10 @@
 
 #import "GelbooruDailyPicManager.h"
 #import "GelbooruTagEndTimePicManager.h"
+#import "GelbooruTagPagePicManager.h"
 
 @interface GelbooruMethod () {
     NSInteger totalDownloadStep; // -1: Not use == Finished, 0: Initial, 1: Fate, 2: Azur, 3: Overwatch, 4: Anime, 5: Game, 6: Organize Anime, 7: Organize Game
-    
-    NSString *specificTag;
-    NSInteger minPage;
-    NSInteger maxPage;
-    NSInteger curTagPage;
-    NSMutableArray *specificTagPosts;
 }
 
 @end
@@ -85,8 +80,10 @@ static GelbooruMethod *method;
         case 22:
             [self organizeGamePic];
             break;
-        case 31:
-            [self fetchSpecificTagPostUrl];
+        case 31: {
+            GelbooruTagPagePicManager *manager = [GelbooruTagPagePicManager new];
+            [manager startFetching];
+        }
             break;
         case 32: {
             GelbooruTagEndTimePicManager *mananger = [GelbooruTagEndTimePicManager new];
@@ -98,86 +95,6 @@ static GelbooruMethod *method;
     }
 }
 
-#pragma mark - 获取特定标签的图片地址
-- (void)fetchSpecificTagPostUrl {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取特定标签的图片地址，流程开始"];
-    
-    NSString *inputString = [AppDelegate defaultVC].inputTextView.string;
-    if (inputString.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
-        return;
-    }
-    
-    NSArray *inputComps = [inputString componentsSeparatedByString:@"|"];
-    specificTag = inputComps[0];
-    if (inputComps.count == 1) {
-        minPage = 1;
-        maxPage = 40;
-    } else if (inputComps.count == 2) {
-        minPage = 1;
-        maxPage = [inputComps[1] integerValue];
-    } else {
-        minPage = [inputComps[1] integerValue];
-        maxPage = [inputComps[2] integerValue];
-    }
-    curTagPage = minPage;
-    DDLogInfo(@"fetchSpecificTagPostUrl minPage: %ld, maxPage: %ld, curTagPage: %ld", minPage, maxPage, curTagPage);
-    
-    specificTagPosts = [NSMutableArray array];
-    
-    [self fetchSingleSepcificTagPostUrl];
-}
-- (void)fetchSingleSepcificTagPostUrl {
-    __weak typeof(self) weakSelf = self;
-    [[HttpRequest shareIndex] getSpecificTagPicFromGelbooruTag:specificTag page:curTagPage - 1 progress:^(NSProgress *downloadProgress) {
-        
-    } success:^(NSArray *array) {
-        __strong typeof(self) strongSelf = weakSelf;
-        
-        for (NSInteger i = 0; i < array.count; i++) {
-            NSDictionary *data = [NSDictionary dictionaryWithDictionary:array[i]];
-            if ([data[@"width"] integerValue] < 801 && [data[@"height"] integerValue] < 801) {
-                continue;
-            }
-            
-            if ([data[@"source"] isEqualToString:@""]) {
-                continue;
-            }
-            
-            [strongSelf->specificTagPosts addObject:data];
-        }
-        
-        NSArray *specificTagUrls = [strongSelf->specificTagPosts valueForKey:@"file_url"];
-        
-        [UtilityFile exportArray:specificTagUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostUrl.txt", strongSelf->specificTag]];
-        
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", strongSelf->specificTag, strongSelf->curTagPage];
-        
-        // 如果某一页小于100条原始数据，说明是最后一页
-        if (strongSelf->curTagPage >= strongSelf->maxPage || array.count != 100) {
-            [strongSelf fetchSpecificTagPostsSucceed];
-        } else {
-            strongSelf->curTagPage += 1;
-            [strongSelf fetchSingleSepcificTagPostUrl];
-        }
-    } failed:^(NSString *errorTitle, NSString *errorMsg) {
-        DDLogError(@"%@: %@", errorTitle, errorMsg);
-        
-        __strong typeof(self) strongSelf = weakSelf;
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址，遇到错误：%@: %@", strongSelf->specificTag, errorTitle, errorMsg];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：流程结束", strongSelf->specificTag];
-    }];
-}
-- (void)fetchSpecificTagPostsSucceed {
-    [[UtilityFile sharedInstance] cleanLog];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：流程结束", specificTag];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 图片地址:\n%@", specificTag, [UtilityFile convertResultArray:[self->specificTagPosts valueForKey:@"file_url"]]];
-    
-    curTagPage = 0;
-    [specificTagPosts removeAllObjects];
-    specificTag = nil;
-    maxPage = 0;
-}
 #pragma mark - 下载并整理日常图片
 - (void)downloadAndOrganize {
     [[UtilityFile sharedInstance] showLogWithFormat:@"下载并整理日常图片，流程开始"];
