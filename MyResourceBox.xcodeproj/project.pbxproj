@@ -251,6 +251,7 @@
 		ACC3145B217726D900DA5276 /* GelbooruMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruMethod.m; sourceTree = "<group>"; };
 		ACC3149921773BFF00DA5276 /* XMLReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
 		ACC3149A21773BFF00DA5276 /* XMLReader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		ACC8DDBA226FF493005228D7 /* GelbooruHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruHeader.h; sourceTree = "<group>"; };
 		ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizingDayFolder.m; sourceTree = "<group>"; };
 		ACCAA0331E1B80FB0017EDDA /* OrganizingDayFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizingDayFolder.h; sourceTree = "<group>"; };
 		ACCAA0351E1B81250017EDDA /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
@@ -621,6 +622,7 @@
 		ACC1DCB5226F06EE001243C1 /* Gelbooru */ = {
 			isa = PBXGroup;
 			children = (
+				ACC8DDBA226FF493005228D7 /* GelbooruHeader.h */,
 				ACC3145A217726D900DA5276 /* GelbooruMethod.h */,
 				ACC3145B217726D900DA5276 /* GelbooruMethod.m */,
 				ACC1DCB6226F071F001243C1 /* GelbooruTagEndTimeManager.h */,

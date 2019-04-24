@@ -181,13 +181,13 @@ static GelbooruMethod *method;
         NSArray *animeUrls = [self->animePosts valueForKey:@"file_url"];
         NSArray *gameUrls = [self->gamePosts valueForKey:@"file_url"];
         
-        [UtilityFile exportArray:fateUrls atPath:@"/Users/Mercury/Downloads/GelbooruFatePostUrl.txt"];
-        [UtilityFile exportArray:azurUrls atPath:@"/Users/Mercury/Downloads/GelbooruAzurPostUrl.txt"];
-        [UtilityFile exportArray:overwatchUrls atPath:@"/Users/Mercury/Downloads/GelbooruOverwatchPostUrl.txt"];
-        [UtilityFile exportArray:animeUrls atPath:@"/Users/Mercury/Downloads/GelbooruAnimePostUrl.txt"];
-        [UtilityFile exportArray:gameUrls atPath:@"/Users/Mercury/Downloads/GelbooruGamePostUrl.txt"];
-        [self->animeNameInfo writeToFile:@"/Users/Mercury/Downloads/GelbooruAnimePostRenameInfo.plist" atomically:YES];
-        [self->gameNameInfo writeToFile:@"/Users/Mercury/Downloads/GelbooruGamePostRenameInfo.plist" atomically:YES];
+        [UtilityFile exportArray:fateUrls atPath:GelbooruFatePostTxtPath];
+        [UtilityFile exportArray:azurUrls atPath:GelbooruAzurPostTxtPath];
+        [UtilityFile exportArray:overwatchUrls atPath:GelbooruOverwatchPostTxtPath];
+        [UtilityFile exportArray:animeUrls atPath:GelbooruAnimePostTxtPath];
+        [UtilityFile exportArray:gameUrls atPath:GelbooruGamePostTxtPath];
+        [self->animeNameInfo writeToFile:GelbooruAnimePostRenamePlistPath atomically:YES];
+        [self->gameNameInfo writeToFile:GelbooruGamePostRenamePlistPath atomically:YES];
         
         [[UtilityFile sharedInstance] showLogWithFormat:@"获取 Fate 和 ACG 图片地址：第 %ld 页已获取", self->curPage + 1];
         
@@ -339,7 +339,7 @@ static GelbooruMethod *method;
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Fate 图片, 结束"];
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Azur 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:@"/Users/Mercury/Downloads/GelbooruFatePostUrl.txt" resultItemURL:nil];
+            [[FileManager defaultManager] trashFileAtPath:GelbooruFatePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             [self downloadAzurPic];
         }
@@ -348,7 +348,7 @@ static GelbooruMethod *method;
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Azur 图片, 结束"];
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Overwatch 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:@"/Users/Mercury/Downloads/GelbooruAzurPostUrl.txt" resultItemURL:nil];
+            [[FileManager defaultManager] trashFileAtPath:GelbooruAzurPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             [self downloadOverwatchPic];
         }
@@ -357,7 +357,7 @@ static GelbooruMethod *method;
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Overwatch 图片, 结束"];
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Anime 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:@"/Users/Mercury/Downloads/GelbooruOverwatchPostUrl.txt" resultItemURL:nil];
+            [[FileManager defaultManager] trashFileAtPath:GelbooruOverwatchPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             [self downloadAnimePic];
         }
@@ -366,7 +366,7 @@ static GelbooruMethod *method;
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Anime 图片, 结束"];
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Game 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:@"/Users/Mercury/Downloads/GelbooruAnimePostUrl.txt" resultItemURL:nil];
+            [[FileManager defaultManager] trashFileAtPath:GelbooruAnimePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             [self downloadGamePic];
         }
@@ -374,7 +374,7 @@ static GelbooruMethod *method;
         case 5: {
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Game 图片, 结束"];
             
-            [[FileManager defaultManager] trashFileAtPath:@"/Users/Mercury/Downloads/GelbooruGamePostUrl.txt" resultItemURL:nil];
+            [[FileManager defaultManager] trashFileAtPath:GelbooruGamePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             [self organizeAnimePic];
         }
@@ -397,19 +397,19 @@ static GelbooruMethod *method;
 
 #pragma mark - 下载图片
 - (void)downloadFatePic {
-    [self downloadGelbooruPic:@"/Users/Mercury/Downloads/GelbooruFatePostUrl.txt" targetFolderPath:@"/Users/Mercury/Downloads/~Fate/" organizeAfterDownload:NO];
+    [self downloadGelbooruPic:GelbooruFatePostTxtPath targetFolderPath:GelbooruFateRootFolderPath organizeAfterDownload:NO];
 }
 - (void)downloadAzurPic {
-    [self downloadGelbooruPic:@"/Users/Mercury/Downloads/GelbooruAzurPostUrl.txt" targetFolderPath:@"/Users/Mercury/Downloads/~Azur/" organizeAfterDownload:NO];
+    [self downloadGelbooruPic:GelbooruAzurPostTxtPath targetFolderPath:GelbooruAzurRootFolderPath organizeAfterDownload:NO];
 }
 - (void)downloadOverwatchPic {
-    [self downloadGelbooruPic:@"/Users/Mercury/Downloads/GelbooruOverwatchPostUrl.txt" targetFolderPath:@"/Users/Mercury/Downloads/~Overwatch/" organizeAfterDownload:NO];
+    [self downloadGelbooruPic:GelbooruOverwatchPostTxtPath targetFolderPath:GelbooruOverwatchRootFolderPath organizeAfterDownload:NO];
 }
 - (void)downloadAnimePic {
-    [self downloadGelbooruPic:@"/Users/Mercury/Downloads/GelbooruAnimePostUrl.txt" targetFolderPath:@"/Users/Mercury/Downloads/~Anime/" organizeAfterDownload:YES];
+    [self downloadGelbooruPic:GelbooruAnimePostTxtPath targetFolderPath:GelbooruAnimeRootFolderPath organizeAfterDownload:YES];
 }
 - (void)downloadGamePic {
-    [self downloadGelbooruPic:@"/Users/Mercury/Downloads/GelbooruGamePostUrl.txt" targetFolderPath:@"/Users/Mercury/Downloads/~Game/" organizeAfterDownload:YES];
+    [self downloadGelbooruPic:GelbooruGamePostTxtPath targetFolderPath:GelbooruGameRootFolderPath organizeAfterDownload:YES];
 }
 - (void)downloadGelbooruPic:(NSString *)fetchedFilePath targetFolderPath:(NSString *)targetFolderPath organizeAfterDownload:(BOOL)organize {
     if (![[FileManager defaultManager] isContentExistAtPath:fetchedFilePath]) {
@@ -447,28 +447,26 @@ static GelbooruMethod *method;
 #pragma mark - 整理图片
 - (void)organizeAnimePic {
     [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的动漫图片, 流程开始"];
-    NSString *plistFilePath = @"/Users/Mercury/Downloads/GelbooruAnimePostRenameInfo.plist";
-    NSString *animeRootFodlerPath = @"/Users/Mercury/Downloads/~Anime/";
     
-    if (![[FileManager defaultManager] isContentExistAtPath:plistFilePath]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 不存在，请检查下载文件夹", plistFilePath];
+    if (![[FileManager defaultManager] isContentExistAtPath:GelbooruAnimePostRenamePlistPath]) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 不存在，请检查下载文件夹", GelbooruAnimePostRenamePlistPath.lastPathComponent];
         [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的动漫图片, 流程结束"];
         return;
     }
     
-    NSDictionary *renameInfo = [NSDictionary dictionaryWithContentsOfFile:plistFilePath];
+    NSDictionary *renameInfo = [NSDictionary dictionaryWithContentsOfFile:GelbooruAnimePostRenamePlistPath];
     for (NSInteger i = 0; i < renameInfo.allKeys.count; i++) {
         NSString *key = renameInfo.allKeys[i]; // key 是下载好的文件名
         NSString *value = renameInfo[key];
         value = [value stringByReplacingOccurrencesOfString:@"/" withString:@" "];
         value = [value stringByReplacingOccurrencesOfString:@":" withString:@" "];
-        NSString *downloadPath = [NSString stringWithFormat:@"%@%@", animeRootFodlerPath, key];
-        NSString *targetPath = [NSString stringWithFormat:@"%@%@", animeRootFodlerPath, value];
+        NSString *downloadPath = [NSString stringWithFormat:@"%@%@", GelbooruAnimeRootFolderPath, key];
+        NSString *targetPath = [NSString stringWithFormat:@"%@%@", GelbooruAnimeRootFolderPath, value];
         
         [[FileManager defaultManager] moveItemAtPath:downloadPath toDestPath:targetPath];
     }
     
-    [[FileManager defaultManager] trashFileAtPath:plistFilePath resultItemURL:nil];
+    [[FileManager defaultManager] trashFileAtPath:GelbooruAnimePostRenamePlistPath resultItemURL:nil];
     
     [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的动漫图片, 流程结束"];
     
@@ -478,28 +476,26 @@ static GelbooruMethod *method;
 }
 - (void)organizeGamePic {
     [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的游戏图片, 流程开始"];
-    NSString *plistFilePath = @"/Users/Mercury/Downloads/GelbooruGamePostRenameInfo.plist";
-    NSString *gameRootFodlerPath = @"/Users/Mercury/Downloads/~Game/";
     
-    if (![[FileManager defaultManager] isContentExistAtPath:plistFilePath]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 不存在，请检查下载文件夹", plistFilePath.lastPathComponent];
+    if (![[FileManager defaultManager] isContentExistAtPath:GelbooruGamePostRenamePlistPath]) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 不存在，请检查下载文件夹", GelbooruGamePostRenamePlistPath.lastPathComponent];
         [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的游戏图片, 流程结束"];
         return;
     }
     
-    NSDictionary *renameInfo = [NSDictionary dictionaryWithContentsOfFile:plistFilePath];
+    NSDictionary *renameInfo = [NSDictionary dictionaryWithContentsOfFile:GelbooruGamePostRenamePlistPath];
     for (NSInteger i = 0; i < renameInfo.allKeys.count; i++) {
         NSString *key = renameInfo.allKeys[i]; // key 是下载好的文件名
         NSString *value = renameInfo[key];
         value = [value stringByReplacingOccurrencesOfString:@"/" withString:@" "];
         value = [value stringByReplacingOccurrencesOfString:@":" withString:@" "];
-        NSString *downloadPath = [NSString stringWithFormat:@"%@%@", gameRootFodlerPath, key];
-        NSString *targetPath = [NSString stringWithFormat:@"%@%@", gameRootFodlerPath, value];
+        NSString *downloadPath = [NSString stringWithFormat:@"%@%@", GelbooruGameRootFolderPath, key];
+        NSString *targetPath = [NSString stringWithFormat:@"%@%@", GelbooruGameRootFolderPath, value];
         
         [[FileManager defaultManager] moveItemAtPath:downloadPath toDestPath:targetPath];
     }
     
-    [[FileManager defaultManager] trashFileAtPath:plistFilePath resultItemURL:nil];
+    [[FileManager defaultManager] trashFileAtPath:GelbooruGamePostRenamePlistPath resultItemURL:nil];
     
     [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的游戏图片, 流程结束"];
     
@@ -512,11 +508,11 @@ static GelbooruMethod *method;
 - (void)movePicToDayFolder {
     [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程开始"];
     
-    [self moveFilesToDayFolderFromFolder:@"/Users/Mercury/Downloads/~Fate/"];
-    [self moveFilesToDayFolderFromFolder:@"/Users/Mercury/Downloads/~Azur/"];
-    [self moveFilesToDayFolderFromFolder:@"/Users/Mercury/Downloads/~Overwatch/"];
-    [self moveFilesToDayFolderFromFolder:@"/Users/Mercury/Downloads/~Anime/"];
-    [self moveFilesToDayFolderFromFolder:@"/Users/Mercury/Downloads/~Game/"];
+    [self moveFilesToDayFolderFromFolder:GelbooruFateRootFolderPath];
+    [self moveFilesToDayFolderFromFolder:GelbooruAzurRootFolderPath];
+    [self moveFilesToDayFolderFromFolder:GelbooruOverwatchRootFolderPath];
+    [self moveFilesToDayFolderFromFolder:GelbooruAnimeRootFolderPath];
+    [self moveFilesToDayFolderFromFolder:GelbooruGameRootFolderPath];
     
     [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程结束"];
 }
