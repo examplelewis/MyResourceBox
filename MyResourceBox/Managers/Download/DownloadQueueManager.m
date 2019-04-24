@@ -177,14 +177,8 @@ static NSInteger const defaultTimeoutInterval = 45;
             [self performSelector:@selector(showAlert) withObject:nil afterDelay:0.25f];
         }
         
-        if (self.delegate) {
-            if ([self.delegate respondsToSelector:@selector(didFinishDownloadQueue)]) {
-                [self.delegate didFinishDownloadQueue];
-            }
-        } else {
-            if (self.finishBlock) {
-                self.finishBlock();
-            }
+        if (self.finishBlock) {
+            self.finishBlock();
         }
     }
 }
