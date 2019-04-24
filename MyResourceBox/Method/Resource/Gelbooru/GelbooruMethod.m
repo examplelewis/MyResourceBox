@@ -15,6 +15,7 @@
 #import "GelbooruDailyPicManager.h"
 #import "GelbooruTagEndTimePicManager.h"
 #import "GelbooruTagPagePicManager.h"
+#import "GelbooruDownloadManager.h"
 #import "GelbooruFileMoveManager.h"
 
 @interface GelbooruMethod () {
@@ -69,20 +70,30 @@ static GelbooruMethod *method;
             [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程结束"];
         }
             break;
-        case 11:
-            [self downloadFatePic];
+        case 11: {
+            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruFatePostTxtPath targetFolderPath:GelbooruFateRootFolderPath];
+            [manager prepareDownloading];
+        }
             break;
-        case 12:
-            [self downloadAzurPic];
+        case 12: {
+            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruAzurPostTxtPath targetFolderPath:GelbooruAzurRootFolderPath];
+            [manager prepareDownloading];
+        }
             break;
-        case 13:
-            [self downloadOverwatchPic];
+        case 13: {
+            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruOverwatchPostTxtPath targetFolderPath:GelbooruOverwatchRootFolderPath];
+            [manager prepareDownloading];
+        }
             break;
-        case 14:
-            [self downloadAnimePic];
+        case 14: {
+            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruAnimePostTxtPath targetFolderPath:GelbooruAnimeRootFolderPath];
+            [manager prepareDownloading];
+        }
             break;
-        case 15:
-            [self downloadGamePic];
+        case 15: {
+            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruGamePostTxtPath targetFolderPath:GelbooruGameRootFolderPath];
+            [manager prepareDownloading];
+        }
             break;
         case 21:
             [self organizeAnimePic];
@@ -179,51 +190,22 @@ static GelbooruMethod *method;
 
 #pragma mark - 下载图片
 - (void)downloadFatePic {
-    [self downloadGelbooruPic:GelbooruFatePostTxtPath targetFolderPath:GelbooruFateRootFolderPath organizeAfterDownload:NO];
+    
 }
 - (void)downloadAzurPic {
-    [self downloadGelbooruPic:GelbooruAzurPostTxtPath targetFolderPath:GelbooruAzurRootFolderPath organizeAfterDownload:NO];
+    
 }
 - (void)downloadOverwatchPic {
-    [self downloadGelbooruPic:GelbooruOverwatchPostTxtPath targetFolderPath:GelbooruOverwatchRootFolderPath organizeAfterDownload:NO];
+    
 }
 - (void)downloadAnimePic {
-    [self downloadGelbooruPic:GelbooruAnimePostTxtPath targetFolderPath:GelbooruAnimeRootFolderPath organizeAfterDownload:YES];
+    
 }
 - (void)downloadGamePic {
-    [self downloadGelbooruPic:GelbooruGamePostTxtPath targetFolderPath:GelbooruGameRootFolderPath organizeAfterDownload:YES];
+    
 }
 - (void)downloadGelbooruPic:(NSString *)fetchedFilePath targetFolderPath:(NSString *)targetFolderPath organizeAfterDownload:(BOOL)organize {
-    if (![[FileManager defaultManager] isContentExistAtPath:fetchedFilePath]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 不存在", fetchedFilePath.lastPathComponent];
-        [self downloadAndOrganize];
-        
-        return;
-    }
     
-    NSString *url = [[NSString alloc] initWithContentsOfFile:fetchedFilePath encoding:NSUTF8StringEncoding error:nil];
-    if (url.length == 0) {
-        [self downloadAndOrganize];
-        
-        return;
-    }
-    NSArray *urls = [url componentsSeparatedByString:@"\n"];
-    NSSet *urlSet = [NSSet setWithArray:urls];
-    NSArray *newUrls = [NSArray arrayWithArray:urlSet.allObjects];
-    
-    DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:newUrls];
-    manager.maxConcurrentOperationCount = 10;
-    manager.maxRedownloadTimes = 1;
-    manager.timeoutInterval = 15;
-    manager.downloadPath = targetFolderPath;
-    if (totalDownloadStep != -1) {
-        manager.finishBlock = ^{
-            [self downloadAndOrganize];
-        };
-    }
-    manager.showAlertAfterFinished = NO;
-    
-    [manager startDownload];
 }
 
 #pragma mark - 整理图片
