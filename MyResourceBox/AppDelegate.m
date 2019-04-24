@@ -115,7 +115,7 @@
     [[ExHentaiManager defaultManager] configMethod:sender.tag];
 }
 - (IBAction)processingGelbooru:(NSMenuItem *)sender {
-    [[GelbooruMethod defaultMethod] configMethod:sender.tag];
+    [GelbooruMethod configMethod:sender.tag];
 }
 - (IBAction)processingLofter:(NSMenuItem *)sender {
 //    [[LofterMethod defaultMethod] configMethod:sender.tag];
