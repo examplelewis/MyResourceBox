@@ -80,6 +80,7 @@
 		ACC1DCB8226F071F001243C1 /* GelbooruTagEndTimePicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimePicManager.m */; };
 		ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3145B217726D900DA5276 /* GelbooruMethod.m */; };
 		ACC3149B21773BFF00DA5276 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3149A21773BFF00DA5276 /* XMLReader.m */; };
+		ACC8DDC0226FFB6A005228D7 /* GelbooruDailyPicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8DDBF226FFB6A005228D7 /* GelbooruDailyPicManager.m */; };
 		ACCAA0341E1B80FB0017EDDA /* OrganizingDayFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */; };
 		ACCAA0371E1B81250017EDDA /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0351E1B81250017EDDA /* ImageManager.m */; };
 		ACCFA0BA226D5D3D007514C0 /* CatchCrashManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */; };
@@ -252,6 +253,8 @@
 		ACC3149921773BFF00DA5276 /* XMLReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
 		ACC3149A21773BFF00DA5276 /* XMLReader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		ACC8DDBA226FF493005228D7 /* GelbooruHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruHeader.h; sourceTree = "<group>"; };
+		ACC8DDBE226FFB6A005228D7 /* GelbooruDailyPicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruDailyPicManager.h; sourceTree = "<group>"; };
+		ACC8DDBF226FFB6A005228D7 /* GelbooruDailyPicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruDailyPicManager.m; sourceTree = "<group>"; };
 		ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizingDayFolder.m; sourceTree = "<group>"; };
 		ACCAA0331E1B80FB0017EDDA /* OrganizingDayFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizingDayFolder.h; sourceTree = "<group>"; };
 		ACCAA0351E1B81250017EDDA /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
@@ -625,6 +628,8 @@
 				ACACB51D21C382D700C8D164 /* GelbooruTagStore.m */,
 				ACC3145A217726D900DA5276 /* GelbooruMethod.h */,
 				ACC3145B217726D900DA5276 /* GelbooruMethod.m */,
+				ACC8DDBE226FFB6A005228D7 /* GelbooruDailyPicManager.h */,
+				ACC8DDBF226FFB6A005228D7 /* GelbooruDailyPicManager.m */,
 				ACC1DCB6226F071F001243C1 /* GelbooruTagEndTimePicManager.h */,
 				ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimePicManager.m */,
 			);
@@ -883,6 +888,7 @@
 				AC9F4C6B1E499B0E00FD01C5 /* DownloadOperation.m in Sources */,
 				AC9CA3D9210AC04C00F1AA08 /* OrganizingPhotos.m in Sources */,
 				AC789C741DE159B700523A12 /* TumblrMethod.m in Sources */,
+				ACC8DDC0226FFB6A005228D7 /* GelbooruDailyPicManager.m in Sources */,
 				ACB62B9C2109B19D00A55C1F /* Images2Mp4.m in Sources */,
 				ACA9C91A21FD933500B33CB4 /* PixivHttpSessionManager.m in Sources */,
 				AC85090D1DB39677004AFE84 /* UserInfo.m in Sources */,
