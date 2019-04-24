@@ -16,6 +16,7 @@
 #import "GelbooruTagEndTimePicManager.h"
 #import "GelbooruTagPagePicManager.h"
 #import "GelbooruDownloadManager.h"
+#import "GelbooruOrganizeManager.h"
 #import "GelbooruFileMoveManager.h"
 
 @interface GelbooruMethod () {
@@ -95,11 +96,15 @@ static GelbooruMethod *method;
             [manager prepareDownloading];
         }
             break;
-        case 21:
-            [self organizeAnimePic];
+        case 21: {
+            GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruAnimePostRenamePlistPath targetFolderPath:GelbooruAnimeRootFolderPath];
+            [manager startOrganizing];
+        }
             break;
-        case 22:
-            [self organizeGamePic];
+        case 22: {
+            GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruGamePostRenamePlistPath targetFolderPath:GelbooruGameRootFolderPath];
+            [manager startOrganizing];
+        }
             break;
         case 31: {
             GelbooruTagPagePicManager *manager = [GelbooruTagPagePicManager new];
@@ -210,59 +215,11 @@ static GelbooruMethod *method;
 
 #pragma mark - 整理图片
 - (void)organizeAnimePic {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的动漫图片, 流程开始"];
-    
-    if (![[FileManager defaultManager] isContentExistAtPath:GelbooruAnimePostRenamePlistPath]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 不存在，请检查下载文件夹", GelbooruAnimePostRenamePlistPath.lastPathComponent];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的动漫图片, 流程结束"];
-        return;
-    }
-    
-    NSDictionary *renameInfo = [NSDictionary dictionaryWithContentsOfFile:GelbooruAnimePostRenamePlistPath];
-    for (NSInteger i = 0; i < renameInfo.allKeys.count; i++) {
-        NSString *key = renameInfo.allKeys[i]; // key 是下载好的文件名
-        NSString *value = renameInfo[key];
-        value = [value stringByReplacingOccurrencesOfString:@"/" withString:@" "];
-        value = [value stringByReplacingOccurrencesOfString:@":" withString:@" "];
-        NSString *downloadPath = [NSString stringWithFormat:@"%@%@", GelbooruAnimeRootFolderPath, key];
-        NSString *targetPath = [NSString stringWithFormat:@"%@%@", GelbooruAnimeRootFolderPath, value];
-        
-        [[FileManager defaultManager] moveItemAtPath:downloadPath toDestPath:targetPath];
-    }
-    
-    [[FileManager defaultManager] trashFileAtPath:GelbooruAnimePostRenamePlistPath resultItemURL:nil];
-    
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的动漫图片, 流程结束"];
-    
     if (totalDownloadStep != -1) {
         [self downloadAndOrganize];
     }
 }
 - (void)organizeGamePic {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的游戏图片, 流程开始"];
-    
-    if (![[FileManager defaultManager] isContentExistAtPath:GelbooruGamePostRenamePlistPath]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 不存在，请检查下载文件夹", GelbooruGamePostRenamePlistPath.lastPathComponent];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的游戏图片, 流程结束"];
-        return;
-    }
-    
-    NSDictionary *renameInfo = [NSDictionary dictionaryWithContentsOfFile:GelbooruGamePostRenamePlistPath];
-    for (NSInteger i = 0; i < renameInfo.allKeys.count; i++) {
-        NSString *key = renameInfo.allKeys[i]; // key 是下载好的文件名
-        NSString *value = renameInfo[key];
-        value = [value stringByReplacingOccurrencesOfString:@"/" withString:@" "];
-        value = [value stringByReplacingOccurrencesOfString:@":" withString:@" "];
-        NSString *downloadPath = [NSString stringWithFormat:@"%@%@", GelbooruGameRootFolderPath, key];
-        NSString *targetPath = [NSString stringWithFormat:@"%@%@", GelbooruGameRootFolderPath, value];
-        
-        [[FileManager defaultManager] moveItemAtPath:downloadPath toDestPath:targetPath];
-    }
-    
-    [[FileManager defaultManager] trashFileAtPath:GelbooruGamePostRenamePlistPath resultItemURL:nil];
-    
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的游戏图片, 流程结束"];
-    
     if (totalDownloadStep != -1) {
         [self downloadAndOrganize];
     }
