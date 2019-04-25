@@ -59,18 +59,14 @@
 
 // 获取首页包含图片的网页地址以及数据信息
 - (void)fetchPostDetail {
-    [[HttpManager sharedManager] getExHentaiPostDetail:self.homepage completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (!error) {
-            NSLog(@"Reply JSON: %@", responseObject);
-            NSDictionary *result = [NSDictionary dictionaryWithDictionary:[responseObject[@"gmetadata"] firstObject]];
-            self->_total = [result[@"filecount"] integerValue];
-            self->_end = ceil(self->_total / 20.0);
-            self->_title = [result[@"title_jpn"] length] == 0 ? result[@"title"] : result[@"title_jpn"];
-            
-            [self getAnotherPage];
-        } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"ExHentai 接口调用失败，原因：%@", [error localizedDescription]];
-        }
+    [[HttpManager sharedManager] getExHentaiPostDetailWithUrl:self.homepage success:^(NSDictionary *result) {
+        self->_total = [result[@"filecount"] integerValue];
+        self->_end = ceil(self->_total / 20.0);
+        self->_title = [result[@"title_jpn"] length] == 0 ? result[@"title"] : result[@"title_jpn"];
+        
+        [self getAnotherPage];
+    } failed:^(NSString *errorTitle, NSString *errorMsg) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"ExHentai 接口调用失败，原因：%@", errorMsg];
     }];
 }
 

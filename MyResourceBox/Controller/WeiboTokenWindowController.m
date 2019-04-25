@@ -8,7 +8,7 @@
 //
 
 #import "WeiboTokenWindowController.h"
-#import "HttpRequest.h"
+#import "HttpManager.h"
 
 @interface WeiboTokenWindowController ()
 
@@ -30,7 +30,7 @@
 }
 
 - (void)getTokenInfo {
-    [[HttpRequest shareIndex] getWeiboTokenInfoWithStart:nil success:^(NSDictionary *dic) {
+    [[HttpManager sharedManager] getWeiboTokenInfoWithStart:nil success:^(NSDictionary *dic) {
         self.tokenTextView.string = dic.description;
         
         [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取到Token信息：%@", dic];
@@ -41,7 +41,7 @@
     }];
 }
 - (void)getLimitInfo {
-    [[HttpRequest shareIndex] getWeiboLimitInfoWithStart:nil success:^(NSDictionary *dic) {
+    [[HttpManager sharedManager] getWeiboLimitInfoWithStart:nil success:^(NSDictionary *dic) {
         self.limitTextView.string = dic.description;
         
         [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取到Token的Limit信息：%@", dic];

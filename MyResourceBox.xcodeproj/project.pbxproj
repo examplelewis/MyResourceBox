@@ -41,7 +41,6 @@
 		AC8508D91DB39146004AFE84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8508D71DB39146004AFE84 /* Main.storyboard */; };
 		AC8508E41DB39147004AFE84 /* MyResourceBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8508E31DB39147004AFE84 /* MyResourceBoxTests.m */; };
 		AC8508EF1DB39147004AFE84 /* MyResourceBoxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8508EE1DB39147004AFE84 /* MyResourceBoxUITests.m */; };
-		AC85090B1DB39677004AFE84 /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509031DB39677004AFE84 /* HttpRequest.m */; };
 		AC85090C1DB39677004AFE84 /* MyAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509051DB39677004AFE84 /* MyAlert.m */; };
 		AC85090D1DB39677004AFE84 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509071DB39677004AFE84 /* UserInfo.m */; };
 		AC85090E1DB39677004AFE84 /* UtilityFile.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509091DB39677004AFE84 /* UtilityFile.m */; };
@@ -182,8 +181,6 @@
 		AC8508EE1DB39147004AFE84 /* MyResourceBoxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyResourceBoxUITests.m; sourceTree = "<group>"; };
 		AC8508F01DB39147004AFE84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC8508FD1DB39629004AFE84 /* MyResourceBox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyResourceBox-Prefix.pch"; sourceTree = "<group>"; };
-		AC8509021DB39677004AFE84 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
-		AC8509031DB39677004AFE84 /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequest.m; sourceTree = "<group>"; };
 		AC8509041DB39677004AFE84 /* MyAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlert.h; sourceTree = "<group>"; };
 		AC8509051DB39677004AFE84 /* MyAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlert.m; sourceTree = "<group>"; };
 		AC8509061DB39677004AFE84 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
@@ -498,8 +495,6 @@
 				AC315BDF1DEBBE8800DBFA0A /* Consts.m */,
 				AC2D1B141DD0191C0085F8E0 /* DeviceInfo.h */,
 				AC2D1B131DD0191C0085F8E0 /* DeviceInfo.m */,
-				AC8509021DB39677004AFE84 /* HttpRequest.h */,
-				AC8509031DB39677004AFE84 /* HttpRequest.m */,
 				AC8509041DB39677004AFE84 /* MyAlert.h */,
 				AC8509051DB39677004AFE84 /* MyAlert.m */,
 				AC8509061DB39677004AFE84 /* UserInfo.h */,
@@ -907,7 +902,6 @@
 				AC789C7E1DE159E100523A12 /* ExHentaiPagesManager.m in Sources */,
 				ACACB51E21C382D700C8D164 /* GelbooruTagStore.m in Sources */,
 				AC79E1CD1F4EA125008432B9 /* ExHentaiTorrentManager.m in Sources */,
-				AC85090B1DB39677004AFE84 /* HttpRequest.m in Sources */,
 				ACC8DDC622700B25005228D7 /* GelbooruDownloadManager.m in Sources */,
 				ACA5162D220175F20074AB73 /* DeviantartMethod.m in Sources */,
 				AC789C731DE159B700523A12 /* BCYMethod.m in Sources */,

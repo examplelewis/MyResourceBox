@@ -8,7 +8,7 @@
 
 #import "GelbooruTagStore.h"
 #import "XMLReader.h"
-#import "HttpRequest.h"
+#import "HttpManager.h"
 
 @interface GelbooruTagStore () {
     NSString *preferencePath; // Preference.plist 文件的路径
@@ -100,7 +100,7 @@ static GelbooruTagStore *request;
 - (void)fetchAllTags {
     DDLogInfo(@"正在抓取第 %ld 页 Tags", pid);
     
-    [[HttpRequest shareIndex] getGelbooruTagsWithPid:pid success:^(NSArray *array) {
+    [[HttpManager sharedManager] getGelbooruTagsWithPid:pid success:^(NSArray *array) {
         if (array.count == 0) {
             [[UtilityFile sharedInstance] showLogWithFormat:@"所有 Tags 下载完成"];
             //            [self readyToOrganize];

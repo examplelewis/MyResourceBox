@@ -8,7 +8,7 @@
 
 #import "GelbooruDailyPicManager.h"
 #import "GelbooruTagStore.h"
-#import "HttpRequest.h"
+#import "HttpManager.h"
 #import "GelbooruHeader.h"
 
 @interface GelbooruDailyPicManager () {
@@ -60,9 +60,7 @@
     [self fetchSingleDailyPostUrl];
 }
 - (void)fetchSingleDailyPostUrl {
-    [[HttpRequest shareIndex] getGelbooruPostsWithPage:curPage progress:^(NSProgress *downloadProgress) {
-        
-    } success:^(NSArray *array) {
+    [[HttpManager sharedManager] getGelbooruPostsWithPage:curPage success:^(NSArray *array) {
         if (self->curPage == 0) {
             self->newestPost = [NSDictionary dictionaryWithDictionary:array.firstObject];
         }

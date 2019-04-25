@@ -9,7 +9,7 @@
 #import "WeiboMethod.h"
 #import "FileManager.h"
 #import "WeiboStatusObject.h"
-#import "HttpRequest.h"
+#import "HttpManager.h"
 #import "OrganizeManager.h"
 #import "DownloadQueueManager.h"
 
@@ -98,7 +98,7 @@ static WeiboMethod *method;
     [self getFavouristByApi];
 }
 - (void)getFavouristByApi {
-    [[HttpRequest shareIndex] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
+    [[HttpManager sharedManager] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
         NSArray *favors = dic[@"favorites"];
         BOOL found = NO;
         
@@ -175,7 +175,7 @@ static WeiboMethod *method;
     [self getBoundaryByApi];
 }
 - (void)getBoundaryByApi {
-    [[HttpRequest shareIndex] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
+    [[HttpManager sharedManager] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
         NSArray *favors = dic[@"favorites"];
         BOOL found = NO;
         
@@ -214,7 +214,7 @@ static WeiboMethod *method;
     [[UserInfo defaultUser] configureData]; //重新读一遍Plist文件
     [[UtilityFile sharedInstance] showLogWithFormat:@"原有边界微博的ID：%@", [UserInfo defaultUser].weibo_boundary_id];
     
-    [[HttpRequest shareIndex] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
+    [[HttpManager sharedManager] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
         NSArray *favors = dic[@"favorites"];
         if (!favors || favors.count == 0) {
             [[UtilityFile sharedInstance] showLogWithFormat:@"当前没有收藏内容，跳过"];

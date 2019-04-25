@@ -7,7 +7,7 @@
 //
 
 #import "GelbooruTagPagePicManager.h"
-#import "HttpRequest.h"
+#import "HttpManager.h"
 
 @interface GelbooruTagPagePicManager () {
     NSString *tag;
@@ -57,7 +57,7 @@
     [self fetchSinglePostUrl];
 }
 - (void)fetchSinglePostUrl {
-    [[HttpRequest shareIndex] getSpecificTagPicFromGelbooruTag:tag page:page - 1 progress:NULL success:^(NSArray *array) {
+    [[HttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page - 1 success:^(NSArray *array) {
         for (NSInteger i = 0; i < array.count; i++) {
             NSDictionary *data = [NSDictionary dictionaryWithDictionary:array[i]];
             if ([data[@"width"] integerValue] < 801 && [data[@"height"] integerValue] < 801) {
