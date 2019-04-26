@@ -71,9 +71,9 @@
                 continue;
             }
             
-            if ([data[@"source"] isEqualToString:@""]) {
-                continue;
-            }
+//            if ([data[@"source"] isEqualToString:@""]) {
+//                continue;
+//            }
             
             if ([[data[@"tags"] pathExtension] isEqualToString:@"webm"]) {
                 [self->webmPosts addObject:data];

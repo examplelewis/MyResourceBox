@@ -64,9 +64,9 @@
                 continue;
             }
             
-            if ([data[@"source"] isEqualToString:@""]) {
-                continue;
-            }
+//            if ([data[@"source"] isEqualToString:@""]) {
+//                continue;
+//            }
             
             [self->posts addObject:data];
         }
