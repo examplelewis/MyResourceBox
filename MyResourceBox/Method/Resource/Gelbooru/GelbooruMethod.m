@@ -86,11 +86,16 @@
         }
             break;
         case 32: {
+            GelbooruTagPagePicManager *manager = [GelbooruTagPagePicManager new];
+            [manager startFetchingTagPicCount];
+        }
+            break;
+        case 33: {
             GelbooruTagEndTimePicManager *mananger = [GelbooruTagEndTimePicManager new];
             [mananger prepareFetching];
         }
             break;
-        case 33: {
+        case 34: {
             GelbooruTagEndTimePicManager *mananger = [GelbooruTagEndTimePicManager new];
             [mananger prepareFetchingFirstPageAndEstimatePicCount];
         }
