@@ -100,13 +100,77 @@
         DDLogError(@"%@: %@", errorTitle, errorMsg);
         
         [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【截止时间】，遇到错误：%@: %@", self->tag, errorTitle, errorMsg];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【截止时间】：流程结束", self->tag];
+        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【截止时间】，流程结束", self->tag];
     }];
 }
 - (void)fetchSucceed {
     [[UtilityFile sharedInstance] cleanLog];
     [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【截止时间】：流程结束", tag];
     [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 图片地址:\n%@", tag, [UtilityFile convertResultArray:[posts valueForKey:@"file_url"]]];
+}
+
+- (void)prepareFetchingFirstPageAndEstimatePicCount {
+    NSString *input = [AppDelegate defaultVC].inputTextView.string;
+    if (input.length == 0) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        return;
+    }
+    
+    posts = [NSMutableArray array];
+    
+    formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
+    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en-US"];
+    
+    NSArray *inputComps = [input componentsSeparatedByString:@"|"];
+    page = 0;
+    pageCount = 0;
+    tag = inputComps[0];
+    if (inputComps.count == 1) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"未输入截止日期，将使用默认值：2018-10-11，如需修改请退出程序，重新设置"];
+        endDate = [NSDate dateWithYear:2018 month:10 day:11];
+    } else {
+        endDate = [NSDate dateWithString:inputComps[1] formatString:@"yyyy-MM-dd"];
+        if (!endDate) {
+            [[UtilityFile sharedInstance] showLogWithFormat:@"输入的截止日期有误，请按照如下格式检查:\n%%tag%%|yyyy-MM-dd"];
+            return;
+        }
+    }
+    
+    [self fetchFirstPageAndEstimatePicCount];
+}
+- (void)fetchFirstPageAndEstimatePicCount {
+    [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【截止时间】的预估数量，流程开始", tag];
+    
+    [[HttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page success:^(NSArray *array) {
+        for (NSInteger i = 0; i < array.count; i++) {
+            NSDictionary *data = [NSDictionary dictionaryWithDictionary:array[i]];
+            if ([data[@"width"] integerValue] < 801 && [data[@"height"] integerValue] < 801) {
+                continue;
+            }
+            
+//            if ([data[@"source"] isEqualToString:@""]) {
+//                continue;
+//            }
+            
+            [self->posts addObject:data];
+        }
+        
+        NSDictionary *lastPost = self->posts.lastObject;
+        NSDate *lastPostDate = [self->formatter dateFromString:lastPost[@"created_at"]];
+        
+        double intervalTimes = self->endDate.timeIntervalSinceNow / lastPostDate.timeIntervalSinceNow;
+        self->pageCount = ceil(intervalTimes);
+        NSInteger picCount = ceil(intervalTimes * 100);
+        
+        [[UtilityFile sharedInstance] showLogWithFormat:@"\n----------------------------------------\n根据第一页的结果，预计需要抓取 %ld 页数据，%ld 条图片地址\n----------------------------------------\n若需抓取的数据过多，请退出应用以终止进程。\n----------------------------------------", self->pageCount, picCount];
+        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【截止时间】的预估数量，流程结束", self->tag];
+    } failed:^(NSString *errorTitle, NSString *errorMsg) {
+        DDLogError(@"%@: %@", errorTitle, errorMsg);
+        
+        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【截止时间】的预估数量，遇到错误：%@: %@", self->tag, errorTitle, errorMsg];
+        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【截止时间】的预估数量，流程结束", self->tag];
+    }];
 }
 
 @end

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GelbooruTagEndTimePicManager : NSObject
 
 - (void)prepareFetching;
+- (void)prepareFetchingFirstPageAndEstimatePicCount;
 
 @end
 

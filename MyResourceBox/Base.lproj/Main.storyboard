@@ -707,6 +707,12 @@
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="IKM-Ar-xqk"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="预估特定标签图片数量【截止时间】" tag="33" id="puj-CF-zMe">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="1Ul-G4-ba8"/>
+                                                        </connections>
+                                                    </menuItem>
                                                 </items>
                                             </menu>
                                         </menuItem>

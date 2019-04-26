@@ -90,6 +90,11 @@
             [mananger prepareFetching];
         }
             break;
+        case 33: {
+            GelbooruTagEndTimePicManager *mananger = [GelbooruTagEndTimePicManager new];
+            [mananger prepareFetchingFirstPageAndEstimatePicCount];
+        }
+            break;
         default:
             break;
     }
