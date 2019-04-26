@@ -85,7 +85,7 @@
         [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self->tag, self->page + 1];
         
         if (self->page == 0) {
-            NSDictionary *lastPost = self->posts.lastObject;
+            NSDictionary *lastPost = array.lastObject;
             NSDate *lastPostDate = [self->formatter dateFromString:lastPost[@"created_at"]];
             
             double intervalTimes = self->endDate.timeIntervalSinceNow / lastPostDate.timeIntervalSinceNow;
@@ -162,7 +162,7 @@
             [self->posts addObject:data];
         }
         
-        NSDictionary *lastPost = self->posts.lastObject;
+        NSDictionary *lastPost = array.lastObject;
         NSDate *lastPostDate = [self->formatter dateFromString:lastPost[@"created_at"]];
         
         double intervalTimes = self->endDate.timeIntervalSinceNow / lastPostDate.timeIntervalSinceNow;
