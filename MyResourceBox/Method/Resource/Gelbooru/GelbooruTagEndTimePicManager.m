@@ -73,7 +73,7 @@
             
             // 出现第一个比 endDate 晚的 post，就中断循环，因为就到这一个批次为止
             NSDate *postDate = [self->formatter dateFromString:data[@"created_at"]];
-            if ([postDate isLaterThan:self->endDate]) {
+            if ([postDate isEarlierThan:self->endDate]) {
                 break;
             }
             
