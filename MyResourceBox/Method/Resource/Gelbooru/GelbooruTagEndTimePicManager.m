@@ -41,10 +41,15 @@
     page = 0;
     pageCount = 0;
     tag = inputComps[0];
-    endDate = [NSDate dateWithString:inputComps[1] formatString:@"yyyy-MM-dd"];
-    if (inputComps.count != 2 || !endDate || tag.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有的内容格式有误，请按照如下格式检查:\n%%tag%%|yyyy-MM-dd"];
-        return;
+    if (inputComps.count == 1) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"未输入截止日期，将使用默认值：2018-10-11，如需修改请退出程序，重新设置"];
+        endDate = [NSDate dateWithYear:2018 month:10 day:11];
+    } else {
+        endDate = [NSDate dateWithString:inputComps[1] formatString:@"yyyy-MM-dd"];
+        if (!endDate) {
+            [[UtilityFile sharedInstance] showLogWithFormat:@"输入的截止日期有误，请按照如下格式检查:\n%%tag%%|yyyy-MM-dd"];
+            return;
+        }
     }
     
     [self startFetching];
@@ -71,7 +76,7 @@
         
         NSArray *fileUrls = [self->posts valueForKey:@"file_url"];
         [UtilityFile exportArray:fileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostUrl.txt", self->tag]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self->tag, self->page];
+        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self->tag, self->page + 1];
         
         if (self->page == 0) {
             NSDictionary *lastPost = self->posts.lastObject;
