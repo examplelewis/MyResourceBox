@@ -57,7 +57,7 @@
 }
 - (void)startDownloading {
     DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:urls];
-    manager.maxConcurrentOperationCount = 10;
+    manager.maxConcurrentOperationCount = 3;
     manager.maxRedownloadTimes = 1;
     manager.timeoutInterval = 15;
     manager.downloadPath = targetFolderPath;

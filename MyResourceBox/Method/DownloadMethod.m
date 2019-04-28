@@ -39,28 +39,34 @@ static DownloadMethod *method;
             break;
         case 2: // 自定义设置
             break;
-        case 3: { // 同时下载1个【同步下载】
+        case 11: { // 同时下载1个【同步下载】
             manager.maxConcurrentOperationCount = 1;
             manager.maxRedownloadTimes = 1;
             manager.timeoutInterval = 30;
         }
             break;
-        case 4: { // 同时下载5个
+        case 12: { // 同时下载5个
             manager.maxConcurrentOperationCount = 5;
             manager.maxRedownloadTimes = 1;
             manager.timeoutInterval = 30;
         }
             break;
-        case 5: { // 同时下载10个
+        case 13: { // 同时下载10个
             manager.maxConcurrentOperationCount = 10;
             manager.maxRedownloadTimes = 1;
             manager.timeoutInterval = 30;
         }
             break;
-        case 6: { // 适用于 视频
+        case 21: { // 适用于 视频
             manager.maxConcurrentOperationCount = 5;
             manager.maxRedownloadTimes = 2;
             manager.timeoutInterval = 45;
+        }
+            break;
+        case 22: { // 适用于 Gelbooru
+            manager.maxConcurrentOperationCount = 3;
+            manager.maxRedownloadTimes = 2;
+            manager.timeoutInterval = 15;
         }
             break;
         default:

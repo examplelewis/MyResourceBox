@@ -928,42 +928,48 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="下载" id="cW8-ck-1FH">
                                                 <items>
-                                                    <menuItem title="默认设置" tag="1" keyEquivalent="1" id="O48-if-XFj">
-                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                                    <menuItem title="默认设置" tag="1" id="O48-if-XFj">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingDownload:" target="Voe-Tx-rLC" id="axN-lN-r3x"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="自定义设置" tag="2" keyEquivalent="2" id="nTk-L3-Wqb">
-                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                                    <menuItem title="自定义设置" tag="2" id="nTk-L3-Wqb">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingDownload:" target="Voe-Tx-rLC" id="VmC-te-xek"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="oxS-3N-o5i"/>
-                                                    <menuItem title="同时下载一个" tag="3" keyEquivalent="3" id="JFU-AZ-0Ap">
-                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                                    <menuItem title="同时下载一个" tag="11" id="JFU-AZ-0Ap">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingDownload:" target="Voe-Tx-rLC" id="xbb-CG-tyX"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="同时下载五个" tag="4" keyEquivalent="4" id="wJU-Rx-7jZ">
-                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                                    <menuItem title="同时下载五个" tag="12" id="wJU-Rx-7jZ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingDownload:" target="Voe-Tx-rLC" id="0WM-I9-aV8"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="同时下载十个" tag="5" keyEquivalent="5" id="8QX-su-YTA">
-                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                                    <menuItem title="同时下载十个" tag="13" id="8QX-su-YTA">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingDownload:" target="Voe-Tx-rLC" id="kXC-QS-ztn"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="nlz-bP-ig0"/>
-                                                    <menuItem title="适用于 视频" tag="6" keyEquivalent="6" id="dbQ-j8-OPV">
-                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES"/>
+                                                    <menuItem title="适用于 视频" tag="21" id="dbQ-j8-OPV">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingDownload:" target="Voe-Tx-rLC" id="EOC-d0-Ffb"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="适用于 Gelbooru" tag="22" id="c2W-75-NKe">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingDownload:" target="Voe-Tx-rLC" id="Gpg-ux-Tsf"/>
                                                         </connections>
                                                     </menuItem>
                                                 </items>
