@@ -422,7 +422,8 @@ static PixivMethod *instance;
     }
     
     NSMutableArray *useless = [NSMutableArray array]; // 非 pixiv 的地址
-    NSMutableArray *exists = [NSMutableArray array]; // 存在的地址
+    NSMutableArray *block1Exists = [NSMutableArray array]; // blockLevel == 1 存在的地址
+    NSMutableArray *notBlock1Exists = [NSMutableArray array]; // blockLevel != 1 存在的地址
     NSMutableArray *news = [NSMutableArray array]; // 不存在的地址
     
     db = [FMDatabase databaseWithPath:[[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
@@ -452,17 +453,35 @@ static PixivMethod *instance;
             userId = [urlComp[1] integerValue];
         }
         
-        NSInteger totalCount = 0;
-        FMResultSet *rs = [db executeQuery:@"select count(member_id) from pixivBlockUser where member_id = ? and block_level = 1", @(userId)];
-        while ([rs next]) {
-            totalCount = [rs intForColumnIndex:0];
+        NSInteger blocks1Count = 0;
+        FMResultSet *blocks1RS = [db executeQuery:@"select count(member_id) from pixivBlockUser where member_id = ? and block_level = 1", @(userId)];
+        while ([blocks1RS next]) {
+            blocks1Count = [blocks1RS intForColumnIndex:0];
         }
-        [rs close];
+        [blocks1RS close];
         
-        if (totalCount == 0) {
+        NSInteger notBlocks1Count = 0;
+        FMResultSet *notBlocks1RS = [db executeQuery:@"select count(member_id) from pixivBlockUser where member_id = ? and block_level != 1", @(userId)];
+        while ([notBlocks1RS next]) {
+            notBlocks1Count = [notBlocks1RS intForColumnIndex:0];
+        }
+        [notBlocks1RS close];
+        
+        NSInteger existsCount = 0;
+        FMResultSet *existsRS = [db executeQuery:@"select count(member_id) from pixivBlockUser where member_id = ?", @(userId)];
+        while ([existsRS next]) {
+            existsCount = [existsRS intForColumnIndex:0];
+        }
+        [existsRS close];
+        
+        if (blocks1Count != 0) {
+            [block1Exists addObject:url];
+        }
+        if (notBlocks1Count != 0) {
+            [notBlock1Exists addObject:url];
+        }
+        if (existsCount == 0) {
             [news addObject:url];
-        } else {
-            [exists addObject:url];
         }
     }
     
@@ -475,8 +494,11 @@ static PixivMethod *instance;
     if (news.count > 0) {
         [UtilityFile exportArray:news atPath:@"/Users/Mercury/Downloads/PixivUtilBlockNews.txt"];
     }
-    if (exists.count > 0) {
-        [UtilityFile exportArray:exists atPath:@"/Users/Mercury/Downloads/PixivUtilBlockExists.txt"];
+    if (block1Exists.count > 0) {
+        [UtilityFile exportArray:block1Exists atPath:@"/Users/Mercury/Downloads/PixivUtilBlock1Exists.txt"];
+    }
+    if (notBlock1Exists.count > 0) {
+        [UtilityFile exportArray:notBlock1Exists atPath:@"/Users/Mercury/Downloads/PixivUtilNotBlock1Exists.txt"];
     }
 }
 - (void)updateBlockLevel1PixivUser {
