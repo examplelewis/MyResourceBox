@@ -27,6 +27,7 @@
 - (void)removeDuplicateImagesFromDatabase;
 
 #pragma mark - Pixiv
+- (void)cleanPixivFollowingUserTable;
 - (void)insertPixivFollowingUserInfoIntoDatabase:(NSArray *)userInfo;
 - (NSString *)getLastPixivFollowingUserIdFromDatabase;
 - (void)insertPixivBlockUserInfoIntoDatabase:(NSArray *)userInfo;

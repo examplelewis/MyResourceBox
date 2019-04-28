@@ -272,50 +272,29 @@ static PixivMethod *instance;
         url = @"https://app-api.pixiv.net/v1/user/following?user_id=6826008&restrict=public";
     }
     
-    // 获取最新的 Member Id，然后根据这个 Id 截断从接口中获得的用户信息
-    NSString *lastMemberId = [[SQLiteFMDBManager defaultDBManager] getLastPixivFollowingUserIdFromDatabase];
-    
     WS(weakSelf);
     [PixivAPIManager fetchMyFollowingWithURL:url success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         SS(strongSelf);
         NSString *nextUrl = responseObject[@"next_url"];
         NSArray *userPreviews = responseObject[@"user_previews"];
-        BOOL reachLast = NO; // 看是否已经到了最后一个Id
+        NSArray *users = [userPreviews valueForKey:@"user"];
         
-        if (userPreviews && userPreviews.count > 0) {
-            NSArray *userPreviewIds = [userPreviews valueForKeyPath:@"user.id"];
-            NSArray *userPreviewNames = [userPreviews valueForKeyPath:@"user.name"];
-
-            for (NSInteger i = 0; i < userPreviewIds.count; i++) {
-                NSNumber *userId = userPreviewIds[i];
-                NSString *userName = userPreviewNames[i];
-                
-                if ([userId integerValue] == [lastMemberId integerValue]) {
-                    reachLast = YES;
-                    break;
-                }
-
-                [strongSelf->fetchedFollowings addObject:@{@"userId": userId, @"userName": userName}];
-            }
+        if (users && users.count > 0) {
+            [strongSelf->fetchedFollowings addObjectsFromArray:users];
         }
-
+        
         if (strongSelf->fetchedFollowings.count > 0) {
             [UtilityFile exportArray:strongSelf->fetchedFollowings atPlistPath:@"/Users/Mercury/Downloads/PixivFetchedUserIds.plist"];
         }
         
-        // 如果到了最后一个，那么忽略之后的操作，将已有的数据保存至数据库
-        if (reachLast) {
-            [strongSelf saveUserIdsIntoDatabase];
+        NSLog(@"nextUrl: %@", nextUrl);
+        if (nextUrl && ![nextUrl isEqual:[NSNull null]] && nextUrl.length > 0) {
+            [strongSelf fetchMyFollowings:nextUrl];
         } else {
-            NSLog(@"nextUrl: %@", nextUrl);
-            if (nextUrl && ![nextUrl isEqual:[NSNull null]] && nextUrl.length > 0) {
-                [strongSelf fetchMyFollowings:nextUrl];
-            } else {
-                [strongSelf saveUserIdsIntoDatabase];
-            }
+            [strongSelf saveUserIdsIntoDatabase];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-
+        [[UtilityFile sharedInstance] showLogWithFormat:@"抓取 Pixiv 关注的用户信息时出错: %@", error.localizedDescription];
     }];
 }
 // 往数据库中存取
@@ -334,6 +313,7 @@ static PixivMethod *instance;
         j--;
     }
     
+    [[SQLiteFMDBManager defaultDBManager] cleanPixivFollowingUserTable];
     [[SQLiteFMDBManager defaultDBManager] insertPixivFollowingUserInfoIntoDatabase:fetchedFollowings];
     [[UtilityFile sharedInstance] showLogWithFormat:@"已将获取到的 Pixiv 关注用户的信息存到数据库中"];
 }

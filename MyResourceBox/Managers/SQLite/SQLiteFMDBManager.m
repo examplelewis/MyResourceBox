@@ -176,6 +176,30 @@ static SQLiteFMDBManager *_sharedDBManager;
 }
 
 #pragma mark - Pixiv
+- (void)cleanPixivFollowingUserTable {
+    //先判断数据库是否存在，如果不存在，创建数据库
+    if (!db) {
+        [self createDatabase];
+    }
+    //判断数据库是否已经打开，如果没有打开，提示失败
+    if (![db open]) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"删除 pixivFollowingUser 所有数据时发生错误：%@", [db lastErrorMessage]];
+        
+        return;
+    }
+    
+    BOOL deleteSuccess = [db executeUpdate:@"DELETE FROM pixivFollowingUser"];
+    if (deleteSuccess) {
+        BOOL resetSeqSuccess = [db executeUpdate:@"UPDATE sqlite_sequence SET seq = 0 where name = 'pixivFollowingUser'"];
+        if (resetSeqSuccess) {
+            [[UtilityFile sharedInstance] showLogWithFormat:@"删除 pixivFollowingUser 所有数据成功"];
+        } else {
+            [[UtilityFile sharedInstance] showLogWithFormat:@"删除 pixivFollowingUser 所有数据时发生错误：%@", [db lastErrorMessage]];
+        }
+    } else {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"删除 pixivFollowingUser 所有数据时发生错误：%@", [db lastErrorMessage]];
+    }
+}
 - (void)insertPixivFollowingUserInfoIntoDatabase:(NSArray *)userInfo {
     //先判断数据库是否存在，如果不存在，创建数据库
     if (!db) {
@@ -196,7 +220,7 @@ static SQLiteFMDBManager *_sharedDBManager;
         for (NSInteger i = 0; i < userInfo.count; i++) {
             NSDictionary *info = userInfo[i];
             
-            BOOL success = [db executeUpdate:@"INSERT INTO pixivFollowingUser (id, member_id, user_name) values(?, ?, ?)", NULL, info[@"userId"], info[@"userName"]];
+            BOOL success = [db executeUpdate:@"INSERT INTO pixivFollowingUser (id, member_id, user_name) values(?, ?, ?)", NULL, info[@"id"], info[@"name"]];
             if (!success) {
                 [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:pixivFollowingUser中插入数据时发生错误：%@", [db lastErrorMessage]];
                 [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", info];
