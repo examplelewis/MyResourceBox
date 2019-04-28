@@ -13,8 +13,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.inputTextView setFont:[NSFont fontWithName:@"PingFangSC-Regular" size:[NSFont systemFontSize]]];
-    [self.logTextView setFont:[NSFont fontWithName:@"PingFangSC-Regular" size:[NSFont systemFontSize]]];
+    [self.inputTextView setFont:[NSFont fontWithName:@"PingFangSC-Regular" size:12.0f]];
+    [self.logTextView setFont:[NSFont fontWithName:@"PingFangSC-Regular" size:12.0f]];
 }
 - (void)viewDidAppear {
     [super viewDidAppear];
