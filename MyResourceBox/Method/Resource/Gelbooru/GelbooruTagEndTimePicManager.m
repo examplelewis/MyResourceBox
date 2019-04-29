@@ -119,8 +119,6 @@
 }
 
 - (void)prepareFetchingPicCount {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，流程开始", tag];
-    
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     if (input.length == 0) {
         [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
@@ -146,6 +144,8 @@
     countBeforePage = 0;
     countAfterPage = 199;
     page = 199;
+    
+    [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，流程开始", tag];
     
     [self fetchSinglePostCountUrl];
 }
