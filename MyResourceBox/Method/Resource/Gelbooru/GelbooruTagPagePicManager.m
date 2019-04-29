@@ -123,7 +123,7 @@
                 [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片数量：流程结束", self->tag];
             } else {
                 NSInteger nextPage = floor((self->page + self->countBeforePage) / 2.0);
-                [[UtilityFile sharedInstance] showLogWithFormat:@"\n----------------------------------------\n查询 %@ 图片数量，正在查询第 %ld 页\n----------------------------------------\n当前页数量为 0，二分法向前查找第 %ld 页\n----------------------------------------", self->tag, self->page + 1, nextPage + 1];
+                [[UtilityFile sharedInstance] showLogWithFormat:@"\n----------------------------------------\n查询 %@ 图片数量，正在查询第 %ld 页\n当前页数量为 0，二分法向前查找第 %ld 页", self->tag, self->page + 1, nextPage + 1];
                 self->countAfterPage = self->page;
                 self->page = nextPage;
                 DDLogInfo(@"after ==0 page: %ld, countBeforePage: %ld, countAfterPage: %ld", self->page, self->countBeforePage, self->countAfterPage);
@@ -140,7 +140,7 @@
                     [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片数量，需要抓取 %ld 页，图片数量 %ld 张", self->tag, self->page + 1, (self->page + 1) * 100];
                     [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片数量：流程结束", self->tag];
                 } else {
-                    [[UtilityFile sharedInstance] showLogWithFormat:@"\n----------------------------------------\n查询 %@ 图片数量，正在查询第 %ld 页\n----------------------------------------\n当前页数量为 100，二分法向后查找第 %ld 页\n----------------------------------------", self->tag, self->page + 1, nextPage + 1];
+                    [[UtilityFile sharedInstance] showLogWithFormat:@"\n----------------------------------------\n查询 %@ 图片数量，正在查询第 %ld 页\n当前页数量为 100，二分法向后查找第 %ld 页", self->tag, self->page + 1, nextPage + 1];
                     self->countBeforePage = self->page;
                     self->page = nextPage;
                     DDLogInfo(@"after ==100 page: %ld, countBeforePage: %ld, countAfterPage: %ld", self->page, self->countBeforePage, self->countAfterPage);
