@@ -118,13 +118,18 @@
 - (void)fetchSinglePostCountUrl {
     [[HttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page success:^(NSArray *array) {
         if (array.count == 0) {
-            NSInteger nextPage = floor((self->page + self->countBeforePage) / 2.0);
-            [[UtilityFile sharedInstance] showLogWithFormat:@"\n----------------------------------------\n查询 %@ 图片数量，正在查询第 %ld 页\n----------------------------------------\n当前页数量为 0，二分法向前查找第 %ld 页\n----------------------------------------", self->tag, self->page + 1, nextPage + 1];
-            self->countAfterPage = self->page;
-            self->page = nextPage;
-            DDLogInfo(@"after ==0 page: %ld, countBeforePage: %ld, countAfterPage: %ld", self->page, self->countBeforePage, self->countAfterPage);
-            
-            [self fetchSinglePostCountUrl];
+            if (self->page == 0) {
+                [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片数量，未查询到图片，请检查输入的 Tag", self->tag];
+                [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片数量：流程结束", self->tag];
+            } else {
+                NSInteger nextPage = floor((self->page + self->countBeforePage) / 2.0);
+                [[UtilityFile sharedInstance] showLogWithFormat:@"\n----------------------------------------\n查询 %@ 图片数量，正在查询第 %ld 页\n----------------------------------------\n当前页数量为 0，二分法向前查找第 %ld 页\n----------------------------------------", self->tag, self->page + 1, nextPage + 1];
+                self->countAfterPage = self->page;
+                self->page = nextPage;
+                DDLogInfo(@"after ==0 page: %ld, countBeforePage: %ld, countAfterPage: %ld", self->page, self->countBeforePage, self->countAfterPage);
+                
+                [self fetchSinglePostCountUrl];
+            }
         } else if (array.count == 100) {
             if (self->page == 199) {
                 [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片数量，需要抓取 >200 页，图片数量 >20000 张", self->tag];
