@@ -26,6 +26,10 @@
     [super setRepresentedObject:representedObject];
 }
 
+- (void)scrollLogTextViewToBottom {
+    [self.logTextView scrollRangeToVisible:NSMakeRange(self.logTextView.string.length, 0)];
+}
+
 #pragma mark -- 控件方法 --
 - (IBAction)processingExportInput:(NSButton *)sender {
     NSString *input = self.inputTextView.string;

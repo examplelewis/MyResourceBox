@@ -21,4 +21,6 @@ typedef NS_ENUM(NSUInteger, ProcessingType) {
 @property (strong) IBOutlet NSTextField *numberLabel;
 @property (strong) IBOutlet NSProgressIndicator *progress;
 
+- (void)scrollLogTextViewToBottom;
+
 @end

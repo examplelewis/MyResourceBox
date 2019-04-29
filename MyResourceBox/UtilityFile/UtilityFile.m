@@ -63,6 +63,7 @@ static UtilityFile *_sharedInstance;
     ViewController *rootVC = [AppDelegate defaultVC];
     dispatch_async(dispatch_get_main_queue(), ^{
         rootVC.logTextView.string = [rootVC.logTextView.string stringByAppendingString:string];
+        [rootVC scrollLogTextViewToBottom];
     });
 }
 - (void)showLogWithTitle:(NSString *)alertTitle andFormat:(NSString *)alertFormat, ... {
@@ -81,9 +82,10 @@ static UtilityFile *_sharedInstance;
     
     NSString *string = [NSString stringWithFormat:@"%@ | %@\n%@\n%@\n", dateString, timeDiffString, alertTitle, alertString];
     lastLog = string;
+    ViewController *rootVC = [AppDelegate defaultVC];
     dispatch_main_sync_safe((^() {
-        ViewController *rootVC = [AppDelegate defaultVC];
         rootVC.logTextView.string = [rootVC.logTextView.string stringByAppendingString:string];
+        [rootVC scrollLogTextViewToBottom];
     }));
 }
 - (void)showNotAppendLogWithFormat:(NSString *)alertFormat, ... {
@@ -98,8 +100,8 @@ static UtilityFile *_sharedInstance;
     NSString *timeDiffString = [UtilityFile convertTimeDifferenceToString:timeDiff];
     NSString *dateString = [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
     
+    ViewController *rootVC = [AppDelegate defaultVC];
     dispatch_main_sync_safe((^() {
-        ViewController *rootVC = [AppDelegate defaultVC];
         NSString *logContent = rootVC.logTextView.string;
         logContent = [logContent stringByReplacingOccurrencesOfString:self->lastLog withString:@""];
         NSString *string = [NSString stringWithFormat:@"%@ | %@\n%@\n", dateString, timeDiffString, alertString];
