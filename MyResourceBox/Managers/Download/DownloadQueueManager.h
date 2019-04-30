@@ -13,6 +13,7 @@
 @property (nonatomic, copy) NSString *downloadPath;
 @property (nonatomic, copy) NSDictionary *httpHeaders;
 @property (nonatomic, copy) void(^finishBlock)(void);
+@property (nonatomic, copy) NSDictionary *renameInfo; // 格式: @{%url%: @"xxx.jpg"}
 
 @property (nonatomic, assign) BOOL showAlertAfterFinished;
 @property (nonatomic, assign) NSInteger maxConcurrentOperationCount;

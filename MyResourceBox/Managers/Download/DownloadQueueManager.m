@@ -66,8 +66,17 @@ static NSInteger const defaultTimeoutInterval = 45;
         }
     }
     
+    NSString *targetFileName = nil;
+    if (self.renameInfo) {
+        targetFileName = self.renameInfo[url];
+        
+        if (![targetFileName isKindOfClass:[NSString class]] || targetFileName.length == 0) {
+            [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 对应的文件名无效。使用 [response suggestedFilename]", url];
+            targetFileName = nil;
+        }
+    }
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-        NSString *filePath = [self.downloadPath stringByAppendingPathComponent:[response suggestedFilename]];
+        NSString *filePath = [self.downloadPath stringByAppendingPathComponent:targetFileName ? targetFileName : [response suggestedFilename]];
         return [NSURL fileURLWithPath:filePath];
     } completionHandler:completionBlock];
     
