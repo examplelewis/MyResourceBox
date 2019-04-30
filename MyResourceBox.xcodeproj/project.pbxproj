@@ -358,22 +358,9 @@
 			children = (
 				AC19E1561E4857020084A510 /* PixivMethod.h */,
 				AC19E1571E4857020084A510 /* PixivMethod.m */,
-				AC19E1591E4857210084A510 /* PixivUserManager.h */,
-				AC19E15A1E4857210084A510 /* PixivUserManager.m */,
-				AC19E15C1E4857410084A510 /* PixivIllustManager.h */,
-				AC19E15D1E4857410084A510 /* PixivIllustManager.m */,
-				AC9F4C6F1E49B06E00FD01C5 /* PixivDownloadManager.h */,
-				AC9F4C701E49B06E00FD01C5 /* PixivDownloadManager.m */,
-				ACA9C91E21FD954E00B33CB4 /* PixivLoginUserManager.h */,
-				ACA9C91F21FD954E00B33CB4 /* PixivLoginUserManager.m */,
-				ACA9C91821FD933500B33CB4 /* PixivHttpSessionManager.h */,
-				ACA9C91921FD933500B33CB4 /* PixivHttpSessionManager.m */,
-				ACA9C91B21FD950E00B33CB4 /* PixivAPIManager.h */,
-				ACA9C91C21FD950E00B33CB4 /* PixivAPIManager.m */,
-				ACAFAAD921FDB13100323A0A /* PixivGeneralManager.h */,
-				ACAFAADA21FDB13100323A0A /* PixivGeneralManager.m */,
 				ACD1AA35225B44660017A8D3 /* PixivExHentaiManager.h */,
 				ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */,
+				ACC93EF22277EF6900C207E6 /* Managers */,
 			);
 			path = Pixiv;
 			sourceTree = "<group>";
@@ -679,6 +666,35 @@
 				ACC93EEF2277EBCD00C207E6 /* BCYOrganizingManager.m */,
 			);
 			path = BCY;
+			sourceTree = "<group>";
+		};
+		ACC93EF12277EF1C00C207E6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				ACA9C91E21FD954E00B33CB4 /* PixivLoginUserManager.h */,
+				ACA9C91F21FD954E00B33CB4 /* PixivLoginUserManager.m */,
+				AC19E1591E4857210084A510 /* PixivUserManager.h */,
+				AC19E15A1E4857210084A510 /* PixivUserManager.m */,
+				AC19E15C1E4857410084A510 /* PixivIllustManager.h */,
+				AC19E15D1E4857410084A510 /* PixivIllustManager.m */,
+				ACA9C91B21FD950E00B33CB4 /* PixivAPIManager.h */,
+				ACA9C91C21FD950E00B33CB4 /* PixivAPIManager.m */,
+				ACA9C91821FD933500B33CB4 /* PixivHttpSessionManager.h */,
+				ACA9C91921FD933500B33CB4 /* PixivHttpSessionManager.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		ACC93EF22277EF6900C207E6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				ACC93EF12277EF1C00C207E6 /* API */,
+				AC9F4C6F1E49B06E00FD01C5 /* PixivDownloadManager.h */,
+				AC9F4C701E49B06E00FD01C5 /* PixivDownloadManager.m */,
+				ACAFAAD921FDB13100323A0A /* PixivGeneralManager.h */,
+				ACAFAADA21FDB13100323A0A /* PixivGeneralManager.m */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		ACCAA0311E1B80F30017EDDA /* Single */ = {
