@@ -36,7 +36,7 @@
     NSString *inputString = [AppDelegate defaultVC].inputTextView.string;
     
     if ([inputString containsString:@"bcy."]) {
-        [[BCYMethod defaultMethod] configMethod:1];
+        [BCYMethod configMethod:1];
     } else if ([inputString containsString:@"exhentai."]) {
         [[ExHentaiManager defaultManager] configMethod:1];
     } else if ([inputString containsString:@"lofter."]) {
@@ -68,7 +68,7 @@
     }
     
     [[UtilityFile sharedInstance] showLogWithFormat:@"已检测到书签文件，开始解析半次元的链接"];
-    [[BCYMethod defaultMethod] configMethod:2];
+    [BCYMethod configMethod:2];
 }
 
 @end

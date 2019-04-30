@@ -1,20 +1,19 @@
 //
-//  BCYMethod.m
+//  BCYFetchManager.m
 //  MyResourceBox
 //
-//  Created by 龚宇 on 16/11/20.
-//  Copyright © 2016年 gongyuTest. All rights reserved.
+//  Created by 龚宇 on 19/04/30.
+//  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import "BCYMethod.h"
-
+#import "BCYFetchManager.h"
+#import "BCYHeader.h"
 #import "SQLiteManager.h"
 #import "SQLiteFMDBManager.h"
-
 #import "CookieManager.h"
 #import "DownloadQueueManager.h"
 
-@interface BCYMethod () {
+@interface BCYFetchManager () {
     NSInteger downloaded;
     
     NSMutableArray *checkArray; //半次元校验位组成的数组
@@ -28,54 +27,20 @@
 
 @end
 
-@implementation BCYMethod
+@implementation BCYFetchManager
 
-static NSString * const filePath = @"/Users/Mercury/Downloads/Safari 书签.html";
-
-static BCYMethod *method;
-+ (BCYMethod *)defaultMethod {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        method = [[BCYMethod alloc] init];
-    });
-    
-    return method;
-}
-
-- (void)configMethod:(NSInteger)cellRow {
+// 1.1 ~ 1.2、获取半次元网页地址
+- (void)getPageURLFromInput:(BOOL)check {
     [UtilityFile resetCurrentDate];
     [[UtilityFile sharedInstance] showLogWithFormat:@"获取半次元的图片地址：已经准备就绪"];
-    downloaded = 0;
     
     CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeBCY];
     [manager writeCookiesIntoHTTPStorage];
     
-    switch (cellRow) {
-        case 1:
-            [self getPageURLFromInput:YES];
-            break;
-        case 2:
-            [self getPageURLFromFile];
-            break;
-        case 3:
-            [self parseHTML];
-            break;
-        case 4:
-            [self arrangeImageFileFromPlistPhase1];
-            break;
-        case 5:
-            [self getPageURLFromInput:NO];
-        default:
-            break;
-    }
-}
-
-#pragma mark -- 逻辑方法 --
-// 1.1~1.3、获取半次元网页地址
-- (void)getPageURLFromInput:(BOOL)check {
-    NSString *input = [AppDelegate defaultVC].inputTextView.string;
     checkDB = check;
+    downloaded = 0;
     
+    NSString *input = [AppDelegate defaultVC].inputTextView.string;
     if (input.length > 0) {
         pageArray = [NSMutableArray arrayWithArray:[input componentsSeparatedByString:@"\n"]];
         [[UtilityFile sharedInstance] showLogWithFormat:@"从文件解析到%ld条网页\n", pageArray.count];
@@ -86,8 +51,17 @@ static BCYMethod *method;
     }
 }
 - (void)getPageURLFromFile {
+    [UtilityFile resetCurrentDate];
+    [[UtilityFile sharedInstance] showLogWithFormat:@"获取半次元的图片地址：已经准备就绪"];
+    
+    CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeBCY];
+    [manager writeCookiesIntoHTTPStorage];
+    
+    checkDB = YES;
+    downloaded = 0;
+    
     NSMutableArray *parsedArray = [NSMutableArray array];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSData *data = [NSData dataWithContentsOfFile:BCYHtmlFilePath];
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
     NSArray *array = [xpathParser searchWithXPathQuery:@"//a"];
     
@@ -108,45 +82,6 @@ static BCYMethod *method;
     } else {
         [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查书签文件"];
     }
-}
-- (void)parseHTML {
-    NSData *data = [[AppDelegate defaultVC].inputTextView.string dataUsingEncoding:NSUTF8StringEncoding];
-    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
-    
-    //获取title标签
-    NSArray *titleArray = [xpathParser searchWithXPathQuery:@"//title"];
-    TFHppleElement *element = (TFHppleElement *)titleArray.firstObject;
-    NSString *title = [element.text stringByReplacingOccurrencesOfString:@" | 半次元-第一中文COS绘画小说社区" withString:@""];
-    title = [title stringByReplacingOccurrencesOfString:@"/" withString:@" "];
-    
-    
-    // 获取 script 标签
-    NSArray *scriptArray = [xpathParser searchWithXPathQuery:@"//script"];
-    TFHppleElement *jsonElement = [scriptArray bk_match:^BOOL(TFHppleElement *elemnt) {
-        return elemnt.raw && [elemnt.raw containsString:@"JSON.parse"];
-    }];
-    
-    NSString *jsonRaw = jsonElement.raw;
-    jsonRaw = [jsonRaw stringByReplacingOccurrencesOfString:@"\\\\u002F" withString:@"\\"];
-    jsonRaw = [jsonRaw stringByReplacingOccurrencesOfString:@"\\\"" withString:@"\""];
-    jsonRaw = [jsonRaw stringByReplacingOccurrencesOfString:@"\\" withString:@"/"];
-    NSArray *imageComp = [jsonRaw componentsSeparatedByString:@":\""];
-    NSArray *imageUrls = [imageComp bk_select:^BOOL(NSString *obj) {
-        return [obj hasPrefix:@"https://img-bcy-qn.pstatp.com/user/"] && ![obj containsString:@"post_count"];
-    }];
-    NSArray *newImageUrls = [imageUrls bk_map:^(NSString *obj) {
-        NSString *newObj = [obj stringByReplacingOccurrencesOfString:@",\"type\"" withString:@""];
-        newObj = [newObj stringByReplacingOccurrencesOfString:@"/w650\"" withString:@""];
-        newObj = [newObj stringByReplacingOccurrencesOfString:@"/w230\"" withString:@""];
-        
-        return newObj;
-    }];
-    
-    // 导出结果
-    [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取到%ld条数据", newImageUrls.count];
-    [UtilityFile exportArray:newImageUrls atPath:@"/Users/Mercury/Downloads/BCYImageURLs.txt"];
-    [@{title:newImageUrls} writeToFile:@"/Users/Mercury/Downloads/BCYRenameInfo.plist" atomically:YES]; //RenameDict
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整个流程已经结束，如有需要，请从上方的结果框中查看记录"];
 }
 // 2、排除重复的页面地址
 - (void)ruleoutDuplicatePages {
@@ -192,7 +127,7 @@ static BCYMethod *method;
                 [[UtilityFile sharedInstance] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
                 
                 [self->failedURLArray addObject:[error userInfo][NSURLErrorFailingURLStringErrorKey]];
-                [UtilityFile exportArray:self->failedURLArray atPath:@"/Users/Mercury/Downloads/BCYFailedURLs.txt"];
+                [UtilityFile exportArray:self->failedURLArray atPath:BCYFailedUrlsPath];
                 [self didFinishDownloadingOnePicture:NO];
             } else {
                 TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
@@ -202,7 +137,7 @@ static BCYMethod *method;
                 TFHppleElement *element = (TFHppleElement *)titleArray.firstObject;
                 NSString *title = [element.text stringByReplacingOccurrencesOfString:@" | 半次元-第一中文COS绘画小说社区" withString:@""];
                 title = [title stringByReplacingOccurrencesOfString:@"/" withString:@" "];
-
+                
                 
                 // 获取 script 标签
                 NSArray *scriptArray = [xpathParser searchWithXPathQuery:@"//script"];
@@ -287,12 +222,12 @@ static BCYMethod *method;
 // 5、导出结果
 - (void)doneThings {
     [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取了%ld个页面的图片地址", pageArray.count]; //获取到的页面地址
-    [UtilityFile exportArray:pageArray atPath:@"/Users/Mercury/Downloads/BCYPageURLs.txt"];
+    [UtilityFile exportArray:pageArray atPath:BCYPageUrlsPath];
     [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取到%ld条图片地址，在右上方输出框内显示", resultArray.count];
-    [UtilityFile exportArray:resultArray atPath:@"/Users/Mercury/Downloads/BCYImageURLs.txt"];
+    [UtilityFile exportArray:resultArray atPath:BCYImageUrlsPath];
     [[UtilityFile sharedInstance] showLogWithFormat:@"有%ld条网页解析失败，请查看错误文件", failedURLArray.count]; //获取失败的页面地址
-    [UtilityFile exportArray:failedURLArray atPath:@"/Users/Mercury/Downloads/BCYFailedURLs.txt"];
-    [renameDict writeToFile:@"/Users/Mercury/Downloads/BCYRenameInfo.plist" atomically:YES]; //RenameDict
+    [UtilityFile exportArray:failedURLArray atPath:BCYFailedUrlsPath];
+    [renameDict writeToFile:BCYRenameInfoPath atomically:YES]; //RenameDict
     
     if (checkDB) {
         //把页面地址和图片地址全部写入到数据库中
@@ -317,7 +252,7 @@ static BCYMethod *method;
 // 6、下载
 - (void)startDownload {
     DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:resultArray];
-    manager.downloadPath = @"/Users/Mercury/Downloads/半次元";
+    manager.downloadPath = BCYDefaultDownloadPath;
     [manager startDownload];
 }
 
@@ -339,93 +274,6 @@ static BCYMethod *method;
             [self ruleoutDuplicateImages];
         });
     }
-}
-
-#pragma mark -- 整理方法 --
-// 根据Plist文件将图片整理到对应的文件夹中（第一步，显示NSOpenPanel）
-- (void)arrangeImageFileFromPlistPhase1 {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理半次元下载好的图片：已经准备就绪"];
-    
-    //先判断有没有plist文件
-    if (![[FileManager defaultManager] isContentExistAtPath:@"/Users/Mercury/Downloads/BCYRenameInfo.plist"]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"plist不存在，请查看对应的文件夹"];
-        return;
-    }
-    
-    // 如果文件夹存在，那么直接对文件夹进行处理
-    if ([[FileManager defaultManager] isContentExistAtPath:@"/Users/Mercury/Downloads/半次元/"]) {
-        [self arrangeImageFileFromPlistPhase2:@"/Users/Mercury/Downloads/半次元/"];
-    } else {
-        //显示NSOpenPanel
-        NSOpenPanel *panel = [NSOpenPanel openPanel];
-        [panel setMessage:@"选择半次元下载文件夹"];
-        panel.prompt = @"选择";
-        panel.canChooseDirectories = YES;
-        panel.canCreateDirectories = NO;
-        panel.canChooseFiles = NO;
-        panel.allowsMultipleSelection = NO;
-        panel.directoryURL = [NSURL fileURLWithPath:@"/Users/Mercury/Downloads"];
-        
-        [panel beginSheetModalForWindow:[AppDelegate defaultWindow] completionHandler:^(NSInteger result) {
-            if (result == 1) {
-                NSURL *fileUrl = [panel URLs].firstObject;
-                NSString *filePath = [fileUrl path];
-                [[UtilityFile sharedInstance] showLogWithFormat:@"已选择路径：%@", filePath];
-                
-                [self arrangeImageFileFromPlistPhase2:filePath];
-            }
-        }];
-    }
-}
-// 根据Plist文件将图片整理到对应的文件夹中（第二步，具体逻辑）
-- (void)arrangeImageFileFromPlistPhase2:(NSString *)rootFolderName {
-    FileManager *fm = [FileManager defaultManager];
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:@"/Users/Mercury/Downloads/BCYRenameInfo.plist"];
-    
-    //根据Plist文件整理记录的图片
-    NSArray *allKeys = [dict allKeys];
-    for (NSString *key in allKeys) {
-        //获取文件夹的名字和路径
-        NSString *folderName = @"";
-        if ([key hasPrefix:@"http://bcy.net"]) {
-            NSArray *array = [key componentsSeparatedByString:@"/"];
-            folderName = [folderName stringByAppendingString:array[3]];
-            folderName = [folderName stringByAppendingString:array[5]];
-            folderName = [folderName stringByAppendingString:array[4]];
-            folderName = [folderName stringByAppendingString:array[6]];
-        } else {
-            folderName = key;
-        }
-        //创建目录文件夹
-        NSString *folderPath = [rootFolderName stringByAppendingPathComponent:folderName];
-        [fm createFolderAtPathIfNotExist:folderPath];
-        
-        //获取图片文件路径并且移动文件
-        NSArray *array = [NSArray arrayWithArray:dict[key]];
-        for (NSString *url in array) {
-            NSString *filePath = [rootFolderName stringByAppendingPathComponent:url.lastPathComponent];
-            NSString *destPath = [folderPath stringByAppendingPathComponent:url.lastPathComponent];
-            
-            [fm moveItemAtPath:filePath toDestPath:destPath];
-        }
-    }
-    [[UtilityFile sharedInstance] showLogWithFormat:@"Plist中记录的图片已经整理完成"];
-    
-    // 新建"未整理"文件夹并将剩下的图片整理到"未整理"文件夹
-    NSString *otherFolderName = [rootFolderName stringByAppendingPathComponent:@"未整理"];
-    [fm createFolderAtPathIfNotExist:otherFolderName];
-    
-    NSArray<NSString *> *imageFiles = [fm getFilePathsInFolder:rootFolderName specificExtensions:[Consts simplePhotoType]];
-    for (NSString *filePath in imageFiles) {
-        NSString *destPath = [otherFolderName stringByAppendingPathComponent:filePath.lastPathComponent];
-        [fm moveItemAtPath:filePath toDestPath:destPath];
-    }
-    
-    [fm trashFileAtPath:@"/Users/Mercury/Downloads/BCYRenameInfo.plist" resultItemURL:nil];
-    
-    [[UtilityFile sharedInstance] showLogWithFormat:@"其他图片已经整理完成"];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"所有半次元图片已经整理完成"];
 }
 
 @end

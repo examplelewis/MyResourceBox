@@ -109,7 +109,7 @@
     [[AnalysisMethod new] configMethod:sender.tag];
 }
 - (IBAction)processingBCY:(NSMenuItem *)sender {
-    [[BCYMethod defaultMethod] configMethod:sender.tag];
+    [BCYMethod configMethod:sender.tag];
 }
 - (IBAction)processingExHentai:(NSMenuItem *)sender {
     [[ExHentaiManager defaultManager] configMethod:sender.tag];

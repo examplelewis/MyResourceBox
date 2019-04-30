@@ -10,7 +10,6 @@
 
 @interface BCYMethod : NSObject
 
-+ (BCYMethod *)defaultMethod;
-- (void)configMethod:(NSInteger)cellRow;
++ (void)configMethod:(NSInteger)cellRow;
 
 @end

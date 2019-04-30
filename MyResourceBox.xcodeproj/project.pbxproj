@@ -85,6 +85,9 @@
 		ACC8DDC9227010F0005228D7 /* GelbooruOrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8DDC8227010F0005228D7 /* GelbooruOrganizeManager.m */; };
 		ACC8DDCD22701356005228D7 /* GelbooruFileMoveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8DDCC22701356005228D7 /* GelbooruFileMoveManager.m */; };
 		ACC8DDD0227015A8005228D7 /* GelbooruDownloadAndOrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8DDCF227015A8005228D7 /* GelbooruDownloadAndOrganizeManager.m */; };
+		ACC93EE92277E92100C207E6 /* BCYHTMLParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93EE82277E92100C207E6 /* BCYHTMLParseManager.m */; };
+		ACC93EEC2277E9DD00C207E6 /* BCYFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93EEB2277E9DD00C207E6 /* BCYFetchManager.m */; };
+		ACC93EF02277EBCD00C207E6 /* BCYOrganizingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93EEF2277EBCD00C207E6 /* BCYOrganizingManager.m */; };
 		ACCAA0341E1B80FB0017EDDA /* OrganizingDayFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */; };
 		ACCAA0371E1B81250017EDDA /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0351E1B81250017EDDA /* ImageManager.m */; };
 		ACCFA0BA226D5D3D007514C0 /* CatchCrashManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */; };
@@ -267,6 +270,13 @@
 		ACC8DDCC22701356005228D7 /* GelbooruFileMoveManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruFileMoveManager.m; sourceTree = "<group>"; };
 		ACC8DDCE227015A8005228D7 /* GelbooruDownloadAndOrganizeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruDownloadAndOrganizeManager.h; sourceTree = "<group>"; };
 		ACC8DDCF227015A8005228D7 /* GelbooruDownloadAndOrganizeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruDownloadAndOrganizeManager.m; sourceTree = "<group>"; };
+		ACC93EE62277E8F400C207E6 /* BCYHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCYHeader.h; sourceTree = "<group>"; };
+		ACC93EE72277E92100C207E6 /* BCYHTMLParseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCYHTMLParseManager.h; sourceTree = "<group>"; };
+		ACC93EE82277E92100C207E6 /* BCYHTMLParseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCYHTMLParseManager.m; sourceTree = "<group>"; };
+		ACC93EEA2277E9DD00C207E6 /* BCYFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCYFetchManager.h; sourceTree = "<group>"; };
+		ACC93EEB2277E9DD00C207E6 /* BCYFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCYFetchManager.m; sourceTree = "<group>"; };
+		ACC93EEE2277EBCD00C207E6 /* BCYOrganizingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCYOrganizingManager.h; sourceTree = "<group>"; };
+		ACC93EEF2277EBCD00C207E6 /* BCYOrganizingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCYOrganizingManager.m; sourceTree = "<group>"; };
 		ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizingDayFolder.m; sourceTree = "<group>"; };
 		ACCAA0331E1B80FB0017EDDA /* OrganizingDayFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizingDayFolder.h; sourceTree = "<group>"; };
 		ACCAA0351E1B81250017EDDA /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
@@ -371,8 +381,7 @@
 		AC789C6C1DE159B700523A12 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				AC789C6D1DE159B700523A12 /* BCYMethod.h */,
-				AC789C6E1DE159B700523A12 /* BCYMethod.m */,
+				ACC93EE52277E8DD00C207E6 /* BCY */,
 				ACC1DCB5226F06EE001243C1 /* Gelbooru */,
 				AC789C801DE15A1D00523A12 /* JDLingyuMethod.h */,
 				AC789C811DE15A1D00523A12 /* JDLingyuMethod.m */,
@@ -656,6 +665,22 @@
 			path = Gelbooru;
 			sourceTree = "<group>";
 		};
+		ACC93EE52277E8DD00C207E6 /* BCY */ = {
+			isa = PBXGroup;
+			children = (
+				ACC93EE62277E8F400C207E6 /* BCYHeader.h */,
+				AC789C6D1DE159B700523A12 /* BCYMethod.h */,
+				AC789C6E1DE159B700523A12 /* BCYMethod.m */,
+				ACC93EEA2277E9DD00C207E6 /* BCYFetchManager.h */,
+				ACC93EEB2277E9DD00C207E6 /* BCYFetchManager.m */,
+				ACC93EE72277E92100C207E6 /* BCYHTMLParseManager.h */,
+				ACC93EE82277E92100C207E6 /* BCYHTMLParseManager.m */,
+				ACC93EEE2277EBCD00C207E6 /* BCYOrganizingManager.h */,
+				ACC93EEF2277EBCD00C207E6 /* BCYOrganizingManager.m */,
+			);
+			path = BCY;
+			sourceTree = "<group>";
+		};
 		ACCAA0311E1B80F30017EDDA /* Single */ = {
 			isa = PBXGroup;
 			children = (
@@ -899,11 +924,14 @@
 				ACCFA0BA226D5D3D007514C0 /* CatchCrashManager.m in Sources */,
 				AC2D1B151DD0191C0085F8E0 /* DeviceInfo.m in Sources */,
 				AC789C821DE15A1D00523A12 /* JDLingyuMethod.m in Sources */,
+				ACC93EF02277EBCD00C207E6 /* BCYOrganizingManager.m in Sources */,
 				AC789C7E1DE159E100523A12 /* ExHentaiPagesManager.m in Sources */,
 				ACACB51E21C382D700C8D164 /* GelbooruTagStore.m in Sources */,
 				AC79E1CD1F4EA125008432B9 /* ExHentaiTorrentManager.m in Sources */,
 				ACC8DDC622700B25005228D7 /* GelbooruDownloadManager.m in Sources */,
 				ACA5162D220175F20074AB73 /* DeviantartMethod.m in Sources */,
+				ACC93EEC2277E9DD00C207E6 /* BCYFetchManager.m in Sources */,
+				ACC93EE92277E92100C207E6 /* BCYHTMLParseManager.m in Sources */,
 				AC789C731DE159B700523A12 /* BCYMethod.m in Sources */,
 				AC9F4C6B1E499B0E00FD01C5 /* DownloadOperation.m in Sources */,
 				AC9CA3D9210AC04C00F1AA08 /* OrganizingPhotos.m in Sources */,
