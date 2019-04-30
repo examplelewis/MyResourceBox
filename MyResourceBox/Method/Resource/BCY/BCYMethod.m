@@ -14,6 +14,8 @@
 @implementation BCYMethod
 
 + (void)configMethod:(NSInteger)cellRow {
+    [UtilityFile resetCurrentDate];
+    
     switch (cellRow) {
         case 1: {
             BCYFetchManager *manager = [BCYFetchManager new];

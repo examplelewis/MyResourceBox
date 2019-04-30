@@ -31,7 +31,6 @@
 
 // 1.1 ~ 1.2、获取半次元网页地址
 - (void)getPageURLFromInput:(BOOL)check {
-    [UtilityFile resetCurrentDate];
     [[UtilityFile sharedInstance] showLogWithFormat:@"获取半次元的图片地址：已经准备就绪"];
     
     CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeBCY];

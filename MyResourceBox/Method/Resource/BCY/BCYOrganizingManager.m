@@ -17,7 +17,6 @@
 
 // 根据Plist文件将图片整理到对应的文件夹中（第一步，显示NSOpenPanel）
 + (void)checkRootFolderIsExist {
-    [UtilityFile resetCurrentDate];
     [[UtilityFile sharedInstance] showLogWithFormat:@"整理半次元下载好的图片：已经准备就绪"];
     
     //先判断有没有plist文件
