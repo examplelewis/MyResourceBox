@@ -108,17 +108,6 @@
         [UtilityFile exportArray:fileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostUrl.txt", self->tag]];
         [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self->tag, self->page + 1];
         
-        if (self->page == 0) {
-            NSDictionary *lastPost = array.lastObject;
-            NSDate *lastPostDate = [self->formatter dateFromString:lastPost[@"created_at"]];
-            
-            double intervalTimes = self->endDate.timeIntervalSinceNow / lastPostDate.timeIntervalSinceNow;
-            self->pageCount = ceil(intervalTimes);
-            NSInteger picCount = ceil(intervalTimes * 100);
-            
-            [[UtilityFile sharedInstance] showLogWithFormat:@"\n----------------------------------------\n根据第一页的结果，预计需要抓取 %ld 页数据，%ld 条图片地址\n----------------------------------------\n若需抓取的数据过多，请退出应用以终止进程。\n----------------------------------------", self->pageCount, picCount];
-        }
-        
         // API 限制最多 200 页；page 从 0 开始的，所以和 pageCount 比较的时候需要 -1；如果某一页小于 100 条原始数据，说明是最后一页
         if (self->page >= 199 || self->page >= self->pageCount - 1 || array.count != 100) {
             [self fetchSucceed];

@@ -121,7 +121,10 @@
             for (NSInteger i = 0; i < webmIds.count; i++) {
                 [webmUrls addObject:[NSString stringWithFormat:@"https://gelbooru.com/index.php?page=post&s=view&id=%@", webmIds[i]]];
             }
-            [UtilityFile exportArray:webmUrls atPath:GelbooruWebmPostTxtPath];
+            [UtilityFile exportArray:webmUrls atPath:@"/Users/Mercury/Downloads/GelbooruDailyWebmUrl.txt"];
+            
+            NSArray *webmFileUrls = [self->webmPosts valueForKey:@"file_url"];
+            [UtilityFile exportArray:webmFileUrls atPath:@"/Users/Mercury/Downloads/GelbooruDailyWebmPostUrl.txt"];
         }
         
         NSArray *fateUrls = [self->fatePosts valueForKey:@"file_url"];
