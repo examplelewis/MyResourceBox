@@ -8,13 +8,16 @@
 
 #import "GelbooruTagPagePicManager.h"
 #import "HttpManager.h"
+#import "GelbooruHeader.h"
 
 @interface GelbooruTagPagePicManager () {
     NSString *tag;
     NSInteger minPage;
     NSInteger maxPage;
     NSInteger page;
+    
     NSMutableArray *posts;
+    NSMutableArray *webmPosts;
     
     NSInteger countBeforePage;
     NSInteger countAfterPage;
@@ -28,6 +31,7 @@
     self = [super init];
     if (self) {
         posts = [NSMutableArray array];
+        webmPosts = [NSMutableArray array];
     }
     
     return self;
@@ -74,10 +78,23 @@
             
             // 忽略 webm 文件
             if ([[data[@"file_url"] pathExtension] isEqualToString:@"webm"]) {
+                [self->webmPosts addObject:data];
                 continue;
             }
             
             [self->posts addObject:data];
+        }
+        
+        if (self->webmPosts.count > 0) {
+            NSArray *webmIds = [self->webmPosts valueForKey:@"id"];
+            NSMutableArray *webmUrls = [NSMutableArray array];
+            for (NSInteger i = 0; i < webmIds.count; i++) {
+                [webmUrls addObject:[NSString stringWithFormat:@"https://gelbooru.com/index.php?page=post&s=view&id=%@", webmIds[i]]];
+            }
+            [UtilityFile exportArray:webmUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ WebmUrl.txt", self->tag]];
+            
+            NSArray *webmFileUrls = [self->webmPosts valueForKey:@"file_url"];
+            [UtilityFile exportArray:webmFileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ WebmPostUrl.txt", self->tag]];
         }
         
         NSArray *urls = [self->posts valueForKey:@"file_url"];
