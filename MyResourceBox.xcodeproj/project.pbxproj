@@ -88,6 +88,13 @@
 		ACC93EE92277E92100C207E6 /* BCYHTMLParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93EE82277E92100C207E6 /* BCYHTMLParseManager.m */; };
 		ACC93EEC2277E9DD00C207E6 /* BCYFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93EEB2277E9DD00C207E6 /* BCYFetchManager.m */; };
 		ACC93EF02277EBCD00C207E6 /* BCYOrganizingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93EEF2277EBCD00C207E6 /* BCYOrganizingManager.m */; };
+		ACC93EF52277F09400C207E6 /* PixivUserPicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93EF42277F09400C207E6 /* PixivUserPicManager.m */; };
+		ACC93EF82277F20C00C207E6 /* PixivIllustPicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93EF72277F20C00C207E6 /* PixivIllustPicManager.m */; };
+		ACC93EFB2277F41100C207E6 /* PixivPicDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93EFA2277F41100C207E6 /* PixivPicDownloadManager.m */; };
+		ACC93F012277F54900C207E6 /* PixivFollowingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93F002277F54900C207E6 /* PixivFollowingManager.m */; };
+		ACC93F042277F78200C207E6 /* PixivBlockingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93F032277F78200C207E6 /* PixivBlockingManager.m */; };
+		ACC93F072277F98000C207E6 /* PixivFetchingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93F062277F98000C207E6 /* PixivFetchingManager.m */; };
+		ACC93F0A2277FA3100C207E6 /* PixivOrganizingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93F092277FA3100C207E6 /* PixivOrganizingManager.m */; };
 		ACCAA0341E1B80FB0017EDDA /* OrganizingDayFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */; };
 		ACCAA0371E1B81250017EDDA /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0351E1B81250017EDDA /* ImageManager.m */; };
 		ACCFA0BA226D5D3D007514C0 /* CatchCrashManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */; };
@@ -277,6 +284,20 @@
 		ACC93EEB2277E9DD00C207E6 /* BCYFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCYFetchManager.m; sourceTree = "<group>"; };
 		ACC93EEE2277EBCD00C207E6 /* BCYOrganizingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCYOrganizingManager.h; sourceTree = "<group>"; };
 		ACC93EEF2277EBCD00C207E6 /* BCYOrganizingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCYOrganizingManager.m; sourceTree = "<group>"; };
+		ACC93EF32277F09400C207E6 /* PixivUserPicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivUserPicManager.h; sourceTree = "<group>"; };
+		ACC93EF42277F09400C207E6 /* PixivUserPicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivUserPicManager.m; sourceTree = "<group>"; };
+		ACC93EF62277F20C00C207E6 /* PixivIllustPicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivIllustPicManager.h; sourceTree = "<group>"; };
+		ACC93EF72277F20C00C207E6 /* PixivIllustPicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivIllustPicManager.m; sourceTree = "<group>"; };
+		ACC93EF92277F41100C207E6 /* PixivPicDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivPicDownloadManager.h; sourceTree = "<group>"; };
+		ACC93EFA2277F41100C207E6 /* PixivPicDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivPicDownloadManager.m; sourceTree = "<group>"; };
+		ACC93EFF2277F54900C207E6 /* PixivFollowingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivFollowingManager.h; sourceTree = "<group>"; };
+		ACC93F002277F54900C207E6 /* PixivFollowingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivFollowingManager.m; sourceTree = "<group>"; };
+		ACC93F022277F78200C207E6 /* PixivBlockingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivBlockingManager.h; sourceTree = "<group>"; };
+		ACC93F032277F78200C207E6 /* PixivBlockingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivBlockingManager.m; sourceTree = "<group>"; };
+		ACC93F052277F98000C207E6 /* PixivFetchingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivFetchingManager.h; sourceTree = "<group>"; };
+		ACC93F062277F98000C207E6 /* PixivFetchingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivFetchingManager.m; sourceTree = "<group>"; };
+		ACC93F082277FA3100C207E6 /* PixivOrganizingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivOrganizingManager.h; sourceTree = "<group>"; };
+		ACC93F092277FA3100C207E6 /* PixivOrganizingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivOrganizingManager.m; sourceTree = "<group>"; };
 		ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizingDayFolder.m; sourceTree = "<group>"; };
 		ACCAA0331E1B80FB0017EDDA /* OrganizingDayFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizingDayFolder.h; sourceTree = "<group>"; };
 		ACCAA0351E1B81250017EDDA /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
@@ -358,8 +379,22 @@
 			children = (
 				AC19E1561E4857020084A510 /* PixivMethod.h */,
 				AC19E1571E4857020084A510 /* PixivMethod.m */,
+				ACC93EF32277F09400C207E6 /* PixivUserPicManager.h */,
+				ACC93EF42277F09400C207E6 /* PixivUserPicManager.m */,
+				ACC93EF62277F20C00C207E6 /* PixivIllustPicManager.h */,
+				ACC93EF72277F20C00C207E6 /* PixivIllustPicManager.m */,
+				ACC93EF92277F41100C207E6 /* PixivPicDownloadManager.h */,
+				ACC93EFA2277F41100C207E6 /* PixivPicDownloadManager.m */,
+				ACC93EFF2277F54900C207E6 /* PixivFollowingManager.h */,
+				ACC93F002277F54900C207E6 /* PixivFollowingManager.m */,
+				ACC93F022277F78200C207E6 /* PixivBlockingManager.h */,
+				ACC93F032277F78200C207E6 /* PixivBlockingManager.m */,
+				ACC93F052277F98000C207E6 /* PixivFetchingManager.h */,
+				ACC93F062277F98000C207E6 /* PixivFetchingManager.m */,
 				ACD1AA35225B44660017A8D3 /* PixivExHentaiManager.h */,
 				ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */,
+				ACC93F082277FA3100C207E6 /* PixivOrganizingManager.h */,
+				ACC93F092277FA3100C207E6 /* PixivOrganizingManager.m */,
 				ACC93EF22277EF6900C207E6 /* Managers */,
 			);
 			path = Pixiv;
@@ -922,6 +957,7 @@
 				AC8509211DB3970D004AFE84 /* WeiboTokenWindowController.m in Sources */,
 				AC883A371DBB9DCD00CC579E /* WeiboRequestTokenViewController.m in Sources */,
 				AC8508D41DB39146004AFE84 /* ViewController.m in Sources */,
+				ACC93EFB2277F41100C207E6 /* PixivPicDownloadManager.m in Sources */,
 				ACB62BA02109B1EA00A55C1F /* HJImagesToVideo.m in Sources */,
 				AC47543F1DCC461800880934 /* OrganizeManager.m in Sources */,
 				AC9F4C711E49B06E00FD01C5 /* PixivDownloadManager.m in Sources */,
@@ -931,9 +967,11 @@
 				AC9870611E4C4A980076DC92 /* PixivDownloadObject.m in Sources */,
 				AC8508CE1DB39146004AFE84 /* AppDelegate.m in Sources */,
 				AC9870631E4C4A980076DC92 /* PixivMasterObject.m in Sources */,
+				ACC93F042277F78200C207E6 /* PixivBlockingManager.m in Sources */,
 				ACA3C1871DD09F5100A9B31D /* DownloadInfoObject.m in Sources */,
 				AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */,
 				AC85090E1DB39677004AFE84 /* UtilityFile.m in Sources */,
+				ACC93F012277F54900C207E6 /* PixivFollowingManager.m in Sources */,
 				ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */,
 				AC9870621E4C4A980076DC92 /* PixivMangaObject.m in Sources */,
 				ACCFA0BA226D5D3D007514C0 /* CatchCrashManager.m in Sources */,
@@ -948,8 +986,10 @@
 				ACC93EEC2277E9DD00C207E6 /* BCYFetchManager.m in Sources */,
 				ACC93EE92277E92100C207E6 /* BCYHTMLParseManager.m in Sources */,
 				AC789C731DE159B700523A12 /* BCYMethod.m in Sources */,
+				ACC93F0A2277FA3100C207E6 /* PixivOrganizingManager.m in Sources */,
 				AC9F4C6B1E499B0E00FD01C5 /* DownloadOperation.m in Sources */,
 				AC9CA3D9210AC04C00F1AA08 /* OrganizingPhotos.m in Sources */,
+				ACC93F072277F98000C207E6 /* PixivFetchingManager.m in Sources */,
 				AC789C741DE159B700523A12 /* TumblrMethod.m in Sources */,
 				ACC8DDC0226FFB6A005228D7 /* GelbooruDailyPicManager.m in Sources */,
 				ACB62B9C2109B19D00A55C1F /* Images2Mp4.m in Sources */,
@@ -957,6 +997,7 @@
 				ACA9C91A21FD933500B33CB4 /* PixivHttpSessionManager.m in Sources */,
 				AC85090D1DB39677004AFE84 /* UserInfo.m in Sources */,
 				AC789C751DE159B700523A12 /* WeiboMethod.m in Sources */,
+				ACC93EF82277F20C00C207E6 /* PixivIllustPicManager.m in Sources */,
 				ACA9C91D21FD950E00B33CB4 /* PixivAPIManager.m in Sources */,
 				ACC3149B21773BFF00DA5276 /* XMLReader.m in Sources */,
 				AC789C7F1DE159E100523A12 /* ExHentaiUrlsManager.m in Sources */,
@@ -973,6 +1014,7 @@
 				ACC8DDD0227015A8005228D7 /* GelbooruDownloadAndOrganizeManager.m in Sources */,
 				AC19E15E1E4857410084A510 /* PixivIllustManager.m in Sources */,
 				ACC8DDC3226FFFAE005228D7 /* GelbooruTagPagePicManager.m in Sources */,
+				ACC93EF52277F09400C207E6 /* PixivUserPicManager.m in Sources */,
 				AC19E14D1E4844660084A510 /* PAPIIllust.m in Sources */,
 				ACAFAADB21FDB13100323A0A /* PixivGeneralManager.m in Sources */,
 				AC9870691E4C4AB90076DC92 /* SQLiteFMDBManager.m in Sources */,

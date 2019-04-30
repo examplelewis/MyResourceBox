@@ -1,8 +1,8 @@
 //
-//  PixivExHentaiManager.h
+//  PixivFollowingManager.h
 //  MyResourceBox
 //
-//  Created by 龚宇 on 19/04/08.
+//  Created by 龚宇 on 19/04/30.
 //  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
@@ -10,9 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PixivExHentaiManager : NSObject
+@interface PixivFollowingManager : NSObject
 
-- (void)startManaging;
+- (void)updateMyFollowing;
+- (void)checkPixivUserHasFollowed;
 
 @end
 

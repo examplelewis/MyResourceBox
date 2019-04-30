@@ -1,8 +1,8 @@
 //
-//  PixivExHentaiManager.h
+//  PixivFetchingManager.h
 //  MyResourceBox
 //
-//  Created by 龚宇 on 19/04/08.
+//  Created by 龚宇 on 19/04/30.
 //  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PixivExHentaiManager : NSObject
+@interface PixivFetchingManager : NSObject
 
-- (void)startManaging;
++ (void)checkPixivUtilHasFetched;
 
 @end
 

@@ -11,9 +11,6 @@
 
 @interface PixivMethod : NSObject
 
-@property (nonatomic, assign) BOOL login;
-
-+ (PixivMethod *)defaultMethod;
-- (void)configMethod:(NSInteger)cellRow;
++ (void)configMethod:(NSInteger)cellRow;
 
 @end

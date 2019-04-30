@@ -45,11 +45,11 @@
         [[JDLingyuMethod defaultMethod] configMethod:1];
     } else if ([inputString containsString:@"pixiv."]) {
         if ([inputString containsString:@"member.php?id="] || [inputString containsString:@"member_illust.php?id="]) {
-            [[PixivMethod defaultMethod] configMethod:1];
+            [PixivMethod configMethod:1];
         } else if ([inputString containsString:@"illust_id"]) {
-            [[PixivMethod defaultMethod] configMethod:2];
+            [PixivMethod configMethod:2];
         } else {
-            [[PixivMethod defaultMethod] configMethod:3];
+            [PixivMethod configMethod:3];
         }
     } else if ([inputString containsString:@"wnacg."]) {
 //        [[WNACGMethod defaultMethod] configMethod:1];

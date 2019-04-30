@@ -18,19 +18,19 @@
 
 @implementation PixivExHentaiManager
 
-- (instancetype)initWithOriginalUrls:(NSArray *)urls {
-    self = [super init];
-    if (self) {
-        originalUserUrls = [NSArray arrayWithArray:urls];
-        fixedUserUrls = [NSMutableArray arrayWithArray:urls];
+- (void)startManaging {
+    [[UtilityFile sharedInstance] showLogWithFormat:@"整理ExHentai导出的用户，流程开始"];
+    
+    NSString *input = [AppDelegate defaultVC].inputTextView.string;
+    if (input.length == 0) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[UtilityFile sharedInstance] showLogWithFormat:@"整理ExHentai导出的用户，流程结束"];
+        return;
     }
     
-    return self;
-}
-
-- (void)startManaging {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理ExHentai导出的用户，流程开始"];
+    NSArray *urls = [input componentsSeparatedByString:@"\n"];
+    originalUserUrls = [NSArray arrayWithArray:urls];
+    fixedUserUrls = [NSMutableArray arrayWithArray:urls];
     
     [self fixPixivUrls];
     [self duplicateRemoval];

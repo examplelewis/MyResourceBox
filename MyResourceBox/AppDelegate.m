@@ -124,7 +124,7 @@
     [[JDLingyuMethod defaultMethod] configMethod:sender.tag];
 }
 - (IBAction)processingPixiv:(NSMenuItem *)sender {
-    [[PixivMethod defaultMethod] configMethod:sender.tag];
+    [PixivMethod configMethod:sender.tag];
 }
 - (IBAction)processingTumblr:(NSMenuItem *)sender {
     [[TumblrMethod defaultMethod] configMethod:sender.tag];
