@@ -73,7 +73,7 @@
 //            }
             
             // 忽略 webm 文件
-            if ([[data[@"tags"] pathExtension] isEqualToString:@"webm"]) {
+            if ([[data[@"file_url"] pathExtension] isEqualToString:@"webm"]) {
                 continue;
             }
             

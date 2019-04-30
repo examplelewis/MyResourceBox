@@ -75,7 +75,7 @@
 //                continue;
 //            }
             
-            if ([[data[@"tags"] pathExtension] isEqualToString:@"webm"]) {
+            if ([[data[@"file_url"] pathExtension] isEqualToString:@"webm"]) {
                 [self->webmPosts addObject:data];
                 continue;
             }
