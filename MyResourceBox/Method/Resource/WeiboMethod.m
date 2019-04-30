@@ -17,6 +17,7 @@
 #import "WeiboRequestTokenWindowController.h"
 
 @interface WeiboMethod () {
+    NSMutableArray *weiboIds;
     NSMutableDictionary *weiboStatuses;
     NSMutableArray *weiboImages;
     NSInteger fetchedPage;
@@ -42,6 +43,7 @@ static WeiboMethod *method;
 - (instancetype)init {
     self = [super init];
     if (self) {
+        weiboIds = [NSMutableArray array];
         weiboStatuses = [NSMutableDictionary dictionary];
         weiboImages = [NSMutableArray array];
         fetchedPage = 1;
@@ -91,6 +93,7 @@ static WeiboMethod *method;
     [wc showWindow:nil];
 }
 - (void)getFavorList {
+    [weiboIds removeAllObjects];
     [weiboStatuses removeAllObjects];
     [weiboImages removeAllObjects];
     fetchedPage = 1;
@@ -122,6 +125,11 @@ static WeiboMethod *method;
             NSString *statusKey = @"";
             WeiboStatusObject *object = [[WeiboStatusObject alloc] initWithDictionary:sDict];
             
+            // 如果当前微博已经被存储过的话，就忽略
+            if ([self->weiboIds indexOfObject:object.id_str] != NSNotFound) {
+                continue;
+            }
+            
             // 根据 tag 和 微博 id_str 生成文件夹的名字
             NSError *error;
             NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"#[^#]+#" options:NSRegularExpressionCaseInsensitive error:&error];
@@ -147,6 +155,7 @@ static WeiboMethod *method;
             statusKey = [statusKey stringByAppendingFormat:@"【%@-%@】", object.user_screen_name, object.created_at_readable_str];
             statusKey = [statusKey stringByReplacingOccurrencesOfString:@"/" withString:@" "]; // 防止有 / 出现
             
+            [self->weiboIds addObject:object.id_str];
             [self->weiboStatuses setObject:object.img_urls forKey:statusKey];
             [self->weiboImages addObjectsFromArray:object.img_urls];
         }
