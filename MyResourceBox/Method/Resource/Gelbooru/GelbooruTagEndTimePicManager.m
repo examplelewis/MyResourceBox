@@ -59,6 +59,7 @@
 }
 - (void)startFetching {
     [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【截止时间】，流程开始", tag];
+    [[UtilityFile sharedInstance] showLogWithFormat:@"注意：本流程将忽略 webm 文件"];
     
     [self fetchSinglePostUrl];
 }
@@ -73,6 +74,11 @@
 //            if ([data[@"source"] isEqualToString:@""]) {
 //                continue;
 //            }
+            
+            // 忽略 webm 文件
+            if ([[data[@"tags"] pathExtension] isEqualToString:@"webm"]) {
+                continue;
+            }
             
             // 出现第一个比 endDate 晚的 post，就中断循环，因为就到这一个批次为止
             NSDate *postDate = [self->formatter dateFromString:data[@"created_at"]];

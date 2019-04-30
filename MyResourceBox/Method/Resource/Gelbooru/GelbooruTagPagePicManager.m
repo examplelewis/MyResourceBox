@@ -35,6 +35,7 @@
 
 - (void)startFetching {
     [[UtilityFile sharedInstance] showLogWithFormat:@"获取特定标签的图片地址，流程开始"];
+    [[UtilityFile sharedInstance] showLogWithFormat:@"注意：本流程将忽略 webm 文件"];
     
     NSString *inputString = [AppDelegate defaultVC].inputTextView.string;
     if (inputString.length == 0) {
@@ -70,6 +71,11 @@
 //            if ([data[@"source"] isEqualToString:@""]) {
 //                continue;
 //            }
+            
+            // 忽略 webm 文件
+            if ([[data[@"tags"] pathExtension] isEqualToString:@"webm"]) {
+                continue;
+            }
             
             [self->posts addObject:data];
         }
