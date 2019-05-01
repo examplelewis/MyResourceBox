@@ -14,7 +14,6 @@
     NSString *tag;
     NSInteger page;
     NSDate *endDate;
-    NSInteger pageCount;
     
     NSMutableArray *posts;
     NSMutableArray *webmPosts;
@@ -44,7 +43,6 @@
     
     NSArray *inputComps = [input componentsSeparatedByString:@"|"];
     page = 0;
-    pageCount = 0;
     tag = inputComps[0];
     if (inputComps.count == 1) {
         [[UtilityFile sharedInstance] showLogWithFormat:@"未输入截止日期，将使用默认值：2018-10-11，如需修改请退出程序，重新设置"];
@@ -67,6 +65,7 @@
 }
 - (void)fetchSinglePostUrl {
     [[HttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page success:^(NSArray *array) {
+        BOOL foundNearest = NO; // 找到早于 endDate 的 post
         for (NSInteger i = 0; i < array.count; i++) {
             NSDictionary *data = [NSDictionary dictionaryWithDictionary:array[i]];
             if ([data[@"width"] integerValue] < 801 && [data[@"height"] integerValue] < 801) {
@@ -86,6 +85,7 @@
             // 出现第一个比 endDate 晚的 post，就中断循环，因为就到这一个批次为止
             NSDate *postDate = [self->formatter dateFromString:data[@"created_at"]];
             if ([postDate isEarlierThan:self->endDate]) {
+                foundNearest = YES;
                 break;
             }
             
@@ -108,8 +108,8 @@
         [UtilityFile exportArray:fileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostUrl.txt", self->tag]];
         [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self->tag, self->page + 1];
         
-        // API 限制最多 200 页；page 从 0 开始的，所以和 pageCount 比较的时候需要 -1；如果某一页小于 100 条原始数据，说明是最后一页
-        if (self->page >= 199 || self->page >= self->pageCount - 1 || array.count != 100) {
+        // API 限制最多 200 页；如果某一页小于 100 条原始数据，说明是最后一页；或者找到了第一条早于 endDate 的 post
+        if (self->page >= 199 || array.count != 100 || foundNearest) {
             [self fetchSucceed];
         } else {
             self->page += 1;

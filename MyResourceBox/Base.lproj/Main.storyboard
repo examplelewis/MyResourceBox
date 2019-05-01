@@ -681,6 +681,12 @@
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="lO7-KG-AUU"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="下载 特定标签 图片" tag="16" id="son-PY-mxC">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="T66-Xw-ohF"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="i83-5q-Q9z"/>
                                                     <menuItem title="整理下载的动漫图片" tag="21" id="WSL-0c-13Z">
                                                         <modifierMask key="keyEquivalentModifierMask"/>

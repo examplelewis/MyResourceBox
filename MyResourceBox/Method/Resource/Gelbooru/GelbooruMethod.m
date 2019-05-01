@@ -70,6 +70,20 @@
             [manager prepareDownloading];
         }
             break;
+        case 16: {
+            NSString *input = [AppDelegate defaultVC].inputTextView.string;
+            if (input.length == 0) {
+                [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+                return;
+            }
+            
+            NSString *txtFilePath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostUrl.txt", input];
+            NSString *targetFolderPath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/%@/", input];
+            
+            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:txtFilePath targetFolderPath:targetFolderPath];
+            [manager prepareDownloading];
+        }
+            break;
         case 21: {
             GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruAnimePostRenamePlistPath targetFolderPath:GelbooruAnimeRootFolderPath];
             [manager startOrganizing];
