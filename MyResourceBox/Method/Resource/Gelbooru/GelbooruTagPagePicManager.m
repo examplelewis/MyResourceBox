@@ -68,17 +68,15 @@
     [[HttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page - 1 success:^(NSArray *array) {
         for (NSInteger i = 0; i < array.count; i++) {
             NSDictionary *data = [NSDictionary dictionaryWithDictionary:array[i]];
-            if ([data[@"width"] integerValue] < 801 && [data[@"height"] integerValue] < 801) {
-                continue;
-            }
-            
-//            if ([data[@"source"] isEqualToString:@""]) {
-//                continue;
-//            }
             
             // 忽略 webm 文件
             if ([[data[@"file_url"] pathExtension] isEqualToString:@"webm"]) {
                 [self->webmPosts addObject:data];
+                continue;
+            }
+            
+            // 小于 801 * 801 的非 gif 文件将被忽略
+            if ([data[@"width"] integerValue] < 801 && [data[@"height"] integerValue] < 801 && ![[data[@"file_url"] pathExtension] isEqualToString:@"gif"]) {
                 continue;
             }
             
