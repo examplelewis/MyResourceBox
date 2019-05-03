@@ -25,6 +25,7 @@
     if (self) {
         txtFilePath = filePath;
         targetFolderPath = folderPath;
+        _showAlertAfterFinished = NO;
     }
     
     return self;
@@ -66,7 +67,7 @@
             self.finishBlock();
         }
     };
-    manager.showAlertAfterFinished = NO;
+    manager.showAlertAfterFinished = self.showAlertAfterFinished;
     
     [manager startDownload];
 }

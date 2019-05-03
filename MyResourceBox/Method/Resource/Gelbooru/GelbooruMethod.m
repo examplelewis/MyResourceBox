@@ -81,6 +81,7 @@
             NSString *targetFolderPath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/%@/", input];
             
             GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:txtFilePath targetFolderPath:targetFolderPath];
+            manager.showAlertAfterFinished = YES;
             [manager prepareDownloading];
         }
             break;

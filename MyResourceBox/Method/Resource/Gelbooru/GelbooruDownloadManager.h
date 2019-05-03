@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GelbooruDownloadManager : NSObject
 
 @property (copy) void(^finishBlock)(void);
+@property (assign) BOOL showAlertAfterFinished;
 
 - (instancetype)initWithTXTFilePath:(NSString *)filePath targetFolderPath:(NSString *)folderPath;
 - (void)prepareDownloading;
