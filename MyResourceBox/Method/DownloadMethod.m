@@ -15,18 +15,7 @@
 
 @implementation DownloadMethod
 
-#pragma mark -- 生命周期方法 --
-static DownloadMethod *method;
-+ (DownloadMethod *)defaultMethod {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        method = [[DownloadMethod alloc] init];
-    });
-    
-    return method;
-}
-
-- (void)configMethod:(NSInteger)cellRow {
++ (void)configMethod:(NSInteger)cellRow {
     [UtilityFile resetCurrentDate];
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     NSArray *inputs = [input componentsSeparatedByString:@"\n"];

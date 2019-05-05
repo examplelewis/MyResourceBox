@@ -199,7 +199,7 @@
     }
 }
 - (IBAction)processingDownload:(NSMenuItem *)sender {
-    [[DownloadMethod defaultMethod] configMethod:sender.tag];
+    [DownloadMethod configMethod:sender.tag];
 }
 - (IBAction)processingDeviantart:(NSMenuItem *)sender {
     [[DeviantartMethod defaultMethod] configMethod:sender.tag];

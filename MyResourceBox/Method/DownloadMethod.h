@@ -10,8 +10,6 @@
 
 @interface DownloadMethod : NSObject
 
-+ (DownloadMethod *)defaultMethod;
-
-- (void)configMethod:(NSInteger)cellRow;
++ (void)configMethod:(NSInteger)cellRow;
 
 @end
