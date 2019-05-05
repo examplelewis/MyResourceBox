@@ -1,13 +1,12 @@
 //
-//  AnalysisMethod.m
+//  AnalysisInputManager.m
 //  MyResourceBox
 //
-//  Created by 龚宇 on 16/11/20.
-//  Copyright © 2016年 gongyuTest. All rights reserved.
+//  Created by 龚宇 on 19/05/05.
+//  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import "AnalysisMethod.h"
-
+#import "AnalysisInputManager.h"
 #import "BCYMethod.h"
 #import "ExHentaiManager.h"
 //#import "LofterMethod.h"
@@ -16,23 +15,9 @@
 //#import "WNACGMethod.h"
 #import "WorldCosplayMethod.h"
 
-@implementation AnalysisMethod
+@implementation AnalysisInputManager
 
-- (void)configMethod:(NSInteger)cellRow {
-    switch (cellRow) {
-        case 1:
-            [self analysisInput];
-            break;
-        case 2:
-            [self analysisFile];
-            break;
-        default:
-            break;
-    }
-}
-
-// 解析输入的地址
-- (void)analysisInput {
++ (void)startAnalysising {
     NSString *inputString = [AppDelegate defaultVC].inputTextView.string;
     
     if ([inputString containsString:@"bcy."]) {
@@ -40,7 +25,7 @@
     } else if ([inputString containsString:@"exhentai."]) {
         [[ExHentaiManager defaultManager] configMethod:1];
     } else if ([inputString containsString:@"lofter."]) {
-//        [[LofterMethod defaultMethod] configMethod:2];
+        //        [[LofterMethod defaultMethod] configMethod:2];
     } else if ([inputString containsString:@"jdlingyu."]) {
         [[JDLingyuMethod defaultMethod] configMethod:1];
     } else if ([inputString containsString:@"pixiv."]) {
@@ -52,23 +37,12 @@
             [PixivMethod configMethod:3];
         }
     } else if ([inputString containsString:@"wnacg."]) {
-//        [[WNACGMethod defaultMethod] configMethod:1];
+        //        [[WNACGMethod defaultMethod] configMethod:1];
     } else if ([inputString containsString:@"worldcosplay."]) {
         [[WorldCosplayMethod defaultMethod] configMethod:2];
     } else {
         [[UtilityFile sharedInstance] showLogWithFormat:@"没有解析到有用的地址，请检查输入框的内容"];
     }
-}
-// 解析文件中的地址
-- (void)analysisFile {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![fileManager fileExistsAtPath:@"/Users/Mercury/Downloads/Safari 书签.html"]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有找到书签文件"];
-        return;
-    }
-    
-    [[UtilityFile sharedInstance] showLogWithFormat:@"已检测到书签文件，开始解析半次元的链接"];
-    [BCYMethod configMethod:2];
 }
 
 @end

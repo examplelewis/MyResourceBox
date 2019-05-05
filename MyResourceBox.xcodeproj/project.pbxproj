@@ -97,6 +97,8 @@
 		ACC93F0A2277FA3100C207E6 /* PixivOrganizingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93F092277FA3100C207E6 /* PixivOrganizingManager.m */; };
 		ACCAA0341E1B80FB0017EDDA /* OrganizingDayFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */; };
 		ACCAA0371E1B81250017EDDA /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0351E1B81250017EDDA /* ImageManager.m */; };
+		ACCCE266227E8F0700A18C8D /* AnalysisInputManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCCE265227E8F0700A18C8D /* AnalysisInputManager.m */; };
+		ACCCE269227E8F4D00A18C8D /* AnalysisFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCCE268227E8F4D00A18C8D /* AnalysisFileManager.m */; };
 		ACCFA0BA226D5D3D007514C0 /* CatchCrashManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */; };
 		ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */; };
 		ACE554C41F962CA900B99348 /* FileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE554C31F962CA900B99348 /* FileTools.m */; };
@@ -302,6 +304,10 @@
 		ACCAA0331E1B80FB0017EDDA /* OrganizingDayFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizingDayFolder.h; sourceTree = "<group>"; };
 		ACCAA0351E1B81250017EDDA /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
 		ACCAA0361E1B81250017EDDA /* ImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
+		ACCCE264227E8F0700A18C8D /* AnalysisInputManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalysisInputManager.h; sourceTree = "<group>"; };
+		ACCCE265227E8F0700A18C8D /* AnalysisInputManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnalysisInputManager.m; sourceTree = "<group>"; };
+		ACCCE267227E8F4D00A18C8D /* AnalysisFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalysisFileManager.h; sourceTree = "<group>"; };
+		ACCCE268227E8F4D00A18C8D /* AnalysisFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnalysisFileManager.m; sourceTree = "<group>"; };
 		ACCFA0B8226D5D3C007514C0 /* CatchCrashManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchCrashManager.h; sourceTree = "<group>"; };
 		ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchCrashManager.m; sourceTree = "<group>"; };
 		ACD1AA35225B44660017A8D3 /* PixivExHentaiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivExHentaiManager.h; sourceTree = "<group>"; };
@@ -563,8 +569,7 @@
 		AC8509141DB39692004AFE84 /* Method */ = {
 			isa = PBXGroup;
 			children = (
-				AC789C891DE1602500523A12 /* AnalysisMethod.h */,
-				AC789C8A1DE1602500523A12 /* AnalysisMethod.m */,
+				ACCCE263227E8EDF00A18C8D /* Analysis */,
 				AC4754401DCC5B1600880934 /* DownloadMethod.h */,
 				AC4754411DCC5B1600880934 /* DownloadMethod.m */,
 				AC8509151DB39692004AFE84 /* WebArchiveMethod.h */,
@@ -744,6 +749,19 @@
 				AC9CA3D8210AC04C00F1AA08 /* OrganizingPhotos.m */,
 			);
 			path = Single;
+			sourceTree = "<group>";
+		};
+		ACCCE263227E8EDF00A18C8D /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				AC789C891DE1602500523A12 /* AnalysisMethod.h */,
+				AC789C8A1DE1602500523A12 /* AnalysisMethod.m */,
+				ACCCE264227E8F0700A18C8D /* AnalysisInputManager.h */,
+				ACCCE265227E8F0700A18C8D /* AnalysisInputManager.m */,
+				ACCCE267227E8F4D00A18C8D /* AnalysisFileManager.h */,
+				ACCCE268227E8F4D00A18C8D /* AnalysisFileManager.m */,
+			);
+			path = Analysis;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -954,6 +972,7 @@
 				AC85091B1DB39692004AFE84 /* WebArchiveMethod.m in Sources */,
 				ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */,
 				ACCAA0341E1B80FB0017EDDA /* OrganizingDayFolder.m in Sources */,
+				ACCCE269227E8F4D00A18C8D /* AnalysisFileManager.m in Sources */,
 				AC8509211DB3970D004AFE84 /* WeiboTokenWindowController.m in Sources */,
 				AC883A371DBB9DCD00CC579E /* WeiboRequestTokenViewController.m in Sources */,
 				AC8508D41DB39146004AFE84 /* ViewController.m in Sources */,
@@ -984,6 +1003,7 @@
 				ACC8DDC622700B25005228D7 /* GelbooruDownloadManager.m in Sources */,
 				ACA5162D220175F20074AB73 /* DeviantartMethod.m in Sources */,
 				ACC93EEC2277E9DD00C207E6 /* BCYFetchManager.m in Sources */,
+				ACCCE266227E8F0700A18C8D /* AnalysisInputManager.m in Sources */,
 				ACC93EE92277E92100C207E6 /* BCYHTMLParseManager.m in Sources */,
 				AC789C731DE159B700523A12 /* BCYMethod.m in Sources */,
 				ACC93F0A2277FA3100C207E6 /* PixivOrganizingManager.m in Sources */,

@@ -106,7 +106,7 @@
 #pragma mark -- action --
 // Resource
 - (IBAction)processingAnalysis:(NSMenuItem *)sender {
-    [[AnalysisMethod new] configMethod:sender.tag];
+    [AnalysisMethod configMethod:sender.tag];
 }
 - (IBAction)processingBCY:(NSMenuItem *)sender {
     [BCYMethod configMethod:sender.tag];

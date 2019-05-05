@@ -10,6 +10,6 @@
 
 @interface AnalysisMethod : NSObject
 
-- (void)configMethod:(NSInteger)cellRow;
++ (void)configMethod:(NSInteger)cellRow;
 
 @end
