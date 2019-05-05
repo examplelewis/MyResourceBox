@@ -534,8 +534,6 @@
 				AC8509091DB39677004AFE84 /* UtilityFile.m */,
 				ACC3149921773BFF00DA5276 /* XMLReader.h */,
 				ACC3149A21773BFF00DA5276 /* XMLReader.m */,
-				ACCFA0B8226D5D3C007514C0 /* CatchCrashManager.h */,
-				ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */,
 				AC19E13F1E4844660084A510 /* PixivAPI */,
 			);
 			path = UtilityFile;
@@ -554,6 +552,8 @@
 				ACCAA0351E1B81250017EDDA /* ImageManager.m */,
 				AC47543D1DCC461800880934 /* OrganizeManager.h */,
 				AC47543E1DCC461800880934 /* OrganizeManager.m */,
+				ACCFA0B8226D5D3C007514C0 /* CatchCrashManager.h */,
+				ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */,
 				AC9F4C621E499AD600FD01C5 /* Download */,
 				AC9870641E4C4AB90076DC92 /* SQLite */,
 			);
