@@ -1,46 +1,26 @@
 //
-//  WebArchiveMethod.m
+//  WebArchiveArchivingManager.m
 //  MyResourceBox
 //
-//  Created by 龚宇 on 16/10/07.
-//  Copyright © 2016年 gongyuTest. All rights reserved.
+//  Created by 龚宇 on 19/05/05.
+//  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import "WebArchiveMethod.h"
+#import "WebArchiveArchivingManager.h"
 #import "FileManager.h"
-
 #import "DTWebArchive.h"
 
-@interface WebArchiveMethod () {
+@interface WebArchiveArchivingManager () {
     NSArray<NSURL *> *archiveFileURLs;
     NSMutableArray *targetFolderPaths;
 }
 
 @end
 
-@implementation WebArchiveMethod
+@implementation WebArchiveArchivingManager
 
-#pragma mark -- 生命周期方法 --
-static WebArchiveMethod *method;
-+ (WebArchiveMethod *)defaultMethod {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        method = [[WebArchiveMethod alloc] init];
-    });
-    
-    return method;
-}
-
-- (void)configMethod:(NSInteger)cellRow {
-    [UtilityFile resetCurrentDate];
-    
-    switch (cellRow) {
-        case 1:
-            [self chooseFile];
-            break;
-        default:
-            break;
-    }
+- (void)startArchiving {
+    [self chooseFile];
 }
 
 #pragma mark -- 具体方法 --
@@ -74,7 +54,7 @@ static WebArchiveMethod *method;
     
     [[UtilityFile sharedInstance] showLogWithFormat:@"流程已经结束"];
     
-//    [self finishAnalyzing];
+    //    [self finishAnalyzing];
 }
 - (void)analyzeFileAtPath:(NSString *)filePath {
     [[UtilityFile sharedInstance] showLogWithFormat:@"开始处理文件：%@", filePath];
@@ -88,9 +68,9 @@ static WebArchiveMethod *method;
         DTWebResource *resource = (DTWebResource *)archive.subresources[i];
         
         NSString *format = [resource.MIMEType componentsSeparatedByString:@"/"].lastObject;
-//        if (![[UserInfo defaultUser] mimeTypeExistsInFormats:format] || resource.data.length < 25600) { // 忽略 不符合类型 或者 小于25KB 的文件
-//            continue;
-//        }
+        //        if (![[UserInfo defaultUser] mimeTypeExistsInFormats:format] || resource.data.length < 25600) { // 忽略 不符合类型 或者 小于25KB 的文件
+        //            continue;
+        //        }
         
         NSString *filePath = @"";
         if (resource.URL.lastPathComponent) {

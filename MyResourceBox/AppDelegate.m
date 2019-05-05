@@ -161,7 +161,7 @@
         }
             break;
         case 11: {
-            [[WebArchiveMethod defaultMethod] configMethod:1];
+            [WebArchiveMethod configMethod:1];
         }
             break;
         case 12: {
