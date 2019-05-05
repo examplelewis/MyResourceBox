@@ -60,7 +60,7 @@ static OrganizingDayFolder *inputInstance;
     for (NSInteger i = 0; i < imageFilePaths.count; i++) {
         dispatch_group_async(g, q, ^{
             NSString *imageFilePath = imageFilePaths[i];
-            NSSize size = [[ImageManager defaultManager] getActualImageSizeWithPhotoAtPath:imageFilePath];
+            NSSize size = [ImageManager getActualImageSizeWithPhotoAtPath:imageFilePath];
             if (size.width < 801 && size.height < 801) {
                 NSString *destFilePath = [imageFilePath stringByReplacingOccurrencesOfString:@"/Users/Mercury/Pictures/Day" withString:@"/Users/Mercury/.Trash"];
                 

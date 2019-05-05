@@ -96,7 +96,7 @@
         return [obj1 compare:obj2 options:comparisonOptions range:range];
     }];
     
-    NSSize size = [[ImageManager defaultManager] getActualImageSizeWithPhotoAtPath:imagePaths[0]];
+    NSSize size = [ImageManager getActualImageSizeWithPhotoAtPath:imagePaths[0]];
     
     NSMutableArray *images = [NSMutableArray array];
     for (NSInteger j = 0; j < imagePaths.count; j++) {
