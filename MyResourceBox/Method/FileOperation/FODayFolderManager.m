@@ -1,35 +1,24 @@
 //
-//  OrganizingDayFolder.m
-//  MyToolBox
+//  FODayFolderManager.m
+//  MyResourceBox
 //
-//  Created by 龚宇 on 16/08/15.
-//  Copyright © 2016年 gongyuTest. All rights reserved.
+//  Created by 龚宇 on 19/05/06.
+//  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import "OrganizingDayFolder.h"
+#import "FODayFolderManager.h"
 #import "FileManager.h"
 #import "ImageManager.h"
 
-@implementation OrganizingDayFolder
+@implementation FODayFolderManager
 
-static OrganizingDayFolder *inputInstance;
-+ (OrganizingDayFolder *)defaultInstance {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        inputInstance = [[OrganizingDayFolder alloc] init];
-    });
-    
-    return inputInstance;
-}
-
-#pragma mark -- 逻辑方法 --
-- (void)start {
++ (void)start {
     [UtilityFile resetCurrentDate];
     [[UtilityFile sharedInstance] showLogWithFormat:@"整理Day文件夹：流程准备开始"];
     
     [self moveGIFFileToProperFolder];
 }
-- (void)moveGIFFileToProperFolder {
++ (void)moveGIFFileToProperFolder {
     dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_group_t g = dispatch_group_create();
     NSArray<NSString *> *fromGifFilePaths = [[FileManager defaultManager] getFilePathsInFolder:@"/Users/Mercury/Pictures/Day" specificExtensions:@[@"gif"]];
@@ -52,7 +41,7 @@ static OrganizingDayFolder *inputInstance;
         });
     });
 }
-- (void)trashSmallSizedPhotos {
++ (void)trashSmallSizedPhotos {
     dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_group_t g = dispatch_group_create();
     NSArray<NSString *> *imageFilePaths = [[FileManager defaultManager] getFilePathsInFolder:@"/Users/Mercury/Pictures/Day" specificExtensions:@[@"jpg", @"jpeg", @"png"]];
@@ -78,7 +67,7 @@ static OrganizingDayFolder *inputInstance;
         });
     });
 }
-- (void)moveFilesToSpecificFolder {
++ (void)moveFilesToSpecificFolder {
     dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_group_t g = dispatch_group_create();
     NSArray<NSString *> *fromImageFilePaths = [[FileManager defaultManager] getFilePathsInFolder:@"/Users/Mercury/Pictures/Day" specificExtensions:@[@"jpg", @"jpeg", @"png"]];
@@ -92,7 +81,7 @@ static OrganizingDayFolder *inputInstance;
             if (integer == 0) integer = 7;
             
             NSString *destFilePath = [NSString stringWithFormat:@"/Users/Mercury/Pictures/Day/%ld/%@", integer, oriFilePath.lastPathComponent];
-
+            
             [[FileManager defaultManager] moveItemAtPath:oriFilePath toDestPath:destFilePath];
         });
     }

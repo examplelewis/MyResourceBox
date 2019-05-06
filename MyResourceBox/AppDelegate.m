@@ -24,12 +24,10 @@
 #import "WorldCosplayMethod.h"
 #import "DeviantartMethod.h"
 
-#import "OrganizingDayFolder.h"
+#import "FileOperationMethod.h"
 #import "WebArchiveMethod.h"
 #import "DownloadMethod.h"
-#import "FileTools.h"
 #import "Images2Mp4.h"
-#import "OrganizingPhotos.h"
 
 #import "CatchCrashManager.h"
 
@@ -141,23 +139,23 @@
 - (IBAction)processingTool:(NSMenuItem *)sender {
     switch (sender.tag) {
         case 1: {
-            [[OrganizingDayFolder defaultInstance] start];
+            [FileOperationMethod configMethod:1];
         }
             break;
         case 2: {
-            [[FileTools new] configMethod:1];
+            [FileOperationMethod configMethod:4];
         }
             break;
         case 3: {
-            [[OrganizingPhotos new] configMethod:1];
+            [FileOperationMethod configMethod:2];
         }
             break;
         case 4: {
-            [[OrganizingPhotos new] configMethod:2];
+            [FileOperationMethod configMethod:3];
         }
             break;
         case 5: {
-            [[FileTools new] configMethod:2];
+            [FileOperationMethod configMethod:5];
         }
             break;
         case 11: {

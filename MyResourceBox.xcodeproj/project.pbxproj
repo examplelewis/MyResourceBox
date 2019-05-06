@@ -62,7 +62,6 @@
 		AC9870631E4C4A980076DC92 /* PixivMasterObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870601E4C4A980076DC92 /* PixivMasterObject.m */; };
 		AC9870691E4C4AB90076DC92 /* SQLiteFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870661E4C4AB90076DC92 /* SQLiteFMDBManager.m */; };
 		AC98706A1E4C4AB90076DC92 /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870681E4C4AB90076DC92 /* SQLiteManager.m */; };
-		AC9CA3D9210AC04C00F1AA08 /* OrganizingPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9CA3D8210AC04C00F1AA08 /* OrganizingPhotos.m */; };
 		AC9F4C6B1E499B0E00FD01C5 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C6A1E499B0E00FD01C5 /* DownloadOperation.m */; };
 		AC9F4C6E1E499BBB00FD01C5 /* DownloadQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C6D1E499BBB00FD01C5 /* DownloadQueueManager.m */; };
 		AC9F4C711E49B06E00FD01C5 /* PixivDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C701E49B06E00FD01C5 /* PixivDownloadManager.m */; };
@@ -95,7 +94,6 @@
 		ACC93F042277F78200C207E6 /* PixivBlockingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93F032277F78200C207E6 /* PixivBlockingManager.m */; };
 		ACC93F072277F98000C207E6 /* PixivFetchingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93F062277F98000C207E6 /* PixivFetchingManager.m */; };
 		ACC93F0A2277FA3100C207E6 /* PixivOrganizingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93F092277FA3100C207E6 /* PixivOrganizingManager.m */; };
-		ACCAA0341E1B80FB0017EDDA /* OrganizingDayFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */; };
 		ACCAA0371E1B81250017EDDA /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0351E1B81250017EDDA /* ImageManager.m */; };
 		ACCCE266227E8F0700A18C8D /* AnalysisInputManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCCE265227E8F0700A18C8D /* AnalysisInputManager.m */; };
 		ACCCE269227E8F4D00A18C8D /* AnalysisFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCCE268227E8F4D00A18C8D /* AnalysisFileManager.m */; };
@@ -108,7 +106,10 @@
 		ACE05017227FDAF600367F3A /* WeiboFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE05016227FDAF600367F3A /* WeiboFetchManager.m */; };
 		ACE0501D227FE52A00367F3A /* DeviantartFeedsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0501C227FE52A00367F3A /* DeviantartFeedsManager.m */; };
 		ACE05020227FE62800367F3A /* DeviantartUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0501F227FE62800367F3A /* DeviantartUserManager.m */; };
-		ACE554C41F962CA900B99348 /* FileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE554C31F962CA900B99348 /* FileTools.m */; };
+		ACE0502522802AA700367F3A /* FileOperationMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502422802AA700367F3A /* FileOperationMethod.m */; };
+		ACE0502A22802BAC00367F3A /* FODayFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502922802BAC00367F3A /* FODayFolderManager.m */; };
+		ACE0502D22802CDD00367F3A /* FOFilteredImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502C22802CDD00367F3A /* FOFilteredImageManager.m */; };
+		ACE0503022802DF200367F3A /* FOFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502F22802DF200367F3A /* FOFolderManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -239,8 +240,6 @@
 		AC9870661E4C4AB90076DC92 /* SQLiteFMDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteFMDBManager.m; sourceTree = "<group>"; };
 		AC9870671E4C4AB90076DC92 /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
 		AC9870681E4C4AB90076DC92 /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
-		AC9CA3D7210AC04C00F1AA08 /* OrganizingPhotos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizingPhotos.h; sourceTree = "<group>"; };
-		AC9CA3D8210AC04C00F1AA08 /* OrganizingPhotos.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizingPhotos.m; sourceTree = "<group>"; };
 		AC9F4C691E499B0E00FD01C5 /* DownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperation.h; sourceTree = "<group>"; };
 		AC9F4C6A1E499B0E00FD01C5 /* DownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperation.m; sourceTree = "<group>"; };
 		AC9F4C6C1E499BBB00FD01C5 /* DownloadQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadQueueManager.h; sourceTree = "<group>"; };
@@ -307,8 +306,6 @@
 		ACC93F062277F98000C207E6 /* PixivFetchingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivFetchingManager.m; sourceTree = "<group>"; };
 		ACC93F082277FA3100C207E6 /* PixivOrganizingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivOrganizingManager.h; sourceTree = "<group>"; };
 		ACC93F092277FA3100C207E6 /* PixivOrganizingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivOrganizingManager.m; sourceTree = "<group>"; };
-		ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizingDayFolder.m; sourceTree = "<group>"; };
-		ACCAA0331E1B80FB0017EDDA /* OrganizingDayFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizingDayFolder.h; sourceTree = "<group>"; };
 		ACCAA0351E1B81250017EDDA /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
 		ACCAA0361E1B81250017EDDA /* ImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
 		ACCCE264227E8F0700A18C8D /* AnalysisInputManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalysisInputManager.h; sourceTree = "<group>"; };
@@ -335,8 +332,15 @@
 		ACE0501C227FE52A00367F3A /* DeviantartFeedsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviantartFeedsManager.m; sourceTree = "<group>"; };
 		ACE0501E227FE62800367F3A /* DeviantartUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviantartUserManager.h; sourceTree = "<group>"; };
 		ACE0501F227FE62800367F3A /* DeviantartUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviantartUserManager.m; sourceTree = "<group>"; };
-		ACE554C21F962CA900B99348 /* FileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTools.h; sourceTree = "<group>"; };
-		ACE554C31F962CA900B99348 /* FileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTools.m; sourceTree = "<group>"; };
+		ACE0502322802AA700367F3A /* FileOperationMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileOperationMethod.h; sourceTree = "<group>"; };
+		ACE0502422802AA700367F3A /* FileOperationMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileOperationMethod.m; sourceTree = "<group>"; };
+		ACE0502622802AB200367F3A /* FileOperationHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileOperationHeader.h; sourceTree = "<group>"; };
+		ACE0502822802BAC00367F3A /* FODayFolderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FODayFolderManager.h; sourceTree = "<group>"; };
+		ACE0502922802BAC00367F3A /* FODayFolderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FODayFolderManager.m; sourceTree = "<group>"; };
+		ACE0502B22802CDD00367F3A /* FOFilteredImageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOFilteredImageManager.h; sourceTree = "<group>"; };
+		ACE0502C22802CDD00367F3A /* FOFilteredImageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOFilteredImageManager.m; sourceTree = "<group>"; };
+		ACE0502E22802DF200367F3A /* FOFolderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOFolderManager.h; sourceTree = "<group>"; };
+		ACE0502F22802DF200367F3A /* FOFolderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOFolderManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -593,6 +597,7 @@
 				ACCCE263227E8EDF00A18C8D /* Analysis */,
 				ACCCE26A227E8FEA00A18C8D /* WebArchive */,
 				AC789C6C1DE159B700523A12 /* Resource */,
+				ACE0502222802A6F00367F3A /* FileOperation */,
 				ACCAA0311E1B80F30017EDDA /* Single */,
 			);
 			path = Method;
@@ -759,12 +764,6 @@
 			isa = PBXGroup;
 			children = (
 				ACB62B992109B17A00A55C1F /* Images2Mp4 */,
-				ACCAA0331E1B80FB0017EDDA /* OrganizingDayFolder.h */,
-				ACCAA0321E1B80FB0017EDDA /* OrganizingDayFolder.m */,
-				ACE554C21F962CA900B99348 /* FileTools.h */,
-				ACE554C31F962CA900B99348 /* FileTools.m */,
-				AC9CA3D7210AC04C00F1AA08 /* OrganizingPhotos.h */,
-				AC9CA3D8210AC04C00F1AA08 /* OrganizingPhotos.m */,
 			);
 			path = Single;
 			sourceTree = "<group>";
@@ -841,6 +840,22 @@
 				ACE0501F227FE62800367F3A /* DeviantartUserManager.m */,
 			);
 			path = Deviantart;
+			sourceTree = "<group>";
+		};
+		ACE0502222802A6F00367F3A /* FileOperation */ = {
+			isa = PBXGroup;
+			children = (
+				ACE0502622802AB200367F3A /* FileOperationHeader.h */,
+				ACE0502322802AA700367F3A /* FileOperationMethod.h */,
+				ACE0502422802AA700367F3A /* FileOperationMethod.m */,
+				ACE0502822802BAC00367F3A /* FODayFolderManager.h */,
+				ACE0502922802BAC00367F3A /* FODayFolderManager.m */,
+				ACE0502B22802CDD00367F3A /* FOFilteredImageManager.h */,
+				ACE0502C22802CDD00367F3A /* FOFilteredImageManager.m */,
+				ACE0502E22802DF200367F3A /* FOFolderManager.h */,
+				ACE0502F22802DF200367F3A /* FOFolderManager.m */,
+			);
+			path = FileOperation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1051,12 +1066,12 @@
 				AC85091B1DB39692004AFE84 /* WebArchiveMethod.m in Sources */,
 				ACE05014227FD9EE00367F3A /* WeiboBoundaryManager.m in Sources */,
 				ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */,
-				ACCAA0341E1B80FB0017EDDA /* OrganizingDayFolder.m in Sources */,
 				ACCCE269227E8F4D00A18C8D /* AnalysisFileManager.m in Sources */,
 				AC8509211DB3970D004AFE84 /* WeiboTokenWindowController.m in Sources */,
 				ACE0501D227FE52A00367F3A /* DeviantartFeedsManager.m in Sources */,
 				AC883A371DBB9DCD00CC579E /* WeiboRequestTokenViewController.m in Sources */,
 				AC8508D41DB39146004AFE84 /* ViewController.m in Sources */,
+				ACE0502D22802CDD00367F3A /* FOFilteredImageManager.m in Sources */,
 				ACC93EFB2277F41100C207E6 /* PixivPicDownloadManager.m in Sources */,
 				ACB62BA02109B1EA00A55C1F /* HJImagesToVideo.m in Sources */,
 				AC47543F1DCC461800880934 /* OrganizeManager.m in Sources */,
@@ -1069,6 +1084,7 @@
 				AC8508CE1DB39146004AFE84 /* AppDelegate.m in Sources */,
 				ACE0500C227FD3A200367F3A /* WorldCosplayFetchManager.m in Sources */,
 				ACE05010227FD57400367F3A /* JDLingyuFetchManager.m in Sources */,
+				ACE0503022802DF200367F3A /* FOFolderManager.m in Sources */,
 				AC9870631E4C4A980076DC92 /* PixivMasterObject.m in Sources */,
 				ACC93F042277F78200C207E6 /* PixivBlockingManager.m in Sources */,
 				ACA3C1871DD09F5100A9B31D /* DownloadInfoObject.m in Sources */,
@@ -1092,10 +1108,10 @@
 				AC789C731DE159B700523A12 /* BCYMethod.m in Sources */,
 				ACC93F0A2277FA3100C207E6 /* PixivOrganizingManager.m in Sources */,
 				AC9F4C6B1E499B0E00FD01C5 /* DownloadOperation.m in Sources */,
-				AC9CA3D9210AC04C00F1AA08 /* OrganizingPhotos.m in Sources */,
 				ACCCE26D227E900A00A18C8D /* WebArchiveArchivingManager.m in Sources */,
 				ACC93F072277F98000C207E6 /* PixivFetchingManager.m in Sources */,
 				AC789C741DE159B700523A12 /* TumblrMethod.m in Sources */,
+				ACE0502A22802BAC00367F3A /* FODayFolderManager.m in Sources */,
 				ACC8DDC0226FFB6A005228D7 /* GelbooruDailyPicManager.m in Sources */,
 				ACB62B9C2109B19D00A55C1F /* Images2Mp4.m in Sources */,
 				ACC8DDCD22701356005228D7 /* GelbooruFileMoveManager.m in Sources */,
@@ -1119,6 +1135,7 @@
 				ACC8DDC9227010F0005228D7 /* GelbooruOrganizeManager.m in Sources */,
 				ACC8DDD0227015A8005228D7 /* GelbooruDownloadAndOrganizeManager.m in Sources */,
 				AC19E15E1E4857410084A510 /* PixivIllustManager.m in Sources */,
+				ACE0502522802AA700367F3A /* FileOperationMethod.m in Sources */,
 				ACC8DDC3226FFFAE005228D7 /* GelbooruTagPagePicManager.m in Sources */,
 				ACC93EF52277F09400C207E6 /* PixivUserPicManager.m in Sources */,
 				AC19E14D1E4844660084A510 /* PAPIIllust.m in Sources */,
@@ -1127,7 +1144,6 @@
 				AC9870561E4C4A650076DC92 /* TumblrPhotoObject.m in Sources */,
 				AC19E14E1E4844660084A510 /* PAPIIllustList.m in Sources */,
 				AC19E1501E4844660084A510 /* PixivAPI.m in Sources */,
-				ACE554C41F962CA900B99348 /* FileTools.m in Sources */,
 				AC98706A1E4C4AB90076DC92 /* SQLiteManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
