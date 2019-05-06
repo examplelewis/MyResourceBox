@@ -27,7 +27,6 @@
 #import "FileOperationMethod.h"
 #import "WebArchiveMethod.h"
 #import "DownloadMethod.h"
-#import "Images2Mp4.h"
 
 #import "CatchCrashManager.h"
 
@@ -179,17 +178,6 @@
             }
             
             [self convertGoAgentXRules];
-        }
-            break;
-        case 21: {
-            if (self.currentVC.inputTextView.string.length == 0) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"请输入根文件夹的地址"];
-                return;
-            }
-            
-            Images2Mp4 *instance = [[Images2Mp4 alloc] initWithRootFolder:self.currentVC.inputTextView.string];
-            [instance readAllFiles];
-            [instance startTranscoding];
         }
             break;
         default:

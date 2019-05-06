@@ -73,8 +73,6 @@
 		ACA9C92021FD954E00B33CB4 /* PixivLoginUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9C91F21FD954E00B33CB4 /* PixivLoginUserManager.m */; };
 		ACACB51E21C382D700C8D164 /* GelbooruTagStore.m in Sources */ = {isa = PBXBuildFile; fileRef = ACACB51D21C382D700C8D164 /* GelbooruTagStore.m */; };
 		ACAFAADB21FDB13100323A0A /* PixivGeneralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAFAADA21FDB13100323A0A /* PixivGeneralManager.m */; };
-		ACB62B9C2109B19D00A55C1F /* Images2Mp4.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB62B9B2109B19D00A55C1F /* Images2Mp4.m */; };
-		ACB62BA02109B1EA00A55C1F /* HJImagesToVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB62B9E2109B1EA00A55C1F /* HJImagesToVideo.m */; };
 		ACC1DCB8226F071F001243C1 /* GelbooruTagEndTimePicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimePicManager.m */; };
 		ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3145B217726D900DA5276 /* GelbooruMethod.m */; };
 		ACC3149B21773BFF00DA5276 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3149A21773BFF00DA5276 /* XMLReader.m */; };
@@ -262,10 +260,6 @@
 		ACACB51D21C382D700C8D164 /* GelbooruTagStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruTagStore.m; sourceTree = "<group>"; };
 		ACAFAAD921FDB13100323A0A /* PixivGeneralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivGeneralManager.h; sourceTree = "<group>"; };
 		ACAFAADA21FDB13100323A0A /* PixivGeneralManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivGeneralManager.m; sourceTree = "<group>"; };
-		ACB62B9A2109B19D00A55C1F /* Images2Mp4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Images2Mp4.h; sourceTree = "<group>"; };
-		ACB62B9B2109B19D00A55C1F /* Images2Mp4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Images2Mp4.m; sourceTree = "<group>"; };
-		ACB62B9E2109B1EA00A55C1F /* HJImagesToVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJImagesToVideo.m; sourceTree = "<group>"; };
-		ACB62B9F2109B1EA00A55C1F /* HJImagesToVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJImagesToVideo.h; sourceTree = "<group>"; };
 		ACC1DCB6226F071F001243C1 /* GelbooruTagEndTimePicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruTagEndTimePicManager.h; sourceTree = "<group>"; };
 		ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimePicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruTagEndTimePicManager.m; sourceTree = "<group>"; };
 		ACC3145A217726D900DA5276 /* GelbooruMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruMethod.h; sourceTree = "<group>"; };
@@ -598,7 +592,6 @@
 				ACCCE26A227E8FEA00A18C8D /* WebArchive */,
 				AC789C6C1DE159B700523A12 /* Resource */,
 				ACE0502222802A6F00367F3A /* FileOperation */,
-				ACCAA0311E1B80F30017EDDA /* Single */,
 			);
 			path = Method;
 			sourceTree = "<group>";
@@ -670,25 +663,6 @@
 			path = Download;
 			sourceTree = "<group>";
 		};
-		ACB62B992109B17A00A55C1F /* Images2Mp4 */ = {
-			isa = PBXGroup;
-			children = (
-				ACB62B9D2109B1EA00A55C1F /* HJImagesToVideo */,
-				ACB62B9A2109B19D00A55C1F /* Images2Mp4.h */,
-				ACB62B9B2109B19D00A55C1F /* Images2Mp4.m */,
-			);
-			path = Images2Mp4;
-			sourceTree = "<group>";
-		};
-		ACB62B9D2109B1EA00A55C1F /* HJImagesToVideo */ = {
-			isa = PBXGroup;
-			children = (
-				ACB62B9F2109B1EA00A55C1F /* HJImagesToVideo.h */,
-				ACB62B9E2109B1EA00A55C1F /* HJImagesToVideo.m */,
-			);
-			path = HJImagesToVideo;
-			sourceTree = "<group>";
-		};
 		ACC1DCB5226F06EE001243C1 /* Gelbooru */ = {
 			isa = PBXGroup;
 			children = (
@@ -758,14 +732,6 @@
 				ACAFAADA21FDB13100323A0A /* PixivGeneralManager.m */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		ACCAA0311E1B80F30017EDDA /* Single */ = {
-			isa = PBXGroup;
-			children = (
-				ACB62B992109B17A00A55C1F /* Images2Mp4 */,
-			);
-			path = Single;
 			sourceTree = "<group>";
 		};
 		ACCCE263227E8EDF00A18C8D /* Analysis */ = {
@@ -1073,7 +1039,6 @@
 				AC8508D41DB39146004AFE84 /* ViewController.m in Sources */,
 				ACE0502D22802CDD00367F3A /* FOFilteredImageManager.m in Sources */,
 				ACC93EFB2277F41100C207E6 /* PixivPicDownloadManager.m in Sources */,
-				ACB62BA02109B1EA00A55C1F /* HJImagesToVideo.m in Sources */,
 				AC47543F1DCC461800880934 /* OrganizeManager.m in Sources */,
 				AC9F4C711E49B06E00FD01C5 /* PixivDownloadManager.m in Sources */,
 				AC883A291DBB920800CC579E /* WeiboRequestTokenWindowController.m in Sources */,
@@ -1113,7 +1078,6 @@
 				AC789C741DE159B700523A12 /* TumblrMethod.m in Sources */,
 				ACE0502A22802BAC00367F3A /* FODayFolderManager.m in Sources */,
 				ACC8DDC0226FFB6A005228D7 /* GelbooruDailyPicManager.m in Sources */,
-				ACB62B9C2109B19D00A55C1F /* Images2Mp4.m in Sources */,
 				ACC8DDCD22701356005228D7 /* GelbooruFileMoveManager.m in Sources */,
 				ACA9C91A21FD933500B33CB4 /* PixivHttpSessionManager.m in Sources */,
 				AC85090D1DB39677004AFE84 /* UserInfo.m in Sources */,

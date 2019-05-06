@@ -1040,14 +1040,6 @@
                                                             <action selector="processingTool:" target="Voe-Tx-rLC" id="nq3-CX-yhr"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem isSeparatorItem="YES" id="qIo-K6-KEI"/>
-                                                    <menuItem title="图片转视频(输入根文件夹)" tag="21" id="D3N-37-s4O">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="processingTool:" target="Voe-Tx-rLC" id="QP5-J7-3Q6"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem isSeparatorItem="YES" id="chS-ar-ZHU"/>
                                                 </items>
                                             </menu>
                                         </menuItem>
@@ -1300,7 +1292,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114" y="1027"/>
+            <point key="canvasLocation" x="114" y="1090"/>
         </scene>
     </scenes>
 </document>
