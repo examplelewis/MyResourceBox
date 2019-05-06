@@ -39,7 +39,7 @@
     } else if ([inputString containsString:@"wnacg."]) {
         //        [[WNACGMethod defaultMethod] configMethod:1];
     } else if ([inputString containsString:@"worldcosplay."]) {
-        [[WorldCosplayMethod defaultMethod] configMethod:2];
+        [WorldCosplayMethod configMethod:2];
     } else {
         [[UtilityFile sharedInstance] showLogWithFormat:@"没有解析到有用的地址，请检查输入框的内容"];
     }

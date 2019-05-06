@@ -1,17 +1,19 @@
 //
-//  WorldCosplayMethod.m
+//  WorldCosplayFetchManager.m
 //  MyResourceBox
 //
-//  Created by 龚宇 on 16/11/20.
-//  Copyright © 2016年 gongyuTest. All rights reserved.
+//  Created by 龚宇 on 19/05/06.
+//  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import "WorldCosplayMethod.h"
+#import "WorldCosplayFetchManager.h"
 #import "CookieManager.h"
 #import "FileManager.h"
 #import "DownloadQueueManager.h"
 
-@interface WorldCosplayMethod () {
+static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
+
+@interface WorldCosplayFetchManager () {
     NSString *title;
     NSArray *pageUrls;
     NSMutableArray *results;
@@ -22,42 +24,13 @@
 
 @end
 
-@implementation WorldCosplayMethod
+@implementation WorldCosplayFetchManager
 
-static const NSString *worldCosplayPrefix = @"http://worldcosplay.net";
-
-static WorldCosplayMethod *method;
-+ (WorldCosplayMethod *)defaultMethod {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        method = [[WorldCosplayMethod alloc] init];
-    });
-    
-    return method;
-}
-
-- (void)configMethod:(NSInteger)cellRow {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取WorldCosplay的图片地址：已经准备就绪"];
-    
+// 1.1、从输入的HTML中获取网页信息
+- (void)getHTMLFromInput {
     CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeWorldCosplay];
     [manager writeCookiesIntoHTTPStorage];
     
-    switch (cellRow) {
-        case 1:
-            [self getHTMLFromInput];
-            break;
-        case 2:
-            [self getPageUrlsFromInput];
-            break;
-        default:
-            break;
-    }
-}
-
-#pragma mark -- 逻辑方法 --
-// 1.1、从输入的HTML中获取网页信息
-- (void)getHTMLFromInput {
     pageUrls = [NSMutableArray array];
     NSData *data = [[AppDelegate defaultVC].inputTextView.string dataUsingEncoding:NSUTF8StringEncoding];
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
@@ -100,6 +73,9 @@ static WorldCosplayMethod *method;
 }
 // 1.2、从输入中获取网页信息
 - (void)getPageUrlsFromInput {
+    CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeWorldCosplay];
+    [manager writeCookiesIntoHTTPStorage];
+    
     NSString *string = [AppDelegate defaultVC].inputTextView.string;
     pageUrls = [string componentsSeparatedByString:@"\n"];
     
@@ -201,10 +177,10 @@ static WorldCosplayMethod *method;
     [UtilityFile exportArray:failedURLArray atPath:failPath];
     
     // 下载
-//    [[UtilityFile sharedInstance] showLogWithFormat:@"1秒后开始下载图片"];
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self performSelector:@selector(startDownload) withObject:nil afterDelay:1.0f];
-//    });
+    //    [[UtilityFile sharedInstance] showLogWithFormat:@"1秒后开始下载图片"];
+    //    dispatch_async(dispatch_get_main_queue(), ^{
+    //        [self performSelector:@selector(startDownload) withObject:nil afterDelay:1.0f];
+    //    });
 }
 // 6、下载
 - (void)startDownload {

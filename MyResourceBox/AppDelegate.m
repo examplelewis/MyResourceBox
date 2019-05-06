@@ -136,7 +136,7 @@
 //    [[WNACGMethod defaultMethod] configMethod:sender.tag];
 }
 - (IBAction)processingWorldCosplay:(NSMenuItem *)sender {
-    [[WorldCosplayMethod defaultMethod] configMethod:sender.tag];
+    [WorldCosplayMethod configMethod:sender.tag];
 }
 - (IBAction)processingTool:(NSMenuItem *)sender {
     switch (sender.tag) {

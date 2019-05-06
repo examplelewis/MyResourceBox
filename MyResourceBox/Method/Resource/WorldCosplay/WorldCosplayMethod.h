@@ -10,7 +10,6 @@
 
 @interface WorldCosplayMethod : NSObject
 
-+ (WorldCosplayMethod *)defaultMethod;
-- (void)configMethod:(NSInteger)cellRow;
++ (void)configMethod:(NSInteger)cellRow;
 
 @end
