@@ -10,7 +10,6 @@
 
 @interface WeiboMethod : NSObject
 
-+ (WeiboMethod *)defaultMethod;
-- (void)configMethod:(NSInteger)cellRow;
++ (void)configMethod:(NSInteger)cellRow;
 
 @end

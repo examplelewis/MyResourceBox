@@ -130,7 +130,7 @@
     [[TumblrMethod defaultMethod] configMethod:sender.tag];
 }
 - (IBAction)processingWeibo:(NSMenuItem *)sender {
-    [[WeiboMethod defaultMethod] configMethod:sender.tag];
+    [WeiboMethod configMethod:sender.tag];
 }
 - (IBAction)processingWNACG:(NSMenuItem *)sender {
 //    [[WNACGMethod defaultMethod] configMethod:sender.tag];

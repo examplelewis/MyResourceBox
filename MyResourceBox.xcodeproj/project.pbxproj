@@ -104,6 +104,8 @@
 		ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */; };
 		ACE0500C227FD3A200367F3A /* WorldCosplayFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0500B227FD3A200367F3A /* WorldCosplayFetchManager.m */; };
 		ACE05010227FD57400367F3A /* JDLingyuFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0500F227FD57400367F3A /* JDLingyuFetchManager.m */; };
+		ACE05014227FD9EE00367F3A /* WeiboBoundaryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE05013227FD9EE00367F3A /* WeiboBoundaryManager.m */; };
+		ACE05017227FDAF600367F3A /* WeiboFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE05016227FDAF600367F3A /* WeiboFetchManager.m */; };
 		ACE554C41F962CA900B99348 /* FileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE554C31F962CA900B99348 /* FileTools.m */; };
 /* End PBXBuildFile section */
 
@@ -321,6 +323,11 @@
 		ACE0500B227FD3A200367F3A /* WorldCosplayFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorldCosplayFetchManager.m; sourceTree = "<group>"; };
 		ACE0500E227FD57400367F3A /* JDLingyuFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JDLingyuFetchManager.h; sourceTree = "<group>"; };
 		ACE0500F227FD57400367F3A /* JDLingyuFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDLingyuFetchManager.m; sourceTree = "<group>"; };
+		ACE05012227FD9EE00367F3A /* WeiboBoundaryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboBoundaryManager.h; sourceTree = "<group>"; };
+		ACE05013227FD9EE00367F3A /* WeiboBoundaryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboBoundaryManager.m; sourceTree = "<group>"; };
+		ACE05015227FDAF600367F3A /* WeiboFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboFetchManager.h; sourceTree = "<group>"; };
+		ACE05016227FDAF600367F3A /* WeiboFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboFetchManager.m; sourceTree = "<group>"; };
+		ACE05018227FE00600367F3A /* WeiboHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboHeader.h; sourceTree = "<group>"; };
 		ACE554C21F962CA900B99348 /* FileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTools.h; sourceTree = "<group>"; };
 		ACE554C31F962CA900B99348 /* FileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTools.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -423,8 +430,7 @@
 				ACE0500D227FD4E100367F3A /* JDLingyu */,
 				AC789C6F1DE159B700523A12 /* TumblrMethod.h */,
 				AC789C701DE159B700523A12 /* TumblrMethod.m */,
-				AC789C711DE159B700523A12 /* WeiboMethod.h */,
-				AC789C721DE159B700523A12 /* WeiboMethod.m */,
+				ACE05011227FD9BF00367F3A /* Weibo */,
 				ACE05009227FD37700367F3A /* WorldCosplay */,
 				AC19E1551E4857020084A510 /* Pixiv */,
 				AC789C761DE159E100523A12 /* ExHentai */,
@@ -803,6 +809,20 @@
 			path = JDLingyu;
 			sourceTree = "<group>";
 		};
+		ACE05011227FD9BF00367F3A /* Weibo */ = {
+			isa = PBXGroup;
+			children = (
+				ACE05018227FE00600367F3A /* WeiboHeader.h */,
+				AC789C711DE159B700523A12 /* WeiboMethod.h */,
+				AC789C721DE159B700523A12 /* WeiboMethod.m */,
+				ACE05012227FD9EE00367F3A /* WeiboBoundaryManager.h */,
+				ACE05013227FD9EE00367F3A /* WeiboBoundaryManager.m */,
+				ACE05015227FDAF600367F3A /* WeiboFetchManager.h */,
+				ACE05016227FDAF600367F3A /* WeiboFetchManager.m */,
+			);
+			path = Weibo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1009,6 +1029,7 @@
 				AC85090C1DB39677004AFE84 /* MyAlert.m in Sources */,
 				AC9870591E4C4A650076DC92 /* WNACGFileModel.m in Sources */,
 				AC85091B1DB39692004AFE84 /* WebArchiveMethod.m in Sources */,
+				ACE05014227FD9EE00367F3A /* WeiboBoundaryManager.m in Sources */,
 				ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */,
 				ACCAA0341E1B80FB0017EDDA /* OrganizingDayFolder.m in Sources */,
 				ACCCE269227E8F4D00A18C8D /* AnalysisFileManager.m in Sources */,
@@ -1023,6 +1044,7 @@
 				AC19E1511E4844660084A510 /* SAPIIllust.m in Sources */,
 				AC8508D11DB39146004AFE84 /* main.m in Sources */,
 				AC9870611E4C4A980076DC92 /* PixivDownloadObject.m in Sources */,
+				ACE05017227FDAF600367F3A /* WeiboFetchManager.m in Sources */,
 				AC8508CE1DB39146004AFE84 /* AppDelegate.m in Sources */,
 				ACE0500C227FD3A200367F3A /* WorldCosplayFetchManager.m in Sources */,
 				ACE05010227FD57400367F3A /* JDLingyuFetchManager.m in Sources */,
