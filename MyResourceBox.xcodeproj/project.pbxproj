@@ -435,13 +435,13 @@
 				ACC93EE52277E8DD00C207E6 /* BCY */,
 				ACC1DCB5226F06EE001243C1 /* Gelbooru */,
 				ACE0500D227FD4E100367F3A /* JDLingyu */,
-				AC789C6F1DE159B700523A12 /* TumblrMethod.h */,
-				AC789C701DE159B700523A12 /* TumblrMethod.m */,
 				ACE05011227FD9BF00367F3A /* Weibo */,
 				ACE05009227FD37700367F3A /* WorldCosplay */,
 				AC19E1551E4857020084A510 /* Pixiv */,
 				AC789C761DE159E100523A12 /* ExHentai */,
 				ACE05019227FE4C500367F3A /* Deviantart */,
+				AC789C6F1DE159B700523A12 /* TumblrMethod.h */,
+				AC789C701DE159B700523A12 /* TumblrMethod.m */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
