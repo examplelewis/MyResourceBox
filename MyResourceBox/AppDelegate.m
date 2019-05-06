@@ -121,7 +121,7 @@
 //    [[LofterMethod defaultMethod] configMethod:sender.tag];
 }
 - (IBAction)processingJDLingyu:(NSMenuItem *)sender {
-    [[JDLingyuMethod defaultMethod] configMethod:sender.tag];
+    [JDLingyuMethod configMethod:sender.tag];
 }
 - (IBAction)processingPixiv:(NSMenuItem *)sender {
     [PixivMethod configMethod:sender.tag];

@@ -1,16 +1,15 @@
 //
-//  JDLingyuMethod.m
+//  JDLingyuFetchManager.m
 //  MyResourceBox
 //
-//  Created by 龚宇 on 16/11/20.
-//  Copyright © 2016年 gongyuTest. All rights reserved.
+//  Created by 龚宇 on 19/05/06.
+//  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import "JDLingyuMethod.h"
+#import "JDLingyuFetchManager.h"
 #import "DownloadQueueManager.h"
-#import "OrganizeManager.h"
 
-@interface JDLingyuMethod () {
+@interface JDLingyuFetchManager () {
     NSArray *urlArray;
     NSMutableArray *resultArray;
     NSMutableDictionary *renameDict; //重命名文件夹
@@ -21,38 +20,11 @@
 
 @end
 
-@implementation JDLingyuMethod
+@implementation JDLingyuFetchManager
 
-static JDLingyuMethod *method;
-+ (JDLingyuMethod *)defaultMethod {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        method = [[JDLingyuMethod alloc] init];
-    });
-    
-    return method;
-}
-
-- (void)configMethod:(NSInteger)cellRow {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取绝对领域的图片地址：已经准备就绪"];
-    downloaded = 0;
-    
-    switch (cellRow) {
-        case 1:
-            [self parseHTML];
-            break;
-        case 2:
-            [self arrangeImageFile];
-            break;
-        default:
-            break;
-    }
-}
-
-#pragma mark -- 逻辑方法 --
 // 1、解析每个页面，获取图片地址
 - (void)parseHTML {
+    downloaded = 0;
     urlArray = [[AppDelegate defaultVC].inputTextView.string componentsSeparatedByString:@"\n"];
     resultArray = [NSMutableArray array];
     renameDict = [NSMutableDictionary dictionary];
@@ -129,7 +101,6 @@ static JDLingyuMethod *method;
     [manager startDownload];
 }
 
-#pragma mark -- 辅助方法 --
 // 下载完成的方法
 - (void)didFinishDownloadingOneWebpage:(BOOL)success {
     downloaded++;
@@ -147,13 +118,6 @@ static JDLingyuMethod *method;
             [self doneThings];
         });
     }
-}
-
-#pragma mark -- 整理方法 --
-// 根据Plist文件将图片整理到对应的文件夹中（第一步，显示NSOpenPanel）
-- (void)arrangeImageFile {
-    OrganizeManager *manager = [[OrganizeManager alloc] initWithPlistPath:@"/Users/Mercury/Downloads/JDlingyuRenameInfo.plist"];
-    [manager startOrganizing];
 }
 
 @end

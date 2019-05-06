@@ -10,7 +10,6 @@
 
 @interface JDLingyuMethod : NSObject
 
-+ (JDLingyuMethod *)defaultMethod;
-- (void)configMethod:(NSInteger)cellRow;
++ (void)configMethod:(NSInteger)cellRow;
 
 @end

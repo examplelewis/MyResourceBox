@@ -27,7 +27,7 @@
     } else if ([inputString containsString:@"lofter."]) {
         //        [[LofterMethod defaultMethod] configMethod:2];
     } else if ([inputString containsString:@"jdlingyu."]) {
-        [[JDLingyuMethod defaultMethod] configMethod:1];
+        [JDLingyuMethod configMethod:1];
     } else if ([inputString containsString:@"pixiv."]) {
         if ([inputString containsString:@"member.php?id="] || [inputString containsString:@"member_illust.php?id="]) {
             [PixivMethod configMethod:1];

@@ -103,6 +103,7 @@
 		ACCFA0BA226D5D3D007514C0 /* CatchCrashManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */; };
 		ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */; };
 		ACE0500C227FD3A200367F3A /* WorldCosplayFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0500B227FD3A200367F3A /* WorldCosplayFetchManager.m */; };
+		ACE05010227FD57400367F3A /* JDLingyuFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0500F227FD57400367F3A /* JDLingyuFetchManager.m */; };
 		ACE554C41F962CA900B99348 /* FileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE554C31F962CA900B99348 /* FileTools.m */; };
 /* End PBXBuildFile section */
 
@@ -318,6 +319,8 @@
 		ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivExHentaiManager.m; sourceTree = "<group>"; };
 		ACE0500A227FD3A200367F3A /* WorldCosplayFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorldCosplayFetchManager.h; sourceTree = "<group>"; };
 		ACE0500B227FD3A200367F3A /* WorldCosplayFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorldCosplayFetchManager.m; sourceTree = "<group>"; };
+		ACE0500E227FD57400367F3A /* JDLingyuFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JDLingyuFetchManager.h; sourceTree = "<group>"; };
+		ACE0500F227FD57400367F3A /* JDLingyuFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDLingyuFetchManager.m; sourceTree = "<group>"; };
 		ACE554C21F962CA900B99348 /* FileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTools.h; sourceTree = "<group>"; };
 		ACE554C31F962CA900B99348 /* FileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTools.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -417,8 +420,7 @@
 			children = (
 				ACC93EE52277E8DD00C207E6 /* BCY */,
 				ACC1DCB5226F06EE001243C1 /* Gelbooru */,
-				AC789C801DE15A1D00523A12 /* JDLingyuMethod.h */,
-				AC789C811DE15A1D00523A12 /* JDLingyuMethod.m */,
+				ACE0500D227FD4E100367F3A /* JDLingyu */,
 				AC789C6F1DE159B700523A12 /* TumblrMethod.h */,
 				AC789C701DE159B700523A12 /* TumblrMethod.m */,
 				AC789C711DE159B700523A12 /* WeiboMethod.h */,
@@ -790,6 +792,17 @@
 			path = WorldCosplay;
 			sourceTree = "<group>";
 		};
+		ACE0500D227FD4E100367F3A /* JDLingyu */ = {
+			isa = PBXGroup;
+			children = (
+				AC789C801DE15A1D00523A12 /* JDLingyuMethod.h */,
+				AC789C811DE15A1D00523A12 /* JDLingyuMethod.m */,
+				ACE0500E227FD57400367F3A /* JDLingyuFetchManager.h */,
+				ACE0500F227FD57400367F3A /* JDLingyuFetchManager.m */,
+			);
+			path = JDLingyu;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1012,6 +1025,7 @@
 				AC9870611E4C4A980076DC92 /* PixivDownloadObject.m in Sources */,
 				AC8508CE1DB39146004AFE84 /* AppDelegate.m in Sources */,
 				ACE0500C227FD3A200367F3A /* WorldCosplayFetchManager.m in Sources */,
+				ACE05010227FD57400367F3A /* JDLingyuFetchManager.m in Sources */,
 				AC9870631E4C4A980076DC92 /* PixivMasterObject.m in Sources */,
 				ACC93F042277F78200C207E6 /* PixivBlockingManager.m in Sources */,
 				ACA3C1871DD09F5100A9B31D /* DownloadInfoObject.m in Sources */,
