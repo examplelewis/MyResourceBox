@@ -811,43 +811,43 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
-                                        <menuItem title="Tumblr" id="DHj-5F-oU9">
+                                        <menuItem title="Tumblr" enabled="NO" id="DHj-5F-oU9">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Tumblr" id="vEY-LV-N6P">
                                                 <items>
-                                                    <menuItem title="获取我收藏的图片" tag="2" id="Tld-c5-t7o">
+                                                    <menuItem title="获取我收藏的图片" tag="2" enabled="NO" id="Tld-c5-t7o">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingTumblr:" target="Voe-Tx-rLC" id="Htt-PE-Trh"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="获取我收藏的视频" tag="3" id="CcC-UA-AtS">
+                                                    <menuItem title="获取我收藏的视频" tag="3" enabled="NO" id="CcC-UA-AtS">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingTumblr:" target="Voe-Tx-rLC" id="sZy-go-A4T"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="jMr-ZG-89A"/>
-                                                    <menuItem title="获取用户发布图片" tag="4" id="88N-V3-uXn">
+                                                    <menuItem title="获取用户发布图片" tag="4" enabled="NO" id="88N-V3-uXn">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingTumblr:" target="Voe-Tx-rLC" id="fZn-5F-76f"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="获取用户发布视频" tag="5" id="Mwd-Dp-10J">
+                                                    <menuItem title="获取用户发布视频" tag="5" enabled="NO" id="Mwd-Dp-10J">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingTumblr:" target="Voe-Tx-rLC" id="0gA-Ut-CNa"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="OWf-p3-s8Q"/>
-                                                    <menuItem title="获取用户收藏图片" tag="6" id="Tuk-Dr-DGj">
+                                                    <menuItem title="获取用户收藏图片" tag="6" enabled="NO" id="Tuk-Dr-DGj">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingTumblr:" target="Voe-Tx-rLC" id="S57-TD-eI1"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="获取用户收藏视频" tag="7" id="YsI-I3-Y1f">
+                                                    <menuItem title="获取用户收藏视频" tag="7" enabled="NO" id="YsI-I3-Y1f">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingTumblr:" target="Voe-Tx-rLC" id="AMI-O5-Mq1"/>
