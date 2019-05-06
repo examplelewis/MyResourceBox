@@ -202,7 +202,7 @@
     [DownloadMethod configMethod:sender.tag];
 }
 - (IBAction)processingDeviantart:(NSMenuItem *)sender {
-    [[DeviantartMethod defaultMethod] configMethod:sender.tag];
+    [DeviantartMethod configMethod:sender.tag];
 }
 
 

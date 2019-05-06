@@ -106,6 +106,8 @@
 		ACE05010227FD57400367F3A /* JDLingyuFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0500F227FD57400367F3A /* JDLingyuFetchManager.m */; };
 		ACE05014227FD9EE00367F3A /* WeiboBoundaryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE05013227FD9EE00367F3A /* WeiboBoundaryManager.m */; };
 		ACE05017227FDAF600367F3A /* WeiboFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE05016227FDAF600367F3A /* WeiboFetchManager.m */; };
+		ACE0501D227FE52A00367F3A /* DeviantartFeedsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0501C227FE52A00367F3A /* DeviantartFeedsManager.m */; };
+		ACE05020227FE62800367F3A /* DeviantartUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0501F227FE62800367F3A /* DeviantartUserManager.m */; };
 		ACE554C41F962CA900B99348 /* FileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE554C31F962CA900B99348 /* FileTools.m */; };
 /* End PBXBuildFile section */
 
@@ -328,6 +330,11 @@
 		ACE05015227FDAF600367F3A /* WeiboFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboFetchManager.h; sourceTree = "<group>"; };
 		ACE05016227FDAF600367F3A /* WeiboFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboFetchManager.m; sourceTree = "<group>"; };
 		ACE05018227FE00600367F3A /* WeiboHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboHeader.h; sourceTree = "<group>"; };
+		ACE0501A227FE4E800367F3A /* DeviantartHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviantartHeader.h; sourceTree = "<group>"; };
+		ACE0501B227FE52A00367F3A /* DeviantartFeedsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviantartFeedsManager.h; sourceTree = "<group>"; };
+		ACE0501C227FE52A00367F3A /* DeviantartFeedsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviantartFeedsManager.m; sourceTree = "<group>"; };
+		ACE0501E227FE62800367F3A /* DeviantartUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviantartUserManager.h; sourceTree = "<group>"; };
+		ACE0501F227FE62800367F3A /* DeviantartUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviantartUserManager.m; sourceTree = "<group>"; };
 		ACE554C21F962CA900B99348 /* FileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTools.h; sourceTree = "<group>"; };
 		ACE554C31F962CA900B99348 /* FileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTools.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -434,8 +441,7 @@
 				ACE05009227FD37700367F3A /* WorldCosplay */,
 				AC19E1551E4857020084A510 /* Pixiv */,
 				AC789C761DE159E100523A12 /* ExHentai */,
-				ACA5162B220175F20074AB73 /* DeviantartMethod.h */,
-				ACA5162C220175F20074AB73 /* DeviantartMethod.m */,
+				ACE05019227FE4C500367F3A /* Deviantart */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -823,6 +829,20 @@
 			path = Weibo;
 			sourceTree = "<group>";
 		};
+		ACE05019227FE4C500367F3A /* Deviantart */ = {
+			isa = PBXGroup;
+			children = (
+				ACE0501A227FE4E800367F3A /* DeviantartHeader.h */,
+				ACA5162B220175F20074AB73 /* DeviantartMethod.h */,
+				ACA5162C220175F20074AB73 /* DeviantartMethod.m */,
+				ACE0501B227FE52A00367F3A /* DeviantartFeedsManager.h */,
+				ACE0501C227FE52A00367F3A /* DeviantartFeedsManager.m */,
+				ACE0501E227FE62800367F3A /* DeviantartUserManager.h */,
+				ACE0501F227FE62800367F3A /* DeviantartUserManager.m */,
+			);
+			path = Deviantart;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1034,6 +1054,7 @@
 				ACCAA0341E1B80FB0017EDDA /* OrganizingDayFolder.m in Sources */,
 				ACCCE269227E8F4D00A18C8D /* AnalysisFileManager.m in Sources */,
 				AC8509211DB3970D004AFE84 /* WeiboTokenWindowController.m in Sources */,
+				ACE0501D227FE52A00367F3A /* DeviantartFeedsManager.m in Sources */,
 				AC883A371DBB9DCD00CC579E /* WeiboRequestTokenViewController.m in Sources */,
 				AC8508D41DB39146004AFE84 /* ViewController.m in Sources */,
 				ACC93EFB2277F41100C207E6 /* PixivPicDownloadManager.m in Sources */,
@@ -1086,6 +1107,7 @@
 				ACC3149B21773BFF00DA5276 /* XMLReader.m in Sources */,
 				AC789C7F1DE159E100523A12 /* ExHentaiUrlsManager.m in Sources */,
 				AC19E1581E4857020084A510 /* PixivMethod.m in Sources */,
+				ACE05020227FE62800367F3A /* DeviantartUserManager.m in Sources */,
 				AC789C651DE1466200523A12 /* CookieInfoObject.m in Sources */,
 				ACCAA0371E1B81250017EDDA /* ImageManager.m in Sources */,
 				AC315BE01DEBBE8800DBFA0A /* Consts.m in Sources */,

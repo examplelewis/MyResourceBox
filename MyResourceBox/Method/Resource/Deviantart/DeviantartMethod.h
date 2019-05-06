@@ -12,8 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DeviantartMethod : NSObject
 
-+ (DeviantartMethod *)defaultMethod;
-- (void)configMethod:(NSInteger)cellRow;
++ (void)configMethod:(NSInteger)cellRow;
 
 @end
 

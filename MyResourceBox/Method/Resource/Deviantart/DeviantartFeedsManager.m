@@ -1,17 +1,15 @@
 //
-//  DeviantartMethod.m
+//  DeviantartFeedsManager.m
 //  MyResourceBox
 //
-//  Created by 龚宇 on 19/01/30.
+//  Created by 龚宇 on 19/05/06.
 //  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import "DeviantartMethod.h"
+#import "DeviantartFeedsManager.h"
+#import "DeviantartHeader.h"
 
-static NSString * const loginInfoFilePath = @"/Users/Mercury/Documents/同步文档/MyResourceBox/DeviantartLoginInfo.plist";
-static NSString * const deviantartPrefsFilePath = @"/Users/Mercury/Documents/同步文档/MyResourceBox/DeviantartPres.plist";
-
-@interface DeviantartMethod () {
+@interface DeviantartFeedsManager () {
     NSDictionary *loginInfo;
     NSDictionary *deviantartPrefs;
     AFHTTPSessionManager *manager;
@@ -26,17 +24,8 @@ static NSString * const deviantartPrefsFilePath = @"/Users/Mercury/Documents/同
 
 @end
 
-@implementation DeviantartMethod
+@implementation DeviantartFeedsManager
 
-static DeviantartMethod *method;
-+ (DeviantartMethod *)defaultMethod {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        method = [[DeviantartMethod alloc] init];
-    });
-    
-    return method;
-}
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -59,44 +48,27 @@ static DeviantartMethod *method;
     return self;
 }
 
-- (void)configMethod:(NSInteger)cellRow {
+- (void)prepareFetchingFeeds {
     WS(weakSelf);
-    [UtilityFile resetCurrentDate];
-    
     if (loginInfo && [[NSDate dateWithTimeIntervalSince1970:[loginInfo[@"expires_at"] doubleValue]] isLaterThan:[NSDate date]]) {
-        [self configMethodAfterRefreshToken:cellRow];
+        [self fetchingFeedsAfterRefreshingToken];
     } else {
         [self refreshToken:^{
-            [weakSelf configMethodAfterRefreshToken:cellRow];
+            [weakSelf fetchingFeedsAfterRefreshingToken];
         }];
     }
 }
-- (void)configMethodAfterRefreshToken:(NSInteger)cellRow {
-    switch (cellRow) {
-        case 1: {
-            if (![[FileManager defaultManager] isContentExistAtPath:deviantartPrefsFilePath]) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"/Users/Mercury/Documents/同步文档/MyResourceBox/DeviantartPres.plist 文件不存在，流程终止"];
-                return;
-            }
-            
-            cursor = @"";
-            galleryResult = [NSMutableArray array];
-            galleryResultUrls = [NSMutableArray array];
-            
-            [self fetchFeeds];
-        }
-            break;
-        case 2: {
-            galleryOffset = 0;
-            galleryResult = [NSMutableArray array];
-            galleryResultUrls = [NSMutableArray array];
-            
-            [self fetchUserGallery];
-        }
-            break;
-        default:
-            break;
+- (void)fetchingFeedsAfterRefreshingToken {
+    if (![[FileManager defaultManager] isContentExistAtPath:deviantartPrefsFilePath]) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"/Users/Mercury/Documents/同步文档/MyResourceBox/DeviantartPres.plist 文件不存在，流程终止"];
+        return;
     }
+    
+    cursor = @"";
+    galleryResult = [NSMutableArray array];
+    galleryResultUrls = [NSMutableArray array];
+    
+    [self fetchFeeds];
 }
 
 /**
@@ -105,7 +77,7 @@ static DeviantartMethod *method;
 - (void)refreshToken:(void(^)(void))successBlock {
     [[UtilityFile sharedInstance] showLogWithFormat:@"正在刷新 Deviantart Token"];
     NSString *url = [NSString stringWithFormat:@"https://www.deviantart.com/oauth2/token?client_id=9258&client_secret=61c80feafecec5591f799f14be74c109&grant_type=refresh_token&refresh_token=%@", loginInfo[@"refresh_token"]];
-//    NSString *url = [NSString stringWithFormat:@"https://www.deviantart.com/oauth2/token?client_id=9258&client_secret=61c80feafecec5591f799f14be74c109&grant_type=refresh_token&refresh_token=c28df5ccb8c2f867a27f8352d2cb4b465541f00b"];
+    //    NSString *url = [NSString stringWithFormat:@"https://www.deviantart.com/oauth2/token?client_id=9258&client_secret=61c80feafecec5591f799f14be74c109&grant_type=refresh_token&refresh_token=c28df5ccb8c2f867a27f8352d2cb4b465541f00b"];
     
     WS(weakSelf);
     [manager GET:url parameters:nil progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -124,43 +96,6 @@ static DeviantartMethod *method;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [[UtilityFile sharedInstance] showLogWithFormat:@"刷新 Deviantart Token 失败，可能是 refresh_token 已经过期，请参考 OAuth 2 Step 1: User Authorization 重新获取 Authorization Code"];
-    }];
-}
-
-/**
- * @brief 获取用户的 Gallery
- */
-- (void)fetchUserGallery {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"正在加载Gallery: %ld - %ld", galleryOffset + 1, galleryOffset + 24];
-    NSString *url = [NSString stringWithFormat:@"https://www.deviantart.com/api/v1/oauth2/gallery/all?username=%@&offset=%ld&limit=24&access_token=%@&mature_content=true", [AppDelegate defaultVC].inputTextView.string, galleryOffset, loginInfo[@"access_token"]];
-    
-    WS(weakSelf);
-    [manager GET:url parameters:nil progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        SS(strongSelf);
-        
-        NSDictionary *response = [NSDictionary dictionaryWithDictionary:responseObject];
-        NSArray *results = [NSArray arrayWithArray:response[@"results"]];
-        DDLogInfo(@"Deviantart User Gallery Results: %@", results);
-        [strongSelf->galleryResult addObjectsFromArray:results];
-        
-        for (NSInteger i = 0; i < results.count; i++) {
-            NSDictionary *gallery = results[i];
-            
-            if ([gallery[@"is_downloadable"] boolValue] && gallery[@"content"] && gallery[@"content"][@"src"]) {
-                NSString *src = gallery[@"content"][@"src"];
-                [strongSelf->galleryResultUrls addObject:src];
-            }
-        }
-        [UtilityFile exportArray:strongSelf->galleryResultUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/DeviantartUser【%@】Gallery.txt", [AppDelegate defaultVC].inputTextView.string]];
-        
-        if ([response[@"has_more"] boolValue]) {
-            strongSelf->galleryOffset = [response[@"next_offset"] integerValue];
-            [strongSelf fetchUserGallery];
-        } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"用户: %@ 的 Gallery 加载完成", [AppDelegate defaultVC].inputTextView.string];
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"加载 Gallery 出错"];
     }];
 }
 
@@ -199,7 +134,7 @@ static DeviantartMethod *method;
             
             // 如果发布时间比已抓取的时间晚，那么存储图片；否则结束流程
             if (publishedTime >= strongSelf->previousTime) {
-//                BOOL downloadble = !gallery[@"is_downloadable"] || [gallery[@"is_downloadable"] boolValue];
+                //                BOOL downloadble = !gallery[@"is_downloadable"] || [gallery[@"is_downloadable"] boolValue];
                 if ([gallery[@"is_downloadable"] boolValue] && gallery[@"content"] && gallery[@"content"][@"src"]) {
                     NSString *src = gallery[@"content"][@"src"];
                     [strongSelf->galleryResultUrls addObject:src];
@@ -213,7 +148,7 @@ static DeviantartMethod *method;
         
         if ([response[@"has_more"] boolValue] && !foundFetched) {
             strongSelf->cursor = response[@"cursor"];
-            [strongSelf fetchUserGallery];
+            [strongSelf fetchFeeds];
         } else {
             [[UtilityFile sharedInstance] showLogWithFormat:@"Feeds 加载完成"];
         }
