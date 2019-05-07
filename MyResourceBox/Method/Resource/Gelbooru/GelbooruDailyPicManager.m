@@ -20,9 +20,11 @@
     NSMutableArray *overwatchPosts; // overwatch
     NSMutableArray *animePosts; // 动漫
     NSMutableArray *gamePosts; // 游戏
+    NSMutableArray *hPosts; // 18
     
     NSMutableDictionary *animeNameInfo;
     NSMutableDictionary *gameNameInfo;
+    NSMutableDictionary *hNameInfo;
     
     NSDictionary *latestPost;
     NSDictionary *newestPost;
@@ -42,8 +44,10 @@
         overwatchPosts = [NSMutableArray array];
         animePosts = [NSMutableArray array];
         gamePosts = [NSMutableArray array];
+        hPosts = [NSMutableArray array];
         animeNameInfo = [NSMutableDictionary dictionary];
         gameNameInfo = [NSMutableDictionary dictionary];
+        hNameInfo = [NSMutableDictionary dictionary];
         
         NSString *filePath = [[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"latestPost.plist"];
         latestPost = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath]; // 获取之前保存的Post信息
@@ -109,6 +113,13 @@
                 NSString *donwloadFileNameAndExtension = [data[@"file_url"] lastPathComponent];
                 [self->gameNameInfo setObject:[NSString stringWithFormat:@"%@ - %@", gameTags, donwloadFileNameAndExtension] forKey:donwloadFileNameAndExtension];
             }
+            NSString *hTags = [[GelbooruTagStore defaultManager] getHTags:data[@"tags"]];
+            if (hTags.length > 0) {
+                [self->hPosts addObject:data];
+                
+                NSString *donwloadFileNameAndExtension = [data[@"file_url"] lastPathComponent];
+                [self->hNameInfo setObject:[NSString stringWithFormat:@"%@ - %@", hTags, donwloadFileNameAndExtension] forKey:donwloadFileNameAndExtension];
+            }
         }
         
         if (self->webmPosts.count > 0) {
@@ -128,14 +139,22 @@
         NSArray *overwatchUrls = [self->overwatchPosts valueForKey:@"file_url"];
         NSArray *animeUrls = [self->animePosts valueForKey:@"file_url"];
         NSArray *gameUrls = [self->gamePosts valueForKey:@"file_url"];
+        NSArray *hUrls = [self->hPosts valueForKey:@"file_url"];
         
         [UtilityFile exportArray:fateUrls atPath:GelbooruFatePostTxtPath];
         [UtilityFile exportArray:azurUrls atPath:GelbooruAzurPostTxtPath];
         [UtilityFile exportArray:overwatchUrls atPath:GelbooruOverwatchPostTxtPath];
+        
         [UtilityFile exportArray:animeUrls atPath:GelbooruAnimePostTxtPath];
-        [UtilityFile exportArray:gameUrls atPath:GelbooruGamePostTxtPath];
         [self->animeNameInfo writeToFile:GelbooruAnimePostRenamePlistPath atomically:YES];
+        
+        [UtilityFile exportArray:gameUrls atPath:GelbooruGamePostTxtPath];
         [self->gameNameInfo writeToFile:GelbooruGamePostRenamePlistPath atomically:YES];
+        
+        if (hUrls.count > 0) {
+            [UtilityFile exportArray:hUrls atPath:GelbooruHPostTxtPath];
+            [self->hNameInfo writeToFile:GelbooruHPostRenamePlistPath atomically:YES];
+        }
         
         [[UtilityFile sharedInstance] showLogWithFormat:@"获取日常图片地址：第 %ld 页已获取", self->curPage + 1];
         

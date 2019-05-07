@@ -681,23 +681,35 @@
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="lO7-KG-AUU"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="下载 特定标签 图片" tag="16" id="son-PY-mxC">
+                                                    <menuItem title="下载 18 图片" tag="16" id="pk5-a5-iT5">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="Yro-UP-4tb"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载 特定标签 图片" tag="17" id="son-PY-mxC">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="T66-Xw-ohF"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="i83-5q-Q9z"/>
-                                                    <menuItem title="整理下载的动漫图片" tag="21" id="WSL-0c-13Z">
+                                                    <menuItem title="整理下载的 动漫 图片" tag="21" id="WSL-0c-13Z">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="Pnn-LY-I5C"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="整理下载的游戏图片" tag="22" id="Xxa-7K-PbZ">
+                                                    <menuItem title="整理下载的 游戏 图片" tag="22" id="Xxa-7K-PbZ">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="SI7-gF-Isw"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="整理下载的 18 图片" tag="23" id="L4X-ON-4lF">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="xhS-Ve-oaC"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="deK-X9-obk"/>

@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)getAnimeTags:(NSString *)tags;
 - (NSString *)getGameTags:(NSString *)tags;
+- (NSString *)getHTags:(NSString *)tags;
 
 @end
 

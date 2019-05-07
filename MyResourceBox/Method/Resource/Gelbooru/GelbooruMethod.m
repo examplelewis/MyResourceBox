@@ -41,6 +41,7 @@
             [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruOverwatchRootFolderPath];
             [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruAnimeRootFolderPath];
             [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruGameRootFolderPath];
+            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruHRootFolderPath];
             
             [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程结束"];
         }
@@ -71,6 +72,11 @@
         }
             break;
         case 16: {
+            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruHPostTxtPath targetFolderPath:GelbooruHRootFolderPath];
+            [manager prepareDownloading];
+        }
+            break;
+        case 17: {
             NSString *input = [AppDelegate defaultVC].inputTextView.string;
             if (input.length == 0) {
                 [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
@@ -92,6 +98,11 @@
             break;
         case 22: {
             GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruGamePostRenamePlistPath targetFolderPath:GelbooruGameRootFolderPath];
+            [manager startOrganizing];
+        }
+            break;
+        case 23: {
+            GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruHPostRenamePlistPath targetFolderPath:GelbooruHRootFolderPath];
             [manager startOrganizing];
         }
             break;

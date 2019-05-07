@@ -33,6 +33,11 @@
     if (![[FileManager defaultManager] isContentExistAtPath:plistFilePath]) {
         [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 不存在，请检查下载文件夹", plistFilePath.lastPathComponent];
         [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的动漫图片, 流程结束"];
+        
+        if (self.finishBlock) {
+            self.finishBlock();
+        }
+        
         return;
     }
     

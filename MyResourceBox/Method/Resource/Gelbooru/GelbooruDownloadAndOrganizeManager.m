@@ -101,8 +101,23 @@
             break;
         case 5: {
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载 Game 图片, 结束"];
+            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 18 图片, 开始"];
             
             [[FileManager defaultManager] trashFileAtPath:GelbooruGamePostTxtPath resultItemURL:nil];
+            totalDownloadStep += 1;
+            
+            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruHPostTxtPath targetFolderPath:GelbooruHRootFolderPath];
+            manager.finishBlock = ^{
+                [self startOperation];
+            };
+            [manager prepareDownloading];
+        }
+            break;
+        case 6: {
+            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 18 图片, 结束"];
+            [[UtilityFile sharedInstance] showLogWithFormat:@"整理 Anime 图片, 开始"];
+            
+            [[FileManager defaultManager] trashFileAtPath:GelbooruHPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruAnimePostRenamePlistPath targetFolderPath:GelbooruAnimeRootFolderPath];
@@ -112,7 +127,10 @@
             [manager startOrganizing];
         }
             break;
-        case 6: {
+        case 7: {
+            [[UtilityFile sharedInstance] showLogWithFormat:@"整理 Anime 图片, 结束"];
+            [[UtilityFile sharedInstance] showLogWithFormat:@"整理 Game 图片, 开始"];
+            
             totalDownloadStep += 1;
             
             GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruGamePostRenamePlistPath targetFolderPath:GelbooruGameRootFolderPath];
@@ -122,7 +140,20 @@
             [manager startOrganizing];
         }
             break;
-        case 7: {
+        case 8: {
+            [[UtilityFile sharedInstance] showLogWithFormat:@"整理 Game 图片, 结束"];
+            [[UtilityFile sharedInstance] showLogWithFormat:@"整理 18 图片, 开始"];
+            
+            totalDownloadStep += 1;
+            
+            GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruHPostRenamePlistPath targetFolderPath:GelbooruHRootFolderPath];
+            manager.finishBlock = ^{
+                [self startOperation];
+            };
+            [manager startOrganizing];
+        }
+        case 9: {
+            [[UtilityFile sharedInstance] showLogWithFormat:@"整理 18 图片, 结束"];
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载并整理日常图片，流程结束"];
         }
             break;

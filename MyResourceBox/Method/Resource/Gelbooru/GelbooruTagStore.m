@@ -24,6 +24,7 @@
     
     NSArray *animeTags;
     NSArray *gameTags;
+    NSArray *hTags;
 }
 
 @end
@@ -62,6 +63,8 @@ static GelbooruTagStore *request;
         animeTags = [animeTagsStr componentsSeparatedByString:@"\n"];
         NSString *gameTagsStr = [[NSString alloc] initWithContentsOfFile:@"/Users/Mercury/Documents/同步文档/MyResourceBox/GelbooruGameTags.txt" encoding:NSUTF8StringEncoding error:nil];
         gameTags = [gameTagsStr componentsSeparatedByString:@"\n"];
+        NSString *hTagsStr = [[NSString alloc] initWithContentsOfFile:@"/Users/Mercury/Documents/同步文档/MyResourceBox/GelbooruHTags.txt" encoding:NSUTF8StringEncoding error:nil];
+        hTags = [hTagsStr componentsSeparatedByString:@"\n"];
         
         if (![[FileManager defaultManager] isContentExistAtPath:totalTagsFilePath]) {
             MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
@@ -408,6 +411,19 @@ static GelbooruTagStore *request;
         
         if ([tags containsString:gameTag]) {
             [results addObject:gameTag];
+        }
+    }
+    
+    return [results componentsJoinedByString:@"+"];
+}
+- (NSString *)getHTags:(NSString *)tags {
+    NSMutableArray *results = [NSMutableArray array]; // 包含的有用的 tag
+    
+    for (NSInteger i = 0; i < hTags.count; i++) {
+        NSString *hTag = hTags[i]; // 本地存储的 tag，tag 本身可能不全
+        
+        if ([tags containsString:hTag]) {
+            [results addObject:hTag];
         }
     }
     
