@@ -133,7 +133,7 @@
     return NSMakeSize(imageRep.pixelsWide, imageRep.pixelsHigh);
 }
 - (BOOL)isImageFile:(NSString *)extension {
-    return [[Consts simplePhotoType] containsObject:extension];
+    return [simplePhotoType containsObject:extension];
 }
 
 @end

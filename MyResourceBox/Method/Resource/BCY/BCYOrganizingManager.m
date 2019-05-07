@@ -88,7 +88,7 @@
     NSString *otherFolderName = [rootFolderName stringByAppendingPathComponent:@"未整理"];
     [fm createFolderAtPathIfNotExist:otherFolderName];
     
-    NSArray<NSString *> *imageFiles = [fm getFilePathsInFolder:rootFolderName specificExtensions:[Consts simplePhotoType]];
+    NSArray<NSString *> *imageFiles = [fm getFilePathsInFolder:rootFolderName specificExtensions:simplePhotoType];
     for (NSString *filePath in imageFiles) {
         NSString *destPath = [otherFolderName stringByAppendingPathComponent:filePath.lastPathComponent];
         [fm moveItemAtPath:filePath toDestPath:destPath];

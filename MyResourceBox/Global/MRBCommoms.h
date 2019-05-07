@@ -1,12 +1,13 @@
 //
-//  Consts.h
+//  MRBCommoms.h
 //  MyResourceBox
 //
-//  Created by 龚宇 on 16/11/28.
-//  Copyright © 2016年 gongyuTest. All rights reserved.
+//  Created by 龚宇 on 19/05/07.
+//  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef MRBCommoms_h
+#define MRBCommoms_h
 
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 #define BS(blockSelf)  __block __typeof(&*self)blockSelf = self;
@@ -31,10 +32,8 @@ dispatch_async(dispatch_get_main_queue(), block);\
 }
 #endif
 
-@interface Consts : NSObject
+#define simplePhotoType @[@"jpg", @"jpeg", @"gif", @"png"]
+#define allPhotoType @[@"jpg", @"jpeg", @"gif", @"png", @"raw", @"bmp", @"tiff"]
+#define allVideoType @[@"mkv", @"mp4", @"avi", @"mpg", @"webm", @"ogv", @"m4v", @"rmvb"]
 
-+ (NSArray *)simplePhotoType;
-+ (NSArray *)allPhotoType;
-+ (NSArray *)allVideoType;
-
-@end
+#endif /* MRBCommoms_h */

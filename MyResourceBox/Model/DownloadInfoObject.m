@@ -50,9 +50,9 @@
 }
 - (void)getInfoFromUrl {
     NSString *extension = self.url.pathExtension;
-    if ([[Consts allPhotoType] containsObject:extension]) {
+    if ([allPhotoType containsObject:extension]) {
         _type = DownloadInfoTypeImage;
-    } else if ([[Consts allVideoType] containsObject:extension]) {
+    } else if ([allVideoType containsObject:extension]) {
         _type = DownloadInfoTypeVideo;
     } else {
         _type = DownloadInfoTypeOther;

@@ -78,7 +78,7 @@
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:self.plistPath];
     
     // 先查找文件夹里是否有图片文件。如果没有，可能是没有将图片文件移动到文件夹内，目前给出提示
-    NSArray *imageFiles = [[FileManager defaultManager] getFilePathsInFolder:rootFolderName specificExtensions:[Consts simplePhotoType]];
+    NSArray *imageFiles = [[FileManager defaultManager] getFilePathsInFolder:rootFolderName specificExtensions:simplePhotoType];
     if (imageFiles.count == 0) {
         [[UtilityFile sharedInstance] showLogWithFormat:@"没有在文件夹内找到图片文件，可能是没有将图片文件移动到文件夹内，请检查文件夹"];
         return;
