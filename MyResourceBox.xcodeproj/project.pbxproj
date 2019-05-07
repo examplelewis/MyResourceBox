@@ -491,7 +491,6 @@
 				AC8508D71DB39146004AFE84 /* Main.storyboard */,
 				ACF9FC66228159BE00375505 /* Global */,
 				AC85091D1DB3970D004AFE84 /* Controller */,
-				AC85090F1DB39692004AFE84 /* Managers */,
 				AC8509141DB39692004AFE84 /* Method */,
 				AC8508FE1DB39677004AFE84 /* Model */,
 				AC8509011DB39677004AFE84 /* UtilityFile */,
@@ -570,8 +569,6 @@
 				AC75C6521F8657800060CF6B /* HttpManager.m */,
 				ACCAA0361E1B81250017EDDA /* ImageManager.h */,
 				ACCAA0351E1B81250017EDDA /* ImageManager.m */,
-				AC47543D1DCC461800880934 /* OrganizeManager.h */,
-				AC47543E1DCC461800880934 /* OrganizeManager.m */,
 				ACCFA0B8226D5D3C007514C0 /* CatchCrashManager.h */,
 				ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */,
 				AC9F4C621E499AD600FD01C5 /* Download */,
@@ -817,6 +814,8 @@
 				ACE0502C22802CDD00367F3A /* FOFilteredImageManager.m */,
 				ACE0502E22802DF200367F3A /* FOFolderManager.h */,
 				ACE0502F22802DF200367F3A /* FOFolderManager.m */,
+				AC47543D1DCC461800880934 /* OrganizeManager.h */,
+				AC47543E1DCC461800880934 /* OrganizeManager.m */,
 			);
 			path = FileOperation;
 			sourceTree = "<group>";
@@ -825,6 +824,7 @@
 			isa = PBXGroup;
 			children = (
 				ACF9FC67228159D600375505 /* MRBCommoms.h */,
+				AC85090F1DB39692004AFE84 /* Managers */,
 			);
 			path = Global;
 			sourceTree = "<group>";
