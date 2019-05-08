@@ -65,7 +65,7 @@
     [self fetchSinglePostUrl];
 }
 - (void)fetchSinglePostUrl {
-    [[HttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page - 1 success:^(NSArray *array) {
+    [[HttpManager sharedManager] getSpecificTagPicFromRule34Tag:tag page:page - 1 success:^(NSArray *array) {
         for (NSInteger i = 0; i < array.count; i++) {
             NSDictionary *data = [NSDictionary dictionaryWithDictionary:array[i]];
             

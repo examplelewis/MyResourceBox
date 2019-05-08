@@ -64,7 +64,7 @@
     [self fetchSinglePostUrl];
 }
 - (void)fetchSinglePostUrl {
-    [[HttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page success:^(NSArray *array) {
+    [[HttpManager sharedManager] getSpecificTagPicFromRule34Tag:tag page:page success:^(NSArray *array) {
         BOOL foundNearest = NO; // 找到早于 endDate 的 post
         for (NSInteger i = 0; i < array.count; i++) {
             NSDictionary *data = [NSDictionary dictionaryWithDictionary:array[i]];
