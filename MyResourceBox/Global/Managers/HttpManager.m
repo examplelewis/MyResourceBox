@@ -273,9 +273,20 @@
                          failed(@"接口返回数据异常", xmlDict[@"response"][@"reason"]);
                      }
                  } else {
-                     NSArray *array = [NSArray arrayWithArray:xmlDict[@"posts"][@"post"]];
-                     if (success) {
-                         success(array);
+                     id post = xmlDict[@"posts"][@"post"];
+                     if (!post) {
+                         if (success) {
+                             success(@[]);
+                         }
+                     } else if ([post isKindOfClass:[NSArray class]]) {
+                         NSArray *array = [NSArray arrayWithArray:post];
+                         if (success) {
+                             success(array);
+                         }
+                     } else if ([post isKindOfClass:[NSDictionary class]]) {
+                         if (success) {
+                             success(@[post]);
+                         }
                      }
                  }
              }
@@ -398,9 +409,20 @@
                          failed(@"接口返回数据异常", xmlDict[@"response"][@"reason"]);
                      }
                  } else {
-                     NSArray *array = [NSArray arrayWithArray:xmlDict[@"posts"][@"post"]];
-                     if (success) {
-                         success(array);
+                     id post = xmlDict[@"posts"][@"post"];
+                     if (!post) {
+                         if (success) {
+                             success(@[]);
+                         }
+                     } else if ([post isKindOfClass:[NSArray class]]) {
+                         NSArray *array = [NSArray arrayWithArray:post];
+                         if (success) {
+                             success(array);
+                         }
+                     } else if ([post isKindOfClass:[NSDictionary class]]) {
+                         if (success) {
+                             success(@[post]);
+                         }
                      }
                  }
              }
