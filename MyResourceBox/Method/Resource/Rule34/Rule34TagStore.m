@@ -47,7 +47,7 @@ static Rule34TagStore *request;
         NSString *rootPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
         preferencePath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Preference.plist"];
         tagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags"];
-        totalTagsFilePath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/tags-rule34.xxx.xml"];
+        totalTagsFilePath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/tags-gelbooru.com.xml"];
         typeTagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/xmls"];
         neededTagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/NeededTags"];
         
@@ -66,12 +66,12 @@ static Rule34TagStore *request;
         NSString *hTagsStr = [[NSString alloc] initWithContentsOfFile:@"/Users/Mercury/Documents/同步文档/MyResourceBox/FetchResource/HTags.txt" encoding:NSUTF8StringEncoding error:nil];
         hTags = [hTagsStr componentsSeparatedByString:@"\n"];
         
-        if (![[FileManager defaultManager] isContentExistAtPath:totalTagsFilePath]) {
-            MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
-            [alert setMessage:@"还没有下载过 Rule34 的 Tags，需要下载才能正常使用" infomation:nil];
-            [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
-            [alert runModel];
-        }
+//        if (![[FileManager defaultManager] isContentExistAtPath:totalTagsFilePath]) {
+//            MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+//            [alert setMessage:@"还没有下载过 Rule34 的 Tags，需要下载才能正常使用" infomation:nil];
+//            [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
+//            [alert runModel];
+//        }
     }
     
     return self;
