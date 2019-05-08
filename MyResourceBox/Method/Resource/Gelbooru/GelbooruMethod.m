@@ -41,7 +41,8 @@
             [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruOverwatchRootFolderPath];
             [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruAnimeRootFolderPath];
             [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruGameRootFolderPath];
-            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruHRootFolderPath];
+//            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruHRootFolderPath];
+//            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruWebmRootFolderPath];
             
             [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程结束"];
         }

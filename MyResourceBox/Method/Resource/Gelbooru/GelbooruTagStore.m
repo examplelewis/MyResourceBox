@@ -430,4 +430,36 @@ static GelbooruTagStore *request;
     return [results componentsJoinedByString:@"+"];
 }
 
+#pragma mark - 去除无用的 webm 标签
+- (NSString *)removeUselessWebmTags:(NSString *)tags {
+    NSMutableArray *result = [NSMutableArray array];
+    NSArray *tagComp = [tags componentsSeparatedByString:@" "];
+    
+    for (NSInteger i = 0; i < tagComp.count; i++) {
+        NSString *tag = tagComp[i];
+        
+        if ([tag containsString:@"boy"] || [tag containsString:@"girl"]) {
+            continue;
+        }
+        if ([tag isEqualToString:@"animated"] || [tag isEqualToString:@"webm"] || [tag isEqualToString:@"tagme"] || [tag isEqualToString:@"photo"] || [tag isEqualToString:@"audio"]) {
+            continue;
+        }
+        if ([tag containsString:@"censored"]) {
+            continue;
+        }
+        if ([tag isEqualToString:@"asian"]) {
+            continue;
+        }
+        
+        [result addObject:tag];
+    }
+    
+    NSString *resultStr = [result componentsJoinedByString:@" "];
+    if (resultStr.length > 230) {
+        resultStr = [resultStr substringToIndex:230];
+    }
+    
+    return resultStr;
+}
+
 @end
