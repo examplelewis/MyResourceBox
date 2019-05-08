@@ -128,12 +128,6 @@
             }
         }
         
-        if (self->webmPosts.count > 0) {
-            NSArray *webmFileUrls = [self->webmPosts valueForKey:@"file_url"];
-            [UtilityFile exportArray:webmFileUrls atPath:Rule34WebmPostTxtPath];
-            
-            [self->webmNameInfo writeToFile:Rule34WebmPostRenamePlistPath atomically:YES];
-        }
         
         NSArray *fateUrls = [self->fatePosts valueForKey:@"file_url"];
         NSArray *azurUrls = [self->azurPosts valueForKey:@"file_url"];
@@ -141,6 +135,7 @@
         NSArray *animeUrls = [self->animePosts valueForKey:@"file_url"];
         NSArray *gameUrls = [self->gamePosts valueForKey:@"file_url"];
         NSArray *hUrls = [self->hPosts valueForKey:@"file_url"];
+        NSArray *webmFileUrls = [self->webmPosts valueForKey:@"file_url"];
         
         [UtilityFile exportArray:fateUrls atPath:Rule34FatePostTxtPath];
         [UtilityFile exportArray:azurUrls atPath:Rule34AzurPostTxtPath];
@@ -152,10 +147,12 @@
         [UtilityFile exportArray:gameUrls atPath:Rule34GamePostTxtPath];
         [self->gameNameInfo writeToFile:Rule34GamePostRenamePlistPath atomically:YES];
         
-        if (hUrls.count > 0) {
-            [UtilityFile exportArray:hUrls atPath:Rule34HPostTxtPath];
-            [self->hNameInfo writeToFile:Rule34HPostRenamePlistPath atomically:YES];
-        }
+        [UtilityFile exportArray:hUrls atPath:Rule34HPostTxtPath];
+        [self->hNameInfo writeToFile:Rule34HPostRenamePlistPath atomically:YES];
+        
+        [UtilityFile exportArray:webmFileUrls atPath:Rule34WebmPostTxtPath];
+        [self->webmNameInfo writeToFile:Rule34WebmPostRenamePlistPath atomically:YES];
+        
         
         [[UtilityFile sharedInstance] showLogWithFormat:@"获取日常图片地址：第 %ld 页已获取", self->curPage + 1];
         
