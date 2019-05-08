@@ -823,6 +823,118 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
+                                        <menuItem title="Rule34" id="SH8-pR-Qn6">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Rule34" id="Vpw-mk-gMg">
+                                                <items>
+                                                    <menuItem title="获取日常图片地址" tag="1" id="l3C-il-L2O">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="w2b-sX-7Uh"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载并整理日常图片" tag="2" id="AgG-gu-QTH">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="zQn-24-hQB"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="移动整理好的日常图片" tag="3" id="QM9-ie-dhM">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="FW2-xm-ZsJ"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="D4E-vy-QQV"/>
+                                                    <menuItem title="下载 Fate 图片" tag="11" id="NR2-f7-ccz">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="2oR-Hn-BQ6"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载 碧蓝航线 图片" tag="12" id="mSa-bu-unN">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="s6s-9C-MOc"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载 Overwatch 图片" tag="13" id="wG6-Lt-ZUh">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="GGx-8q-keK"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载 动漫 图片" tag="14" id="igZ-uv-f4k">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="n5p-eF-nlh"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载 游戏 图片" tag="15" id="E4y-md-1Rr">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="sgZ-0b-3MI"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载 18 图片" tag="16" id="zJM-ga-yXz">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="uZo-qe-LJo"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载 特定标签 图片" tag="17" id="jOU-h1-uyT">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="bcw-oC-T5s"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="eMu-Dz-Yee"/>
+                                                    <menuItem title="整理下载的 动漫 图片" tag="21" id="D3E-Lb-okv">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="YHW-As-vXE"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="整理下载的 游戏 图片" tag="22" id="ezG-UE-Q7y">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="Fg7-6a-NpJ"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="整理下载的 18 图片" tag="23" id="lxI-2W-Grb">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="urB-eL-W35"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="8xM-dX-bYA"/>
+                                                    <menuItem title="获取特定标签图片地址【页数】" tag="31" id="GLc-3D-h5j">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="dYV-qM-gei"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="查询特定标签图片数量【页数】" tag="32" id="fOG-FA-ovK">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="6Na-Sd-SnD"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="获取特定标签图片地址【截止时间】" tag="33" id="Yt1-6o-P8C">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="2si-W1-pTB"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="查询特定标签图片数量【截止时间】" tag="34" id="XsU-1o-bsl">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="hNm-6Z-YxN"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
                                         <menuItem title="Tumblr" enabled="NO" id="DHj-5F-oU9">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Tumblr" id="vEY-LV-N6P">

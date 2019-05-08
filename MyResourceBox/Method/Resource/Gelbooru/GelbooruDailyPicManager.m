@@ -49,7 +49,7 @@
         gameNameInfo = [NSMutableDictionary dictionary];
         hNameInfo = [NSMutableDictionary dictionary];
         
-        NSString *filePath = [[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"latestPost.plist"];
+        NSString *filePath = [[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"FetchResource/GelbooruLatestPost.plist"];
         latestPost = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath]; // 获取之前保存的Post信息
     }
     
@@ -180,7 +180,7 @@
 - (void)fetchFatePostsSucceed {
     // 更新 latestPost
     if (!!newestPost) {
-        NSString *dest = [[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"latestPost.plist"];
+        NSString *dest = [[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"FetchResource/GelbooruLatestPost.plist"];
         
         BOOL success = [NSKeyedArchiver archiveRootObject:newestPost toFile:dest];
         if (success) {

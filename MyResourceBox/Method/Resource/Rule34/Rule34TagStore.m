@@ -47,7 +47,7 @@ static Rule34TagStore *request;
         NSString *rootPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
         preferencePath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Preference.plist"];
         tagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags"];
-        totalTagsFilePath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/tags-Rule34.com.xml"];
+        totalTagsFilePath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/tags-rule34.xxx.xml"];
         typeTagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/xmls"];
         neededTagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/NeededTags"];
         
@@ -59,11 +59,11 @@ static Rule34TagStore *request;
         pid = [preferences[@"tags_pid"] integerValue];
         neededTagsKeys = @[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h", @"i", @"j", @"k", @"l", @"m", @"n", @"o", @"p", @"q", @"r", @"s", @"t", @"u", @"v", @"w", @"x", @"y", @"z", @"~other"];
         
-        NSString *animeTagsStr = [[NSString alloc] initWithContentsOfFile:@"/Users/Mercury/Documents/同步文档/MyResourceBox/Rule34AnimeTags.txt" encoding:NSUTF8StringEncoding error:nil];
+        NSString *animeTagsStr = [[NSString alloc] initWithContentsOfFile:@"/Users/Mercury/Documents/同步文档/MyResourceBox/FetchResource/AnimeTags.txt" encoding:NSUTF8StringEncoding error:nil];
         animeTags = [animeTagsStr componentsSeparatedByString:@"\n"];
-        NSString *gameTagsStr = [[NSString alloc] initWithContentsOfFile:@"/Users/Mercury/Documents/同步文档/MyResourceBox/Rule34GameTags.txt" encoding:NSUTF8StringEncoding error:nil];
+        NSString *gameTagsStr = [[NSString alloc] initWithContentsOfFile:@"/Users/Mercury/Documents/同步文档/MyResourceBox/FetchResource/GameTags.txt" encoding:NSUTF8StringEncoding error:nil];
         gameTags = [gameTagsStr componentsSeparatedByString:@"\n"];
-        NSString *hTagsStr = [[NSString alloc] initWithContentsOfFile:@"/Users/Mercury/Documents/同步文档/MyResourceBox/Rule34HTags.txt" encoding:NSUTF8StringEncoding error:nil];
+        NSString *hTagsStr = [[NSString alloc] initWithContentsOfFile:@"/Users/Mercury/Documents/同步文档/MyResourceBox/FetchResource/HTags.txt" encoding:NSUTF8StringEncoding error:nil];
         hTags = [hTagsStr componentsSeparatedByString:@"\n"];
         
         if (![[FileManager defaultManager] isContentExistAtPath:totalTagsFilePath]) {

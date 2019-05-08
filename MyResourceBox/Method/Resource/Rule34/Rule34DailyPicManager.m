@@ -49,7 +49,7 @@
         gameNameInfo = [NSMutableDictionary dictionary];
         hNameInfo = [NSMutableDictionary dictionary];
         
-        NSString *filePath = [[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"latestPost.plist"];
+        NSString *filePath = [[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"FetchResource/Rule34LatestPost.plist"];
         latestPost = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath]; // 获取之前保存的Post信息
     }
     
@@ -126,7 +126,7 @@
             NSArray *webmIds = [self->webmPosts valueForKey:@"id"];
             NSMutableArray *webmUrls = [NSMutableArray array];
             for (NSInteger i = 0; i < webmIds.count; i++) {
-                [webmUrls addObject:[NSString stringWithFormat:@"https://Rule34.com/index.php?page=post&s=view&id=%@", webmIds[i]]];
+                [webmUrls addObject:[NSString stringWithFormat:@"https://rule34.xxx/index.php?page=post&s=view&id=%@", webmIds[i]]];
             }
             [UtilityFile exportArray:webmUrls atPath:@"/Users/Mercury/Downloads/Rule34DailyWebmUrl.txt"];
             
@@ -180,7 +180,7 @@
 - (void)fetchFatePostsSucceed {
     // 更新 latestPost
     if (!!newestPost) {
-        NSString *dest = [[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"latestPost.plist"];
+        NSString *dest = [[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"FetchResource/Rule34LatestPost.plist"];
         
         BOOL success = [NSKeyedArchiver archiveRootObject:newestPost toFile:dest];
         if (success) {

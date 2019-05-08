@@ -20,6 +20,7 @@
 #import "PixivMethod.h"
 #import "TumblrMethod.h"
 #import "WeiboMethod.h"
+#import "Rule34Method.h"
 //#import "WNACGMethod.h"
 #import "WorldCosplayMethod.h"
 #import "DeviantartMethod.h"
@@ -122,6 +123,9 @@
 }
 - (IBAction)processingPixiv:(NSMenuItem *)sender {
     [PixivMethod configMethod:sender.tag];
+}
+- (IBAction)processingRule34:(NSMenuItem *)sender {
+    [Rule34Method configMethod:sender.tag];
 }
 - (IBAction)processingTumblr:(NSMenuItem *)sender {
     [[TumblrMethod defaultMethod] configMethod:sender.tag];
