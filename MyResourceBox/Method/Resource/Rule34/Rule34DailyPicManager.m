@@ -25,6 +25,7 @@
     NSMutableDictionary *animeNameInfo;
     NSMutableDictionary *gameNameInfo;
     NSMutableDictionary *hNameInfo;
+    NSMutableDictionary *webmNameInfo;
     
     NSDictionary *latestPost;
     NSDictionary *newestPost;
@@ -48,6 +49,7 @@
         animeNameInfo = [NSMutableDictionary dictionary];
         gameNameInfo = [NSMutableDictionary dictionary];
         hNameInfo = [NSMutableDictionary dictionary];
+        webmNameInfo = [NSMutableDictionary dictionary];
         
         NSString *filePath = [[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"FetchResource/Rule34LatestPost.plist"];
         latestPost = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath]; // 获取之前保存的Post信息
@@ -75,6 +77,10 @@
             // 忽略 webm 文件
             if ([[data[@"file_url"] pathExtension] isEqualToString:@"webm"]) {
                 [self->webmPosts addObject:data];
+                
+                NSString *donwloadFileNameAndExtension = [data[@"file_url"] lastPathComponent];
+                [self->webmNameInfo setObject:[NSString stringWithFormat:@"%@.%@", data[@"id"], donwloadFileNameAndExtension.pathExtension] forKey:donwloadFileNameAndExtension];
+                
                 continue;
             }
             
@@ -123,15 +129,10 @@
         }
         
         if (self->webmPosts.count > 0) {
-            NSArray *webmIds = [self->webmPosts valueForKey:@"id"];
-            NSMutableArray *webmUrls = [NSMutableArray array];
-            for (NSInteger i = 0; i < webmIds.count; i++) {
-                [webmUrls addObject:[NSString stringWithFormat:@"https://rule34.xxx/index.php?page=post&s=view&id=%@", webmIds[i]]];
-            }
-            [UtilityFile exportArray:webmUrls atPath:@"/Users/Mercury/Downloads/Rule34DailyWebmUrl.txt"];
-            
             NSArray *webmFileUrls = [self->webmPosts valueForKey:@"file_url"];
-            [UtilityFile exportArray:webmFileUrls atPath:@"/Users/Mercury/Downloads/Rule34DailyWebmPostUrl.txt"];
+            [UtilityFile exportArray:webmFileUrls atPath:Rule34WebmPostTxtPath];
+            
+            [self->webmNameInfo writeToFile:Rule34WebmPostRenamePlistPath atomically:YES];
         }
         
         NSArray *fateUrls = [self->fatePosts valueForKey:@"file_url"];

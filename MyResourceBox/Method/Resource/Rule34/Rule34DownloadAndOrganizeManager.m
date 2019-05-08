@@ -115,9 +115,23 @@
             break;
         case 6: {
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载 18 图片, 结束"];
-            [[UtilityFile sharedInstance] showLogWithFormat:@"整理 Anime 图片, 开始"];
+            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 webm 文件, 开始"];
             
             [[FileManager defaultManager] trashFileAtPath:Rule34HPostTxtPath resultItemURL:nil];
+            totalDownloadStep += 1;
+            
+            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34WebmPostTxtPath targetFolderPath:Rule34WebmRootFolderPath];
+            manager.finishBlock = ^{
+                [self startOperation];
+            };
+            [manager prepareDownloading];
+        }
+            break;
+        case 7: {
+            [[UtilityFile sharedInstance] showLogWithFormat:@"下载 webm 文件, 结束"];
+            [[UtilityFile sharedInstance] showLogWithFormat:@"整理 Anime 图片, 开始"];
+            
+            [[FileManager defaultManager] trashFileAtPath:Rule34WebmPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             Rule34OrganizeManager *manager = [[Rule34OrganizeManager alloc] initWithPlistFilePath:Rule34AnimePostRenamePlistPath targetFolderPath:Rule34AnimeRootFolderPath];
@@ -127,7 +141,7 @@
             [manager startOrganizing];
         }
             break;
-        case 7: {
+        case 8: {
             [[UtilityFile sharedInstance] showLogWithFormat:@"整理 Anime 图片, 结束"];
             [[UtilityFile sharedInstance] showLogWithFormat:@"整理 Game 图片, 开始"];
             
@@ -140,7 +154,7 @@
             [manager startOrganizing];
         }
             break;
-        case 8: {
+        case 9: {
             [[UtilityFile sharedInstance] showLogWithFormat:@"整理 Game 图片, 结束"];
             [[UtilityFile sharedInstance] showLogWithFormat:@"整理 18 图片, 开始"];
             
@@ -152,8 +166,22 @@
             };
             [manager startOrganizing];
         }
-        case 9: {
+            break;
+        case 10: {
             [[UtilityFile sharedInstance] showLogWithFormat:@"整理 18 图片, 结束"];
+            [[UtilityFile sharedInstance] showLogWithFormat:@"整理 webm 文件, 开始"];
+            
+            totalDownloadStep += 1;
+            
+            Rule34OrganizeManager *manager = [[Rule34OrganizeManager alloc] initWithPlistFilePath:Rule34WebmPostRenamePlistPath targetFolderPath:Rule34WebmRootFolderPath];
+            manager.finishBlock = ^{
+                [self startOperation];
+            };
+            [manager startOrganizing];
+        }
+            break;
+        case 11: {
+            [[UtilityFile sharedInstance] showLogWithFormat:@"整理 webm 文件, 结束"];
             [[UtilityFile sharedInstance] showLogWithFormat:@"下载并整理日常图片，流程结束"];
         }
             break;

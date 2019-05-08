@@ -41,7 +41,8 @@
             [Rule34FileMoveManager moveFilesToDayFolderFromFolder:Rule34OverwatchRootFolderPath];
             [Rule34FileMoveManager moveFilesToDayFolderFromFolder:Rule34AnimeRootFolderPath];
             [Rule34FileMoveManager moveFilesToDayFolderFromFolder:Rule34GameRootFolderPath];
-            [Rule34FileMoveManager moveFilesToDayFolderFromFolder:Rule34HRootFolderPath];
+//            [Rule34FileMoveManager moveFilesToDayFolderFromFolder:Rule34HRootFolderPath];
+//            [Rule34FileMoveManager moveFilesToDayFolderFromFolder:Rule34WebmRootFolderPath];
             
             [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程结束"];
         }
