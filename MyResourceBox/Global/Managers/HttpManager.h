@@ -46,6 +46,21 @@
                                  success:(void(^)(NSArray *array))success
                                   failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
 
+#pragma mark - Rule34
+// Posts
+- (void)getRule34PostsWithPage:(NSInteger)page
+                       success:(void(^)(NSArray *array))success
+                        failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
+// Tags
+- (void)getRule34TagsWithPid:(NSInteger)pid
+                     success:(void(^)(NSArray *array))success
+                      failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
+// Specific Tag
+- (void)getSpecificTagPicFromRule34Tag:(NSString *)tag
+                                  page:(NSInteger)page
+                               success:(void(^)(NSArray *array))success
+                                failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
+
 #pragma mark - ExHentai
 - (void)getExHentaiPostDetailWithUrl:(NSString *)url
                              success:(void(^)(NSDictionary *result))success
