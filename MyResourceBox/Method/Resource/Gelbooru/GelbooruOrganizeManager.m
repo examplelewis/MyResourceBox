@@ -50,7 +50,12 @@
         NSString *downloadPath = [NSString stringWithFormat:@"%@%@", rootFolderPath, key];
         NSString *targetPath = [NSString stringWithFormat:@"%@%@", rootFolderPath, value];
         
-        [[FileManager defaultManager] moveItemAtPath:downloadPath toDestPath:targetPath];
+        NSError *error = nil;
+        [[FileManager defaultManager] moveItemAtPath:downloadPath toDestPath:targetPath error:&error];
+        // 文件如果已经存在，那么删除源文件，说明之前已经下载的相同的图片了
+        if (error && error.code == NSFileWriteFileExistsError) {
+            [[FileManager defaultManager] trashFileAtPath:downloadPath resultItemURL:nil];
+        }
     }
     
     [[FileManager defaultManager] trashFileAtPath:plistFilePath resultItemURL:nil];

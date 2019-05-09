@@ -84,6 +84,22 @@
  *  @param destURL 目标文件路径
  */
 - (void)moveItemAtURL:(NSURL *)oriURL toDestURL:(NSURL *)destURL;
+/**
+ *  将文件移动到特定的位置(路径为NSString类型)
+ *
+ *  @param oriPath  源文件路径
+ *  @param destPath 目标文件路径
+ *  @param error 错误
+ */
+- (void)moveItemAtPath:(NSString *)oriPath toDestPath:(NSString *)destPath error:(NSError **)error;
+/**
+ *  将文件移动到特定的位置(路径为NSURL类型)
+ *
+ *  @param oriURL  源文件路径
+ *  @param destURL 目标文件路径
+ *  @param error 错误
+ */
+- (void)moveItemAtURL:(NSURL *)oriURL toDestURL:(NSURL *)destURL error:(NSError **)error;
 
 /**
  *  判断一个文件夹/文件是否存在

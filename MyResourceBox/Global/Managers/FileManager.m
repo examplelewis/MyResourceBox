@@ -176,6 +176,26 @@ static FileManager *inputInstance;
         [[UtilityFile sharedInstance] showLogWithFormat:@"移动文件：%@ 时发生错误：%@", oriURL.path, [error localizedDescription]];
     }
 }
+/**
+ *  将文件移动到特定的位置(路径为NSString类型)
+ *
+ *  @param oriPath  源文件路径
+ *  @param destPath 目标文件路径
+ *  @param error 错误
+ */
+- (void)moveItemAtPath:(NSString *)oriPath toDestPath:(NSString *)destPath error:(NSError **)error {
+    [fm moveItemAtPath:oriPath toPath:destPath error:error];
+}
+/**
+ *  将文件移动到特定的位置(路径为NSURL类型)
+ *
+ *  @param oriURL  源文件路径
+ *  @param destURL 目标文件路径
+ *  @param error 错误
+ */
+- (void)moveItemAtURL:(NSURL *)oriURL toDestURL:(NSURL *)destURL error:(NSError **)error {
+    [fm moveItemAtURL:oriURL toURL:destURL error:error];
+}
 
 #pragma mark -- 查 --
 /**
