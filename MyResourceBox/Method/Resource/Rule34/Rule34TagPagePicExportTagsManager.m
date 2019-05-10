@@ -42,7 +42,7 @@
     tag = inputComps[0];
     if (inputComps.count == 1) {
         minPage = 1;
-        maxPage = 40;
+        maxPage = 200;
     } else if (inputComps.count == 2) {
         minPage = 1;
         maxPage = [inputComps[1] integerValue];
