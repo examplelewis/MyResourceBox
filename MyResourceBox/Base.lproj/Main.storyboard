@@ -938,6 +938,12 @@
                                                             <action selector="processingRule34:" target="Voe-Tx-rLC" id="hNm-6Z-YxN"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="获取特定标签图片地址【页数 + 导出标签】" tag="35" id="O26-5b-OiK">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="lvs-4P-vIa"/>
+                                                        </connections>
+                                                    </menuItem>
                                                 </items>
                                             </menu>
                                         </menuItem>
