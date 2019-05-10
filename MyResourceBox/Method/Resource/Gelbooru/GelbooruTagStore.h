@@ -13,9 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GelbooruTagStore : NSObject
 
 + (GelbooruTagStore *)defaultManager;
-//- (void)readyToOrganize;
-//- (void)filterAllTags;
-//- (void)processNeededTags;
 
 - (NSString *)getNeededCopyrightTags:(NSArray *)tags;
 - (BOOL)checkTagsHasNeededCopyright:(NSArray *)tags;
