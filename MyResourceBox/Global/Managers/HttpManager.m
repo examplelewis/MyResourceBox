@@ -298,6 +298,51 @@
          }
      ];
 }
+// Tag Count
+- (void)getSpecificTagPicCountFromGelbooruTag:(NSString *)tag
+                                      success:(void(^)(NSInteger totalCount))success
+                                       failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager GET:@"https://gelbooru.com/index.php?page=dapi&s=post&q=index"
+      parameters:@{@"pid": @(0), @"tags": tag}
+        progress:NULL
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             NSString *xmlString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+             NSError *error = nil;
+             NSDictionary *xmlDict = [XMLReader dictionaryForXMLString:xmlString error:&error];
+             
+             if (error) { // 如果解析出现错误
+                 if (failed) {
+                     failed(@"数据解析发生错误", [error localizedDescription]);
+                 }
+             } else {
+                 if (!xmlDict[@"posts"]) {
+                     if (failed) {
+                         failed(@"接口返回数据异常", xmlDict[@"response"][@"reason"]);
+                     }
+                 } else {
+                     id count = xmlDict[@"posts"][@"count"];
+                     if ([count isKindOfClass:[NSNull class]]) {
+                         if (success) {
+                             success(0);
+                         }
+                     } else {
+                         if (success) {
+                             success([count integerValue]);
+                         }
+                     }
+                 }
+             }
+         }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             if (failed) {
+                 failed(@"服务器通讯发生错误", [error localizedDescription]);
+             }
+         }
+     ];
+}
 
 #pragma mark - Rule34
 // Posts
@@ -422,6 +467,51 @@
                      } else if ([post isKindOfClass:[NSDictionary class]]) {
                          if (success) {
                              success(@[post]);
+                         }
+                     }
+                 }
+             }
+         }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             if (failed) {
+                 failed(@"服务器通讯发生错误", [error localizedDescription]);
+             }
+         }
+     ];
+}
+// Tag Count
+- (void)getSpecificTagPicCountFromRule34Tag:(NSString *)tag
+                                    success:(void(^)(NSInteger totalCount))success
+                                     failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager GET:@"https://rule34.xxx/index.php?page=dapi&s=post&q=index"
+      parameters:@{@"pid": @(0), @"tags": tag}
+        progress:NULL
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             NSString *xmlString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+             NSError *error = nil;
+             NSDictionary *xmlDict = [XMLReader dictionaryForXMLString:xmlString error:&error];
+             
+             if (error) { // 如果解析出现错误
+                 if (failed) {
+                     failed(@"数据解析发生错误", [error localizedDescription]);
+                 }
+             } else {
+                 if (!xmlDict[@"posts"]) {
+                     if (failed) {
+                         failed(@"接口返回数据异常", xmlDict[@"response"][@"reason"]);
+                     }
+                 } else {
+                     id count = xmlDict[@"posts"][@"count"];
+                     if ([count isKindOfClass:[NSNull class]]) {
+                         if (success) {
+                             success(0);
+                         }
+                     } else {
+                         if (success) {
+                             success([count integerValue]);
                          }
                      }
                  }

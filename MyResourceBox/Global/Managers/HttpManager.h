@@ -45,6 +45,10 @@
                                     page:(NSInteger)page
                                  success:(void(^)(NSArray *array))success
                                   failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
+// Tag Count
+- (void)getSpecificTagPicCountFromGelbooruTag:(NSString *)tag
+                                      success:(void(^)(NSInteger totalCount))success
+                                       failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
 
 #pragma mark - Rule34
 // Posts
@@ -60,6 +64,10 @@
                                   page:(NSInteger)page
                                success:(void(^)(NSArray *array))success
                                 failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
+// Tag Count
+- (void)getSpecificTagPicCountFromRule34Tag:(NSString *)tag
+                                    success:(void(^)(NSInteger totalCount))success
+                                     failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
 
 #pragma mark - ExHentai
 - (void)getExHentaiPostDetailWithUrl:(NSString *)url
