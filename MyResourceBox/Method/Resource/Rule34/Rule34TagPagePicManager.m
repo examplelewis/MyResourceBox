@@ -18,9 +18,6 @@
     
     NSMutableArray *posts;
     NSMutableArray *webmPosts;
-    
-    NSInteger countBeforePage;
-    NSInteger countAfterPage;
 }
 
 @end
