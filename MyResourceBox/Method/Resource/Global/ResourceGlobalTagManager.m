@@ -11,13 +11,9 @@
 #import "HttpManager.h"
 
 @interface ResourceGlobalTagManager () {
-    NSString *tagsFolderPath; // Tags 文件夹的路径
     NSString *neededTagsFolderPath; // NeededTags 文件夹的路径
     NSArray *neededTagsKeys; // NeededTags 的首字母
-    NSArray *neededTagsFilePaths; // NeededTags 按照首字母排序后的文件路径
-    
     NSArray *neededTags; // 多个数组，按照 neededTagsKeys 的顺序排列
-    NSInteger pid;
     
     NSArray *animeTags;
     NSArray *gameTags;
@@ -42,13 +38,8 @@ static ResourceGlobalTagManager *request;
     self = [super init];
     if (self) {
         NSString *rootPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-        tagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags"];
         neededTagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/NeededTags"];
-        
-        NSAssert([[FileManager defaultManager] isContentExistAtPath:tagsFolderPath], @"Tags 文件夹不存在");
         NSAssert([[FileManager defaultManager] isContentExistAtPath:neededTagsFolderPath], @"NeededTags 文件夹不存在");
-        
-        neededTagsKeys = @[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h", @"i", @"j", @"k", @"l", @"m", @"n", @"o", @"p", @"q", @"r", @"s", @"t", @"u", @"v", @"w", @"x", @"y", @"z", @"~other"];
         
         [self readNeededTags];
         [self readTypedTags];
@@ -61,6 +52,8 @@ static ResourceGlobalTagManager *request;
     if ([[FileManager defaultManager] getFilePathsInFolder:neededTagsFolderPath].count == 0) {
         return;
     }
+    
+    neededTagsKeys = @[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h", @"i", @"j", @"k", @"l", @"m", @"n", @"o", @"p", @"q", @"r", @"s", @"t", @"u", @"v", @"w", @"x", @"y", @"z", @"~other"];
     
     NSMutableArray *array = [NSMutableArray array];
     for (NSInteger i = 0; i < neededTagsKeys.count; i++) {
@@ -158,7 +151,7 @@ static ResourceGlobalTagManager *request;
 
 #pragma mark - 移除标签
 // 去除无用的 webm 标签
-- (NSString *)removeUselessWebmTags:(NSString *)tags {
++ (NSString *)removeUselessWebmTags:(NSString *)tags {
     NSMutableArray *result = [NSMutableArray array];
     NSArray *tagComp = [tags componentsSeparatedByString:@" "];
     

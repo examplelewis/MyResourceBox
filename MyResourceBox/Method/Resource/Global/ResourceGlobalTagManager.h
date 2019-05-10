@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)getGameTags:(NSString *)tags;
 - (NSString *)getHTags:(NSString *)tags;
 
-- (NSString *)removeUselessWebmTags:(NSString *)tags;
++ (NSString *)removeUselessWebmTags:(NSString *)tags;
 
 @end
 
