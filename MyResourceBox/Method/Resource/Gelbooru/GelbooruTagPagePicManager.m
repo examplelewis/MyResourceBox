@@ -24,16 +24,6 @@
 
 @implementation GelbooruTagPagePicManager
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        posts = [NSMutableArray array];
-        webmPosts = [NSMutableArray array];
-    }
-    
-    return self;
-}
-
 - (void)startFetching {
     [[UtilityFile sharedInstance] showLogWithFormat:@"获取特定标签的图片地址，流程开始"];
     [[UtilityFile sharedInstance] showLogWithFormat:@"注意：本流程将忽略 webm 文件"];
@@ -43,6 +33,9 @@
         [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
         return;
     }
+    
+    posts = [NSMutableArray array];
+    webmPosts = [NSMutableArray array];
     
     NSArray *inputComps = [inputString componentsSeparatedByString:@"|"];
     tag = inputComps[0];
