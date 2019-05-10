@@ -87,7 +87,6 @@
 		ACC8EBAD22826785003CF448 /* Rule34DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8EB9A22826785003CF448 /* Rule34DownloadManager.m */; };
 		ACC8EBAE22826785003CF448 /* Rule34Method.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8EB9C22826785003CF448 /* Rule34Method.m */; };
 		ACC8EBAF22826785003CF448 /* Rule34TagEndTimePicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8EBA022826785003CF448 /* Rule34TagEndTimePicManager.m */; };
-		ACC8EBB022826785003CF448 /* Rule34TagStore.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8EBA122826785003CF448 /* Rule34TagStore.m */; };
 		ACC8EBB122826785003CF448 /* Rule34DownloadAndOrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8EBA522826785003CF448 /* Rule34DownloadAndOrganizeManager.m */; };
 		ACC8EBB222826785003CF448 /* Rule34TagPagePicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8EBA922826785003CF448 /* Rule34TagPagePicManager.m */; };
 		ACC8EBB322826785003CF448 /* Rule34FileMoveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8EBAA22826785003CF448 /* Rule34FileMoveManager.m */; };
@@ -299,14 +298,12 @@
 		ACC8EB9E22826785003CF448 /* Rule34FileMoveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule34FileMoveManager.h; sourceTree = "<group>"; };
 		ACC8EB9F22826785003CF448 /* Rule34TagPagePicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule34TagPagePicManager.h; sourceTree = "<group>"; };
 		ACC8EBA022826785003CF448 /* Rule34TagEndTimePicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rule34TagEndTimePicManager.m; sourceTree = "<group>"; };
-		ACC8EBA122826785003CF448 /* Rule34TagStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rule34TagStore.m; sourceTree = "<group>"; };
 		ACC8EBA222826785003CF448 /* Rule34DownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule34DownloadManager.h; sourceTree = "<group>"; };
 		ACC8EBA322826785003CF448 /* Rule34DailyPicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule34DailyPicManager.h; sourceTree = "<group>"; };
 		ACC8EBA422826785003CF448 /* Rule34Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule34Method.h; sourceTree = "<group>"; };
 		ACC8EBA522826785003CF448 /* Rule34DownloadAndOrganizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rule34DownloadAndOrganizeManager.m; sourceTree = "<group>"; };
 		ACC8EBA622826785003CF448 /* Rule34Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule34Header.h; sourceTree = "<group>"; };
 		ACC8EBA722826785003CF448 /* Rule34TagEndTimePicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule34TagEndTimePicManager.h; sourceTree = "<group>"; };
-		ACC8EBA822826785003CF448 /* Rule34TagStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule34TagStore.h; sourceTree = "<group>"; };
 		ACC8EBA922826785003CF448 /* Rule34TagPagePicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rule34TagPagePicManager.m; sourceTree = "<group>"; };
 		ACC8EBAA22826785003CF448 /* Rule34FileMoveManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rule34FileMoveManager.m; sourceTree = "<group>"; };
 		ACC8EBAB22826785003CF448 /* Rule34OrganizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rule34OrganizeManager.m; sourceTree = "<group>"; };
@@ -734,8 +731,6 @@
 			isa = PBXGroup;
 			children = (
 				ACC8EBA622826785003CF448 /* Rule34Header.h */,
-				ACC8EBA822826785003CF448 /* Rule34TagStore.h */,
-				ACC8EBA122826785003CF448 /* Rule34TagStore.m */,
 				ACC8EBA422826785003CF448 /* Rule34Method.h */,
 				ACC8EB9C22826785003CF448 /* Rule34Method.m */,
 				ACC8EBA322826785003CF448 /* Rule34DailyPicManager.h */,
@@ -1096,7 +1091,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACC8EBB022826785003CF448 /* Rule34TagStore.m in Sources */,
 				AC789C681DE1467000523A12 /* CookieManager.m in Sources */,
 				AC9F4C6E1E499BBB00FD01C5 /* DownloadQueueManager.m in Sources */,
 				AC789C881DE15A3600523A12 /* WorldCosplayMethod.m in Sources */,
