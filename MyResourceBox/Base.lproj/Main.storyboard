@@ -737,6 +737,12 @@
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="1Ul-G4-ba8"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="获取特定标签图片地址【页数 + 导出标签】" tag="35" id="S5e-al-kPY">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="3kp-Dr-xHn"/>
+                                                        </connections>
+                                                    </menuItem>
                                                 </items>
                                             </menu>
                                         </menuItem>

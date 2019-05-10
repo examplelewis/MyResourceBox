@@ -12,6 +12,7 @@
 #import "GelbooruDailyPicManager.h"
 #import "GelbooruTagEndTimePicManager.h"
 #import "GelbooruTagPagePicManager.h"
+#import "GelbooruTagPagePicExportTagsManager.h"
 #import "GelbooruDownloadManager.h"
 #import "GelbooruOrganizeManager.h"
 #import "GelbooruFileMoveManager.h"
@@ -125,6 +126,11 @@
         case 34: {
             GelbooruTagEndTimePicManager *mananger = [GelbooruTagEndTimePicManager new];
             [mananger prepareFetchingPicCount];
+        }
+            break;
+        case 35: {
+            GelbooruTagPagePicExportTagsManager *manager = [GelbooruTagPagePicExportTagsManager new];
+            [manager startFetching];
         }
             break;
         default:

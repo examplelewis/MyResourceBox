@@ -75,6 +75,7 @@
 		ACC1DCB8226F071F001243C1 /* GelbooruTagEndTimePicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimePicManager.m */; };
 		ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3145B217726D900DA5276 /* GelbooruMethod.m */; };
 		ACC3149B21773BFF00DA5276 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3149A21773BFF00DA5276 /* XMLReader.m */; };
+		ACC8BA65228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8BA64228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m */; };
 		ACC8DDC0226FFB6A005228D7 /* GelbooruDailyPicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8DDBF226FFB6A005228D7 /* GelbooruDailyPicManager.m */; };
 		ACC8DDC3226FFFAE005228D7 /* GelbooruTagPagePicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8DDC2226FFFAE005228D7 /* GelbooruTagPagePicManager.m */; };
 		ACC8DDC622700B25005228D7 /* GelbooruDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8DDC522700B25005228D7 /* GelbooruDownloadManager.m */; };
@@ -272,6 +273,8 @@
 		ACC3145B217726D900DA5276 /* GelbooruMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruMethod.m; sourceTree = "<group>"; };
 		ACC3149921773BFF00DA5276 /* XMLReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
 		ACC3149A21773BFF00DA5276 /* XMLReader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		ACC8BA63228517C30000E193 /* GelbooruTagPagePicExportTagsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruTagPagePicExportTagsManager.h; sourceTree = "<group>"; };
+		ACC8BA64228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruTagPagePicExportTagsManager.m; sourceTree = "<group>"; };
 		ACC8DDBA226FF493005228D7 /* GelbooruHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruHeader.h; sourceTree = "<group>"; };
 		ACC8DDBE226FFB6A005228D7 /* GelbooruDailyPicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruDailyPicManager.h; sourceTree = "<group>"; };
 		ACC8DDBF226FFB6A005228D7 /* GelbooruDailyPicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruDailyPicManager.m; sourceTree = "<group>"; };
@@ -700,6 +703,8 @@
 				ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimePicManager.m */,
 				ACC8DDC1226FFFAE005228D7 /* GelbooruTagPagePicManager.h */,
 				ACC8DDC2226FFFAE005228D7 /* GelbooruTagPagePicManager.m */,
+				ACC8BA63228517C30000E193 /* GelbooruTagPagePicExportTagsManager.h */,
+				ACC8BA64228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m */,
 				ACC8DDC422700B25005228D7 /* GelbooruDownloadManager.h */,
 				ACC8DDC522700B25005228D7 /* GelbooruDownloadManager.m */,
 				ACC8DDC7227010F0005228D7 /* GelbooruOrganizeManager.h */,
@@ -1106,6 +1111,7 @@
 				AC883A291DBB920800CC579E /* WeiboRequestTokenWindowController.m in Sources */,
 				AC19E1511E4844660084A510 /* SAPIIllust.m in Sources */,
 				AC8508D11DB39146004AFE84 /* main.m in Sources */,
+				ACC8BA65228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m in Sources */,
 				AC9870611E4C4A980076DC92 /* PixivDownloadObject.m in Sources */,
 				ACE05017227FDAF600367F3A /* WeiboFetchManager.m in Sources */,
 				AC8508CE1DB39146004AFE84 /* AppDelegate.m in Sources */,
