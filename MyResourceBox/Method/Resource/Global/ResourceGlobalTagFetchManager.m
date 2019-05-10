@@ -33,7 +33,7 @@
         NSString *rootPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
         preferencePath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Preference.plist"];
         tagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags"];
-        totalTagsFilePath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/tags-gelbooru.com.xml"];
+        totalTagsFilePath = [rootPath stringByAppendingPathComponent:@"Tool/DanbooruDownloader/tags.xml"];
         typeTagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/xmls"];
         neededTagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/NeededTags"];
         
