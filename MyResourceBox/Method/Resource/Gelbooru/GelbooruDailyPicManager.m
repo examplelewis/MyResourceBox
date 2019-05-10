@@ -7,7 +7,7 @@
 //
 
 #import "GelbooruDailyPicManager.h"
-#import "GelbooruTagStore.h"
+#import "ResourceGlobalTagManager.h"
 #import "HttpManager.h"
 #import "GelbooruHeader.h"
 
@@ -103,21 +103,21 @@
             }
             
             // 可能存在一张图片既在动漫又在游戏的情况，这是为了确定图片的真实tag
-            NSString *animeTags = [[GelbooruTagStore defaultManager] getAnimeTags:data[@"tags"]];
+            NSString *animeTags = [[ResourceGlobalTagManager defaultManager] getAnimeTags:data[@"tags"]];
             if (animeTags.length > 0) {
                 [self->animePosts addObject:data];
                 
                 NSString *donwloadFileNameAndExtension = [data[@"file_url"] lastPathComponent];
                 [self->animeNameInfo setObject:[NSString stringWithFormat:@"%@ - %@", animeTags, donwloadFileNameAndExtension] forKey:donwloadFileNameAndExtension];
             }
-            NSString *gameTags = [[GelbooruTagStore defaultManager] getGameTags:data[@"tags"]];
+            NSString *gameTags = [[ResourceGlobalTagManager defaultManager] getGameTags:data[@"tags"]];
             if (gameTags.length > 0) {
                 [self->gamePosts addObject:data];
                 
                 NSString *donwloadFileNameAndExtension = [data[@"file_url"] lastPathComponent];
                 [self->gameNameInfo setObject:[NSString stringWithFormat:@"%@ - %@", gameTags, donwloadFileNameAndExtension] forKey:donwloadFileNameAndExtension];
             }
-            NSString *hTags = [[GelbooruTagStore defaultManager] getHTags:data[@"tags"]];
+            NSString *hTags = [[ResourceGlobalTagManager defaultManager] getHTags:data[@"tags"]];
             if (hTags.length > 0) {
                 [self->hPosts addObject:data];
                 

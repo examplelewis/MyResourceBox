@@ -1,16 +1,16 @@
 //
-//  GelbooruTagStoreFetchManager.m
+//  ResourceGlobalTagFetchManager.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 19/05/10.
 //  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import "GelbooruTagStoreFetchManager.h"
+#import "ResourceGlobalTagFetchManager.h"
 #import "XMLReader.h"
 #import "HttpManager.h"
 
-@interface GelbooruTagStoreFetchManager () {
+@interface ResourceGlobalTagFetchManager () {
     NSString *preferencePath; // Preference.plist 文件的路径
     NSString *tagsFolderPath; // Tags 文件夹的路径
     NSString *totalTagsFilePath; // tags-gelbooru_com.xml 文件的路径
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation GelbooruTagStoreFetchManager
+@implementation ResourceGlobalTagFetchManager
 
 - (instancetype)init {
     self = [super init];

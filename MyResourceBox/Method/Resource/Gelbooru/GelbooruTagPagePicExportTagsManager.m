@@ -9,7 +9,7 @@
 #import "GelbooruTagPagePicExportTagsManager.h"
 #import "HttpManager.h"
 #import "GelbooruHeader.h"
-#import "GelbooruTagStore.h"
+#import "ResourceGlobalTagManager.h"
 
 @interface GelbooruTagPagePicExportTagsManager () {
     NSString *tag;
@@ -78,7 +78,7 @@
             
             NSString *fileNameAndExtension = [data[@"file_url"] lastPathComponent];
             NSArray *tags = [data[@"tags"] componentsSeparatedByString:@" "];
-            [self->tagsInfo setObject:[[GelbooruTagStore defaultManager] getNeededCopyrightTags:tags] forKey:fileNameAndExtension];
+            [self->tagsInfo setObject:[[ResourceGlobalTagManager defaultManager] getNeededCopyrightTags:tags] forKey:fileNameAndExtension];
         }
         
         if (self->webmPosts.count > 0) {

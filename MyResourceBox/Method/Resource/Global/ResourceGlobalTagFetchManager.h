@@ -1,5 +1,5 @@
 //
-//  GelbooruTagStoreFetchManager.h
+//  ResourceGlobalTagFetchManager.h
 //  MyResourceBox
 //
 //  Created by 龚宇 on 19/05/10.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GelbooruTagStoreFetchManager : NSObject
+@interface ResourceGlobalTagFetchManager : NSObject
 
 - (void)readyToOrganize;
 - (void)filterAllTags;

@@ -1,5 +1,5 @@
 //
-//  GelbooruTagStore.h
+//  ResourceGlobalTagManager.h
 //  MyResourceBox
 //
 //  Created by 龚宇 on 18/12/14.
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GelbooruTagStore : NSObject
+@interface ResourceGlobalTagManager : NSObject
 
-+ (GelbooruTagStore *)defaultManager;
++ (ResourceGlobalTagManager *)defaultManager;
 
 - (NSString *)getNeededCopyrightTags:(NSArray *)tags;
 - (BOOL)checkTagsHasNeededCopyright:(NSArray *)tags;

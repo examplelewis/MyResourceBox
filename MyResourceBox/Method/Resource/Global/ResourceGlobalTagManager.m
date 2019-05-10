@@ -1,16 +1,16 @@
 //
-//  GelbooruTagStore.m
+//  ResourceGlobalTagManager.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 18/12/14.
 //  Copyright © 2018 gongyuTest. All rights reserved.
 //
 
-#import "GelbooruTagStore.h"
+#import "ResourceGlobalTagManager.h"
 #import "XMLReader.h"
 #import "HttpManager.h"
 
-@interface GelbooruTagStore () {
+@interface ResourceGlobalTagManager () {
     NSString *tagsFolderPath; // Tags 文件夹的路径
     NSString *neededTagsFolderPath; // NeededTags 文件夹的路径
     NSArray *neededTagsKeys; // NeededTags 的首字母
@@ -26,14 +26,14 @@
 
 @end
 
-@implementation GelbooruTagStore
+@implementation ResourceGlobalTagManager
 
-static GelbooruTagStore *request;
-+ (GelbooruTagStore *)defaultManager {
+static ResourceGlobalTagManager *request;
++ (ResourceGlobalTagManager *)defaultManager {
     static dispatch_once_t predicate;
     
     dispatch_once(&predicate, ^{
-        request = [[GelbooruTagStore alloc] init];
+        request = [[ResourceGlobalTagManager alloc] init];
     });
     
     return request;

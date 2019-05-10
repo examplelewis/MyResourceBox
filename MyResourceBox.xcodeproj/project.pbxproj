@@ -70,13 +70,13 @@
 		ACA9C91A21FD933500B33CB4 /* PixivHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9C91921FD933500B33CB4 /* PixivHttpSessionManager.m */; };
 		ACA9C91D21FD950E00B33CB4 /* PixivAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9C91C21FD950E00B33CB4 /* PixivAPIManager.m */; };
 		ACA9C92021FD954E00B33CB4 /* PixivLoginUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9C91F21FD954E00B33CB4 /* PixivLoginUserManager.m */; };
-		ACACB51E21C382D700C8D164 /* GelbooruTagStore.m in Sources */ = {isa = PBXBuildFile; fileRef = ACACB51D21C382D700C8D164 /* GelbooruTagStore.m */; };
+		ACACB51E21C382D700C8D164 /* ResourceGlobalTagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACACB51D21C382D700C8D164 /* ResourceGlobalTagManager.m */; };
 		ACAFAADB21FDB13100323A0A /* PixivGeneralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAFAADA21FDB13100323A0A /* PixivGeneralManager.m */; };
 		ACC1DCB8226F071F001243C1 /* GelbooruTagEndTimePicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimePicManager.m */; };
 		ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3145B217726D900DA5276 /* GelbooruMethod.m */; };
 		ACC3149B21773BFF00DA5276 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3149A21773BFF00DA5276 /* XMLReader.m */; };
 		ACC8BA65228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8BA64228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m */; };
-		ACC8BA682285289F0000E193 /* GelbooruTagStoreFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8BA672285289F0000E193 /* GelbooruTagStoreFetchManager.m */; };
+		ACC8BA682285289F0000E193 /* ResourceGlobalTagFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8BA672285289F0000E193 /* ResourceGlobalTagFetchManager.m */; };
 		ACC8DDC0226FFB6A005228D7 /* GelbooruDailyPicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8DDBF226FFB6A005228D7 /* GelbooruDailyPicManager.m */; };
 		ACC8DDC3226FFFAE005228D7 /* GelbooruTagPagePicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8DDC2226FFFAE005228D7 /* GelbooruTagPagePicManager.m */; };
 		ACC8DDC622700B25005228D7 /* GelbooruDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8DDC522700B25005228D7 /* GelbooruDownloadManager.m */; };
@@ -264,8 +264,8 @@
 		ACA9C91C21FD950E00B33CB4 /* PixivAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivAPIManager.m; sourceTree = "<group>"; };
 		ACA9C91E21FD954E00B33CB4 /* PixivLoginUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivLoginUserManager.h; sourceTree = "<group>"; };
 		ACA9C91F21FD954E00B33CB4 /* PixivLoginUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivLoginUserManager.m; sourceTree = "<group>"; };
-		ACACB51C21C382D700C8D164 /* GelbooruTagStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruTagStore.h; sourceTree = "<group>"; };
-		ACACB51D21C382D700C8D164 /* GelbooruTagStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruTagStore.m; sourceTree = "<group>"; };
+		ACACB51C21C382D700C8D164 /* ResourceGlobalTagManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceGlobalTagManager.h; sourceTree = "<group>"; };
+		ACACB51D21C382D700C8D164 /* ResourceGlobalTagManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceGlobalTagManager.m; sourceTree = "<group>"; };
 		ACAFAAD921FDB13100323A0A /* PixivGeneralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivGeneralManager.h; sourceTree = "<group>"; };
 		ACAFAADA21FDB13100323A0A /* PixivGeneralManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivGeneralManager.m; sourceTree = "<group>"; };
 		ACC1DCB6226F071F001243C1 /* GelbooruTagEndTimePicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruTagEndTimePicManager.h; sourceTree = "<group>"; };
@@ -276,8 +276,8 @@
 		ACC3149A21773BFF00DA5276 /* XMLReader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		ACC8BA63228517C30000E193 /* GelbooruTagPagePicExportTagsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruTagPagePicExportTagsManager.h; sourceTree = "<group>"; };
 		ACC8BA64228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruTagPagePicExportTagsManager.m; sourceTree = "<group>"; };
-		ACC8BA662285289F0000E193 /* GelbooruTagStoreFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruTagStoreFetchManager.h; sourceTree = "<group>"; };
-		ACC8BA672285289F0000E193 /* GelbooruTagStoreFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruTagStoreFetchManager.m; sourceTree = "<group>"; };
+		ACC8BA662285289F0000E193 /* ResourceGlobalTagFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceGlobalTagFetchManager.h; sourceTree = "<group>"; };
+		ACC8BA672285289F0000E193 /* ResourceGlobalTagFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceGlobalTagFetchManager.m; sourceTree = "<group>"; };
 		ACC8DDBA226FF493005228D7 /* GelbooruHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruHeader.h; sourceTree = "<group>"; };
 		ACC8DDBE226FFB6A005228D7 /* GelbooruDailyPicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruDailyPicManager.h; sourceTree = "<group>"; };
 		ACC8DDBF226FFB6A005228D7 /* GelbooruDailyPicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruDailyPicManager.m; sourceTree = "<group>"; };
@@ -697,10 +697,6 @@
 			isa = PBXGroup;
 			children = (
 				ACC8DDBA226FF493005228D7 /* GelbooruHeader.h */,
-				ACACB51C21C382D700C8D164 /* GelbooruTagStore.h */,
-				ACACB51D21C382D700C8D164 /* GelbooruTagStore.m */,
-				ACC8BA662285289F0000E193 /* GelbooruTagStoreFetchManager.h */,
-				ACC8BA672285289F0000E193 /* GelbooruTagStoreFetchManager.m */,
 				ACC3145A217726D900DA5276 /* GelbooruMethod.h */,
 				ACC3145B217726D900DA5276 /* GelbooruMethod.m */,
 				ACC8DDBE226FFB6A005228D7 /* GelbooruDailyPicManager.h */,
@@ -726,6 +722,10 @@
 		ACC8BA6922852ADF0000E193 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				ACACB51C21C382D700C8D164 /* ResourceGlobalTagManager.h */,
+				ACACB51D21C382D700C8D164 /* ResourceGlobalTagManager.m */,
+				ACC8BA662285289F0000E193 /* ResourceGlobalTagFetchManager.h */,
+				ACC8BA672285289F0000E193 /* ResourceGlobalTagFetchManager.m */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -1129,7 +1129,7 @@
 				ACE05017227FDAF600367F3A /* WeiboFetchManager.m in Sources */,
 				AC8508CE1DB39146004AFE84 /* AppDelegate.m in Sources */,
 				ACE0500C227FD3A200367F3A /* WorldCosplayFetchManager.m in Sources */,
-				ACC8BA682285289F0000E193 /* GelbooruTagStoreFetchManager.m in Sources */,
+				ACC8BA682285289F0000E193 /* ResourceGlobalTagFetchManager.m in Sources */,
 				ACE05010227FD57400367F3A /* JDLingyuFetchManager.m in Sources */,
 				ACE0503022802DF200367F3A /* FOFolderManager.m in Sources */,
 				AC9870631E4C4A980076DC92 /* PixivMasterObject.m in Sources */,
@@ -1147,7 +1147,7 @@
 				ACC93EF02277EBCD00C207E6 /* BCYOrganizingManager.m in Sources */,
 				ACC8EBAC22826785003CF448 /* Rule34DailyPicManager.m in Sources */,
 				AC789C7E1DE159E100523A12 /* ExHentaiPagesManager.m in Sources */,
-				ACACB51E21C382D700C8D164 /* GelbooruTagStore.m in Sources */,
+				ACACB51E21C382D700C8D164 /* ResourceGlobalTagManager.m in Sources */,
 				AC79E1CD1F4EA125008432B9 /* ExHentaiTorrentManager.m in Sources */,
 				ACC8DDC622700B25005228D7 /* GelbooruDownloadManager.m in Sources */,
 				ACA5162D220175F20074AB73 /* DeviantartMethod.m in Sources */,
