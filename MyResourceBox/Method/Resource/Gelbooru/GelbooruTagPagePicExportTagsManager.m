@@ -20,7 +20,7 @@
     NSMutableArray *posts;
     NSMutableArray *webmPosts;
     
-    NSMutableDictionary *tagsInfo;
+    NSMutableDictionary *renameInfo;
 }
 
 @end
@@ -36,7 +36,7 @@
     
     posts = [NSMutableArray array];
     webmPosts = [NSMutableArray array];
-    tagsInfo = [NSMutableDictionary dictionary];
+    renameInfo = [NSMutableDictionary dictionary];
     
     NSArray *inputComps = [inputString componentsSeparatedByString:@"|"];
     tag = inputComps[0];
@@ -78,7 +78,12 @@
             
             NSString *fileNameAndExtension = [data[@"file_url"] lastPathComponent];
             NSArray *tags = [data[@"tags"] componentsSeparatedByString:@" "];
-            [self->tagsInfo setObject:[[ResourceGlobalTagManager defaultManager] getNeededCopyrightTags:tags] forKey:fileNameAndExtension];
+            NSString *tagsStr = [[ResourceGlobalTagManager defaultManager] getNeededCopyrightTags:tags];
+            if (tagsStr.length == 0) {
+                [self->renameInfo setObject:[NSString stringWithFormat:@"%@.%@", data[@"id"], fileNameAndExtension.pathExtension] forKey:fileNameAndExtension];
+            } else {
+                [self->renameInfo setObject:[NSString stringWithFormat:@"%@ - %@.%@", data[@"id"], tagsStr, fileNameAndExtension.pathExtension] forKey:fileNameAndExtension];
+            }
         }
         
         if (self->webmPosts.count > 0) {
@@ -95,7 +100,7 @@
         
         NSArray *urls = [self->posts valueForKey:@"file_url"];
         [UtilityFile exportArray:urls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostUrl.txt", self->tag]];
-        [self->tagsInfo writeToFile:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostTags.plist", self->tag] atomically:YES];
+        [self->renameInfo writeToFile:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostRenameInfo.plist", self->tag] atomically:YES];
         [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【页数 + 导出标签】：第 %ld 页已获取", self->tag, self->page];
         
         // 如果某一页小于100条原始数据，说明是最后一页
