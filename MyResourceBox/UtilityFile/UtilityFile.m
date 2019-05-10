@@ -134,6 +134,10 @@ static UtilityFile *_sharedInstance;
 + (void)exportArray:(NSArray *)array atPath:(NSString *)path {
     NSError *error;
     NSString *content = [UtilityFile convertResultArray:array];
+    if (!content) {
+        // 说明转换 array 的时候出了错误，换一种之间的方式
+        content = [array componentsJoinedByString:@"\n"];
+    }
     
     BOOL success = [content writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
     if (!success) {
@@ -201,7 +205,12 @@ static UtilityFile *_sharedInstance;
     NSString *tempStr2 = [tempStr1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
     NSString *tempStr3 = [[@"\"" stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
     NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *str = [NSPropertyListSerialization propertyListWithData:tempData options:NSPropertyListImmutable format:NULL error:NULL];
+    NSError *error;
+    NSString *str = [NSPropertyListSerialization propertyListWithData:tempData options:NSPropertyListImmutable format:NULL error:&error];
+    if (error) {
+        DDLogInfo(@"将 NSArray 转换成 NSString 的时候出错: %@", error.localizedDescription);
+        return nil;
+    }
     
     //删除NSString中没有用的符号
     str = [str stringByReplacingOccurrencesOfString:@"(\n" withString:@""];
