@@ -61,8 +61,6 @@
 - (void)startFetching {
     [[UtilityFile sharedInstance] showLogWithFormat:@"获取日常图片地址，流程开始"];
     
-    [[GelbooruTagStore defaultManager] readAllNeededTags]; // 先读取 neededTags
-    
     [self fetchSingleDailyPostUrl];
 }
 - (void)fetchSingleDailyPostUrl {

@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Rule34TagStore : NSObject
 
 + (Rule34TagStore *)defaultManager;
-- (void)readAllNeededTags;
 //- (void)readyToOrganize;
 //- (void)filterAllTags;
 //- (void)processNeededTags;

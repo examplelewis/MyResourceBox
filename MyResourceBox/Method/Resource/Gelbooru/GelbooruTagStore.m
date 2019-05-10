@@ -72,6 +72,8 @@ static GelbooruTagStore *request;
             [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
             [alert runModel];
         }
+        
+        [self readAllNeededTags];
     }
     
     return self;
@@ -370,7 +372,7 @@ static GelbooruTagStore *request;
         }
         
         // 通过 tag 的首字母来获取在 neededTagsKeys 数组中的位置，同样也是所需数组在 neededTags 中的位置
-        // 如果找不到，说明在 ~other 那个数组里面
+        // 如果找不到，说明可能在 ~other 那个数组里面
         NSString *firstLetter = [tag substringWithRange:NSMakeRange(0, 1)];
         NSInteger index = [neededTagsKeys indexOfObject:firstLetter];
         if (index == NSNotFound) {
@@ -430,7 +432,8 @@ static GelbooruTagStore *request;
     return [results componentsJoinedByString:@"+"];
 }
 
-#pragma mark - 去除无用的 webm 标签
+#pragma mark - 移除标签
+// 去除无用的 webm 标签
 - (NSString *)removeUselessWebmTags:(NSString *)tags {
     NSMutableArray *result = [NSMutableArray array];
     NSArray *tagComp = [tags componentsSeparatedByString:@" "];
