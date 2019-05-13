@@ -9,7 +9,7 @@
 #import "GelbooruDownloadAndOrganizeManager.h"
 #import "GelbooruHeader.h"
 #import "ResourceGlobalDownloadManager.h"
-#import "GelbooruOrganizeManager.h"
+#import "ResourceGlobalOrganizeManager.h"
 
 @interface GelbooruDownloadAndOrganizeManager () {
     NSInteger totalDownloadStep; // -1: Not use == Finished, 0: Initial, 1: Fate, 2: Azur, 3: Overwatch, 4: Anime, 5: Game, 6: Organize Anime, 7: Organize Game
@@ -134,7 +134,7 @@
             [[FileManager defaultManager] trashFileAtPath:GelbooruWebmPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruAnimePostRenamePlistPath targetFolderPath:GelbooruAnimeRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:GelbooruAnimePostRenamePlistPath targetFolderPath:GelbooruAnimeRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -147,7 +147,7 @@
             
             totalDownloadStep += 1;
             
-            GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruGamePostRenamePlistPath targetFolderPath:GelbooruGameRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:GelbooruGamePostRenamePlistPath targetFolderPath:GelbooruGameRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -160,7 +160,7 @@
             
             totalDownloadStep += 1;
             
-            GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruHPostRenamePlistPath targetFolderPath:GelbooruHRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:GelbooruHPostRenamePlistPath targetFolderPath:GelbooruHRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -173,7 +173,7 @@
             
             totalDownloadStep += 1;
             
-            GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruWebmPostRenamePlistPath targetFolderPath:GelbooruWebmRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:GelbooruWebmPostRenamePlistPath targetFolderPath:GelbooruWebmRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };

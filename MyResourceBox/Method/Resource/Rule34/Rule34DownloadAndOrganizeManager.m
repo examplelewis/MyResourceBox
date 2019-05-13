@@ -9,7 +9,7 @@
 #import "Rule34DownloadAndOrganizeManager.h"
 #import "Rule34Header.h"
 #import "ResourceGlobalDownloadManager.h"
-#import "Rule34OrganizeManager.h"
+#import "ResourceGlobalOrganizeManager.h"
 
 @interface Rule34DownloadAndOrganizeManager () {
     NSInteger totalDownloadStep; // -1: Not use == Finished, 0: Initial, 1: Fate, 2: Azur, 3: Overwatch, 4: Anime, 5: Game, 6: Organize Anime, 7: Organize Game
@@ -134,7 +134,7 @@
             [[FileManager defaultManager] trashFileAtPath:Rule34WebmPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            Rule34OrganizeManager *manager = [[Rule34OrganizeManager alloc] initWithPlistFilePath:Rule34AnimePostRenamePlistPath targetFolderPath:Rule34AnimeRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:Rule34AnimePostRenamePlistPath targetFolderPath:Rule34AnimeRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -147,7 +147,7 @@
             
             totalDownloadStep += 1;
             
-            Rule34OrganizeManager *manager = [[Rule34OrganizeManager alloc] initWithPlistFilePath:Rule34GamePostRenamePlistPath targetFolderPath:Rule34GameRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:Rule34GamePostRenamePlistPath targetFolderPath:Rule34GameRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -160,7 +160,7 @@
             
             totalDownloadStep += 1;
             
-            Rule34OrganizeManager *manager = [[Rule34OrganizeManager alloc] initWithPlistFilePath:Rule34HPostRenamePlistPath targetFolderPath:Rule34HRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:Rule34HPostRenamePlistPath targetFolderPath:Rule34HRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -173,7 +173,7 @@
             
             totalDownloadStep += 1;
             
-            Rule34OrganizeManager *manager = [[Rule34OrganizeManager alloc] initWithPlistFilePath:Rule34WebmPostRenamePlistPath targetFolderPath:Rule34WebmRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:Rule34WebmPostRenamePlistPath targetFolderPath:Rule34WebmRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };

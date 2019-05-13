@@ -14,7 +14,7 @@
 #import "GelbooruTagPagePicManager.h"
 #import "GelbooruTagPagePicExportTagsManager.h"
 #import "ResourceGlobalDownloadManager.h"
-#import "GelbooruOrganizeManager.h"
+#import "ResourceGlobalOrganizeManager.h"
 #import "GelbooruFileMoveManager.h"
 #import "GelbooruDownloadAndOrganizeManager.h"
 
@@ -99,22 +99,22 @@
         }
             break;
         case 21: {
-            GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruAnimePostRenamePlistPath targetFolderPath:GelbooruAnimeRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:GelbooruAnimePostRenamePlistPath targetFolderPath:GelbooruAnimeRootFolderPath];
             [manager startOrganizing];
         }
             break;
         case 22: {
-            GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruGamePostRenamePlistPath targetFolderPath:GelbooruGameRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:GelbooruGamePostRenamePlistPath targetFolderPath:GelbooruGameRootFolderPath];
             [manager startOrganizing];
         }
             break;
         case 23: {
-            GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruHPostRenamePlistPath targetFolderPath:GelbooruHRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:GelbooruHPostRenamePlistPath targetFolderPath:GelbooruHRootFolderPath];
             [manager startOrganizing];
         }
             break;
         case 24: {
-            GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruWebmPostRenamePlistPath targetFolderPath:GelbooruWebmRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:GelbooruWebmPostRenamePlistPath targetFolderPath:GelbooruWebmRootFolderPath];
             [manager startOrganizing];
         }
             break;

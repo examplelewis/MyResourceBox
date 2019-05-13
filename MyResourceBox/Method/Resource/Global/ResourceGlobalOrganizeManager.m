@@ -1,21 +1,21 @@
 //
-//  Rule34OrganizeManager.m
+//  ResourceGlobalOrganizeManager.m
 //  MyResourceBox
 //
-//  Created by 龚宇 on 19/04/24.
+//  Created by 龚宇 on 19/05/13.
 //  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import "Rule34OrganizeManager.h"
+#import "ResourceGlobalOrganizeManager.h"
 
-@interface Rule34OrganizeManager () {
+@interface ResourceGlobalOrganizeManager () {
     NSString *plistFilePath;
     NSString *rootFolderPath;
 }
 
 @end
 
-@implementation Rule34OrganizeManager
+@implementation ResourceGlobalOrganizeManager
 
 - (instancetype)initWithPlistFilePath:(NSString *)filePath targetFolderPath:(NSString *)folderPath {
     self = [super init];

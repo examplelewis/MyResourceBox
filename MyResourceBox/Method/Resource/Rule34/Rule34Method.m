@@ -14,7 +14,7 @@
 #import "Rule34TagPagePicManager.h"
 #import "Rule34TagPagePicExportTagsManager.h"
 #import "ResourceGlobalDownloadManager.h"
-#import "Rule34OrganizeManager.h"
+#import "ResourceGlobalOrganizeManager.h"
 #import "Rule34FileMoveManager.h"
 #import "Rule34DownloadAndOrganizeManager.h"
 
@@ -99,22 +99,22 @@
         }
             break;
         case 21: {
-            Rule34OrganizeManager *manager = [[Rule34OrganizeManager alloc] initWithPlistFilePath:Rule34AnimePostRenamePlistPath targetFolderPath:Rule34AnimeRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:Rule34AnimePostRenamePlistPath targetFolderPath:Rule34AnimeRootFolderPath];
             [manager startOrganizing];
         }
             break;
         case 22: {
-            Rule34OrganizeManager *manager = [[Rule34OrganizeManager alloc] initWithPlistFilePath:Rule34GamePostRenamePlistPath targetFolderPath:Rule34GameRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:Rule34GamePostRenamePlistPath targetFolderPath:Rule34GameRootFolderPath];
             [manager startOrganizing];
         }
             break;
         case 23: {
-            Rule34OrganizeManager *manager = [[Rule34OrganizeManager alloc] initWithPlistFilePath:Rule34HPostRenamePlistPath targetFolderPath:Rule34HRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:Rule34HPostRenamePlistPath targetFolderPath:Rule34HRootFolderPath];
             [manager startOrganizing];
         }
             break;
         case 24: {
-            Rule34OrganizeManager *manager = [[Rule34OrganizeManager alloc] initWithPlistFilePath:Rule34WebmPostRenamePlistPath targetFolderPath:Rule34WebmRootFolderPath];
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:Rule34WebmPostRenamePlistPath targetFolderPath:Rule34WebmRootFolderPath];
             [manager startOrganizing];
         }
             break;

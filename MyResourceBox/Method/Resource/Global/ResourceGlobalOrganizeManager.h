@@ -1,8 +1,8 @@
 //
-//  GelbooruOrganizeManager.h
+//  ResourceGlobalOrganizeManager.h
 //  MyResourceBox
 //
-//  Created by 龚宇 on 19/04/24.
+//  Created by 龚宇 on 19/05/13.
 //  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GelbooruOrganizeManager : NSObject
+@interface ResourceGlobalOrganizeManager : NSObject
 
 @property (copy) void(^finishBlock)(void);
 
