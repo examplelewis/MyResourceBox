@@ -143,30 +143,10 @@
 - (IBAction)processingTool:(NSMenuItem *)sender {
     switch (sender.tag) {
         case 1: {
-            [FileOperationMethod configMethod:1];
-        }
-            break;
-        case 2: {
-            [FileOperationMethod configMethod:4];
-        }
-            break;
-        case 3: {
-            [FileOperationMethod configMethod:2];
-        }
-            break;
-        case 4: {
-            [FileOperationMethod configMethod:3];
-        }
-            break;
-        case 5: {
-            [FileOperationMethod configMethod:5];
-        }
-            break;
-        case 11: {
             [WebArchiveMethod configMethod:1];
         }
             break;
-        case 12: {
+        case 2: {
             [UtilityFile resetCurrentDate];
             
             NSArray *movieExts = @[@"mpg", @"mpeg", @"avi", @"mov", /*@"asf", */@"wmv", @"3gp", @"rm", @"rmvb", @"mkv", @"flv", @"f4v", @"webm", @"mp4"];
@@ -176,7 +156,7 @@
             }
         }
             break;
-        case 13: {
+        case 3: {
             if (![[FileManager defaultManager] isContentExistAtPath:@"/Users/Mercury/Downloads/GoAgentXRules.plist"]) {
                 [[UtilityFile sharedInstance] showLogWithFormat:@"下载文件夹中找不到 GoAgentXRules.plist 文件，流程已停止"];
                 return;
@@ -197,6 +177,9 @@
 }
 - (IBAction)processingPicResource:(NSMenuItem *)sender {
     [PicResourceMethod configMethod:sender.tag];
+}
+- (IBAction)processingFileOperation:(NSMenuItem *)sender {
+    [FileOperationMethod configMethod:sender.tag];
 }
 
 #pragma mark -- help --

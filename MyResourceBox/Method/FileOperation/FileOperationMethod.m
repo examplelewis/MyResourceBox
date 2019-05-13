@@ -22,15 +22,15 @@
         }
             break;
         case 2: {
-            [FOFilteredImageManager organizingDatabase];
+            [FOFilteredImageManager organizingExportPhotos];
         }
             break;
         case 3: {
-            [FOFilteredImageManager prepareOrganizingPhotos];
+            [FOFilteredImageManager organizingDatabase];
         }
             break;
         case 4: {
-            [FOFilteredImageManager organizingExportPhotos];
+            [FOFilteredImageManager prepareOrganizingPhotos];
         }
             break;
         case 5: {
