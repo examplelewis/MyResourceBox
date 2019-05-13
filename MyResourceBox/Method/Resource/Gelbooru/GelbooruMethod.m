@@ -15,7 +15,7 @@
 #import "GelbooruTagPagePicExportTagsManager.h"
 #import "ResourceGlobalDownloadManager.h"
 #import "ResourceGlobalOrganizeManager.h"
-#import "GelbooruFileMoveManager.h"
+#import "ResourceGlobalFileMoveManager.h"
 #import "GelbooruDownloadAndOrganizeManager.h"
 
 @implementation GelbooruMethod
@@ -37,13 +37,13 @@
         case 3: {
             [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程开始"];
             
-            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruFateRootFolderPath];
-            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruAzurRootFolderPath];
-            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruOverwatchRootFolderPath];
-            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruAnimeRootFolderPath];
-            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruGameRootFolderPath];
-//            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruHRootFolderPath];
-//            [GelbooruFileMoveManager moveFilesToDayFolderFromFolder:GelbooruWebmRootFolderPath];
+            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:GelbooruFateRootFolderPath];
+            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:GelbooruAzurRootFolderPath];
+            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:GelbooruOverwatchRootFolderPath];
+            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:GelbooruAnimeRootFolderPath];
+            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:GelbooruGameRootFolderPath];
+//            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:GelbooruHRootFolderPath];
+//            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:GelbooruWebmRootFolderPath];
             
             [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程结束"];
         }

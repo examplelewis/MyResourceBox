@@ -15,7 +15,7 @@
 #import "Rule34TagPagePicExportTagsManager.h"
 #import "ResourceGlobalDownloadManager.h"
 #import "ResourceGlobalOrganizeManager.h"
-#import "Rule34FileMoveManager.h"
+#import "ResourceGlobalFileMoveManager.h"
 #import "Rule34DownloadAndOrganizeManager.h"
 
 @implementation Rule34Method
@@ -37,13 +37,13 @@
         case 3: {
             [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程开始"];
             
-            [Rule34FileMoveManager moveFilesToDayFolderFromFolder:Rule34FateRootFolderPath];
-            [Rule34FileMoveManager moveFilesToDayFolderFromFolder:Rule34AzurRootFolderPath];
-            [Rule34FileMoveManager moveFilesToDayFolderFromFolder:Rule34OverwatchRootFolderPath];
-            [Rule34FileMoveManager moveFilesToDayFolderFromFolder:Rule34AnimeRootFolderPath];
-            [Rule34FileMoveManager moveFilesToDayFolderFromFolder:Rule34GameRootFolderPath];
-//            [Rule34FileMoveManager moveFilesToDayFolderFromFolder:Rule34HRootFolderPath];
-//            [Rule34FileMoveManager moveFilesToDayFolderFromFolder:Rule34WebmRootFolderPath];
+            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:Rule34FateRootFolderPath];
+            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:Rule34AzurRootFolderPath];
+            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:Rule34OverwatchRootFolderPath];
+            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:Rule34AnimeRootFolderPath];
+            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:Rule34GameRootFolderPath];
+//            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:Rule34HRootFolderPath];
+//            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:Rule34WebmRootFolderPath];
             
             [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程结束"];
         }

@@ -1,15 +1,14 @@
 //
-//  Rule34FileMoveManager.m
+//  ResourceGlobalFileMoveManager.m
 //  MyResourceBox
 //
-//  Created by 龚宇 on 19/04/24.
+//  Created by 龚宇 on 19/05/13.
 //  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import "Rule34FileMoveManager.h"
-#import "Rule34Header.h"
+#import "ResourceGlobalFileMoveManager.h"
 
-@implementation Rule34FileMoveManager
+@implementation ResourceGlobalFileMoveManager
 
 + (void)moveFilesToDayFolderFromFolder:(NSString *)fromFolder {
     if (![[FileManager defaultManager] isContentExistAtPath:fromFolder]) {
