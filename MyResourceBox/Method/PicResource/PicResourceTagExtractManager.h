@@ -1,8 +1,8 @@
 //
-//  ResourceGlobalTagExtractManager.h
+//  PicResourceTagExtractManager.h
 //  MyResourceBox
 //
-//  Created by 龚宇 on 19/05/10.
+//  Created by 龚宇 on 19/05/13.
 //  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ResourceGlobalTagExtractManager : NSObject
+@interface PicResourceTagExtractManager : NSObject
 
 - (void)prepareExtracting;
 

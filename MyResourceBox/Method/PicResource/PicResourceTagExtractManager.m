@@ -1,25 +1,25 @@
 //
-//  ResourceGlobalTagExtractManager.m
+//  PicResourceTagExtractManager.m
 //  MyResourceBox
 //
-//  Created by 龚宇 on 19/05/10.
+//  Created by 龚宇 on 19/05/13.
 //  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import "ResourceGlobalTagExtractManager.h"
+#import "PicResourceTagExtractManager.h"
 #import "XMLReader.h"
 
 static NSString * const kGelbooruTagXMLFilePath = @"/Users/Mercury/Documents/Tool/DanbooruDownloader/tags.xml";
 static NSString * const kNeededTagsFolderPath = @"/Users/Mercury/Documents/同步文档/MyResourceBox/Tags/NeededTags";
 
-@interface ResourceGlobalTagExtractManager () {
+@interface PicResourceTagExtractManager () {
     NSArray *firstLetters;
     NSArray *neededTagsName; // 包括 copyright 和 character 的标签
 }
 
 @end
 
-@implementation ResourceGlobalTagExtractManager
+@implementation PicResourceTagExtractManager
 
 - (void)prepareExtracting {
     if (![[FileManager defaultManager] isContentExistAtPath:kGelbooruTagXMLFilePath]) {
@@ -73,5 +73,4 @@ static NSString * const kNeededTagsFolderPath = @"/Users/Mercury/Documents/同�
     NSString *destPath = [kNeededTagsFolderPath stringByAppendingPathComponent:@"~other.txt"];
     [UtilityFile exportArray:other atPath:destPath];
 }
-
 @end

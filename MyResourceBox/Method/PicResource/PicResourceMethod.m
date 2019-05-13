@@ -7,7 +7,8 @@
 //
 
 #import "PicResourceMethod.h"
-#import "ResourceGlobalTagExtractManager.h"
+#import "PicResourceTagFetchManager.h"
+#import "PicResourceTagExtractManager.h"
 
 @implementation PicResourceMethod
 
@@ -21,7 +22,7 @@
         }
             break;
         case 2: {
-            [[ResourceGlobalTagExtractManager new] prepareExtracting];
+            [[PicResourceTagExtractManager new] prepareExtracting];
         }
             break;
         default:

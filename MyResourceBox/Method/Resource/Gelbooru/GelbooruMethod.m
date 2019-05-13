@@ -17,7 +17,6 @@
 #import "GelbooruOrganizeManager.h"
 #import "GelbooruFileMoveManager.h"
 #import "GelbooruDownloadAndOrganizeManager.h"
-#import "ResourceGlobalTagExtractManager.h"
 
 @implementation GelbooruMethod
 
