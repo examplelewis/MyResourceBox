@@ -90,7 +90,7 @@
             NSArray *webmIds = [self->webmPosts valueForKey:@"id"];
             NSMutableArray *webmUrls = [NSMutableArray array];
             for (NSInteger i = 0; i < webmIds.count; i++) {
-                [webmUrls addObject:[NSString stringWithFormat:@"https://gelbooru.com/index.php?page=post&s=view&id=%@", webmIds[i]]];
+                [webmUrls addObject:[NSString stringWithFormat:@"https://rule34.xxx/index.php?page=post&s=view&id=%@", webmIds[i]]];
             }
             [UtilityFile exportArray:webmUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Rule34 %@ WebmUrl.txt", self->tag]];
             
