@@ -29,6 +29,7 @@
 #import "WebArchiveMethod.h"
 #import "DownloadMethod.h"
 #import "PicResourceMethod.h"
+#import "ToolOperationMethod.h"
 
 #import "CatchCrashManager.h"
 
@@ -41,6 +42,7 @@
 
 @implementation AppDelegate
 
+#pragma mark - NSApplicationDelegate
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // 注册异常处理函数
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
@@ -63,6 +65,8 @@
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
     return YES; //点击窗口左上方的关闭按钮退出应用程序
 }
+
+#pragma mark - Configure
 - (void)configureController {
     if (!_currentVC) {
         _currentVC = (ViewController *)[NSApplication sharedApplication].mainWindow.contentViewController;
@@ -74,6 +78,7 @@
     }
 }
 
+#pragma mark - Instance
 + (AppDelegate *)defaultDelegate {
     return (AppDelegate *)[[NSApplication sharedApplication] delegate];
 }
@@ -102,7 +107,7 @@
     return dele.currentWindow;
 }
 
-#pragma mark -- action --
+#pragma mark - Target
 // Resource
 - (IBAction)processingAnalysis:(NSMenuItem *)sender {
     [AnalysisMethod configMethod:sender.tag];
@@ -141,33 +146,7 @@
     [WorldCosplayMethod configMethod:sender.tag];
 }
 - (IBAction)processingTool:(NSMenuItem *)sender {
-    switch (sender.tag) {
-        case 1: {
-            [WebArchiveMethod configMethod:1];
-        }
-            break;
-        case 2: {
-            [UtilityFile resetCurrentDate];
-            
-            NSArray *movieExts = @[@"mpg", @"mpeg", @"avi", @"mov", /*@"asf", */@"wmv", @"3gp", @"rm", @"rmvb", @"mkv", @"flv", @"f4v", @"webm", @"mp4"];
-            for (NSInteger i = 0; i < movieExts.count; i++) {
-                NSString *movieExt = movieExts[i];
-                [self restoreMovieDefaultApplicationToIINAByExtension:movieExt];
-            }
-        }
-            break;
-        case 3: {
-            if (![[FileManager defaultManager] isContentExistAtPath:@"/Users/Mercury/Downloads/GoAgentXRules.plist"]) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"下载文件夹中找不到 GoAgentXRules.plist 文件，流程已停止"];
-                return;
-            }
-            
-            [self convertGoAgentXRules];
-        }
-            break;
-        default:
-            break;
-    }
+    [ToolOperationMethod configMethod:sender.tag];
 }
 - (IBAction)processingDownload:(NSMenuItem *)sender {
     [DownloadMethod configMethod:sender.tag];
@@ -182,7 +161,7 @@
     [FileOperationMethod configMethod:sender.tag];
 }
 
-#pragma mark -- help --
+#pragma mark - Help
 - (IBAction)openHelpingDocument:(NSMenuItem *)sender {
     if (![[NSWorkspace sharedWorkspace] openFile:[[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"帮助文档.txt"]]) {
         MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
@@ -237,7 +216,7 @@
     }
 }
 
-#pragma mark -- 通知方法 --
+#pragma mark - Notification
 - (void)didGetCode:(NSNotification *)notif {
     for (NSWindow *window in [NSApplication sharedApplication].windows) {
         if (![window.windowController isMemberOfClass:[NSWindowController class]]) {
@@ -250,7 +229,7 @@
     [self processCode:(NSString *)[notif object]];
 }
 
-#pragma mark -- 辅助方法 --
+#pragma mark - Setter
 - (void)setLogger {
     //在系统上保持一周的日志文件
     NSString *logDirectory = [UserInfo defaultUser].path_root_folder;
@@ -293,6 +272,8 @@
     [TMAPIClient sharedInstance].OAuthToken = [UserInfo defaultUser].tumblr_OAuth_Token;
     [TMAPIClient sharedInstance].OAuthTokenSecret = [UserInfo defaultUser].tumblr_OAuth_Token_Secret;
 }
+
+#pragma mark - Other
 - (void)handleAppleEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
     NSString *urlString = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
     [self processCode:[urlString componentsSeparatedByString:@"code="].lastObject];
@@ -315,66 +296,6 @@
         
         [[UtilityFile sharedInstance] showLogWithFormat:@"获取Token信息发生错误：%@，原因：%@", errorTitle, errorMsg];
     }];
-}
-- (void)restoreMovieDefaultApplicationToIINAByExtension:(NSString *)extension {
-    CFStringRef exRef = (__bridge CFStringRef)extension;
-    CFStringRef exUTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, exRef, NULL);
-    
-    CFURLRef helperApplicationURL = LSCopyDefaultApplicationURLForContentType(exUTI, kLSRolesAll, NULL);
-    if (helperApplicationURL == NULL) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"类型：%@ 未注册到系统的Launch Services中，跳过", extension];
-        return;
-    }
-    
-    // Check to make sure the registered helper application isn't us
-    NSString *helperApplicationPath = [(__bridge NSURL *)helperApplicationURL path];
-    NSString *helperApplicationName = [[NSFileManager defaultManager] displayNameAtPath:helperApplicationPath];
-    
-    if (![helperApplicationName isEqualToString:@"IINA"]) {
-        LSSetDefaultRoleHandlerForContentType(exUTI, kLSRolesAll, (__bridge CFStringRef)@"com.colliderli.iina");
-        [[UtilityFile sharedInstance] showLogWithFormat:@"类型：%@ 原打开方式为: %@，已修改为 IINA", extension, helperApplicationName];
-    } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"类型：%@ 默认打开方式为IINA，跳过", extension];
-    }
-    
-    CFRelease(helperApplicationURL);
-}
-- (void)convertGoAgentXRules {
-    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:@"/Users/Mercury/Downloads/GoAgentXRules.plist"];
-    NSArray *objects = [NSArray arrayWithArray:dict[@"$objects"]];
-    NSMutableArray *all = [NSMutableArray array]; // 全部
-    NSMutableArray *direct = [NSMutableArray array]; // 直接连接
-    NSMutableArray *detect = [NSMutableArray array]; // 使用运行中的配置
-    for (int i = 0; i < objects.count; i++) {
-        if ([objects[i] isKindOfClass:[NSString class]]) {
-            NSString *stringObj = (NSString *)objects[i];
-            [all addObject:stringObj];
-        }
-    }
-    
-    NSIndexSet *dcIndexSet = [all indexesOfObjectsPassingTest:^BOOL(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        return [obj isEqualToString:@"DirectConnection"];
-    }];
-    NSIndexSet *adIndexSet = [all indexesOfObjectsPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        return [obj isEqualToString:@"AutoDetect"];
-    }];
-    
-    [dcIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
-        [direct addObject:all[idx + 1]];
-    }];
-    [adIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
-        [detect addObject:all[idx + 1]];
-    }];
-    
-    if (direct.count == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"可能GoAgentX的存储规则发生了改变，需要修改逻辑，流程已停止"];
-        return;
-    }
-    
-    [UtilityFile exportArray:direct atPath:@"/Users/Mercury/Downloads/GoAgentXRules_Direct.txt"];
-    [UtilityFile exportArray:detect atPath:@"/Users/Mercury/Downloads/GoAgentXRules_Auto.txt"];
-    
-    [[UtilityFile sharedInstance] showLogWithFormat:@"流程已结束，请查看：GoAgentXRules_Direct.txt 以及 GoAgentXRules_Auto.txt 两个文件"];
 }
 
 @end

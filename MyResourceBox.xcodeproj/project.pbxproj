@@ -75,6 +75,7 @@
 		ACC1DCB8226F071F001243C1 /* GelbooruTagEndTimePicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimePicManager.m */; };
 		ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3145B217726D900DA5276 /* GelbooruMethod.m */; };
 		ACC3149B21773BFF00DA5276 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3149A21773BFF00DA5276 /* XMLReader.m */; };
+		ACC5C001228907C0004E7C83 /* ToolOperationMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC5C000228907C0004E7C83 /* ToolOperationMethod.m */; };
 		ACC8BA65228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8BA64228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m */; };
 		ACC8BA682285289F0000E193 /* ResourceGlobalTagFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8BA672285289F0000E193 /* ResourceGlobalTagFetchManager.m */; };
 		ACC8BA6C22854F5F0000E193 /* Rule34TagPagePicExportTagsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8BA6A22854F5D0000E193 /* Rule34TagPagePicExportTagsManager.m */; };
@@ -276,6 +277,8 @@
 		ACC3145B217726D900DA5276 /* GelbooruMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruMethod.m; sourceTree = "<group>"; };
 		ACC3149921773BFF00DA5276 /* XMLReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
 		ACC3149A21773BFF00DA5276 /* XMLReader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		ACC5BFFF228907C0004E7C83 /* ToolOperationMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolOperationMethod.h; sourceTree = "<group>"; };
+		ACC5C000228907C0004E7C83 /* ToolOperationMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolOperationMethod.m; sourceTree = "<group>"; };
 		ACC8BA63228517C30000E193 /* GelbooruTagPagePicExportTagsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruTagPagePicExportTagsManager.h; sourceTree = "<group>"; };
 		ACC8BA64228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruTagPagePicExportTagsManager.m; sourceTree = "<group>"; };
 		ACC8BA662285289F0000E193 /* ResourceGlobalTagFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceGlobalTagFetchManager.h; sourceTree = "<group>"; };
@@ -629,6 +632,7 @@
 				AC789C6C1DE159B700523A12 /* Resource */,
 				ACDCD4F1228902D2005FC4FF /* PicResource */,
 				ACE0502222802A6F00367F3A /* FileOperation */,
+				ACC5BFFE228907A6004E7C83 /* ToolOperation */,
 			);
 			path = Method;
 			sourceTree = "<group>";
@@ -724,6 +728,15 @@
 				ACC8DDCF227015A8005228D7 /* GelbooruDownloadAndOrganizeManager.m */,
 			);
 			path = Gelbooru;
+			sourceTree = "<group>";
+		};
+		ACC5BFFE228907A6004E7C83 /* ToolOperation */ = {
+			isa = PBXGroup;
+			children = (
+				ACC5BFFF228907C0004E7C83 /* ToolOperationMethod.h */,
+				ACC5C000228907C0004E7C83 /* ToolOperationMethod.m */,
+			);
+			path = ToolOperation;
 			sourceTree = "<group>";
 		};
 		ACC8BA6922852ADF0000E193 /* Global */ = {
@@ -1162,6 +1175,7 @@
 				AC2D1B151DD0191C0085F8E0 /* DeviceInfo.m in Sources */,
 				AC789C821DE15A1D00523A12 /* JDLingyuMethod.m in Sources */,
 				ACC93EF02277EBCD00C207E6 /* BCYOrganizingManager.m in Sources */,
+				ACC5C001228907C0004E7C83 /* ToolOperationMethod.m in Sources */,
 				ACC8EBAC22826785003CF448 /* Rule34DailyPicManager.m in Sources */,
 				AC789C7E1DE159E100523A12 /* ExHentaiPagesManager.m in Sources */,
 				ACACB51E21C382D700C8D164 /* ResourceGlobalTagManager.m in Sources */,

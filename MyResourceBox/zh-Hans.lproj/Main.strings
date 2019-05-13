@@ -143,6 +143,9 @@
 /* Class = "NSMenuItem"; title = "Operation"; ObjectID = "Glu-T2-6Lx"; */
 "Glu-T2-6Lx.title" = "Operation";
 
+/* Class = "NSMenuItem"; title = "Operation"; ObjectID = "W71-jA-KRA"; */
+"W71-jA-KRA.title" = "Tools";
+
 /* Class = "NSMenuItem"; title = "Writing Direction"; ObjectID = "H1b-Si-o9J"; */
 "H1b-Si-o9J.title" = "书写方向";
 

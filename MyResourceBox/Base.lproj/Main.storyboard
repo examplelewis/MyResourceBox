@@ -1058,9 +1058,9 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Tool" id="q6t-kw-VtF">
+                            <menuItem title="Tools" id="q6t-kw-VtF">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Tool" id="W71-jA-KRA">
+                                <menu key="submenu" title="Tools" id="W71-jA-KRA">
                                     <items>
                                         <menuItem title="下载" id="pxB-ZK-4gf">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -1248,7 +1248,7 @@
                 </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-209" y="-138"/>
+            <point key="canvasLocation" x="-182" y="-142"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
