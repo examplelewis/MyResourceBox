@@ -28,6 +28,7 @@
 #import "FileOperationMethod.h"
 #import "WebArchiveMethod.h"
 #import "DownloadMethod.h"
+#import "PicResourceMethod.h"
 
 #import "CatchCrashManager.h"
 
@@ -194,7 +195,9 @@
 - (IBAction)processingDeviantart:(NSMenuItem *)sender {
     [DeviantartMethod configMethod:sender.tag];
 }
-
+- (IBAction)processingPicResource:(NSMenuItem *)sender {
+    [PicResourceMethod configMethod:sender.tag];
+}
 
 #pragma mark -- help --
 - (IBAction)openHelpingDocument:(NSMenuItem *)sender {

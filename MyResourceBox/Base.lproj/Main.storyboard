@@ -632,16 +632,6 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Gelbooru" id="lBu-IK-Hrc">
                                                 <items>
-                                                    <menuItem title="抓取 Gelbooru 的所有标签【未完成】" tag="-1" id="cD9-kQ-gVA">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                    </menuItem>
-                                                    <menuItem title="提取 GelbooruDownloader 下载的标签" tag="-2" id="OWy-o1-yID">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="wug-km-QbB"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem isSeparatorItem="YES" id="R8i-6F-vOi"/>
                                                     <menuItem title="获取日常图片地址" tag="1" id="zhS-it-0qk">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
@@ -1184,6 +1174,22 @@
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingTool:" target="Voe-Tx-rLC" id="nq3-CX-yhr"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="图站" id="hzY-wd-xKh">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="图站" id="59c-eA-yqa">
+                                                <items>
+                                                    <menuItem title="抓取 Gelbooru 的所有标签【未完成】" tag="1" id="cD9-kQ-gVA">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="提取 GelbooruDownloader 下载的标签" tag="2" id="OWy-o1-yID">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPicResource:" target="Voe-Tx-rLC" id="7mc-t6-tOL"/>
                                                         </connections>
                                                     </menuItem>
                                                 </items>

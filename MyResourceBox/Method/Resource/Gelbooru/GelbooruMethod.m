@@ -25,15 +25,6 @@
     [UtilityFile resetCurrentDate];
     
     switch (cellRow) {
-        case -1: {
-            // 抓取 Gelbooru 的所有标签
-            // 做这个功能之前，需要先整理 ResourceGlobalTagFetchManager
-        }
-            break;
-        case -2: {
-            [[ResourceGlobalTagExtractManager new] prepareExtracting];
-        }
-            break;
         case 1: {
             GelbooruDailyPicManager *manager = [GelbooruDailyPicManager new];
             [manager startFetching];
