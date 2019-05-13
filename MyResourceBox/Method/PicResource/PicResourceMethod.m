@@ -9,6 +9,7 @@
 #import "PicResourceMethod.h"
 #import "PicResourceTagFetchManager.h"
 #import "PicResourceTagExtractManager.h"
+#import "PicResourceGIFWebmSeparateManager.h"
 
 @implementation PicResourceMethod
 
@@ -23,6 +24,10 @@
             break;
         case 2: {
             [[PicResourceTagExtractManager new] prepareExtracting];
+        }
+            break;
+        case 3: {
+            [PicResourceGIFWebmSeparateManager choosingRootFolder];
         }
             break;
         default:

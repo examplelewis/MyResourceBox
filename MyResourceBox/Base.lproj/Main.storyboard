@@ -1127,6 +1127,12 @@
                                                             <action selector="processingPicResource:" target="Voe-Tx-rLC" id="7mc-t6-tOL"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="分离 GelbooruDownloader 下载的 gif 和 webm 文件" tag="3" id="UPH-JF-Kud">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPicResource:" target="Voe-Tx-rLC" id="UK3-Wf-NnY"/>
+                                                        </connections>
+                                                    </menuItem>
                                                 </items>
                                             </menu>
                                         </menuItem>
