@@ -79,6 +79,11 @@
         }
             break;
         case 17: {
+            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34WebmPostTxtPath targetFolderPath:Rule34WebmRootFolderPath];
+            [manager prepareDownloading];
+        }
+            break;
+        case 18: {
             NSString *input = [AppDelegate defaultVC].inputTextView.string;
             if (input.length == 0) {
                 [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
@@ -105,6 +110,11 @@
             break;
         case 23: {
             Rule34OrganizeManager *manager = [[Rule34OrganizeManager alloc] initWithPlistFilePath:Rule34HPostRenamePlistPath targetFolderPath:Rule34HRootFolderPath];
+            [manager startOrganizing];
+        }
+            break;
+        case 24: {
+            Rule34OrganizeManager *manager = [[Rule34OrganizeManager alloc] initWithPlistFilePath:Rule34WebmPostRenamePlistPath targetFolderPath:Rule34WebmRootFolderPath];
             [manager startOrganizing];
         }
             break;

@@ -79,6 +79,11 @@
         }
             break;
         case 17: {
+            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruWebmPostTxtPath targetFolderPath:GelbooruWebmRootFolderPath];
+            [manager prepareDownloading];
+        }
+            break;
+        case 18: {
             NSString *input = [AppDelegate defaultVC].inputTextView.string;
             if (input.length == 0) {
                 [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
@@ -105,6 +110,11 @@
             break;
         case 23: {
             GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruHPostRenamePlistPath targetFolderPath:GelbooruHRootFolderPath];
+            [manager startOrganizing];
+        }
+            break;
+        case 24: {
+            GelbooruOrganizeManager *manager = [[GelbooruOrganizeManager alloc] initWithPlistFilePath:GelbooruWebmPostRenamePlistPath targetFolderPath:GelbooruWebmRootFolderPath];
             [manager startOrganizing];
         }
             break;

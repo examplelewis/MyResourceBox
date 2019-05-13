@@ -687,7 +687,13 @@
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="Yro-UP-4tb"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="下载 特定标签 图片" tag="17" id="son-PY-mxC">
+                                                    <menuItem title="下载 Webm 文件" tag="17" id="nmd-jg-yVj">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="sbP-7X-mVu"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载 特定标签 图片" tag="18" id="son-PY-mxC">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="T66-Xw-ohF"/>
@@ -710,6 +716,12 @@
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="xhS-Ve-oaC"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="整理下载的 Webm 文件" tag="24" id="2CB-mD-aZQ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="oQ3-UT-NeK"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="deK-X9-obk"/>
@@ -888,7 +900,13 @@
                                                             <action selector="processingRule34:" target="Voe-Tx-rLC" id="uZo-qe-LJo"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="下载 特定标签 图片" tag="17" id="jOU-h1-uyT">
+                                                    <menuItem title="下载 Webm 文件" tag="17" id="rCB-cr-ozT">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="fmV-51-erI"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="下载 特定标签 图片" tag="18" id="jOU-h1-uyT">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingRule34:" target="Voe-Tx-rLC" id="bcw-oC-T5s"/>
@@ -911,6 +929,12 @@
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingRule34:" target="Voe-Tx-rLC" id="urB-eL-W35"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="整理下载的 Webm 文件" tag="24" id="5lj-ca-ieA">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="zXg-zY-jBA"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="8xM-dX-bYA"/>
