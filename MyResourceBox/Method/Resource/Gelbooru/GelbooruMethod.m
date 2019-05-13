@@ -118,6 +118,20 @@
             [manager startOrganizing];
         }
             break;
+        case 25: {
+            NSString *input = [AppDelegate defaultVC].inputTextView.string;
+            if (input.length == 0) {
+                [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+                return;
+            }
+            
+            NSString *plistFilePath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostRenameInfo.plist", input];
+            NSString *targetFolderPath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/%@/", input];
+            
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:plistFilePath targetFolderPath:targetFolderPath];
+            [manager startOrganizing];
+        }
+            break;
         case 31: {
             GelbooruTagPagePicManager *manager = [GelbooruTagPagePicManager new];
             [manager startFetching];

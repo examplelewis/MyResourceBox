@@ -724,6 +724,12 @@
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="oQ3-UT-NeK"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="整理下载的 特定标签 图片" tag="25" id="XkH-h8-u0f">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="VIl-93-Zrh"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="deK-X9-obk"/>
                                                     <menuItem title="获取特定标签图片地址【页数】" tag="31" id="5zn-Uc-vol">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
@@ -935,6 +941,12 @@
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingRule34:" target="Voe-Tx-rLC" id="zXg-zY-jBA"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="整理下载的 特定标签 图片" tag="25" id="ywe-Hs-bfo">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingRule34:" target="Voe-Tx-rLC" id="nT6-5e-hGk"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="8xM-dX-bYA"/>
