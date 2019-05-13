@@ -56,6 +56,28 @@ static NSInteger const defaultTimeoutInterval = 45;
     return self;
 }
 
+- (NSString *)getTargetFileNameWithUrl:(NSString *)url {
+    NSString *targetFileName = nil;
+    if (self.renameInfo) {
+        targetFileName = self.renameInfo[url];
+        
+        if (!targetFileName || ![targetFileName isKindOfClass:[NSString class]] || targetFileName.length == 0) {
+            [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 对应的文件名无效。使用 [response suggestedFilename]", url];
+            targetFileName = nil;
+        }
+    }
+    
+    return targetFileName;
+}
+- (NSString *)getTargetFilePathWithUrl:(NSString *)url {
+    NSString *targetFileName = [self getTargetFileNameWithUrl:url];
+    if (!targetFileName) {
+        return nil;
+    } else {
+        return [self.downloadPath stringByAppendingPathComponent:targetFileName];
+    }
+}
+
 - (NSURLSessionDownloadTask *)downloadTaskWithUrl:(NSString *)url completion:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *error))completionBlock {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     request.timeoutInterval = _timeoutInterval;
@@ -66,15 +88,7 @@ static NSInteger const defaultTimeoutInterval = 45;
         }
     }
     
-    NSString *targetFileName = nil;
-    if (self.renameInfo) {
-        targetFileName = self.renameInfo[url];
-        
-        if (![targetFileName isKindOfClass:[NSString class]] || targetFileName.length == 0) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 对应的文件名无效。使用 [response suggestedFilename]", url];
-            targetFileName = nil;
-        }
-    }
+    NSString *targetFileName = [self getTargetFileNameWithUrl:url];
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
         NSString *filePath = [self.downloadPath stringByAppendingPathComponent:targetFileName ? targetFileName : [response suggestedFilename]];
         return [NSURL fileURLWithPath:filePath];
@@ -107,7 +121,26 @@ static NSInteger const defaultTimeoutInterval = 45;
     }];
     
     for (NSInteger i = 0; i < downloadUrls.count; i++) {
-        NSURLSessionDownloadTask* uploadTask = [self downloadTaskWithUrl:downloadUrls[i] completion:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        NSString *downloadUrl = downloadUrls[i];
+//        NSString *targetFilePath = [self getTargetFilePathWithUrl:downloadUrl];
+//        if (targetFilePath && [[FileManager defaultManager] isContentExistAtPath:targetFilePath]) {
+//            [[UtilityFile sharedInstance] showLogWithFormat:@"在 %@ 位置已经存在同名文件，跳过 %@ 文件的下载", targetFilePath, downloadUrl];
+//
+//            success++;
+//            @synchronized (downloadResults) { // NSMutableArray 是线程不安全的，所以加个同步锁
+//                downloadResults[i] = targetFilePath;
+//            }
+//
+//            NSInteger download = success + failure;
+//            float doubleDownload = (float)download;
+//            float doubleTotal = (float)downloadUrls.count;
+//            [AppDelegate defaultVC].numberLabel.stringValue = [NSString stringWithFormat:@"已下载：%ld / %ld，成功：%ld，失败：%ld", download, downloadUrls.count, success, failure];
+//            [AppDelegate defaultVC].progress.doubleValue = doubleDownload / doubleTotal * 100.0;
+//
+//            continue;
+//        }
+        
+        NSURLSessionDownloadTask* uploadTask = [self downloadTaskWithUrl:downloadUrl completion:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
             if (error) {
                 DownloadInfoObject *object = [[DownloadInfoObject alloc] initWithError:error];
                 if (object.type == DownloadInfoTypeErrorConnectionLost) {
