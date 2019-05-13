@@ -76,8 +76,14 @@
             if ([[data[@"file_url"] pathExtension] isEqualToString:@"webm"]) {
                 [self->webmPosts addObject:data];
                 
+                NSArray *dataTags = [data[@"tags"] componentsSeparatedByString:@" "];
+                NSString *copyrightTags = [[ResourceGlobalTagManager defaultManager] getNeededCopyrightTags:dataTags];
                 NSString *donwloadFileNameAndExtension = [data[@"file_url"] lastPathComponent];
-                [self->webmNameInfo setObject:[NSString stringWithFormat:@"%@.%@", data[@"id"], donwloadFileNameAndExtension.pathExtension] forKey:donwloadFileNameAndExtension];
+                if (copyrightTags.length == 0) {
+                    [self->webmNameInfo setObject:[NSString stringWithFormat:@"%@.%@", data[@"id"], donwloadFileNameAndExtension.pathExtension] forKey:donwloadFileNameAndExtension];
+                } else {
+                    [self->webmNameInfo setObject:[NSString stringWithFormat:@"%@ - %@.%@", copyrightTags, data[@"id"], donwloadFileNameAndExtension.pathExtension] forKey:donwloadFileNameAndExtension];
+                }
                 
                 continue;
             }
