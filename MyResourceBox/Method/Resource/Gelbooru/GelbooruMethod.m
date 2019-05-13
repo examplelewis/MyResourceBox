@@ -13,7 +13,7 @@
 #import "GelbooruTagEndTimePicManager.h"
 #import "GelbooruTagPagePicManager.h"
 #import "GelbooruTagPagePicExportTagsManager.h"
-#import "GelbooruDownloadManager.h"
+#import "ResourceGlobalDownloadManager.h"
 #import "GelbooruOrganizeManager.h"
 #import "GelbooruFileMoveManager.h"
 #import "GelbooruDownloadAndOrganizeManager.h"
@@ -49,37 +49,37 @@
         }
             break;
         case 11: {
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruFatePostTxtPath targetFolderPath:GelbooruFateRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruFatePostTxtPath targetFolderPath:GelbooruFateRootFolderPath];
             [manager prepareDownloading];
         }
             break;
         case 12: {
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruAzurPostTxtPath targetFolderPath:GelbooruAzurRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruAzurPostTxtPath targetFolderPath:GelbooruAzurRootFolderPath];
             [manager prepareDownloading];
         }
             break;
         case 13: {
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruOverwatchPostTxtPath targetFolderPath:GelbooruOverwatchRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruOverwatchPostTxtPath targetFolderPath:GelbooruOverwatchRootFolderPath];
             [manager prepareDownloading];
         }
             break;
         case 14: {
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruAnimePostTxtPath targetFolderPath:GelbooruAnimeRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruAnimePostTxtPath targetFolderPath:GelbooruAnimeRootFolderPath];
             [manager prepareDownloading];
         }
             break;
         case 15: {
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruGamePostTxtPath targetFolderPath:GelbooruGameRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruGamePostTxtPath targetFolderPath:GelbooruGameRootFolderPath];
             [manager prepareDownloading];
         }
             break;
         case 16: {
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruHPostTxtPath targetFolderPath:GelbooruHRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruHPostTxtPath targetFolderPath:GelbooruHRootFolderPath];
             [manager prepareDownloading];
         }
             break;
         case 17: {
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruWebmPostTxtPath targetFolderPath:GelbooruWebmRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruWebmPostTxtPath targetFolderPath:GelbooruWebmRootFolderPath];
             [manager prepareDownloading];
         }
             break;
@@ -93,7 +93,7 @@
             NSString *txtFilePath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostUrl.txt", input];
             NSString *targetFolderPath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/%@/", input];
             
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:txtFilePath targetFolderPath:targetFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:txtFilePath targetFolderPath:targetFolderPath];
             manager.showAlertAfterFinished = YES;
             [manager prepareDownloading];
         }

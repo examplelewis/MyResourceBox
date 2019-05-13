@@ -8,7 +8,7 @@
 
 #import "GelbooruDownloadAndOrganizeManager.h"
 #import "GelbooruHeader.h"
-#import "GelbooruDownloadManager.h"
+#import "ResourceGlobalDownloadManager.h"
 #import "GelbooruOrganizeManager.h"
 
 @interface GelbooruDownloadAndOrganizeManager () {
@@ -36,7 +36,7 @@
             
             totalDownloadStep += 1;
             
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruFatePostTxtPath targetFolderPath:GelbooruFateRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruFatePostTxtPath targetFolderPath:GelbooruFateRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -50,7 +50,7 @@
             [[FileManager defaultManager] trashFileAtPath:GelbooruFatePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruAzurPostTxtPath targetFolderPath:GelbooruAzurRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruAzurPostTxtPath targetFolderPath:GelbooruAzurRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -64,7 +64,7 @@
             [[FileManager defaultManager] trashFileAtPath:GelbooruAzurPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruOverwatchPostTxtPath targetFolderPath:GelbooruOverwatchRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruOverwatchPostTxtPath targetFolderPath:GelbooruOverwatchRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -78,7 +78,7 @@
             [[FileManager defaultManager] trashFileAtPath:GelbooruOverwatchPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruAnimePostTxtPath targetFolderPath:GelbooruAnimeRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruAnimePostTxtPath targetFolderPath:GelbooruAnimeRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -92,7 +92,7 @@
             [[FileManager defaultManager] trashFileAtPath:GelbooruAnimePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruGamePostTxtPath targetFolderPath:GelbooruGameRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruGamePostTxtPath targetFolderPath:GelbooruGameRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -106,7 +106,7 @@
             [[FileManager defaultManager] trashFileAtPath:GelbooruGamePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruHPostTxtPath targetFolderPath:GelbooruHRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruHPostTxtPath targetFolderPath:GelbooruHRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -120,7 +120,7 @@
             [[FileManager defaultManager] trashFileAtPath:GelbooruHPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            GelbooruDownloadManager *manager = [[GelbooruDownloadManager alloc] initWithTXTFilePath:GelbooruWebmPostTxtPath targetFolderPath:GelbooruWebmRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruWebmPostTxtPath targetFolderPath:GelbooruWebmRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };

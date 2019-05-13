@@ -1,15 +1,15 @@
 //
-//  Rule34DownloadManager.m
+//  ResourceGlobalDownloadManager.m
 //  MyResourceBox
 //
-//  Created by 龚宇 on 19/04/24.
+//  Created by 龚宇 on 19/05/13.
 //  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
-#import "Rule34DownloadManager.h"
+#import "ResourceGlobalDownloadManager.h"
 #import "DownloadQueueManager.h"
 
-@interface Rule34DownloadManager () {
+@interface ResourceGlobalDownloadManager () {
     NSString *txtFilePath;
     NSString *targetFolderPath;
     
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation Rule34DownloadManager
+@implementation ResourceGlobalDownloadManager
 
 - (instancetype)initWithTXTFilePath:(NSString *)filePath targetFolderPath:(NSString *)folderPath {
     self = [super init];

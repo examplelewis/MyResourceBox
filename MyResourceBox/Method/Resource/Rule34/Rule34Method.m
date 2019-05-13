@@ -13,7 +13,7 @@
 #import "Rule34TagEndTimePicManager.h"
 #import "Rule34TagPagePicManager.h"
 #import "Rule34TagPagePicExportTagsManager.h"
-#import "Rule34DownloadManager.h"
+#import "ResourceGlobalDownloadManager.h"
 #import "Rule34OrganizeManager.h"
 #import "Rule34FileMoveManager.h"
 #import "Rule34DownloadAndOrganizeManager.h"
@@ -49,37 +49,37 @@
         }
             break;
         case 11: {
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34FatePostTxtPath targetFolderPath:Rule34FateRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34FatePostTxtPath targetFolderPath:Rule34FateRootFolderPath];
             [manager prepareDownloading];
         }
             break;
         case 12: {
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34AzurPostTxtPath targetFolderPath:Rule34AzurRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34AzurPostTxtPath targetFolderPath:Rule34AzurRootFolderPath];
             [manager prepareDownloading];
         }
             break;
         case 13: {
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34OverwatchPostTxtPath targetFolderPath:Rule34OverwatchRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34OverwatchPostTxtPath targetFolderPath:Rule34OverwatchRootFolderPath];
             [manager prepareDownloading];
         }
             break;
         case 14: {
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34AnimePostTxtPath targetFolderPath:Rule34AnimeRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34AnimePostTxtPath targetFolderPath:Rule34AnimeRootFolderPath];
             [manager prepareDownloading];
         }
             break;
         case 15: {
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34GamePostTxtPath targetFolderPath:Rule34GameRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34GamePostTxtPath targetFolderPath:Rule34GameRootFolderPath];
             [manager prepareDownloading];
         }
             break;
         case 16: {
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34HPostTxtPath targetFolderPath:Rule34HRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34HPostTxtPath targetFolderPath:Rule34HRootFolderPath];
             [manager prepareDownloading];
         }
             break;
         case 17: {
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34WebmPostTxtPath targetFolderPath:Rule34WebmRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34WebmPostTxtPath targetFolderPath:Rule34WebmRootFolderPath];
             [manager prepareDownloading];
         }
             break;
@@ -93,7 +93,7 @@
             NSString *txtFilePath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/Rule34 %@ PostUrl.txt", input];
             NSString *targetFolderPath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/%@/", input];
             
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:txtFilePath targetFolderPath:targetFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:txtFilePath targetFolderPath:targetFolderPath];
             manager.showAlertAfterFinished = YES;
             [manager prepareDownloading];
         }

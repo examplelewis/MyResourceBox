@@ -8,7 +8,7 @@
 
 #import "Rule34DownloadAndOrganizeManager.h"
 #import "Rule34Header.h"
-#import "Rule34DownloadManager.h"
+#import "ResourceGlobalDownloadManager.h"
 #import "Rule34OrganizeManager.h"
 
 @interface Rule34DownloadAndOrganizeManager () {
@@ -36,7 +36,7 @@
             
             totalDownloadStep += 1;
             
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34FatePostTxtPath targetFolderPath:Rule34FateRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34FatePostTxtPath targetFolderPath:Rule34FateRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -50,7 +50,7 @@
             [[FileManager defaultManager] trashFileAtPath:Rule34FatePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34AzurPostTxtPath targetFolderPath:Rule34AzurRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34AzurPostTxtPath targetFolderPath:Rule34AzurRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -64,7 +64,7 @@
             [[FileManager defaultManager] trashFileAtPath:Rule34AzurPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34OverwatchPostTxtPath targetFolderPath:Rule34OverwatchRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34OverwatchPostTxtPath targetFolderPath:Rule34OverwatchRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -78,7 +78,7 @@
             [[FileManager defaultManager] trashFileAtPath:Rule34OverwatchPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34AnimePostTxtPath targetFolderPath:Rule34AnimeRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34AnimePostTxtPath targetFolderPath:Rule34AnimeRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -92,7 +92,7 @@
             [[FileManager defaultManager] trashFileAtPath:Rule34AnimePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34GamePostTxtPath targetFolderPath:Rule34GameRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34GamePostTxtPath targetFolderPath:Rule34GameRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -106,7 +106,7 @@
             [[FileManager defaultManager] trashFileAtPath:Rule34GamePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34HPostTxtPath targetFolderPath:Rule34HRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34HPostTxtPath targetFolderPath:Rule34HRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
@@ -120,7 +120,7 @@
             [[FileManager defaultManager] trashFileAtPath:Rule34HPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
-            Rule34DownloadManager *manager = [[Rule34DownloadManager alloc] initWithTXTFilePath:Rule34WebmPostTxtPath targetFolderPath:Rule34WebmRootFolderPath];
+            ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34WebmPostTxtPath targetFolderPath:Rule34WebmRootFolderPath];
             manager.finishBlock = ^{
                 [self startOperation];
             };
