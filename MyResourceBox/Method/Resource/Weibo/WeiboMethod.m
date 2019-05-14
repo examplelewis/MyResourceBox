@@ -13,6 +13,7 @@
 #import "WeiboRequestTokenWindowController.h"
 #import "WeiboBoundaryManager.h"
 #import "WeiboFetchManager.h"
+#import "WeiboPicCroppingManager.h"
 
 @implementation WeiboMethod
 
@@ -49,6 +50,30 @@
             break;
         case 6: {
             [[WeiboBoundaryManager new] markNewestFavorAsBoundary];
+        }
+            break;
+        case 101: {
+            WeiboPicCroppingManager *manager = [WeiboPicCroppingManager new];
+            manager.croppingRatio = WeiboPicCroppingRatio42;
+            [manager prepareCropping];
+        }
+            break;
+        case 102: {
+            WeiboPicCroppingManager *manager = [WeiboPicCroppingManager new];
+            manager.croppingRatio = WeiboPicCroppingRatio45;
+            [manager prepareCropping];
+        }
+            break;
+        case 103: {
+            WeiboPicCroppingManager *manager = [WeiboPicCroppingManager new];
+            manager.croppingRatio = WeiboPicCroppingRatio47;
+            [manager prepareCropping];
+        }
+            break;
+        case 104: {
+            WeiboPicCroppingManager *manager = [WeiboPicCroppingManager new];
+            manager.croppingRatio = WeiboPicCroppingRatio48;
+            [manager prepareCropping];
         }
             break;
         default:

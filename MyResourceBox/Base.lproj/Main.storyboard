@@ -574,6 +574,38 @@
                                                             <action selector="processingWeibo:" target="Voe-Tx-rLC" id="LQe-ES-NH9"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="b5Z-5N-7iq"/>
+                                                    <menuItem title="批量裁剪微博图片的水印" id="jVM-ko-Vbb">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="批量裁剪微博图片的水印" id="I24-15-4oL">
+                                                            <items>
+                                                                <menuItem title="从底部裁宽度的4.2%" tag="101" id="Wm4-O1-hlh">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="processingWeibo:" target="Voe-Tx-rLC" id="k9R-V2-xf5"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="从底部裁宽度的4.5%" tag="102" id="FKF-TP-7fT">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="processingWeibo:" target="Voe-Tx-rLC" id="q7e-VZ-GMW"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="从底部裁宽度的4.7%" tag="103" id="vj3-07-xys">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="processingWeibo:" target="Voe-Tx-rLC" id="5MZ-ge-Khs"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                                <menuItem title="从底部裁宽度的4.8%" tag="104" id="IRY-ZS-v3s">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                    <connections>
+                                                                        <action selector="processingWeibo:" target="Voe-Tx-rLC" id="TNr-CE-lxe"/>
+                                                                    </connections>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
                                                 </items>
                                             </menu>
                                         </menuItem>

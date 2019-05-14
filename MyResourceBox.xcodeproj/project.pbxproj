@@ -108,6 +108,7 @@
 		ACCCE26D227E900A00A18C8D /* WebArchiveArchivingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCCE26C227E900A00A18C8D /* WebArchiveArchivingManager.m */; };
 		ACCFA0BA226D5D3D007514C0 /* CatchCrashManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */; };
 		ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */; };
+		ACDA9144228A981F0074027E /* WeiboPicCroppingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDA9143228A981F0074027E /* WeiboPicCroppingManager.m */; };
 		ACDCD4F4228902F1005FC4FF /* PicResourceMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCD4F3228902F1005FC4FF /* PicResourceMethod.m */; };
 		ACE0500C227FD3A200367F3A /* WorldCosplayFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0500B227FD3A200367F3A /* WorldCosplayFetchManager.m */; };
 		ACE05010227FD57400367F3A /* JDLingyuFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0500F227FD57400367F3A /* JDLingyuFetchManager.m */; };
@@ -344,6 +345,8 @@
 		ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchCrashManager.m; sourceTree = "<group>"; };
 		ACD1AA35225B44660017A8D3 /* PixivExHentaiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivExHentaiManager.h; sourceTree = "<group>"; };
 		ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivExHentaiManager.m; sourceTree = "<group>"; };
+		ACDA9142228A981F0074027E /* WeiboPicCroppingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboPicCroppingManager.h; sourceTree = "<group>"; };
+		ACDA9143228A981F0074027E /* WeiboPicCroppingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboPicCroppingManager.m; sourceTree = "<group>"; };
 		ACDCD4F2228902F1005FC4FF /* PicResourceMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PicResourceMethod.h; sourceTree = "<group>"; };
 		ACDCD4F3228902F1005FC4FF /* PicResourceMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PicResourceMethod.m; sourceTree = "<group>"; };
 		ACE0500A227FD3A200367F3A /* WorldCosplayFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorldCosplayFetchManager.h; sourceTree = "<group>"; };
@@ -878,6 +881,8 @@
 				ACE05013227FD9EE00367F3A /* WeiboBoundaryManager.m */,
 				ACE05015227FDAF600367F3A /* WeiboFetchManager.h */,
 				ACE05016227FDAF600367F3A /* WeiboFetchManager.m */,
+				ACDA9142228A981F0074027E /* WeiboPicCroppingManager.h */,
+				ACDA9143228A981F0074027E /* WeiboPicCroppingManager.m */,
 			);
 			path = Weibo;
 			sourceTree = "<group>";
@@ -1172,6 +1177,7 @@
 				AC789C7E1DE159E100523A12 /* ExHentaiPagesManager.m in Sources */,
 				ACACB51E21C382D700C8D164 /* ResourceGlobalTagManager.m in Sources */,
 				AC79E1CD1F4EA125008432B9 /* ExHentaiTorrentManager.m in Sources */,
+				ACDA9144228A981F0074027E /* WeiboPicCroppingManager.m in Sources */,
 				ACA5162D220175F20074AB73 /* DeviantartMethod.m in Sources */,
 				ACC93EEC2277E9DD00C207E6 /* BCYFetchManager.m in Sources */,
 				ACCCE266227E8F0700A18C8D /* AnalysisInputManager.m in Sources */,
