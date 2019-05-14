@@ -831,7 +831,7 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="ffj-SK-2b3"/>
-                                                    <menuItem title="整理ExHentai导出的用户" tag="31" id="dlH-bb-rc9">
+                                                    <menuItem title="整理 ExHentai 导出的用户" tag="31" id="dlH-bb-rc9">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingPixiv:" target="Voe-Tx-rLC" id="ATa-rm-2jt"/>

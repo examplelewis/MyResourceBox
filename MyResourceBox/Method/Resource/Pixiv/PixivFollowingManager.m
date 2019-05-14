@@ -32,7 +32,7 @@
     }
     
     WS(weakSelf);
-    [PixivAPIManager fetchMyFollowingWithURL:url success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [PixivAPIManager callPixivApiWithURL:url success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         SS(strongSelf);
         NSString *nextUrl = responseObject[@"next_url"];
         NSArray *userPreviews = responseObject[@"user_previews"];

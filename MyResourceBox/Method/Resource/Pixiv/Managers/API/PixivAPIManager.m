@@ -12,7 +12,7 @@
 
 @implementation PixivAPIManager
 
-+ (void)fetchMyFollowingWithURL:(NSString *)url success:(void (^)(NSURLSessionDataTask * _Nullable, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure {
++ (void)callPixivApiWithURL:(NSString *)url success:(void (^)(NSURLSessionDataTask * _Nullable, id _Nullable))success failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure {
     NSDictionary *defaultHeaders = @{@"Referer": @"http://spapi.pixiv.net/",
                                      @"User-Agent": @"PixivIOSApp/5.1.1",
                                      @"Content-Type": @"application/x-www-form-urlencoded"};
