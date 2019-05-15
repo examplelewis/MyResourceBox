@@ -11,23 +11,16 @@
 @interface SQLiteManager : NSObject
 
 /**
- *  单例模式方法
- *
- *  @return 返回一个初始化后的对象
+ *  备份数据库文件
  */
-+ (SQLiteManager *)defaultManager;
-
++ (void)backupDatabaseFile;
 /**
- *  备份MyToolBox的数据库文件
+ *  还原数据库文件
  */
-- (void)backupBCYDatabase;
-/**
- *  还原MyToolBox的数据库文件
- */
-- (void)restoreBCYDatebase;
++ (void)restoreDatebaseFile;
 /**
  *  去除数据库中重复的内容
  */
-- (void)removeDuplicatesFromDatabase;
++ (void)removeDuplicatesFromDatabase;
 
 @end

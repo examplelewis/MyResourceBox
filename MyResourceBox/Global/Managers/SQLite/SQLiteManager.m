@@ -11,20 +11,8 @@
 
 @implementation SQLiteManager
 
-// 单例模式方法
-static SQLiteManager *inputInstance;
-+ (SQLiteManager *)defaultManager {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        inputInstance = [[SQLiteManager alloc] init];
-    });
-    
-    return inputInstance;
-}
-
-#pragma mark -- 逻辑方法 --
-// 备份MyToolBox的数据库文件
-- (void)backupBCYDatabase {
+// 备份数据库文件
++ (void)backupDatabaseFile {
     NSString *databaseName = @"data";
     NSString *folderPath = [DeviceInfo sharedDevice].path_root_folder;
     NSString *filePath = [[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"];
@@ -74,8 +62,8 @@ static SQLiteManager *inputInstance;
         [[UtilityFile sharedInstance] showLogWithFormat:@"未在指定目录找到需要备份的数据库文件"];
     }
 }
-// 还原MyToolBox的数据库文件
-- (void)restoreBCYDatebase {
+// 还原数据库文件
++ (void)restoreDatebaseFile {
     NSString *folderPath = [DeviceInfo sharedDevice].path_root_folder;
     NSString *filePath = [[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -121,8 +109,8 @@ static SQLiteManager *inputInstance;
         [[UtilityFile sharedInstance] showLogWithFormat:@"未在指定目录找到可以还原的数据库文件"];
     }
 }
-// 去除MyToolBox的数据库中重复的内容
-- (void)removeDuplicatesFromDatabase {
+// 去除数据库中重复的内容
++ (void)removeDuplicatesFromDatabase {
     [UtilityFile resetCurrentDate];
     [[UtilityFile sharedInstance] showLogWithFormat:@"去除数据库中重复的内容：已经准备就绪"];
     
@@ -131,7 +119,7 @@ static SQLiteManager *inputInstance;
     
     [[UtilityFile sharedInstance] showLogWithFormat:@"去除数据库中重复的内容：流程已经结束"];
     
-    [[SQLiteManager defaultManager] backupBCYDatabase];
+    [SQLiteManager backupDatabaseFile];
     [[UtilityFile sharedInstance] showLogWithFormat:@"整个流程已经结束，数据库已备份"];
 }
 

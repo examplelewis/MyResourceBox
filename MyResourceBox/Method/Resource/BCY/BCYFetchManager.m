@@ -238,7 +238,7 @@
         }
         
         // 备份数据库
-        [[SQLiteManager defaultManager] backupBCYDatabase];
+        [SQLiteManager backupDatabaseFile];
         [[UtilityFile sharedInstance] showLogWithFormat:@"整个流程已经结束，数据库已备份"];
     }
     
