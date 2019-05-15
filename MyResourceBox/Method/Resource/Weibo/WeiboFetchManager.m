@@ -13,6 +13,7 @@
 #import "DownloadQueueManager.h"
 #import "OrganizeManager.h"
 #import "SQLiteFMDBManager.h"
+#import "SQLiteManager.h"
 
 @interface WeiboFetchManager () {
     NSMutableDictionary *weiboStatuses;
@@ -132,6 +133,7 @@
         [[UtilityFile sharedInstance] showLogWithFormat:@"将获取到微博信息存储到数据库中"];
         dispatch_async(dispatch_get_main_queue(), ^{
             [[SQLiteFMDBManager defaultDBManager] insertWeiboStatusIntoDatabase:[self->weiboObjects copy]];
+            [SQLiteManager backupDatabaseFile];
         });
         
         [[UtilityFile sharedInstance] showLogWithFormat:@"1秒后开始下载图片"];
