@@ -18,7 +18,6 @@
     NSString *filePath = [[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    [UtilityFile resetCurrentDate];
     [[UtilityFile sharedInstance] showLogWithFormat:@"开始备份数据库文件"];
     
     //先查找要备份的文件是否存在
@@ -34,9 +33,9 @@
                 NSError *error;
                 NSURL *url = [NSURL fileURLWithPath:fullPath];
                 if ([[NSFileManager defaultManager] trashItemAtURL:url resultingItemURL:nil error:&error]) {
-                    [[UtilityFile sharedInstance] showLogWithFormat:@"备份文件删除成功"];
+                    [[UtilityFile sharedInstance] showLogWithFormat:@"旧备份文件删除成功"];
                 } else {
-                    [[UtilityFile sharedInstance] showLogWithTitle:@"备份文件删除失败" andFormat:[error localizedDescription]];
+                    [[UtilityFile sharedInstance] showLogWithTitle:@"旧备份文件删除失败" andFormat:[error localizedDescription]];
                     
                     return;
                 }
