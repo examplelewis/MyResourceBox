@@ -65,6 +65,7 @@
 - (void)markNewestFavorAsBoundary {
     [[UserInfo defaultUser] configureData]; //重新读一遍Plist文件
     [[UtilityFile sharedInstance] showLogWithFormat:@"原有边界微博的ID：%@", [UserInfo defaultUser].weibo_boundary_id];
+    fetchedPage = 1;
     
     [[HttpManager sharedManager] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
         NSArray *favors = dic[@"favorites"];
