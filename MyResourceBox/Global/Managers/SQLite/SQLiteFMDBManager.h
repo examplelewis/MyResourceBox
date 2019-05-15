@@ -39,5 +39,8 @@
 - (void)insertSinglePhotoOrganTotal:(NSString *)folder dest:(NSString *)destination;
 - (NSArray *)readPhotoOrganTotal;
 
+#pragma mark - WeiboStatus
+- (BOOL)isDuplicateFromDatabaseWithWeiboStatusId:(NSString *)weiboStatusId;
+- (void)insertWeiboStatusIntoDatabase:(NSArray *)weiboObjects;
 
 @end

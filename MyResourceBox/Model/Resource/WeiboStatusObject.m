@@ -24,6 +24,7 @@
         _created_at = dict[@"created_at"];
         _created_at_date = [parser dateFromString:_created_at];
         _created_at_readable_str = [_created_at_date formattedDateWithFormat:@"yyyyMMddHHmmss"];
+        _created_at_sqlite_str = [_created_at_date formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
         
         //图片
         NSArray *pArray = [NSArray arrayWithArray:dict[@"pic_urls"]];

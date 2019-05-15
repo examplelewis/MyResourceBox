@@ -12,11 +12,12 @@
 #import "HttpManager.h"
 #import "DownloadQueueManager.h"
 #import "OrganizeManager.h"
+#import "SQLiteFMDBManager.h"
 
 @interface WeiboFetchManager () {
-    NSMutableArray *weiboIds;
     NSMutableDictionary *weiboStatuses;
     NSMutableArray *weiboImages;
+    NSMutableArray *weiboObjects;
     NSInteger fetchedPage;
     NSInteger fetchedCount;
 }
@@ -26,9 +27,9 @@
 @implementation WeiboFetchManager
 
 - (void)getFavorList {
-    weiboIds = [NSMutableArray array];
     weiboStatuses = [NSMutableDictionary dictionary];
     weiboImages = [NSMutableArray array];
+    weiboObjects = [NSMutableArray array];
     fetchedPage = 1;
     fetchedCount = 0;
     
@@ -61,8 +62,8 @@
             NSString *statusKey = @"";
             WeiboStatusObject *object = [[WeiboStatusObject alloc] initWithDictionary:sDict];
             
-            // 如果当前微博已经被存储过的话，就忽略
-            if ([self->weiboIds indexOfObject:object.id_str] != NSNotFound) {
+            // 如果当前微博在数据库中有记录，那么跳过
+            if ([[SQLiteFMDBManager defaultDBManager] isDuplicateFromDatabaseWithWeiboStatusId:object.id_str]) {
                 continue;
             }
             
@@ -91,7 +92,7 @@
             statusKey = [statusKey stringByAppendingFormat:@"【%@-%@】", object.user_screen_name, object.created_at_readable_str];
             statusKey = [statusKey stringByReplacingOccurrencesOfString:@"/" withString:@" "]; // 防止有 / 出现
             
-            [self->weiboIds addObject:object.id_str];
+            [self->weiboObjects addObject:object];
             [self->weiboStatuses setObject:object.img_urls forKey:statusKey];
             [self->weiboImages addObjectsFromArray:object.img_urls];
         }
@@ -116,16 +117,22 @@
 
 #pragma mark -- 辅助方法 --
 - (void)exportResult {
+    [[UtilityFile sharedInstance] showLogWithFormat:@"一共抓取到 %ld 条微博，去重后剩余 %ld 条，重复 %ld 条", fetchedCount, weiboStatuses.count, fetchedCount - weiboStatuses.count];
+    [[UtilityFile sharedInstance] showLogWithFormat:@"流程已经完成，共有 %ld 条微博的 %ld 条图片地址被获取到", weiboStatuses.count, weiboImages.count];
+    
     if (weiboImages.count > 0) {
+        DDLogInfo(@"图片地址是：%@", weiboImages);
+        
         // 使用NSOrderedSet进行一次去重的操作
         NSOrderedSet *set = [NSOrderedSet orderedSetWithArray:weiboImages];
         weiboImages = [NSMutableArray arrayWithArray:set.array];
         [UtilityFile exportArray:weiboImages atPath:weiboImageTxtFilePath];
         [weiboStatuses writeToFile:weiboStatusPlistFilePath atomically:YES];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"一共抓取到 %ld 条微博，去重后剩余 %ld 条，重复 %ld 条", fetchedCount, weiboIds.count, fetchedCount - weiboIds.count];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"流程已经完成，共有 %ld 条微博的 %ld 条图片地址被获取到", weiboStatuses.count, weiboImages.count];
-        DDLogInfo(@"图片地址是：%@", weiboImages);
+        [[UtilityFile sharedInstance] showLogWithFormat:@"将获取到微博信息存储到数据库中"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[SQLiteFMDBManager defaultDBManager] insertWeiboStatusIntoDatabase:[self->weiboObjects copy]];
+        });
         
         [[UtilityFile sharedInstance] showLogWithFormat:@"1秒后开始下载图片"];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -133,7 +140,6 @@
         });
     } else {
         [[UtilityFile sharedInstance] showLogWithFormat:@"未发现可下载的资源"];
-        return;
     }
 }
 - (void)startDownload {
@@ -145,6 +151,5 @@
     };
     [manager startDownload];
 }
-
 
 @end

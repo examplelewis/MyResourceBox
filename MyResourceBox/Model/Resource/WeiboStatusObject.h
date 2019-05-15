@@ -13,6 +13,7 @@
 @property (copy, readonly) NSString *created_at;
 @property (strong, readonly) NSDate *created_at_date;
 @property (copy, readonly) NSString *created_at_readable_str;
+@property (copy, readonly) NSString *created_at_sqlite_str;
 @property (copy, readonly) NSString *id_str;
 @property (copy, readonly) NSString *img_urls_str;
 @property (copy, readonly) NSArray *img_urls;

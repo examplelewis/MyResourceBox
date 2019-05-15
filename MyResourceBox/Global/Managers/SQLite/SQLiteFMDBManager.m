@@ -426,4 +426,78 @@ static SQLiteFMDBManager *_sharedDBManager;
     return [array copy];
 }
 
+#pragma mark - WeiboStatus
+- (BOOL)isDuplicateFromDatabaseWithWeiboStatusId:(NSString *)weiboStatusId {
+    //先判断数据库是否存在，如果不存在，创建数据库
+    if (!db) {
+        [self createDatabase];
+    }
+    //判断数据库是否已经打开，如果没有打开，提示失败
+    if (![db open]) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"从数据表:weiboStatus中查询数据时发生错误：%@", [db lastErrorMessage]];
+        [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", weiboStatusId];
+        
+        return NO;
+    }
+    //为数据库设置缓存，提高查询效率
+    [db setShouldCacheStatements:YES];
+    
+    NSMutableArray *array = [NSMutableArray array];
+    FMResultSet *rs = [db executeQuery:@"select * from weiboStatus where weibo_id = ?", weiboStatusId];
+    while ([rs next]) {
+        NSString *result = [rs stringForColumn:@"weibo_id"];
+        
+        [array addObject:result];
+    }
+    [rs close];
+    [db close];
+    
+    return array.count != 0;
+}
+- (void)insertWeiboStatusIntoDatabase:(NSArray *)weiboObjects {
+    //先判断数据库是否存在，如果不存在，创建数据库
+    if (!db) {
+        [self createDatabase];
+    }
+    //判断数据库是否已经打开，如果没有打开，提示失败
+    if (![db open]) {
+        [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:pixivFollowingUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+        
+        return;
+    }
+    
+    [db beginTransaction];
+    
+    BOOL isRollBack = NO;
+    
+    @try {
+        for (NSInteger i = 0; i < weiboObjects.count; i++) {
+            WeiboStatusObject *object = weiboObjects[i];
+            
+            BOOL weiboStatusSuccess = [db executeUpdate:@"INSERT INTO weiboStatus (id, weibo_id, author_id, author_name, text, publish_time, fetch_time) values(?, ?, ?, ?, ?, ?, ?)", NULL, object.id_str, object.user_id_str, object.user_screen_name, object.text, object.created_at_sqlite_str, [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"]];
+            if (!weiboStatusSuccess) {
+                [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:weiboStatus中插入数据时发生错误：%@", [db lastErrorMessage]];
+                [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", object];
+            }
+            
+            for (NSInteger j = 0; j < object.img_urls.count; j++) {
+                BOOL weiboImageSuccess = [db executeUpdate:@"INSERT INTO weiboImage (id, weibo_id, image_url) values(?, ?, ?)", NULL, object.id_str, object.img_urls[j]];
+                if (!weiboImageSuccess) {
+                    [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:weiboImage中插入数据时发生错误：%@", [db lastErrorMessage]];
+                    [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", object];
+                }
+            }
+        }
+    } @catch (NSException *exception) {
+        isRollBack = YES;
+        [db rollback];
+    } @finally {
+        if (!isRollBack) {
+            [db commit];
+        }
+    }
+    
+    [db close];
+}
+
 @end
