@@ -18,6 +18,7 @@
     NSMutableDictionary *weiboStatuses;
     NSMutableArray *weiboImages;
     NSInteger fetchedPage;
+    NSInteger fetchedCount;
 }
 
 @end
@@ -29,6 +30,7 @@
     weiboStatuses = [NSMutableDictionary dictionary];
     weiboImages = [NSMutableArray array];
     fetchedPage = 1;
+    fetchedCount = 0;
     
     [self getFavouristByApi];
 }
@@ -46,6 +48,8 @@
                 found = YES;
                 break;
             }
+            
+            self->fetchedCount += 1;
             
             NSDictionary *sDict;
             if (statusDict[@"retweeted_status"]) {
@@ -119,6 +123,7 @@
         [UtilityFile exportArray:weiboImages atPath:weiboImageTxtFilePath];
         [weiboStatuses writeToFile:weiboStatusPlistFilePath atomically:YES];
         
+        [[UtilityFile sharedInstance] showLogWithFormat:@"一共抓取到 %ld 条微博，去重后剩余 %ld 条，重复 %ld 条", fetchedCount, weiboIds.count, fetchedCount - weiboIds.count];
         [[UtilityFile sharedInstance] showLogWithFormat:@"流程已经完成，共有 %ld 条微博的 %ld 条图片地址被获取到", weiboStatuses.count, weiboImages.count];
         DDLogInfo(@"图片地址是：%@", weiboImages);
         
