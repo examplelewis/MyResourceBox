@@ -69,12 +69,45 @@ static ResourceGlobalTagManager *request;
     neededTags = [NSArray arrayWithArray:array];
 }
 - (void)readTypedTags {
+    NSRegularExpression *annotationRE = [[NSRegularExpression alloc] initWithPattern:@" //.*" options:NSRegularExpressionCaseInsensitive error:nil]; // 每一行的文字都不存在换行符，因此可以使用 .* 来匹配，如果需要匹配所有字符应当使用 [\\s\\S]*
+    
     NSString *animeTagsStr = [[NSString alloc] initWithContentsOfFile:@"/Users/Mercury/Documents/同步文档/MyResourceBox/FetchResource/AnimeTags.txt" encoding:NSUTF8StringEncoding error:nil];
-    animeTags = [animeTagsStr componentsSeparatedByString:@"\n"];
+    NSMutableArray *animeOriginalTags = [NSMutableArray arrayWithArray:[animeTagsStr componentsSeparatedByString:@"\n"]];
+    for (NSInteger i = 0; i < animeOriginalTags.count; i++) {
+        NSString *animeOriginalTag = animeOriginalTags[i];
+        NSString *animeAfterTag = [annotationRE stringByReplacingMatchesInString:animeOriginalTag options:NSMatchingReportProgress range:NSMakeRange(0, animeOriginalTag.length) withTemplate:@""];
+        if (![animeAfterTag isEqualToString:animeOriginalTag]) {
+            DDLogInfo(@"animeTag before regular: %@, after regulr: %@", animeOriginalTag, animeAfterTag);
+            animeOriginalTags[i] = animeAfterTag;
+        }
+    }
+    animeTags = [animeOriginalTags copy];
+    
     NSString *gameTagsStr = [[NSString alloc] initWithContentsOfFile:@"/Users/Mercury/Documents/同步文档/MyResourceBox/FetchResource/GameTags.txt" encoding:NSUTF8StringEncoding error:nil];
-    gameTags = [gameTagsStr componentsSeparatedByString:@"\n"];
+    NSMutableArray *gameOriginalTags = [NSMutableArray arrayWithArray:[gameTagsStr componentsSeparatedByString:@"\n"]];
+    for (NSInteger i = 0; i < gameOriginalTags.count; i++) {
+        NSString *gameOriginalTag = gameOriginalTags[i];
+        NSString *gameAfterTag = [annotationRE stringByReplacingMatchesInString:gameOriginalTag options:NSMatchingReportProgress range:NSMakeRange(0, gameOriginalTag.length) withTemplate:@""];
+        if (![gameAfterTag isEqualToString:gameOriginalTag]) {
+            DDLogInfo(@"gameTag before regular: %@, after regulr: %@", gameOriginalTag, gameAfterTag);
+            gameOriginalTags[i] = gameAfterTag;
+        }
+    }
+    gameTags = [gameOriginalTags copy];
+    
     NSString *hTagsStr = [[NSString alloc] initWithContentsOfFile:@"/Users/Mercury/Documents/同步文档/MyResourceBox/FetchResource/HTags.txt" encoding:NSUTF8StringEncoding error:nil];
-    hTags = [hTagsStr componentsSeparatedByString:@"\n"];
+    NSMutableArray *hOriginalTags = [NSMutableArray arrayWithArray:[hTagsStr componentsSeparatedByString:@"\n"]];
+    for (NSInteger i = 0; i < hOriginalTags.count; i++) {
+        NSString *hOriginalTag = hOriginalTags[i];
+        NSString *hAfterTag = [annotationRE stringByReplacingMatchesInString:hOriginalTag options:NSMatchingReportProgress range:NSMakeRange(0, hOriginalTag.length) withTemplate:@""];
+        if (![hAfterTag isEqualToString:hOriginalTag]) {
+            DDLogInfo(@"hTag before regular: %@, after regulr: %@", hOriginalTag, hAfterTag);
+            hOriginalTags[i] = hAfterTag;
+        }
+    }
+    hTags = [hOriginalTags copy];
+    
+    DDLogInfo(@"获取到的 TypedTags 如下:\nanimeTags: %@\ngameTags: %@\nhTags: %@\n", animeTags, gameTags, hTags);
 }
 
 #pragma mark - 查找需要的 Copyright 标签
