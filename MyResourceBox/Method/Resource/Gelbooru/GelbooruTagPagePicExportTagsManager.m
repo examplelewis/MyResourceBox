@@ -7,7 +7,7 @@
 //
 
 #import "GelbooruTagPagePicExportTagsManager.h"
-#import "HttpManager.h"
+#import "MRBHttpManager.h"
 #import "GelbooruHeader.h"
 #import "ResourceGlobalTagManager.h"
 
@@ -59,7 +59,7 @@
     [self fetchSinglePostUrl];
 }
 - (void)fetchSinglePostUrl {
-    [[HttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page - 1 success:^(NSArray *array) {
+    [[MRBHttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page - 1 success:^(NSArray *array) {
         for (NSInteger i = 0; i < array.count; i++) {
             NSDictionary *data = [NSDictionary dictionaryWithDictionary:array[i]];
             

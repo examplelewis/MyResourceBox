@@ -7,7 +7,7 @@
 //
 
 #import "WeiboBoundaryManager.h"
-#import "HttpManager.h"
+#import "MRBHttpManager.h"
 #import "WeiboStatusObject.h"
 
 @interface WeiboBoundaryManager () {
@@ -26,7 +26,7 @@
     [self getBoundaryByApi];
 }
 - (void)getBoundaryByApi {
-    [[HttpManager sharedManager] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
+    [[MRBHttpManager sharedManager] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
         NSArray *favors = dic[@"favorites"];
         BOOL found = NO;
         
@@ -67,7 +67,7 @@
     [[MRBLogManager defaultManager] showLogWithFormat:@"原有边界微博的ID：%@", [UserInfo defaultUser].weibo_boundary_id];
     fetchedPage = 1;
     
-    [[HttpManager sharedManager] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
+    [[MRBHttpManager sharedManager] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
         NSArray *favors = dic[@"favorites"];
         if (!favors || favors.count == 0) {
             [[MRBLogManager defaultManager] showLogWithFormat:@"当前没有收藏内容，跳过"];

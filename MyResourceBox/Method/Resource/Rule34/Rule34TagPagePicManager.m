@@ -7,7 +7,7 @@
 //
 
 #import "Rule34TagPagePicManager.h"
-#import "HttpManager.h"
+#import "MRBHttpManager.h"
 #import "Rule34Header.h"
 
 @interface Rule34TagPagePicManager () {
@@ -55,7 +55,7 @@
     [self fetchSinglePostUrl];
 }
 - (void)fetchSinglePostUrl {
-    [[HttpManager sharedManager] getSpecificTagPicFromRule34Tag:tag page:page - 1 success:^(NSArray *array) {
+    [[MRBHttpManager sharedManager] getSpecificTagPicFromRule34Tag:tag page:page - 1 success:^(NSArray *array) {
         for (NSInteger i = 0; i < array.count; i++) {
             NSDictionary *data = [NSDictionary dictionaryWithDictionary:array[i]];
             
@@ -120,7 +120,7 @@
     NSString *inputTag = inputComps[0];
     [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片数量：流程开始", inputTag];
     
-    [[HttpManager sharedManager] getSpecificTagPicCountFromRule34Tag:inputTag success:^(NSInteger totalCount) {
+    [[MRBHttpManager sharedManager] getSpecificTagPicCountFromRule34Tag:inputTag success:^(NSInteger totalCount) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片数量，需要抓取 %.0f 页，图片数量 %ld 张", inputTag, ceil(totalCount / 100.0), totalCount];
         [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片数量：流程结束", inputTag];
     } failed:^(NSString *errorTitle, NSString *errorMsg) {

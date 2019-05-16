@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "FileManager.h"
 #import <TMAPIClient.h>
-#import "HttpManager.h"
+#import "MRBHttpManager.h"
 
 #import "AnalysisMethod.h"
 #import "BCYMethod.h"
@@ -282,7 +282,7 @@
     [UserInfo defaultUser].weibo_code = code;
     [[UserInfo defaultUser] saveAuthDictIntoPlistFile];
     
-    [[HttpManager sharedManager] getWeiboTokenWithStart:nil success:^(NSDictionary *dic) {
+    [[MRBHttpManager sharedManager] getWeiboTokenWithStart:nil success:^(NSDictionary *dic) {
         [UserInfo defaultUser].weibo_token = dic[@"access_token"];
         [UserInfo defaultUser].weibo_expires_at_date = [NSDate dateWithTimeIntervalSinceNow:[dic[@"expire_in"] integerValue]];
         [[UserInfo defaultUser] saveAuthDictIntoPlistFile];

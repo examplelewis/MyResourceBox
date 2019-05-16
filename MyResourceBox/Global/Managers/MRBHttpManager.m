@@ -1,22 +1,22 @@
 //
-//  HttpManager.m
+//  MRBHttpManager.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 17/10/05.
 //  Copyright © 2017年 gongyuTest. All rights reserved.
 //
 
-#import "HttpManager.h"
+#import "MRBHttpManager.h"
 #import "XMLReader.h"
 
-@implementation HttpManager
+@implementation MRBHttpManager
 
-+ (HttpManager *)sharedManager {
-    static HttpManager *_sharedManager;
++ (MRBHttpManager *)sharedManager {
+    static MRBHttpManager *_sharedManager;
     static dispatch_once_t _sharedManagerOnce;
     
     dispatch_once(&_sharedManagerOnce, ^{
-        _sharedManager = [[HttpManager alloc] init];
+        _sharedManager = [[MRBHttpManager alloc] init];
     });
     
     return _sharedManager;

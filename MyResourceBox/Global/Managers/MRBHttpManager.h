@@ -1,5 +1,5 @@
 //
-//  HttpManager.h
+//  MRBHttpManager.h
 //  MyResourceBox
 //
 //  Created by 龚宇 on 17/10/05.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HttpManager : NSObject
+@interface MRBHttpManager : NSObject
 
-+ (HttpManager *)sharedManager;
++ (MRBHttpManager *)sharedManager;
 
 #pragma mark - Weibo
 // OAuth2 请求 token

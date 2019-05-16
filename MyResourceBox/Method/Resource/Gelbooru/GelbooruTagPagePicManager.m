@@ -7,7 +7,7 @@
 //
 
 #import "GelbooruTagPagePicManager.h"
-#import "HttpManager.h"
+#import "MRBHttpManager.h"
 #import "GelbooruHeader.h"
 
 @interface GelbooruTagPagePicManager () {
@@ -55,7 +55,7 @@
     [self fetchSinglePostUrl];
 }
 - (void)fetchSinglePostUrl {
-    [[HttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page - 1 success:^(NSArray *array) {
+    [[MRBHttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page - 1 success:^(NSArray *array) {
         for (NSInteger i = 0; i < array.count; i++) {
             NSDictionary *data = [NSDictionary dictionaryWithDictionary:array[i]];
             
@@ -120,7 +120,7 @@
     NSString *inputTag = inputComps[0];
     [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片数量：流程开始", inputTag];
     
-    [[HttpManager sharedManager] getSpecificTagPicCountFromGelbooruTag:inputTag success:^(NSInteger totalCount) {
+    [[MRBHttpManager sharedManager] getSpecificTagPicCountFromGelbooruTag:inputTag success:^(NSInteger totalCount) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片数量，需要抓取 %.0f 页，图片数量 %ld 张", inputTag, ceil(totalCount / 100.0), totalCount];
         [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片数量：流程结束", inputTag];
     } failed:^(NSString *errorTitle, NSString *errorMsg) {

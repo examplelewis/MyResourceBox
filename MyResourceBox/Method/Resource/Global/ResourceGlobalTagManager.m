@@ -8,7 +8,7 @@
 
 #import "ResourceGlobalTagManager.h"
 #import "XMLReader.h"
-#import "HttpManager.h"
+#import "MRBHttpManager.h"
 
 @interface ResourceGlobalTagManager () {
     NSString *neededTagsFolderPath; // NeededTags 文件夹的路径

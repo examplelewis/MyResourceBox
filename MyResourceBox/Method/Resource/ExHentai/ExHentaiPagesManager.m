@@ -7,7 +7,7 @@
 //
 
 #import "ExHentaiPagesManager.h"
-#import "HttpManager.h"
+#import "MRBHttpManager.h"
 
 @implementation ExHentaiPagesManager
 
@@ -59,7 +59,7 @@
 
 // 获取首页包含图片的网页地址以及数据信息
 - (void)fetchPostDetail {
-    [[HttpManager sharedManager] getExHentaiPostDetailWithUrl:self.homepage success:^(NSDictionary *result) {
+    [[MRBHttpManager sharedManager] getExHentaiPostDetailWithUrl:self.homepage success:^(NSDictionary *result) {
         self->_total = [result[@"filecount"] integerValue];
         self->_end = ceil(self->_total / 20.0);
         self->_title = [result[@"title_jpn"] length] == 0 ? result[@"title"] : result[@"title_jpn"];

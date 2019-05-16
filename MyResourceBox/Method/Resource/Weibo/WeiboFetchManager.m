@@ -9,7 +9,7 @@
 #import "WeiboFetchManager.h"
 #import "WeiboHeader.h"
 #import "WeiboStatusObject.h"
-#import "HttpManager.h"
+#import "MRBHttpManager.h"
 #import "DownloadQueueManager.h"
 #import "OrganizeManager.h"
 #import "SQLiteFMDBManager.h"
@@ -39,7 +39,7 @@
     [self getFavouristByApi];
 }
 - (void)getFavouristByApi {
-    [[HttpManager sharedManager] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
+    [[MRBHttpManager sharedManager] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
         NSArray *favors = dic[@"favorites"];
         BOOL found = NO;
         

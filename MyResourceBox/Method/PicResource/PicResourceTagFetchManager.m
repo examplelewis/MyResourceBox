@@ -8,7 +8,7 @@
 
 #import "PicResourceTagFetchManager.h"
 #import "XMLReader.h"
-#import "HttpManager.h"
+#import "MRBHttpManager.h"
 
 @interface PicResourceTagFetchManager () {
     NSString *preferencePath; // Preference.plist 文件的路径
@@ -59,7 +59,7 @@
 - (void)fetchAllTags {
     DDLogInfo(@"正在抓取第 %ld 页 Tags", pid);
     
-    [[HttpManager sharedManager] getGelbooruTagsWithPid:pid success:^(NSArray *array) {
+    [[MRBHttpManager sharedManager] getGelbooruTagsWithPid:pid success:^(NSArray *array) {
         if (array.count == 0) {
             [[MRBLogManager defaultManager] showLogWithFormat:@"所有 Tags 下载完成"];
             [self readyToOrganize];

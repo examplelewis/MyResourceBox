@@ -7,7 +7,7 @@
 //
 
 #import "GelbooruTagEndTimePicManager.h"
-#import "HttpManager.h"
+#import "MRBHttpManager.h"
 #import "GelbooruHeader.h"
 
 @interface GelbooruTagEndTimePicManager () {
@@ -64,7 +64,7 @@
     [self fetchSinglePostUrl];
 }
 - (void)fetchSinglePostUrl {
-    [[HttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page success:^(NSArray *array) {
+    [[MRBHttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page success:^(NSArray *array) {
         BOOL foundNearest = NO; // 找到早于 endDate 的 post
         for (NSInteger i = 0; i < array.count; i++) {
             NSDictionary *data = [NSDictionary dictionaryWithDictionary:array[i]];
@@ -158,7 +158,7 @@
     [self fetchSinglePostCountUrl];
 }
 - (void)fetchSinglePostCountUrl {
-    [[HttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page success:^(NSArray *array) {
+    [[MRBHttpManager sharedManager] getSpecificTagPicFromGelbooruTag:tag page:page success:^(NSArray *array) {
         NSDate *firstCreatedAt = [self->formatter dateFromString:(array.firstObject)[@"created_at"]];
         NSDate *lastCreatedAt = [self->formatter dateFromString:(array.lastObject)[@"created_at"]];
         

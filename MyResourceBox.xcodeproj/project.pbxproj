@@ -20,7 +20,7 @@
 		AC2D1B151DD0191C0085F8E0 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2D1B131DD0191C0085F8E0 /* DeviceInfo.m */; };
 		AC47543F1DCC461800880934 /* OrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC47543E1DCC461800880934 /* OrganizeManager.m */; };
 		AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4754411DCC5B1600880934 /* DownloadMethod.m */; };
-		AC75C6531F8657800060CF6B /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC75C6521F8657800060CF6B /* HttpManager.m */; };
+		AC75C6531F8657800060CF6B /* MRBHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC75C6521F8657800060CF6B /* MRBHttpManager.m */; };
 		AC789C651DE1466200523A12 /* CookieInfoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C631DE1466200523A12 /* CookieInfoObject.m */; };
 		AC789C681DE1467000523A12 /* CookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C661DE1467000523A12 /* CookieManager.m */; };
 		AC789C731DE159B700523A12 /* BCYMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C6E1DE159B700523A12 /* BCYMethod.m */; };
@@ -168,8 +168,8 @@
 		AC47543E1DCC461800880934 /* OrganizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizeManager.m; sourceTree = "<group>"; };
 		AC4754401DCC5B1600880934 /* DownloadMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadMethod.h; sourceTree = "<group>"; };
 		AC4754411DCC5B1600880934 /* DownloadMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadMethod.m; sourceTree = "<group>"; };
-		AC75C6511F8657800060CF6B /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpManager.h; sourceTree = "<group>"; };
-		AC75C6521F8657800060CF6B /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpManager.m; sourceTree = "<group>"; };
+		AC75C6511F8657800060CF6B /* MRBHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBHttpManager.h; sourceTree = "<group>"; };
+		AC75C6521F8657800060CF6B /* MRBHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBHttpManager.m; sourceTree = "<group>"; };
 		AC789C631DE1466200523A12 /* CookieInfoObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieInfoObject.m; sourceTree = "<group>"; };
 		AC789C641DE1466200523A12 /* CookieInfoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieInfoObject.h; sourceTree = "<group>"; };
 		AC789C661DE1467000523A12 /* CookieManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieManager.m; sourceTree = "<group>"; };
@@ -608,8 +608,8 @@
 				AC789C661DE1467000523A12 /* CookieManager.m */,
 				AC8509101DB39692004AFE84 /* FileManager.h */,
 				AC8509111DB39692004AFE84 /* FileManager.m */,
-				AC75C6511F8657800060CF6B /* HttpManager.h */,
-				AC75C6521F8657800060CF6B /* HttpManager.m */,
+				AC75C6511F8657800060CF6B /* MRBHttpManager.h */,
+				AC75C6521F8657800060CF6B /* MRBHttpManager.m */,
 				ACCAA0361E1B81250017EDDA /* MRBImageManager.h */,
 				ACCAA0351E1B81250017EDDA /* MRBImageManager.m */,
 				ACCFA0B8226D5D3C007514C0 /* MRBCatchCrashManager.h */,
@@ -1214,7 +1214,7 @@
 				AC789C7D1DE159E100523A12 /* ExHentaiManager.m in Sources */,
 				ACA9C92021FD954E00B33CB4 /* PixivLoginUserManager.m in Sources */,
 				AC8509191DB39692004AFE84 /* FileManager.m in Sources */,
-				AC75C6531F8657800060CF6B /* HttpManager.m in Sources */,
+				AC75C6531F8657800060CF6B /* MRBHttpManager.m in Sources */,
 				ACCAA3B3228D09C40062BCE6 /* MRBLogManager.m in Sources */,
 				AC9870581E4C4A650076DC92 /* WeiboStatusObject.m in Sources */,
 				ACC8DDD0227015A8005228D7 /* GelbooruDownloadAndOrganizeManager.m in Sources */,

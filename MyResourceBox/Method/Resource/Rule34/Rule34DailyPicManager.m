@@ -8,7 +8,7 @@
 
 #import "Rule34DailyPicManager.h"
 #import "ResourceGlobalTagManager.h"
-#import "HttpManager.h"
+#import "MRBHttpManager.h"
 #import "Rule34Header.h"
 
 @interface Rule34DailyPicManager () {
@@ -64,7 +64,7 @@
     [self fetchSingleDailyPostUrl];
 }
 - (void)fetchSingleDailyPostUrl {
-    [[HttpManager sharedManager] getRule34PostsWithPage:curPage success:^(NSArray *array) {
+    [[MRBHttpManager sharedManager] getRule34PostsWithPage:curPage success:^(NSArray *array) {
         if (self->curPage == 0) {
             self->newestPost = [NSDictionary dictionaryWithDictionary:array.firstObject];
         }
