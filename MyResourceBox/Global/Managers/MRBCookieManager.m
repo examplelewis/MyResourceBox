@@ -1,15 +1,15 @@
 //
-//  CookieManager.m
+//  MRBCookieManager.m
 //  MyToolBox
 //
 //  Created by 龚宇 on 16/11/16.
 //  Copyright © 2016年 gongyuTest. All rights reserved.
 //
 
-#import "CookieManager.h"
+#import "MRBCookieManager.h"
 #import <JSONKit.h>
 
-@implementation CookieManager
+@implementation MRBCookieManager
 
 - (instancetype)initWithCookieFileType:(CookieFileType)filetype {
     self = [super init];

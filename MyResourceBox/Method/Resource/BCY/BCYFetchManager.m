@@ -10,7 +10,7 @@
 #import "BCYHeader.h"
 #import "SQLiteManager.h"
 #import "SQLiteFMDBManager.h"
-#import "CookieManager.h"
+#import "MRBCookieManager.h"
 #import "DownloadQueueManager.h"
 
 @interface BCYFetchManager () {
@@ -33,7 +33,7 @@
 - (void)getPageURLFromInput:(BOOL)check {
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取半次元的图片地址：已经准备就绪"];
     
-    CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeBCY];
+    MRBCookieManager *manager = [[MRBCookieManager alloc] initWithCookieFileType:CookieFileTypeBCY];
     [manager writeCookiesIntoHTTPStorage];
     
     checkDB = check;
@@ -53,7 +53,7 @@
     [MRBLogManager resetCurrentDate];
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取半次元的图片地址：已经准备就绪"];
     
-    CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeBCY];
+    MRBCookieManager *manager = [[MRBCookieManager alloc] initWithCookieFileType:CookieFileTypeBCY];
     [manager writeCookiesIntoHTTPStorage];
     
     checkDB = YES;

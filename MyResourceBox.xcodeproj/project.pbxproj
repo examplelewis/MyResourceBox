@@ -22,7 +22,7 @@
 		AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4754411DCC5B1600880934 /* DownloadMethod.m */; };
 		AC75C6531F8657800060CF6B /* MRBHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC75C6521F8657800060CF6B /* MRBHttpManager.m */; };
 		AC789C651DE1466200523A12 /* CookieInfoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C631DE1466200523A12 /* CookieInfoObject.m */; };
-		AC789C681DE1467000523A12 /* CookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C661DE1467000523A12 /* CookieManager.m */; };
+		AC789C681DE1467000523A12 /* MRBCookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C661DE1467000523A12 /* MRBCookieManager.m */; };
 		AC789C731DE159B700523A12 /* BCYMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C6E1DE159B700523A12 /* BCYMethod.m */; };
 		AC789C741DE159B700523A12 /* TumblrMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C701DE159B700523A12 /* TumblrMethod.m */; };
 		AC789C751DE159B700523A12 /* WeiboMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C721DE159B700523A12 /* WeiboMethod.m */; };
@@ -172,8 +172,8 @@
 		AC75C6521F8657800060CF6B /* MRBHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBHttpManager.m; sourceTree = "<group>"; };
 		AC789C631DE1466200523A12 /* CookieInfoObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieInfoObject.m; sourceTree = "<group>"; };
 		AC789C641DE1466200523A12 /* CookieInfoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieInfoObject.h; sourceTree = "<group>"; };
-		AC789C661DE1467000523A12 /* CookieManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieManager.m; sourceTree = "<group>"; };
-		AC789C671DE1467000523A12 /* CookieManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieManager.h; sourceTree = "<group>"; };
+		AC789C661DE1467000523A12 /* MRBCookieManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBCookieManager.m; sourceTree = "<group>"; };
+		AC789C671DE1467000523A12 /* MRBCookieManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBCookieManager.h; sourceTree = "<group>"; };
 		AC789C6D1DE159B700523A12 /* BCYMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCYMethod.h; sourceTree = "<group>"; };
 		AC789C6E1DE159B700523A12 /* BCYMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCYMethod.m; sourceTree = "<group>"; };
 		AC789C6F1DE159B700523A12 /* TumblrMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrMethod.h; sourceTree = "<group>"; };
@@ -604,8 +604,8 @@
 		AC85090F1DB39692004AFE84 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				AC789C671DE1467000523A12 /* CookieManager.h */,
-				AC789C661DE1467000523A12 /* CookieManager.m */,
+				AC789C671DE1467000523A12 /* MRBCookieManager.h */,
+				AC789C661DE1467000523A12 /* MRBCookieManager.m */,
 				AC8509101DB39692004AFE84 /* MRBFileManager.h */,
 				AC8509111DB39692004AFE84 /* MRBFileManager.m */,
 				AC75C6511F8657800060CF6B /* MRBHttpManager.h */,
@@ -1127,7 +1127,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC789C681DE1467000523A12 /* CookieManager.m in Sources */,
+				AC789C681DE1467000523A12 /* MRBCookieManager.m in Sources */,
 				AC9F4C6E1E499BBB00FD01C5 /* DownloadQueueManager.m in Sources */,
 				AC789C881DE15A3600523A12 /* WorldCosplayMethod.m in Sources */,
 				AC789C8B1DE1602500523A12 /* AnalysisMethod.m in Sources */,

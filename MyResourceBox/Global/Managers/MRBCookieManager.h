@@ -1,5 +1,5 @@
 //
-//  CookieManager.h
+//  MRBCookieManager.h
 //  MyToolBox
 //
 //  Created by 龚宇 on 16/11/16.
@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, CookieFileType) {
     CookieFileTypeWorldCosplay
 };
 
-@interface CookieManager : NSObject {
+@interface MRBCookieManager : NSObject {
     NSString *file_name;
     NSString *cookie_domain;
     NSString *cookie_string;

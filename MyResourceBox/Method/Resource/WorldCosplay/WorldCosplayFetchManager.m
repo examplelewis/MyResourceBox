@@ -7,7 +7,7 @@
 //
 
 #import "WorldCosplayFetchManager.h"
-#import "CookieManager.h"
+#import "MRBCookieManager.h"
 #import "MRBFileManager.h"
 #import "DownloadQueueManager.h"
 
@@ -28,7 +28,7 @@ static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
 
 // 1.1、从输入的HTML中获取网页信息
 - (void)getHTMLFromInput {
-    CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeWorldCosplay];
+    MRBCookieManager *manager = [[MRBCookieManager alloc] initWithCookieFileType:CookieFileTypeWorldCosplay];
     [manager writeCookiesIntoHTTPStorage];
     
     pageUrls = [NSMutableArray array];
@@ -73,7 +73,7 @@ static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
 }
 // 1.2、从输入中获取网页信息
 - (void)getPageUrlsFromInput {
-    CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeWorldCosplay];
+    MRBCookieManager *manager = [[MRBCookieManager alloc] initWithCookieFileType:CookieFileTypeWorldCosplay];
     [manager writeCookiesIntoHTTPStorage];
     
     NSString *string = [AppDelegate defaultVC].inputTextView.string;

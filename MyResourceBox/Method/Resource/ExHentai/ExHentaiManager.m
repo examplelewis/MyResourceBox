@@ -8,7 +8,7 @@
 
 #import "ExHentaiManager.h"
 
-#import "CookieManager.h"
+#import "MRBCookieManager.h"
 #import "DownloadQueueManager.h"
 #import "ExHentaiPagesManager.h"
 #import "ExHentaiUrlsManager.h"
@@ -58,7 +58,7 @@ static ExHentaiManager *manager;
     [MRBLogManager resetCurrentDate];
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取E-Hentai的图片地址：已经准备就绪"];
     
-    CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeExHentai];
+    MRBCookieManager *manager = [[MRBCookieManager alloc] initWithCookieFileType:CookieFileTypeExHentai];
     [manager deleteCookieByName:@"yay"];
     [manager writeCookiesIntoHTTPStorage];
     
@@ -86,7 +86,7 @@ static ExHentaiManager *manager;
     [MRBLogManager resetCurrentDate];
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取E-Hentai的种子文件地址：已经准备就绪"];
     
-    CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeExHentai];
+    MRBCookieManager *manager = [[MRBCookieManager alloc] initWithCookieFileType:CookieFileTypeExHentai];
     [manager deleteCookieByName:@"yay"];
     [manager writeCookiesIntoHTTPStorage];
     
@@ -100,7 +100,7 @@ static ExHentaiManager *manager;
     [MRBLogManager resetCurrentDate];
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取E-Hentai的Pixiv地址：已经准备就绪"];
     
-    CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeExHentai];
+    MRBCookieManager *manager = [[MRBCookieManager alloc] initWithCookieFileType:CookieFileTypeExHentai];
     [manager deleteCookieByName:@"yay"];
     [manager writeCookiesIntoHTTPStorage];
     
