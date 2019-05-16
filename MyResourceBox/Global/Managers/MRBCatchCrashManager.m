@@ -1,14 +1,14 @@
 //
-//  CatchCrashManager.m
+//  MRBCatchCrashManager.m
 //  kewoYouXiangZhuan
 //
 //  Created by 龚宇 on 18/12/21.
 //  Copyright © 2018 kewo. All rights reserved.
 //
 
-#import "CatchCrashManager.h"
+#import "MRBCatchCrashManager.h"
 
-@implementation CatchCrashManager
+@implementation MRBCatchCrashManager
 
 //在AppDelegate中注册后，程序崩溃时会执行的方法
 void uncaughtExceptionHandler(NSException *exception) {

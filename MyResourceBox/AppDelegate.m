@@ -31,7 +31,7 @@
 #import "PicResourceMethod.h"
 #import "ToolOperationMethod.h"
 
-#import "CatchCrashManager.h"
+#import "MRBCatchCrashManager.h"
 
 @interface AppDelegate ()
 

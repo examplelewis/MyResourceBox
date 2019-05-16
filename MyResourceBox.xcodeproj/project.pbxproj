@@ -107,7 +107,7 @@
 		ACCCE266227E8F0700A18C8D /* AnalysisInputManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCCE265227E8F0700A18C8D /* AnalysisInputManager.m */; };
 		ACCCE269227E8F4D00A18C8D /* AnalysisFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCCE268227E8F4D00A18C8D /* AnalysisFileManager.m */; };
 		ACCCE26D227E900A00A18C8D /* WebArchiveArchivingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCCE26C227E900A00A18C8D /* WebArchiveArchivingManager.m */; };
-		ACCFA0BA226D5D3D007514C0 /* CatchCrashManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */; };
+		ACCFA0BA226D5D3D007514C0 /* MRBCatchCrashManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCFA0B9226D5D3C007514C0 /* MRBCatchCrashManager.m */; };
 		ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */; };
 		ACDA9144228A981F0074027E /* WeiboPicCroppingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDA9143228A981F0074027E /* WeiboPicCroppingManager.m */; };
 		ACDCD4F4228902F1005FC4FF /* PicResourceMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCD4F3228902F1005FC4FF /* PicResourceMethod.m */; };
@@ -344,8 +344,8 @@
 		ACCCE268227E8F4D00A18C8D /* AnalysisFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnalysisFileManager.m; sourceTree = "<group>"; };
 		ACCCE26B227E900A00A18C8D /* WebArchiveArchivingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebArchiveArchivingManager.h; sourceTree = "<group>"; };
 		ACCCE26C227E900A00A18C8D /* WebArchiveArchivingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebArchiveArchivingManager.m; sourceTree = "<group>"; };
-		ACCFA0B8226D5D3C007514C0 /* CatchCrashManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchCrashManager.h; sourceTree = "<group>"; };
-		ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchCrashManager.m; sourceTree = "<group>"; };
+		ACCFA0B8226D5D3C007514C0 /* MRBCatchCrashManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBCatchCrashManager.h; sourceTree = "<group>"; };
+		ACCFA0B9226D5D3C007514C0 /* MRBCatchCrashManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBCatchCrashManager.m; sourceTree = "<group>"; };
 		ACD1AA35225B44660017A8D3 /* PixivExHentaiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivExHentaiManager.h; sourceTree = "<group>"; };
 		ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivExHentaiManager.m; sourceTree = "<group>"; };
 		ACDA9142228A981F0074027E /* WeiboPicCroppingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboPicCroppingManager.h; sourceTree = "<group>"; };
@@ -612,8 +612,8 @@
 				AC75C6521F8657800060CF6B /* HttpManager.m */,
 				ACCAA0361E1B81250017EDDA /* ImageManager.h */,
 				ACCAA0351E1B81250017EDDA /* ImageManager.m */,
-				ACCFA0B8226D5D3C007514C0 /* CatchCrashManager.h */,
-				ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */,
+				ACCFA0B8226D5D3C007514C0 /* MRBCatchCrashManager.h */,
+				ACCFA0B9226D5D3C007514C0 /* MRBCatchCrashManager.m */,
 				ACCAA3B1228D09C40062BCE6 /* MRBLogManager.h */,
 				ACCAA3B2228D09C40062BCE6 /* MRBLogManager.m */,
 				AC8509081DB39677004AFE84 /* MRBUtilityManager.h */,
@@ -1173,7 +1173,7 @@
 				ACC93F012277F54900C207E6 /* PixivFollowingManager.m in Sources */,
 				ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */,
 				AC9870621E4C4A980076DC92 /* PixivMangaObject.m in Sources */,
-				ACCFA0BA226D5D3D007514C0 /* CatchCrashManager.m in Sources */,
+				ACCFA0BA226D5D3D007514C0 /* MRBCatchCrashManager.m in Sources */,
 				AC2D1B151DD0191C0085F8E0 /* DeviceInfo.m in Sources */,
 				AC789C821DE15A1D00523A12 /* JDLingyuMethod.m in Sources */,
 				ACC93EF02277EBCD00C207E6 /* BCYOrganizingManager.m in Sources */,

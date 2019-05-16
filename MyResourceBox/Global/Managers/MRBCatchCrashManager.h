@@ -1,5 +1,5 @@
 //
-//  CatchCrashManager.h
+//  MRBCatchCrashManager.h
 //  kewoYouXiangZhuan
 //
 //  Created by 龚宇 on 18/12/21.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CatchCrashManager : NSObject
+@interface MRBCatchCrashManager : NSObject
 
 void uncaughtExceptionHandler(NSException *exception);
 
