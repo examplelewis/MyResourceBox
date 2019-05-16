@@ -48,7 +48,7 @@
 }
 
 - (void)readCookieIntoDictionary {
-    NSString *file_path = [[MRBDeviceManager sharedDevice].path_root_folder stringByAppendingFormat:@"/Cookie文件/%@", file_name];
+    NSString *file_path = [[MRBDeviceManager defaultManager].path_root_folder stringByAppendingFormat:@"/Cookie文件/%@", file_name];
     cookie_string = [NSString stringWithContentsOfFile:file_path encoding:NSUTF8StringEncoding error:nil];
     NSData *cookie_data = [cookie_string dataUsingEncoding:NSUTF8StringEncoding];
     cookie_dicts = [NSArray arrayWithArray:[NSJSONSerialization JSONObjectWithData:cookie_data options:0 error:nil]];

@@ -21,6 +21,6 @@ typedef NS_ENUM(NSUInteger, MacModelType) {
 @property (assign, readonly) MacModelType modelType;
 @property (nonatomic, copy) NSString *path_root_folder;
 
-+ (MRBDeviceManager *)sharedDevice;
++ (MRBDeviceManager *)defaultManager;
 
 @end

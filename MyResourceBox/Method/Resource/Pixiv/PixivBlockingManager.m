@@ -59,7 +59,7 @@
     NSMutableArray *notBlock1Exists = [NSMutableArray array]; // blockLevel != 1 存在的地址
     NSMutableArray *news = [NSMutableArray array]; // 不存在的地址
     
-    db = [FMDatabase databaseWithPath:[[MRBDeviceManager sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
+    db = [FMDatabase databaseWithPath:[[MRBDeviceManager defaultManager].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被拉黑 时发生错误：%@", [db lastErrorMessage]];
@@ -146,7 +146,7 @@
     
     NSMutableArray *useless = [NSMutableArray array]; // 非 pixiv 的地址
     
-    db = [FMDatabase databaseWithPath:[[MRBDeviceManager sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
+    db = [FMDatabase databaseWithPath:[[MRBDeviceManager defaultManager].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv屏蔽用户名单 时发生错误：%@", [db lastErrorMessage]];
@@ -217,7 +217,7 @@
     
     NSMutableArray *useless = [NSMutableArray array]; // 非 pixiv 的地址
     
-    db = [FMDatabase databaseWithPath:[[MRBDeviceManager sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
+    db = [FMDatabase databaseWithPath:[[MRBDeviceManager defaultManager].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv不确定屏蔽用户名单 时发生错误：%@", [db lastErrorMessage]];

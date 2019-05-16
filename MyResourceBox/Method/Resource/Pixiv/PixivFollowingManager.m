@@ -92,7 +92,7 @@
     NSMutableArray *exists = [NSMutableArray array]; // 存在的地址
     NSMutableArray *news = [NSMutableArray array]; // 不存在的地址
     
-    db = [FMDatabase databaseWithPath:[[MRBDeviceManager sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
+    db = [FMDatabase databaseWithPath:[[MRBDeviceManager defaultManager].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被关注 时发生错误：%@", [db lastErrorMessage]];

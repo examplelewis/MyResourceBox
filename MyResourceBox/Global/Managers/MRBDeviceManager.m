@@ -14,22 +14,29 @@
 
 @implementation MRBDeviceManager
 
-static MRBDeviceManager *_sharedDevice;
-
 /**
  *  单例方法
  *
  *  @return 返回的单例
  */
-+ (MRBDeviceManager *)sharedDevice {
++ (MRBDeviceManager *)defaultManager {
     static dispatch_once_t onceToken;
+    static MRBDeviceManager *_sharedDevice;
     
     dispatch_once(&onceToken, ^{
-        _sharedDevice = [[MRBDeviceManager alloc] init];
-        [_sharedDevice getInfo];
+        _sharedDevice = [MRBDeviceManager new];
     });
     
     return _sharedDevice;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self getInfo];
+    }
+    
+    return self;
 }
 
 - (void)getInfo {
@@ -62,7 +69,7 @@ static MRBDeviceManager *_sharedDevice;
 
 - (NSString *)path_root_folder {
     if (!_path_root_folder) {
-        if ([MRBDeviceManager sharedDevice].modelType == MacModelTypeMacMini2014) {
+        if (self.modelType == MacModelTypeMacMini2014) {
             _path_root_folder = @"/Users/Mercury/Documents/同步文档/MyResourceBox";
         } else {
             _path_root_folder = @"/Users/Mercury/Documents/同步文档/MyResourceBox";
