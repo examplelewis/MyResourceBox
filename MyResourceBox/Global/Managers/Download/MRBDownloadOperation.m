@@ -1,14 +1,14 @@
 //
-//  DownloadOperation.m
+//  MRBDownloadOperation.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 17/02/07.
 //  Copyright © 2017年 gongyuTest. All rights reserved.
 //
 
-#import "DownloadOperation.h"
+#import "MRBDownloadOperation.h"
 
-@interface DownloadOperation () {
+@interface MRBDownloadOperation () {
     BOOL executing;  // 系统的 finished 是只读的，不能修改，所以只能重写一个。
     BOOL finished;
 }
@@ -19,12 +19,12 @@
 
 @end
 
-@implementation DownloadOperation
+@implementation MRBDownloadOperation
 
 #pragma mark - Observe Task
 
 + (instancetype)operationWithURLSessionTask:(NSURLSessionTask*)task {
-    DownloadOperation* operation = [DownloadOperation new];
+    MRBDownloadOperation* operation = [MRBDownloadOperation new];
     operation.task = task;
     return operation;
 }

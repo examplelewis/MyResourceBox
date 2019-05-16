@@ -9,7 +9,7 @@
 #import "ExHentaiManager.h"
 
 #import "MRBCookieManager.h"
-#import "DownloadQueueManager.h"
+#import "MRBDownloadQueueManager.h"
 #import "ExHentaiPagesManager.h"
 #import "ExHentaiUrlsManager.h"
 #import "ExHentaiTorrentManager.h"
@@ -130,7 +130,7 @@ static ExHentaiManager *manager;
     if (imageUrls.count == 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"没有获取到可用的图片地址，流程结束"];
     } else {
-        DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:imageUrls];
+        MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:imageUrls];
         if (pagesManager.title) {
             manager.downloadPath = [@"/Users/Mercury/Downloads/ExHentai" stringByAppendingPathComponent:pagesManager.title];
         }

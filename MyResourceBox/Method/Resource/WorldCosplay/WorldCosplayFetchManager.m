@@ -9,7 +9,7 @@
 #import "WorldCosplayFetchManager.h"
 #import "MRBCookieManager.h"
 #import "MRBFileManager.h"
-#import "DownloadQueueManager.h"
+#import "MRBDownloadQueueManager.h"
 
 static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
 
@@ -184,7 +184,7 @@ static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
 }
 // 6、下载
 - (void)startDownload {
-    DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:results];
+    MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:results];
     manager.downloadPath = @"/Users/Mercury/Downloads/WorldCosplay";
     [manager startDownload];
 }

@@ -7,7 +7,7 @@
 //
 
 #import "ResourceGlobalDownloadManager.h"
-#import "DownloadQueueManager.h"
+#import "MRBDownloadQueueManager.h"
 
 @interface ResourceGlobalDownloadManager () {
     NSString *txtFilePath;
@@ -57,7 +57,7 @@
     [self startDownloading];
 }
 - (void)startDownloading {
-    DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:urls];
+    MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:urls];
     manager.maxConcurrentOperationCount = 3;
     manager.maxRedownloadTimes = 1;
     manager.timeoutInterval = 15;

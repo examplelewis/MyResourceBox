@@ -10,7 +10,7 @@
 #import <TMAPIClient.h>
 #import "TumblrPhotoObject.h"
 #import "TumblrVideoObject.h"
-#import "DownloadQueueManager.h"
+#import "MRBDownloadQueueManager.h"
 #import "OrganizeManager.h"
 
 typedef NS_ENUM(NSUInteger, TumblrResourceType) {
@@ -348,7 +348,7 @@ static TumblrMethod *method;
     }
 }
 - (void)startDownload {
-    DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:tumblrResults];
+    MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:tumblrResults];
     manager.downloadPath = [@"/Users/Mercury/Downloads/Tumblr" stringByAppendingPathComponent:blogName];
     [manager startDownload];
 }

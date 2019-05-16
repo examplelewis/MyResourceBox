@@ -10,7 +10,7 @@
 #import "WeiboHeader.h"
 #import "WeiboStatusObject.h"
 #import "MRBHttpManager.h"
-#import "DownloadQueueManager.h"
+#import "MRBDownloadQueueManager.h"
 #import "OrganizeManager.h"
 #import "SQLiteFMDBManager.h"
 #import "SQLiteManager.h"
@@ -154,7 +154,7 @@
     }
 }
 - (void)startDownload {
-    DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:weiboImages];
+    MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:weiboImages];
     manager.downloadPath = @"/Users/Mercury/Downloads/微博";
     manager.finishBlock = ^{
         OrganizeManager *manager = [[OrganizeManager alloc] initWithPlistPath:weiboStatusPlistFilePath];

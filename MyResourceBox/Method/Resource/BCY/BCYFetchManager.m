@@ -11,7 +11,7 @@
 #import "SQLiteManager.h"
 #import "SQLiteFMDBManager.h"
 #import "MRBCookieManager.h"
-#import "DownloadQueueManager.h"
+#import "MRBDownloadQueueManager.h"
 
 @interface BCYFetchManager () {
     NSInteger downloaded;
@@ -250,7 +250,7 @@
 }
 // 6、下载
 - (void)startDownload {
-    DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:resultArray];
+    MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:resultArray];
     manager.downloadPath = BCYDefaultDownloadPath;
     [manager startDownload];
 }

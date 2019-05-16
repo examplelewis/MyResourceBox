@@ -7,7 +7,7 @@
 //
 
 #import "JDLingyuFetchManager.h"
-#import "DownloadQueueManager.h"
+#import "MRBDownloadQueueManager.h"
 
 @interface JDLingyuFetchManager () {
     NSArray *urlArray;
@@ -96,7 +96,7 @@
 }
 // 3、下载图片
 - (void)startDownload {
-    DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:resultArray];
+    MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:resultArray];
     manager.downloadPath = @"/Users/Mercury/Downloads/绝对领域";
     [manager startDownload];
 }

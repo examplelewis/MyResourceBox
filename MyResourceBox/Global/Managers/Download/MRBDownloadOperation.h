@@ -1,5 +1,5 @@
 //
-//  DownloadOperation.h
+//  MRBDownloadOperation.h
 //  MyResourceBox
 //
 //  Created by 龚宇 on 17/02/07.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DownloadOperation : NSOperation
+@interface MRBDownloadOperation : NSOperation
 
 + (instancetype)operationWithURLSessionTask:(NSURLSessionTask *)task;
 

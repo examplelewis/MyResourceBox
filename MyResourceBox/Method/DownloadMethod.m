@@ -7,7 +7,7 @@
 //
 
 #import "DownloadMethod.h"
-#import "DownloadQueueManager.h"
+#import "MRBDownloadQueueManager.h"
 
 @interface DownloadMethod ()
 
@@ -21,7 +21,7 @@
     NSArray *inputs = [input componentsSeparatedByString:@"\n"];
     NSSet *inputSet = [NSSet setWithArray:inputs];
     NSArray *newInputs = [NSArray arrayWithArray:inputSet.allObjects];
-    DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:newInputs];
+    MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:newInputs];
     
     switch (cellRow) {
         case 1: // 默认设置

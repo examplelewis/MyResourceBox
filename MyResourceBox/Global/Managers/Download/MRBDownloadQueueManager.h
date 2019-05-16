@@ -1,5 +1,5 @@
 //
-//  DownloadQueueManager.h
+//  MRBDownloadQueueManager.h
 //  MyResourceBox
 //
 //  Created by 龚宇 on 17/02/07.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DownloadQueueManager : NSObject
+@interface MRBDownloadQueueManager : NSObject
 
 @property (nonatomic, copy) NSString *downloadPath;
 @property (nonatomic, copy) NSDictionary *httpHeaders;

@@ -7,7 +7,7 @@
 //
 
 #import "PixivPicDownloadManager.h"
-#import "DownloadQueueManager.h"
+#import "MRBDownloadQueueManager.h"
 #import "PixivAPI.h"
 
 @implementation PixivPicDownloadManager
@@ -25,7 +25,7 @@
     NSArray *images = [NSArray arrayWithArray:[input componentsSeparatedByString:@"\n"]];
     [[MRBLogManager defaultManager] showLogWithFormat:@"从输入框解析到%ld条图片地址\n", images.count];
     
-    DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:images];
+    MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:images];
     manager.finishBlock = ^() {
         MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:@"Pixiv图片资源已下载完成" infomation:nil];

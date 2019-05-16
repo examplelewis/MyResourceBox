@@ -1,20 +1,20 @@
 //
-//  DownloadQueueManager.m
+//  MRBDownloadQueueManager.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 17/02/07.
 //  Copyright © 2017年 gongyuTest. All rights reserved.
 //
 
-#import "DownloadQueueManager.h"
-#import "DownloadOperation.h"
+#import "MRBDownloadQueueManager.h"
+#import "MRBDownloadOperation.h"
 #import "DownloadInfoObject.h"
 
 static NSInteger const defaultMaxRedownloadTimes = 3;
 static NSInteger const defaultMaxConcurrentOperationCount = 15;
 static NSInteger const defaultTimeoutInterval = 45;
 
-@interface DownloadQueueManager () {
+@interface MRBDownloadQueueManager () {
     AFURLSessionManager *manager;
     
     NSInteger success;
@@ -30,7 +30,7 @@ static NSInteger const defaultTimeoutInterval = 45;
 
 @end
 
-@implementation DownloadQueueManager
+@implementation MRBDownloadQueueManager
 
 - (instancetype)initWithUrls:(NSArray<NSString *> *)urls {
     self = [super init];
@@ -169,7 +169,7 @@ static NSInteger const defaultTimeoutInterval = 45;
             }];
         }];
         
-        DownloadOperation *operation = [DownloadOperation operationWithURLSessionTask:uploadTask];
+        MRBDownloadOperation *operation = [MRBDownloadOperation operationWithURLSessionTask:uploadTask];
         [completionOperation addDependency:operation];
         [_opQueue addOperation:operation];
     }

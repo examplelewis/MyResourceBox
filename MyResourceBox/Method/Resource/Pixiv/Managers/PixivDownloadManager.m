@@ -8,7 +8,7 @@
 
 #import "PixivDownloadManager.h"
 #import "PixivDownloadObject.h"
-#import "DownloadQueueManager.h"
+#import "MRBDownloadQueueManager.h"
 #import "PixivAPI.h"
 
 @interface PixivDownloadManager () {
@@ -44,7 +44,7 @@
     PixivDownloadObject *object = lists.firstObject;
     [[MRBLogManager defaultManager] showLogWithFormat:@"正在下载用户: %@ 的图片", object.name];
     
-    DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:object.imgUrls];
+    MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:object.imgUrls];
     manager.finishBlock = ^() {
         PixivDownloadObject *object = self->lists.firstObject;
         [[MRBLogManager defaultManager] showLogWithFormat:@"用户: %@ 已经下载完成", object.name];

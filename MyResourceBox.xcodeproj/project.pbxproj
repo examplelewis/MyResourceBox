@@ -61,8 +61,8 @@
 		AC9870631E4C4A980076DC92 /* PixivMasterObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870601E4C4A980076DC92 /* PixivMasterObject.m */; };
 		AC9870691E4C4AB90076DC92 /* SQLiteFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870661E4C4AB90076DC92 /* SQLiteFMDBManager.m */; };
 		AC98706A1E4C4AB90076DC92 /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870681E4C4AB90076DC92 /* SQLiteManager.m */; };
-		AC9F4C6B1E499B0E00FD01C5 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C6A1E499B0E00FD01C5 /* DownloadOperation.m */; };
-		AC9F4C6E1E499BBB00FD01C5 /* DownloadQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C6D1E499BBB00FD01C5 /* DownloadQueueManager.m */; };
+		AC9F4C6B1E499B0E00FD01C5 /* MRBDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C6A1E499B0E00FD01C5 /* MRBDownloadOperation.m */; };
+		AC9F4C6E1E499BBB00FD01C5 /* MRBDownloadQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C6D1E499BBB00FD01C5 /* MRBDownloadQueueManager.m */; };
 		AC9F4C711E49B06E00FD01C5 /* PixivDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C701E49B06E00FD01C5 /* PixivDownloadManager.m */; };
 		ACA0F05221E19E200097D144 /* ExHentaiPixivUrlsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA0F05121E19E200097D144 /* ExHentaiPixivUrlsManager.m */; };
 		ACA3C1871DD09F5100A9B31D /* DownloadInfoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA3C1861DD09F5100A9B31D /* DownloadInfoObject.m */; };
@@ -249,10 +249,10 @@
 		AC9870661E4C4AB90076DC92 /* SQLiteFMDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteFMDBManager.m; sourceTree = "<group>"; };
 		AC9870671E4C4AB90076DC92 /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
 		AC9870681E4C4AB90076DC92 /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
-		AC9F4C691E499B0E00FD01C5 /* DownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperation.h; sourceTree = "<group>"; };
-		AC9F4C6A1E499B0E00FD01C5 /* DownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperation.m; sourceTree = "<group>"; };
-		AC9F4C6C1E499BBB00FD01C5 /* DownloadQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadQueueManager.h; sourceTree = "<group>"; };
-		AC9F4C6D1E499BBB00FD01C5 /* DownloadQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadQueueManager.m; sourceTree = "<group>"; };
+		AC9F4C691E499B0E00FD01C5 /* MRBDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBDownloadOperation.h; sourceTree = "<group>"; };
+		AC9F4C6A1E499B0E00FD01C5 /* MRBDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBDownloadOperation.m; sourceTree = "<group>"; };
+		AC9F4C6C1E499BBB00FD01C5 /* MRBDownloadQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBDownloadQueueManager.h; sourceTree = "<group>"; };
+		AC9F4C6D1E499BBB00FD01C5 /* MRBDownloadQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBDownloadQueueManager.m; sourceTree = "<group>"; };
 		AC9F4C6F1E49B06E00FD01C5 /* PixivDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivDownloadManager.h; sourceTree = "<group>"; };
 		AC9F4C701E49B06E00FD01C5 /* PixivDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivDownloadManager.m; sourceTree = "<group>"; };
 		ACA0F05021E19E200097D144 /* ExHentaiPixivUrlsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExHentaiPixivUrlsManager.h; sourceTree = "<group>"; };
@@ -698,10 +698,10 @@
 		AC9F4C621E499AD600FD01C5 /* Download */ = {
 			isa = PBXGroup;
 			children = (
-				AC9F4C6C1E499BBB00FD01C5 /* DownloadQueueManager.h */,
-				AC9F4C6D1E499BBB00FD01C5 /* DownloadQueueManager.m */,
-				AC9F4C691E499B0E00FD01C5 /* DownloadOperation.h */,
-				AC9F4C6A1E499B0E00FD01C5 /* DownloadOperation.m */,
+				AC9F4C6C1E499BBB00FD01C5 /* MRBDownloadQueueManager.h */,
+				AC9F4C6D1E499BBB00FD01C5 /* MRBDownloadQueueManager.m */,
+				AC9F4C691E499B0E00FD01C5 /* MRBDownloadOperation.h */,
+				AC9F4C6A1E499B0E00FD01C5 /* MRBDownloadOperation.m */,
 			);
 			path = Download;
 			sourceTree = "<group>";
@@ -1128,7 +1128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC789C681DE1467000523A12 /* MRBCookieManager.m in Sources */,
-				AC9F4C6E1E499BBB00FD01C5 /* DownloadQueueManager.m in Sources */,
+				AC9F4C6E1E499BBB00FD01C5 /* MRBDownloadQueueManager.m in Sources */,
 				AC789C881DE15A3600523A12 /* WorldCosplayMethod.m in Sources */,
 				AC789C8B1DE1602500523A12 /* AnalysisMethod.m in Sources */,
 				ACA0F05221E19E200097D144 /* ExHentaiPixivUrlsManager.m in Sources */,
@@ -1192,7 +1192,7 @@
 				ACC93EE92277E92100C207E6 /* BCYHTMLParseManager.m in Sources */,
 				AC789C731DE159B700523A12 /* BCYMethod.m in Sources */,
 				ACC93F0A2277FA3100C207E6 /* PixivOrganizingManager.m in Sources */,
-				AC9F4C6B1E499B0E00FD01C5 /* DownloadOperation.m in Sources */,
+				AC9F4C6B1E499B0E00FD01C5 /* MRBDownloadOperation.m in Sources */,
 				ACCCE26D227E900A00A18C8D /* WebArchiveArchivingManager.m in Sources */,
 				ACC93F072277F98000C207E6 /* PixivFetchingManager.m in Sources */,
 				AC789C741DE159B700523A12 /* TumblrMethod.m in Sources */,
