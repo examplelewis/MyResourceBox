@@ -33,7 +33,7 @@
     parameters[@"client_secret"] = @"5cdf1dc7f9eb3ad62a68aef8bdb395c7";
     parameters[@"redirect_uri"] = @"myresourcebox://success.html";
     parameters[@"grant_type"] = @"authorization_code";
-    parameters[@"code"] = [MRBUserManager defaultUser].weibo_code;
+    parameters[@"code"] = [MRBUserManager defaultManager].weibo_code;
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -66,7 +66,7 @@
                             failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed {
     NSString *url = @"https://api.weibo.com/oauth2/get_token_info";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"access_token"] = [MRBUserManager defaultUser].weibo_token;
+    parameters[@"access_token"] = [MRBUserManager defaultManager].weibo_token;
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -99,7 +99,7 @@
                             failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed {
     NSString *url = @"https://api.weibo.com/2/account/rate_limit_status.json";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"access_token"] = [MRBUserManager defaultUser].weibo_token;
+    parameters[@"access_token"] = [MRBUserManager defaultManager].weibo_token;
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -133,7 +133,7 @@
                            failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed {
     NSString *url = @"https://api.weibo.com/2/favorites.json";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"access_token"] = [MRBUserManager defaultUser].weibo_token;
+    parameters[@"access_token"] = [MRBUserManager defaultManager].weibo_token;
     parameters[@"count"] = @(50);
     parameters[@"page"] = @(page);
     

@@ -48,7 +48,7 @@
             NSDictionary *statusDict = dict[@"status"];
             
             // 先判断是否已经到了边界微博，也就是第一条和资源不相关的微博
-            if ([statusDict[@"idstr"] isEqualToString:[MRBUserManager defaultUser].weibo_boundary_id]) {
+            if ([statusDict[@"idstr"] isEqualToString:[MRBUserManager defaultManager].weibo_boundary_id]) {
                 found = YES;
                 break;
             }

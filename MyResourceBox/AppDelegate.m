@@ -47,7 +47,7 @@
     // 注册异常处理函数
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
-    [[MRBUserManager defaultUser] configureData];
+    [[MRBUserManager defaultManager] configureData];
     
     [self setLogger];
     [self setBuildTime];
@@ -163,7 +163,7 @@
 
 #pragma mark - Help
 - (IBAction)openHelpingDocument:(NSMenuItem *)sender {
-    if (![[NSWorkspace sharedWorkspace] openFile:[[MRBUserManager defaultUser].path_root_folder stringByAppendingPathComponent:@"帮助文档.txt"]]) {
+    if (![[NSWorkspace sharedWorkspace] openFile:[[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"帮助文档.txt"]]) {
         MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:@"打开帮助文档文件时发生错误，打开失败" infomation:nil];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
@@ -173,7 +173,7 @@
     }
 }
 - (IBAction)openLogFile:(NSMenuItem *)sender {
-    NSString *logsFolder = [MRBUserManager defaultUser].path_root_folder;
+    NSString *logsFolder = [MRBUserManager defaultManager].path_root_folder;
     NSDate *latestCreationDate = [NSDate dateWithYear:2000 month:1 day:1]; //新建一个NSDate对象，用于判断并查找最新创建的日志文件
     
     NSArray *logsFile = [[MRBFileManager defaultManager] getFilePathsInFolder:logsFolder specificExtensions:@[@"log"]];
@@ -196,7 +196,7 @@
     }
 }
 - (IBAction)openAuthorizationFile:(NSMenuItem *)sender {
-    if (![[NSWorkspace sharedWorkspace] openFile:[[MRBUserManager defaultUser].path_root_folder stringByAppendingPathComponent:@"Authorization.plist"]]) {
+    if (![[NSWorkspace sharedWorkspace] openFile:[[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"Authorization.plist"]]) {
         MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:@"打开授权文件时发生错误，打开失败" infomation:nil];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
@@ -206,7 +206,7 @@
     }
 }
 - (IBAction)openPreferenceFile:(NSMenuItem *)sender {
-    if (![[NSWorkspace sharedWorkspace] openFile:[[MRBUserManager defaultUser].path_root_folder stringByAppendingPathComponent:@"Preference.plist"]]) {
+    if (![[NSWorkspace sharedWorkspace] openFile:[[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"Preference.plist"]]) {
         MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:@"打开配置文件时发生错误，打开失败" infomation:nil];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
@@ -232,7 +232,7 @@
 #pragma mark - Setter
 - (void)setLogger {
     //在系统上保持一周的日志文件
-    NSString *logDirectory = [MRBUserManager defaultUser].path_root_folder;
+    NSString *logDirectory = [MRBUserManager defaultManager].path_root_folder;
     DDLogFileManagerDefault *logFileManager = [[DDLogFileManagerDefault alloc] initWithLogsDirectory:logDirectory];
     DDFileLogger *fileLogger = [[DDFileLogger alloc] initWithLogFileManager:logFileManager];
     fileLogger.rollingFrequency = 60 * 60 * 24 * 7; // 7 days rolling
@@ -267,10 +267,10 @@
     self.buildVerItem.title = [NSString stringWithFormat:@"%@ (%@)", version, build];
 }
 - (void)setTumblr {
-    [TMAPIClient sharedInstance].OAuthConsumerKey = [MRBUserManager defaultUser].tumblr_OAuth_Consumer_Key;
-    [TMAPIClient sharedInstance].OAuthConsumerSecret = [MRBUserManager defaultUser].tumblr_OAuth_Consumer_Secret;
-    [TMAPIClient sharedInstance].OAuthToken = [MRBUserManager defaultUser].tumblr_OAuth_Token;
-    [TMAPIClient sharedInstance].OAuthTokenSecret = [MRBUserManager defaultUser].tumblr_OAuth_Token_Secret;
+    [TMAPIClient sharedInstance].OAuthConsumerKey = [MRBUserManager defaultManager].tumblr_OAuth_Consumer_Key;
+    [TMAPIClient sharedInstance].OAuthConsumerSecret = [MRBUserManager defaultManager].tumblr_OAuth_Consumer_Secret;
+    [TMAPIClient sharedInstance].OAuthToken = [MRBUserManager defaultManager].tumblr_OAuth_Token;
+    [TMAPIClient sharedInstance].OAuthTokenSecret = [MRBUserManager defaultManager].tumblr_OAuth_Token_Secret;
 }
 
 #pragma mark - Other
@@ -279,13 +279,13 @@
     [self processCode:[urlString componentsSeparatedByString:@"code="].lastObject];
 }
 - (void)processCode:(NSString *)code {
-    [MRBUserManager defaultUser].weibo_code = code;
-    [[MRBUserManager defaultUser] saveAuthDictIntoPlistFile];
+    [MRBUserManager defaultManager].weibo_code = code;
+    [[MRBUserManager defaultManager] saveAuthDictIntoPlistFile];
     
     [[MRBHttpManager sharedManager] getWeiboTokenWithStart:nil success:^(NSDictionary *dic) {
-        [MRBUserManager defaultUser].weibo_token = dic[@"access_token"];
-        [MRBUserManager defaultUser].weibo_expires_at_date = [NSDate dateWithTimeIntervalSinceNow:[dic[@"expire_in"] integerValue]];
-        [[MRBUserManager defaultUser] saveAuthDictIntoPlistFile];
+        [MRBUserManager defaultManager].weibo_token = dic[@"access_token"];
+        [MRBUserManager defaultManager].weibo_expires_at_date = [NSDate dateWithTimeIntervalSinceNow:[dic[@"expire_in"] integerValue]];
+        [[MRBUserManager defaultManager] saveAuthDictIntoPlistFile];
         
         [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到Token信息：%@", dic];
     } failed:^(NSString *errorTitle, NSString *errorMsg) {

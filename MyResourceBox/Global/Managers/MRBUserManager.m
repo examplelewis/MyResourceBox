@@ -18,20 +18,21 @@
 @implementation MRBUserManager
 
 #pragma mark -- 初始化数据存取方法 --
-
-+ (MRBUserManager *)defaultUser {
++ (MRBUserManager *)defaultManager {
+    static dispatch_once_t onceToken;
     static MRBUserManager *user = nil;
-    if (!user) {
+    
+    dispatch_once(&onceToken, ^{
         user = [[MRBUserManager alloc] init];
-    }
+    });
     
     return user;
 }
 
 #pragma mark -- 设置方法 --
 - (void)configureData {
-    authDict = [NSMutableDictionary dictionaryWithContentsOfFile:[[MRBUserManager defaultUser].path_root_folder stringByAppendingPathComponent:@"Authorization.plist"]];
-    prefDict = [NSMutableDictionary dictionaryWithContentsOfFile:[[MRBUserManager defaultUser].path_root_folder stringByAppendingPathComponent:@"Preference.plist"]];
+    authDict = [NSMutableDictionary dictionaryWithContentsOfFile:[[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"Authorization.plist"]];
+    prefDict = [NSMutableDictionary dictionaryWithContentsOfFile:[[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"Preference.plist"]];
     
     [self configureWeiboInfo];
     [self configureWebArchiveInfo];
@@ -103,7 +104,7 @@
 
 #pragma mark -- 辅助方法 --
 - (void)saveAuthDictIntoPlistFile {
-    [authDict writeToFile:[[MRBUserManager defaultUser].path_root_folder stringByAppendingPathComponent:@"Authorization.plist"] atomically:YES];
+    [authDict writeToFile:[[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"Authorization.plist"] atomically:YES];
 }
 - (BOOL)mimeTypeExistsInFormats:(NSString *)format {
     return [_web_archive_mime_type containsObject:format];

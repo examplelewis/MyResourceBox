@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self.requestWebView.mainFrame loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[MRBUserManager defaultUser].weibo_url]]];
+    [self.requestWebView.mainFrame loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[MRBUserManager defaultManager].weibo_url]]];
     self.requestWebView.frameLoadDelegate = self;
 }
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {

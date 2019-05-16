@@ -29,7 +29,7 @@
 // WebArchive 相关
 @property (nonatomic, copy, readonly) NSArray *web_archive_mime_type;
 
-+ (MRBUserManager *)defaultUser;
++ (MRBUserManager *)defaultManager;
 - (void)configureData;
 - (void)saveAuthDictIntoPlistFile;
 - (BOOL)mimeTypeExistsInFormats:(NSString *)mimeType;

@@ -19,8 +19,8 @@
 @implementation WeiboBoundaryManager
 
 - (void)getBoundaryID {
-    [[MRBUserManager defaultUser] configureData]; //重新读一遍Plist文件
-    [[MRBLogManager defaultManager] showLogWithFormat:@"原有边界微博的ID：%@", [MRBUserManager defaultUser].weibo_boundary_id];
+    [[MRBUserManager defaultManager] configureData]; //重新读一遍Plist文件
+    [[MRBLogManager defaultManager] showLogWithFormat:@"原有边界微博的ID：%@", [MRBUserManager defaultManager].weibo_boundary_id];
     fetchedPage = 1;
     
     [self getBoundaryByApi];
@@ -33,9 +33,9 @@
         for (NSInteger i = 0; i < favors.count; i++) {
             NSDictionary *dict = favors[i];
             WeiboStatusObject *object = [[WeiboStatusObject alloc] initWithDictionary:dict[@"status"]];
-            if ([object.text containsString:[MRBUserManager defaultUser].weibo_boundary_text] && [object.user_screen_name containsString:[MRBUserManager defaultUser].weibo_boundary_author]) {
-                [MRBUserManager defaultUser].weibo_boundary_id = object.id_str;
-                [[MRBUserManager defaultUser] saveAuthDictIntoPlistFile];
+            if ([object.text containsString:[MRBUserManager defaultManager].weibo_boundary_text] && [object.user_screen_name containsString:[MRBUserManager defaultManager].weibo_boundary_author]) {
+                [MRBUserManager defaultManager].weibo_boundary_id = object.id_str;
+                [[MRBUserManager defaultManager] saveAuthDictIntoPlistFile];
                 [[MRBLogManager defaultManager] showLogWithFormat:@"已经找到边界微博的ID：%@", object.id_str];
                 found = YES;
                 
@@ -63,8 +63,8 @@
 }
 
 - (void)markNewestFavorAsBoundary {
-    [[MRBUserManager defaultUser] configureData]; //重新读一遍Plist文件
-    [[MRBLogManager defaultManager] showLogWithFormat:@"原有边界微博的ID：%@", [MRBUserManager defaultUser].weibo_boundary_id];
+    [[MRBUserManager defaultManager] configureData]; //重新读一遍Plist文件
+    [[MRBLogManager defaultManager] showLogWithFormat:@"原有边界微博的ID：%@", [MRBUserManager defaultManager].weibo_boundary_id];
     fetchedPage = 1;
     
     [[MRBHttpManager sharedManager] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
@@ -77,10 +77,10 @@
         NSDictionary *newest = [NSDictionary dictionaryWithDictionary:favors.firstObject];
         WeiboStatusObject *object = [[WeiboStatusObject alloc] initWithDictionary:newest[@"status"]];
         
-        [MRBUserManager defaultUser].weibo_boundary_id = object.id_str;
-        [MRBUserManager defaultUser].weibo_boundary_author = object.user_screen_name;
-        [MRBUserManager defaultUser].weibo_boundary_text = object.text;
-        [[MRBUserManager defaultUser] saveAuthDictIntoPlistFile];
+        [MRBUserManager defaultManager].weibo_boundary_id = object.id_str;
+        [MRBUserManager defaultManager].weibo_boundary_author = object.user_screen_name;
+        [MRBUserManager defaultManager].weibo_boundary_text = object.text;
+        [[MRBUserManager defaultManager] saveAuthDictIntoPlistFile];
         [[MRBLogManager defaultManager] showLogWithFormat:@"已经找到边界微博的ID：%@", object.id_str];
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
         MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
