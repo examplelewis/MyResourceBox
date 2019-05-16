@@ -14,8 +14,8 @@
 // 备份数据库文件
 + (void)backupDatabaseFile {
     NSString *databaseName = @"data";
-    NSString *folderPath = [DeviceInfo sharedDevice].path_root_folder;
-    NSString *filePath = [[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"];
+    NSString *folderPath = [MRBDeviceManager sharedDevice].path_root_folder;
+    NSString *filePath = [[MRBDeviceManager sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"];
     NSFileManager *MRBFileManager = [NSFileManager defaultManager];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"开始备份数据库文件"];
@@ -63,8 +63,8 @@
 }
 // 还原数据库文件
 + (void)restoreDatebaseFile {
-    NSString *folderPath = [DeviceInfo sharedDevice].path_root_folder;
-    NSString *filePath = [[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"];
+    NSString *folderPath = [MRBDeviceManager sharedDevice].path_root_folder;
+    NSString *filePath = [[MRBDeviceManager sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"];
     NSFileManager *MRBFileManager = [NSFileManager defaultManager];
     
     [MRBLogManager resetCurrentDate];

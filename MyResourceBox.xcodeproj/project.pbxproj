@@ -17,7 +17,7 @@
 		AC19E1581E4857020084A510 /* PixivMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E1571E4857020084A510 /* PixivMethod.m */; };
 		AC19E15B1E4857210084A510 /* PixivUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E15A1E4857210084A510 /* PixivUserManager.m */; };
 		AC19E15E1E4857410084A510 /* PixivIllustManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E15D1E4857410084A510 /* PixivIllustManager.m */; };
-		AC2D1B151DD0191C0085F8E0 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2D1B131DD0191C0085F8E0 /* DeviceInfo.m */; };
+		AC2D1B151DD0191C0085F8E0 /* MRBDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2D1B131DD0191C0085F8E0 /* MRBDeviceManager.m */; };
 		AC47543F1DCC461800880934 /* OrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC47543E1DCC461800880934 /* OrganizeManager.m */; };
 		AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4754411DCC5B1600880934 /* DownloadMethod.m */; };
 		AC75C6531F8657800060CF6B /* MRBHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC75C6521F8657800060CF6B /* MRBHttpManager.m */; };
@@ -162,8 +162,8 @@
 		AC19E15A1E4857210084A510 /* PixivUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivUserManager.m; sourceTree = "<group>"; };
 		AC19E15C1E4857410084A510 /* PixivIllustManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivIllustManager.h; sourceTree = "<group>"; };
 		AC19E15D1E4857410084A510 /* PixivIllustManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivIllustManager.m; sourceTree = "<group>"; };
-		AC2D1B131DD0191C0085F8E0 /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
-		AC2D1B141DD0191C0085F8E0 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
+		AC2D1B131DD0191C0085F8E0 /* MRBDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBDeviceManager.m; sourceTree = "<group>"; };
+		AC2D1B141DD0191C0085F8E0 /* MRBDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBDeviceManager.h; sourceTree = "<group>"; };
 		AC47543D1DCC461800880934 /* OrganizeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizeManager.h; sourceTree = "<group>"; };
 		AC47543E1DCC461800880934 /* OrganizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizeManager.m; sourceTree = "<group>"; };
 		AC4754401DCC5B1600880934 /* DownloadMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadMethod.h; sourceTree = "<group>"; };
@@ -588,8 +588,6 @@
 		AC8509011DB39677004AFE84 /* UtilityFile */ = {
 			isa = PBXGroup;
 			children = (
-				AC2D1B141DD0191C0085F8E0 /* DeviceInfo.h */,
-				AC2D1B131DD0191C0085F8E0 /* DeviceInfo.m */,
 				ACC3149921773BFF00DA5276 /* XMLReader.h */,
 				ACC3149A21773BFF00DA5276 /* XMLReader.m */,
 				AC19E13F1E4844660084A510 /* PixivAPI */,
@@ -604,6 +602,8 @@
 				ACCFA0B9226D5D3C007514C0 /* MRBCatchCrashManager.m */,
 				AC789C671DE1467000523A12 /* MRBCookieManager.h */,
 				AC789C661DE1467000523A12 /* MRBCookieManager.m */,
+				AC2D1B141DD0191C0085F8E0 /* MRBDeviceManager.h */,
+				AC2D1B131DD0191C0085F8E0 /* MRBDeviceManager.m */,
 				AC8509101DB39692004AFE84 /* MRBFileManager.h */,
 				AC8509111DB39692004AFE84 /* MRBFileManager.m */,
 				AC75C6511F8657800060CF6B /* MRBHttpManager.h */,
@@ -1190,7 +1190,7 @@
 				ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */,
 				AC9870621E4C4A980076DC92 /* PixivMangaObject.m in Sources */,
 				ACCFA0BA226D5D3D007514C0 /* MRBCatchCrashManager.m in Sources */,
-				AC2D1B151DD0191C0085F8E0 /* DeviceInfo.m in Sources */,
+				AC2D1B151DD0191C0085F8E0 /* MRBDeviceManager.m in Sources */,
 				AC789C821DE15A1D00523A12 /* JDLingyuMethod.m in Sources */,
 				ACC93EF02277EBCD00C207E6 /* BCYOrganizingManager.m in Sources */,
 				ACC5C001228907C0004E7C83 /* ToolOperationMethod.m in Sources */,

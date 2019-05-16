@@ -1,5 +1,5 @@
 //
-//  DeviceInfo.h
+//  MRBDeviceManager.h
 //  MyToolBox
 //
 //  Created by 龚宇 on 16/11/01.
@@ -15,12 +15,12 @@ typedef NS_ENUM(NSUInteger, MacModelType) {
     MacModelTypeMacBookPro2014
 };
 
-@interface DeviceInfo : NSObject
+@interface MRBDeviceManager : NSObject
 
 @property (copy, readonly) NSString *model;
 @property (assign, readonly) MacModelType modelType;
 @property (nonatomic, copy) NSString *path_root_folder;
 
-+ (DeviceInfo *)sharedDevice;
++ (MRBDeviceManager *)sharedDevice;
 
 @end

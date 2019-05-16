@@ -100,7 +100,7 @@
     NSMutableArray *exists = [NSMutableArray array]; // 存在的地址
     NSMutableArray *news = [NSMutableArray array]; // 不存在的地址
     
-    FMDatabase *db = [FMDatabase databaseWithPath:[[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
+    FMDatabase *db = [FMDatabase databaseWithPath:[[MRBDeviceManager sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被关注时发生错误：%@", [db lastErrorMessage]];
@@ -152,7 +152,7 @@
     NSMutableArray *notBlock1s = [NSMutableArray array]; // 不确定被拉黑或者未确定拉黑等级的地址
     NSMutableArray *news = [NSMutableArray array]; // 不存在的地址
     
-    FMDatabase *db = [FMDatabase databaseWithPath:[[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
+    FMDatabase *db = [FMDatabase databaseWithPath:[[MRBDeviceManager sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被拉黑 时发生错误：%@", [db lastErrorMessage]];

@@ -1,31 +1,31 @@
 //
-//  DeviceInfo.m
+//  MRBDeviceManager.m
 //  MyToolBox
 //
 //  Created by 龚宇 on 16/11/01.
 //  Copyright © 2016年 gongyuTest. All rights reserved.
 //
 
-#import "DeviceInfo.h"
+#import "MRBDeviceManager.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/sysctl.h>
 
-@implementation DeviceInfo
+@implementation MRBDeviceManager
 
-static DeviceInfo *_sharedDevice;
+static MRBDeviceManager *_sharedDevice;
 
 /**
  *  单例方法
  *
  *  @return 返回的单例
  */
-+ (DeviceInfo *)sharedDevice {
++ (MRBDeviceManager *)sharedDevice {
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        _sharedDevice = [[DeviceInfo alloc] init];
+        _sharedDevice = [[MRBDeviceManager alloc] init];
         [_sharedDevice getInfo];
     });
     
@@ -62,7 +62,7 @@ static DeviceInfo *_sharedDevice;
 
 - (NSString *)path_root_folder {
     if (!_path_root_folder) {
-        if ([DeviceInfo sharedDevice].modelType == MacModelTypeMacMini2014) {
+        if ([MRBDeviceManager sharedDevice].modelType == MacModelTypeMacMini2014) {
             _path_root_folder = @"/Users/Mercury/Documents/同步文档/MyResourceBox";
         } else {
             _path_root_folder = @"/Users/Mercury/Documents/同步文档/MyResourceBox";

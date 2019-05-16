@@ -24,7 +24,7 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
 
 #pragma mark - 创建数据库
 - (void)createDatabase {
-    db = [FMDatabase databaseWithPath:[[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
+    db = [FMDatabase databaseWithPath:[[MRBDeviceManager sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
 }
 
 #pragma mark - BCYLink

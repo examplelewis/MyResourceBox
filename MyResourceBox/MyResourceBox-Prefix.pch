@@ -27,7 +27,7 @@
     #import "MRBAlert.h"
 	#import "MRBUserManager.h"
     #import "MRBFileManager.h"
-    #import "DeviceInfo.h"
+    #import "MRBDeviceManager.h"
 
 static DDLogLevel ddLogLevel = DDLogLevelVerbose;
 

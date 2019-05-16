@@ -93,7 +93,7 @@
 }
 - (NSString *)path_root_folder {
     if (!_path_root_folder) {
-        if ([DeviceInfo sharedDevice].modelType == MacModelTypeMacMini2014) {
+        if ([MRBDeviceManager sharedDevice].modelType == MacModelTypeMacMini2014) {
             _path_root_folder = @"/Users/Mercury/Documents/同步文档/MyResourceBox";
         } else {
             _path_root_folder = @"/Users/Mercury/Documents/同步文档/MyResourceBox";
