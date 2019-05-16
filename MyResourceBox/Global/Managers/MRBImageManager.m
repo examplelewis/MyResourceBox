@@ -1,15 +1,15 @@
 //
-//  ImageManager.m
+//  MRBImageManager.m
 //  MyComicView
 //
 //  Created by 龚宇 on 16/08/04.
 //  Copyright © 2016年 gongyuTest. All rights reserved.
 //
 
-#import "ImageManager.h"
+#import "MRBImageManager.h"
 //#import "FileManager.h"
 
-@implementation ImageManager
+@implementation MRBImageManager
 
 /**
  *  获取一张图片的真实尺寸(使用)

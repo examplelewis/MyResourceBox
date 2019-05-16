@@ -1,5 +1,5 @@
 //
-//  ImageManager.h
+//  MRBImageManager.h
 //  MyComicView
 //
 //  Created by 龚宇 on 16/08/04.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 
-@interface ImageManager : NSObject
+@interface MRBImageManager : NSObject
 
 /**
  *  获取一张图片的真实尺寸(使用)

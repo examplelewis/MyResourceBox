@@ -8,7 +8,7 @@
 
 #import "FODayFolderManager.h"
 #import "FileManager.h"
-#import "ImageManager.h"
+#import "MRBImageManager.h"
 
 @implementation FODayFolderManager
 
@@ -49,7 +49,7 @@
     for (NSInteger i = 0; i < imageFilePaths.count; i++) {
         dispatch_group_async(g, q, ^{
             NSString *imageFilePath = imageFilePaths[i];
-            NSSize size = [ImageManager getActualImageSizeWithPhotoAtPath:imageFilePath];
+            NSSize size = [MRBImageManager getActualImageSizeWithPhotoAtPath:imageFilePath];
             if (size.width < 801 && size.height < 801) {
                 NSString *destFilePath = [imageFilePath stringByReplacingOccurrencesOfString:@"/Users/Mercury/Pictures/Day" withString:@"/Users/Mercury/.Trash"];
                 
