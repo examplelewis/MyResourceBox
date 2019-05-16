@@ -164,7 +164,7 @@
 #pragma mark - Help
 - (IBAction)openHelpingDocument:(NSMenuItem *)sender {
     if (![[NSWorkspace sharedWorkspace] openFile:[[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"帮助文档.txt"]]) {
-        MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+        MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:@"打开帮助文档文件时发生错误，打开失败" infomation:nil];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
@@ -187,7 +187,7 @@
     }
     
     if (![[NSWorkspace sharedWorkspace] openFile:latestFilePath]) {
-        MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+        MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:@"打开日志文件时发生错误，打开失败" infomation:nil];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
@@ -197,7 +197,7 @@
 }
 - (IBAction)openAuthorizationFile:(NSMenuItem *)sender {
     if (![[NSWorkspace sharedWorkspace] openFile:[[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"Authorization.plist"]]) {
-        MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+        MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:@"打开授权文件时发生错误，打开失败" infomation:nil];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
@@ -207,7 +207,7 @@
 }
 - (IBAction)openPreferenceFile:(NSMenuItem *)sender {
     if (![[NSWorkspace sharedWorkspace] openFile:[[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"Preference.plist"]]) {
-        MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+        MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:@"打开配置文件时发生错误，打开失败" infomation:nil];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
@@ -289,7 +289,7 @@
         
         [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到Token信息：%@", dic];
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
-        MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+        MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:errorTitle infomation:errorMsg];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];

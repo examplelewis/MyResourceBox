@@ -24,7 +24,7 @@
     #import "MRBCommoms.h"
     #import "MRBLogManager.h"
     #import "MRBUtilityManager.h"
-    #import "MyAlert.h"
+    #import "MRBAlert.h"
 	#import "MRBUserManager.h"
     #import "MRBFileManager.h"
     #import "DeviceInfo.h"

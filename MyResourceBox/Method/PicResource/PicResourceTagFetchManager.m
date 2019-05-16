@@ -46,7 +46,7 @@
         neededTagsKeys = @[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h", @"i", @"j", @"k", @"l", @"m", @"n", @"o", @"p", @"q", @"r", @"s", @"t", @"u", @"v", @"w", @"x", @"y", @"z", @"~other"];
         
         if (![[MRBFileManager defaultManager] isContentExistAtPath:totalTagsFilePath]) {
-            MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+            MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
             [alert setMessage:@"还没有下载过 Gelbooru 的 Tags，需要下载才能正常使用" infomation:nil];
             [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
             [alert runModel];
@@ -84,7 +84,7 @@
     }];
 }
 - (void)fetchTagsError:(NSString *)errorTitle msg:(NSString *)errorMsg {
-    MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+    MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
     [alert setMessage:[NSString stringWithFormat:@"抓取第 %ld 页 Tags 出现错误", pid] infomation:nil];
     [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
     [alert runModel];
@@ -271,7 +271,7 @@
     [MRBUtilityManager exportArray:other atPath:destPath];
     
     dispatch_main_sync_safe(^() {
-        MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+        MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:@"整理Gelbooru的Tag 完成" infomation:nil];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];

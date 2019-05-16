@@ -38,7 +38,7 @@
 }
 
 + (void)prepareOrganizingPhotos {
-    MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+    MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
     [alert setMessage:@"下载文件夹完整度" infomation:@"该项操作必须保证下载文件夹内只包含需要整理的资源，是否确认？"];
     [alert setButtonTitle:@"取消操作" keyEquivalent:[NSString stringWithFormat:@"%C", 0x1b]];
     [alert setButtonTitle:@"确认操作" keyEquivalent:@"\r"];

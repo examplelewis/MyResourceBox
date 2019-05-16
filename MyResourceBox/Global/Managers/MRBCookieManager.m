@@ -60,7 +60,7 @@
     NSDate *expireDate = [NSDate dateWithTimeIntervalSince1970:max.doubleValue];
     // Cookie即将过期，需要使用Chrome再次请求Cookie
     if ([expireDate isEarlierThan:[NSDate date]]) {
-        MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+        MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:@"有部分Cookie即将过期，需要使用Chrome再次请求Cookie" infomation:file_name];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];

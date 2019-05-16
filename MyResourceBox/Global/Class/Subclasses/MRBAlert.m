@@ -1,21 +1,21 @@
 //
-//  MyAlert.m
+//  MRBAlert.m
 //  MyComicView
 //
 //  Created by 龚宇 on 16/08/01.
 //  Copyright © 2016年 gongyuTest. All rights reserved.
 //
 
-#import "MyAlert.h"
+#import "MRBAlert.h"
 
-@interface MyAlert () {
+@interface MRBAlert () {
     NSAlert *alert;
     NSMutableArray *titles;
 }
 
 @end
 
-@implementation MyAlert
+@implementation MRBAlert
 
 - (instancetype)initWithAlertStyle:(NSAlertStyle)style {
     self = [super init];

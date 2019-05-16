@@ -1,5 +1,5 @@
 //
-//  MyAlert.h
+//  MRBAlert.h
 //  MyComicView
 //
 //  Created by 龚宇 on 16/08/01.
@@ -12,7 +12,7 @@
 static NSString * const MyAlertKeyEquivalentReturnKey = @"\r";
 static NSString * const MyAlertKeyEquivalentEscapeKey = @"\033";
 
-@interface MyAlert : NSObject
+@interface MRBAlert : NSObject
 
 - (instancetype)initWithAlertStyle:(NSAlertStyle)style;
 - (void)setMessage:(NSString *)message infomation:(NSString *)info;

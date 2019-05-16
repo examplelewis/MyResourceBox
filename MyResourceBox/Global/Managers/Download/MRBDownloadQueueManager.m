@@ -233,7 +233,7 @@ static NSInteger const defaultTimeoutInterval = 45;
 }
 
 - (void)showAlert {
-    MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+    MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
     [alert setMessage:@"输入的资源已下载完成" infomation:nil];
     [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
     [alert runModel];

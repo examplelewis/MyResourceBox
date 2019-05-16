@@ -53,7 +53,7 @@
             [self getBoundaryByApi];
         }
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
-        MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+        MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:errorTitle infomation:errorMsg];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
@@ -83,7 +83,7 @@
         [[MRBUserManager defaultManager] saveAuthDictIntoPlistFile];
         [[MRBLogManager defaultManager] showLogWithFormat:@"已经找到边界微博的ID：%@", object.id_str];
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
-        MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+        MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:errorTitle infomation:errorMsg];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];

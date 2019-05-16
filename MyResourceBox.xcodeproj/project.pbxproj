@@ -40,7 +40,7 @@
 		AC8508D91DB39146004AFE84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8508D71DB39146004AFE84 /* Main.storyboard */; };
 		AC8508E41DB39147004AFE84 /* MyResourceBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8508E31DB39147004AFE84 /* MyResourceBoxTests.m */; };
 		AC8508EF1DB39147004AFE84 /* MyResourceBoxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8508EE1DB39147004AFE84 /* MyResourceBoxUITests.m */; };
-		AC85090C1DB39677004AFE84 /* MyAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509051DB39677004AFE84 /* MyAlert.m */; };
+		AC85090C1DB39677004AFE84 /* MRBAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509051DB39677004AFE84 /* MRBAlert.m */; };
 		AC85090D1DB39677004AFE84 /* MRBUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509071DB39677004AFE84 /* MRBUserManager.m */; };
 		AC85090E1DB39677004AFE84 /* MRBUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509091DB39677004AFE84 /* MRBUtilityManager.m */; };
 		AC8509191DB39692004AFE84 /* MRBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509111DB39692004AFE84 /* MRBFileManager.m */; };
@@ -210,8 +210,8 @@
 		AC8508EE1DB39147004AFE84 /* MyResourceBoxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyResourceBoxUITests.m; sourceTree = "<group>"; };
 		AC8508F01DB39147004AFE84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC8508FD1DB39629004AFE84 /* MyResourceBox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyResourceBox-Prefix.pch"; sourceTree = "<group>"; };
-		AC8509041DB39677004AFE84 /* MyAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlert.h; sourceTree = "<group>"; };
-		AC8509051DB39677004AFE84 /* MyAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlert.m; sourceTree = "<group>"; };
+		AC8509041DB39677004AFE84 /* MRBAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBAlert.h; sourceTree = "<group>"; };
+		AC8509051DB39677004AFE84 /* MRBAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBAlert.m; sourceTree = "<group>"; };
 		AC8509061DB39677004AFE84 /* MRBUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBUserManager.h; sourceTree = "<group>"; };
 		AC8509071DB39677004AFE84 /* MRBUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBUserManager.m; sourceTree = "<group>"; };
 		AC8509081DB39677004AFE84 /* MRBUtilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBUtilityManager.h; sourceTree = "<group>"; };
@@ -590,8 +590,6 @@
 			children = (
 				AC2D1B141DD0191C0085F8E0 /* DeviceInfo.h */,
 				AC2D1B131DD0191C0085F8E0 /* DeviceInfo.m */,
-				AC8509041DB39677004AFE84 /* MyAlert.h */,
-				AC8509051DB39677004AFE84 /* MyAlert.m */,
 				ACC3149921773BFF00DA5276 /* XMLReader.h */,
 				ACC3149A21773BFF00DA5276 /* XMLReader.m */,
 				AC19E13F1E4844660084A510 /* PixivAPI */,
@@ -815,6 +813,23 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		ACCAA3B4228D11280062BCE6 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				ACCAA3B5228D11320062BCE6 /* Subclasses */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		ACCAA3B5228D11320062BCE6 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				AC8509041DB39677004AFE84 /* MRBAlert.h */,
+				AC8509051DB39677004AFE84 /* MRBAlert.m */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		ACCCE263227E8EDF00A18C8D /* Analysis */ = {
 			isa = PBXGroup;
 			children = (
@@ -929,6 +944,7 @@
 			children = (
 				ACF9FC67228159D600375505 /* MRBCommoms.h */,
 				AC85090F1DB39692004AFE84 /* Managers */,
+				ACCAA3B4228D11280062BCE6 /* Class */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -1136,7 +1152,7 @@
 				ACC1DCB8226F071F001243C1 /* GelbooruTagEndTimePicManager.m in Sources */,
 				AC19E14C1E4844660084A510 /* PAPIAuthor.m in Sources */,
 				AC19E15B1E4857210084A510 /* PixivUserManager.m in Sources */,
-				AC85090C1DB39677004AFE84 /* MyAlert.m in Sources */,
+				AC85090C1DB39677004AFE84 /* MRBAlert.m in Sources */,
 				AC9870591E4C4A650076DC92 /* WNACGFileModel.m in Sources */,
 				ACC5C00A22893F06004E7C83 /* ResourceGlobalDownloadManager.m in Sources */,
 				AC85091B1DB39692004AFE84 /* WebArchiveMethod.m in Sources */,

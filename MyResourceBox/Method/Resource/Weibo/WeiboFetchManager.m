@@ -113,7 +113,7 @@
             [self getFavouristByApi];
         }
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
-        MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+        MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:errorTitle infomation:errorMsg];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
