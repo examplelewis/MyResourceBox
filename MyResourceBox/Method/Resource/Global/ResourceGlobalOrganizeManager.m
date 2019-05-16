@@ -54,6 +54,9 @@
         [[FileManager defaultManager] moveItemAtPath:downloadPath toDestPath:targetPath error:&error];
         // 文件如果已经存在，那么删除源文件，说明之前已经下载的相同的图片了
         if (error && error.code == NSFileWriteFileExistsError) {
+            NSDate *creationDate = [[FileManager defaultManager] getSpecificAttributeOfItemAtPath:targetPath attribute:NSFileCreationDate];
+            NSString *creationDateStr = [creationDate formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+            [[UtilityFile sharedInstance] showLogWithFormat:@"文件: %@ 在 %@ 下载过，将被删除", downloadPath, creationDateStr];
             [[FileManager defaultManager] trashFileAtPath:downloadPath resultItemURL:nil];
         }
     }
