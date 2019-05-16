@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)showLogWithFormat:(NSString *)alertFormat, ...;
 - (void)showLogWithTitle:(NSString *)alertTitle andFormat:(NSString *)alertFormat, ...;
 - (void)showNotAppendLogWithFormat:(NSString *)alertFormat, ...;
+- (void)showNotShowTimeLogWithFormat:(NSString *)alertFormat, ...;
 
 #pragma mark - 辅助方法
 + (void)resetCurrentDate;

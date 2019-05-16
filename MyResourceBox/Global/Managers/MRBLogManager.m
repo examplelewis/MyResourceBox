@@ -8,6 +8,10 @@
 
 #import "MRBLogManager.h"
 
+static NSString * const kTitleKey = @"kTitleKey";
+static NSString * const kAppendLogKey = @"kAppendLogKey";
+static NSString * const kShowTimeKey = @"kShowTimeKey";
+
 @interface MRBLogManager () {
     NSString *lastLog;
 }
@@ -37,70 +41,111 @@
 }
 
 #pragma mark - 在界面控制台上显示/清除信息
-// 通过变参函数显示需要通过[NSString stringWithFormat:]来构造的log语句
 - (void)showLogWithFormat:(NSString *)alertFormat, ... {
+    // 解析 alertFormat
     va_list args;
     va_start(args, alertFormat);
     NSString *alertString = [[NSString alloc] initWithFormat:alertFormat arguments:args];
     va_end(args);
     DDLogInfo(@"%@", alertString);
     
-    NSDate *now = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"currentDate"];
-    NSTimeInterval timeDiff = [[NSDate date] timeIntervalSinceDate:now];
-    NSString *timeDiffString = [MRBLogManager convertTimeDifferenceToString:timeDiff];
-    NSString *dateString = [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
-    
-    NSString *string = [NSString stringWithFormat:@"%@ | %@\t\t%@\n", dateString, timeDiffString, alertString];
-    lastLog = string;
-    ViewController *rootVC = [AppDelegate defaultVC];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        rootVC.logTextView.string = [rootVC.logTextView.string stringByAppendingString:string];
-        [rootVC scrollLogTextViewToBottom];
-    });
+    [self showLogWithParameters:nil andAlertString:alertString];
 }
 - (void)showLogWithTitle:(NSString *)alertTitle andFormat:(NSString *)alertFormat, ... {
-    NSAssert(alertTitle, @"alertTitle 不能为空");
-    
-    va_list args;
-    va_start(args, alertFormat);
-    NSString *alertString = [[NSString alloc] initWithFormat:alertFormat arguments:args];
-    va_end(args);
-    DDLogInfo(@"%@, %@", alertTitle, alertString);
-    
-    NSDate *now = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"currentDate"];
-    NSTimeInterval timeDiff = [[NSDate date] timeIntervalSinceDate:now];
-    NSString *timeDiffString = [MRBLogManager convertTimeDifferenceToString:timeDiff];
-    NSString *dateString = [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
-    
-    NSString *string = [NSString stringWithFormat:@"%@ | %@\n%@\n%@\n", dateString, timeDiffString, alertTitle, alertString];
-    lastLog = string;
-    ViewController *rootVC = [AppDelegate defaultVC];
-    dispatch_main_sync_safe((^() {
-        rootVC.logTextView.string = [rootVC.logTextView.string stringByAppendingString:string];
-        [rootVC scrollLogTextViewToBottom];
-    }));
-}
-- (void)showNotAppendLogWithFormat:(NSString *)alertFormat, ... {
+    // 解析 alertFormat
     va_list args;
     va_start(args, alertFormat);
     NSString *alertString = [[NSString alloc] initWithFormat:alertFormat arguments:args];
     va_end(args);
     DDLogInfo(@"%@", alertString);
     
+    [self showLogWithParameters:@{kTitleKey: alertTitle} andAlertString:alertString];
+}
+- (void)showNotAppendLogWithFormat:(NSString *)alertFormat, ... {
+    // 解析 alertFormat
+    va_list args;
+    va_start(args, alertFormat);
+    NSString *alertString = [[NSString alloc] initWithFormat:alertFormat arguments:args];
+    va_end(args);
+    DDLogInfo(@"%@", alertString);
+    
+    [self showLogWithParameters:@{kAppendLogKey: @(NO)} andAlertString:alertString];
+}
+- (void)showNotShowTimeLogWithFormat:(NSString *)alertFormat, ... {
+    // 解析 alertFormat
+    va_list args;
+    va_start(args, alertFormat);
+    NSString *alertString = [[NSString alloc] initWithFormat:alertFormat arguments:args];
+    va_end(args);
+    DDLogInfo(@"%@", alertString);
+    
+    [self showLogWithParameters:@{kShowTimeKey: @(NO)} andAlertString:alertString];
+}
+
+#pragma mark - 显示 Log 的具体实现方法
+- (void)showLogWithParameters:(NSDictionary *)parameters andAlertString:(NSString *)alertString {
+    // 从 parameters 中获取必要参数
+    NSString *logTitle = @"";
+    BOOL showLogTitle = NO;
+    BOOL showLogTime = YES;
+    BOOL appendLastLog = YES;
+    if (parameters) {
+        if (parameters[kShowTimeKey]) {
+            showLogTime = [parameters[kShowTimeKey] boolValue];
+        }
+        if (parameters[kTitleKey]) {
+            logTitle = parameters[kTitleKey];
+            showLogTitle = YES;
+        }
+        if (parameters[kAppendLogKey]) {
+            appendLastLog = [parameters[kAppendLogKey] boolValue];
+        }
+    }
+    
+    // 获取当前日期
+    NSString *dateString = [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
     NSDate *now = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"currentDate"];
     NSTimeInterval timeDiff = [[NSDate date] timeIntervalSinceDate:now];
     NSString *timeDiffString = [MRBLogManager convertTimeDifferenceToString:timeDiff];
-    NSString *dateString = [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
     
-    ViewController *rootVC = [AppDelegate defaultVC];
-    dispatch_main_sync_safe((^() {
-        NSString *logContent = rootVC.logTextView.string;
-        logContent = [logContent stringByReplacingOccurrencesOfString:self->lastLog withString:@""];
-        NSString *string = [NSString stringWithFormat:@"%@ | %@\t\t%@\n", dateString, timeDiffString, alertString];
-        self->lastLog = string;
-        logContent = [logContent stringByAppendingString:string];
-        rootVC.logTextView.string = logContent;
-    }));
+    // 拼接一条 logEntry
+    NSString *aLogEntry = @"";
+    if (showLogTime) {
+        aLogEntry = [aLogEntry stringByAppendingFormat:@"%@ | %@", dateString, timeDiffString]; // 添加时间
+        // 根据是否显示标题，加特定的内容；显示时间的话，内容前面要加上 \n 或者 \t
+        if (showLogTitle) {
+            aLogEntry = [aLogEntry stringByAppendingFormat:@"\n%@\n%@\n", logTitle, alertString];
+        } else {
+            aLogEntry = [aLogEntry stringByAppendingFormat:@"\t\t%@\n", alertString];
+        }
+    } else {
+        // 根据是否显示标题，加特定的内容；不显示时间的话，内容前面不加 \n 和 \t
+        if (showLogTitle) {
+            aLogEntry = [aLogEntry stringByAppendingFormat:@"%@\n%@\n", logTitle, alertString];
+        } else {
+            aLogEntry = [aLogEntry stringByAppendingFormat:@"%@\n", alertString];
+        }
+    }
+    
+    // 在 logTextView 上显示 log
+    if (appendLastLog) {
+        lastLog = aLogEntry;
+        
+        ViewController *rootVC = [AppDelegate defaultVC];
+        dispatch_main_sync_safe((^() {
+            rootVC.logTextView.string = [rootVC.logTextView.string stringByAppendingString:aLogEntry];
+            [rootVC scrollLogTextViewToBottom];
+        }));
+    } else {
+        ViewController *rootVC = [AppDelegate defaultVC];
+        dispatch_main_sync_safe((^() {
+            NSString *logContent = rootVC.logTextView.string;
+            logContent = [logContent stringByReplacingOccurrencesOfString:self->lastLog withString:@""];
+            self->lastLog = aLogEntry;
+            logContent = [logContent stringByAppendingString:aLogEntry];
+            rootVC.logTextView.string = logContent;
+        }));
+    }
 }
 
 #pragma mark - 辅助方法
@@ -116,7 +161,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [AppDelegate defaultVC].logTextView.string = @"";
-    [[MRBLogManager defaultManager] showLogWithFormat:@"---------------------------------------------------------------------------------"];
+    [[MRBLogManager defaultManager] showNotShowTimeLogWithFormat:@"---------------------------------------------------------------------------------"];
 }
 + (NSString *)convertTimeDifferenceToString:(NSTimeInterval)timeDiff {
     NSCalendar *sysCalendar = [NSCalendar currentCalendar];
@@ -125,7 +170,7 @@
     unsigned int unitFlags = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitNanosecond;
     NSDateComponents *breakdownInfo = [sysCalendar components:unitFlags fromDate:date1  toDate:date2  options:0];
     
-    NSString *string = [NSString stringWithFormat:@"%02ld:%02ld:%02ld.%03ld", [breakdownInfo hour], [breakdownInfo minute], [breakdownInfo second], (NSInteger)roundf([breakdownInfo nanosecond] / 1000000.0f)];
+    NSString *string = [NSString stringWithFormat:@"%02ld:%02ld.%03ld", [breakdownInfo minute], [breakdownInfo second], (NSInteger)roundf([breakdownInfo nanosecond] / 1000000.0f)];
     
     return string;
 }
