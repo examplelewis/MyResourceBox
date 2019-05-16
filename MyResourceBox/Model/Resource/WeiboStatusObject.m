@@ -50,7 +50,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"created_at--:%@, id_str--:%@, img_urls_str--:%@, user_screen_name--:%@, user_id_str--:%@", _created_at, _id_str, _img_urls_str, _user_screen_name, _user_id_str];
+    return [NSString stringWithFormat:@"created_at: %@\nid_str: %@\nimg_urls_str: %@\nuser_screen_name: %@\nuser_id_str: %@", _created_at, _id_str, _img_urls_str, _user_screen_name, _user_id_str];
 }
 
 @end

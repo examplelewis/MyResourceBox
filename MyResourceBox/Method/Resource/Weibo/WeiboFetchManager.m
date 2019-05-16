@@ -19,6 +19,7 @@
     NSMutableDictionary *weiboStatuses;
     NSMutableArray *weiboImages;
     NSMutableArray *weiboObjects;
+    NSMutableArray *weiboIds; // 记录当前抓取到的 weibo，用于去重
     NSInteger fetchedPage;
     NSInteger fetchedCount;
 }
@@ -31,6 +32,7 @@
     weiboStatuses = [NSMutableDictionary dictionary];
     weiboImages = [NSMutableArray array];
     weiboObjects = [NSMutableArray array];
+    weiboIds = [NSMutableArray array];
     fetchedPage = 1;
     fetchedCount = 0;
     
@@ -63,6 +65,10 @@
             NSString *statusKey = @"";
             WeiboStatusObject *object = [[WeiboStatusObject alloc] initWithDictionary:sDict];
             
+            // 如果在当前抓取的流程中出现了重复的 id，那么跳过
+            if ([self->weiboIds containsObject:object.id_str]) {
+                continue;
+            }
             // 如果当前微博在数据库中有记录，那么跳过
             if ([[SQLiteFMDBManager defaultDBManager] isDuplicateFromDatabaseWithWeiboStatusId:object.id_str]) {
                 continue;
@@ -93,6 +99,7 @@
             statusKey = [statusKey stringByAppendingFormat:@"【%@-%@】", object.user_screen_name, object.created_at_readable_str];
             statusKey = [statusKey stringByReplacingOccurrencesOfString:@"/" withString:@" "]; // 防止有 / 出现
             
+            [self->weiboIds addObject:object.id_str];
             [self->weiboObjects addObject:object];
             [self->weiboStatuses setObject:object.img_urls forKey:statusKey];
             [self->weiboImages addObjectsFromArray:object.img_urls];
@@ -132,7 +139,9 @@
         
         [[UtilityFile sharedInstance] showLogWithFormat:@"将获取到微博信息存储到数据库中"];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[SQLiteFMDBManager defaultDBManager] insertWeiboStatusIntoDatabase:[self->weiboObjects copy]];
+            // 往数据库里写入的时候，要按照获取的倒序，也就是最早收藏的微博排在最前
+            NSArray *reversedArray = [[self->weiboObjects reverseObjectEnumerator] allObjects];
+            [[SQLiteFMDBManager defaultDBManager] insertWeiboStatusIntoDatabase:reversedArray];
             [SQLiteManager backupDatabaseFile];
         });
         
