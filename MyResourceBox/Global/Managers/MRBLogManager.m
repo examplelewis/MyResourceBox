@@ -152,7 +152,7 @@ static NSString * const kShowTimeKey = @"kShowTimeKey";
 - (void)cleanLog {
     lastLog = @"";
     ViewController *rootVC = [AppDelegate defaultVC];
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_main_sync_safe(^() {
         rootVC.logTextView.string = @"";
     });
 }
