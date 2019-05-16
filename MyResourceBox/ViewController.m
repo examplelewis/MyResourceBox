@@ -34,7 +34,7 @@
 - (IBAction)processingExportInput:(NSButton *)sender {
     NSString *input = self.inputTextView.string;
     if (input.length > 0) {
-        [UtilityFile exportString:input atPath:@"/Users/Mercury/Downloads/Input.txt"];
+        [MRBUtilityManager exportString:input atPath:@"/Users/Mercury/Downloads/Input.txt"];
     } else {
         [[MRBLogManager defaultManager] showLogWithFormat:@"没有可导出的输入"];
     }
@@ -51,7 +51,7 @@
 //    for (NSString *string in components) {
 //
 //    }
-//    self.outputTextView.string = [UtilityFile convertResultArray:result];
+//    self.outputTextView.string = [MRBUtilityManager convertResultArray:result];
 }
 
 @end

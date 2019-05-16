@@ -74,13 +74,13 @@
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程结束，请查看下载文件夹"];
     if (useless.count > 0) {
-        [UtilityFile exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilFetchUseless.txt"];
+        [MRBUtilityManager exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilFetchUseless.txt"];
     }
     if (news.count > 0) {
-        [UtilityFile exportArray:news atPath:@"/Users/Mercury/Downloads/PixivUtilFetchNews.txt"];
+        [MRBUtilityManager exportArray:news atPath:@"/Users/Mercury/Downloads/PixivUtilFetchNews.txt"];
     }
     if (exists.count > 0) {
-        [UtilityFile exportArray:exists atPath:@"/Users/Mercury/Downloads/PixivUtilFetchExists.txt"];
+        [MRBUtilityManager exportArray:exists atPath:@"/Users/Mercury/Downloads/PixivUtilFetchExists.txt"];
     }
 }
 

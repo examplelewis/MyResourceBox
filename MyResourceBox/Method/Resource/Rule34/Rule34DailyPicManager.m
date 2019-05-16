@@ -141,20 +141,20 @@
         NSArray *hUrls = [self->hPosts valueForKey:@"file_url"];
         NSArray *webmFileUrls = [self->webmPosts valueForKey:@"file_url"];
         
-        [UtilityFile exportArray:fateUrls atPath:Rule34FatePostTxtPath];
-        [UtilityFile exportArray:azurUrls atPath:Rule34AzurPostTxtPath];
-        [UtilityFile exportArray:overwatchUrls atPath:Rule34OverwatchPostTxtPath];
+        [MRBUtilityManager exportArray:fateUrls atPath:Rule34FatePostTxtPath];
+        [MRBUtilityManager exportArray:azurUrls atPath:Rule34AzurPostTxtPath];
+        [MRBUtilityManager exportArray:overwatchUrls atPath:Rule34OverwatchPostTxtPath];
         
-        [UtilityFile exportArray:animeUrls atPath:Rule34AnimePostTxtPath];
+        [MRBUtilityManager exportArray:animeUrls atPath:Rule34AnimePostTxtPath];
         [self->animeNameInfo writeToFile:Rule34AnimePostRenamePlistPath atomically:YES];
         
-        [UtilityFile exportArray:gameUrls atPath:Rule34GamePostTxtPath];
+        [MRBUtilityManager exportArray:gameUrls atPath:Rule34GamePostTxtPath];
         [self->gameNameInfo writeToFile:Rule34GamePostRenamePlistPath atomically:YES];
         
-        [UtilityFile exportArray:hUrls atPath:Rule34HPostTxtPath];
+        [MRBUtilityManager exportArray:hUrls atPath:Rule34HPostTxtPath];
         [self->hNameInfo writeToFile:Rule34HPostRenamePlistPath atomically:YES];
         
-        [UtilityFile exportArray:webmFileUrls atPath:Rule34WebmPostTxtPath];
+        [MRBUtilityManager exportArray:webmFileUrls atPath:Rule34WebmPostTxtPath];
         [self->webmNameInfo writeToFile:Rule34WebmPostRenamePlistPath atomically:YES];
         
         

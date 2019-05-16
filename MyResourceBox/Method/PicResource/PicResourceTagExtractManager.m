@@ -51,7 +51,7 @@ static NSString * const kNeededTagsFolderPath = @"/Users/Mercury/Documents/同�
     NSArray *characterTagsName = [characterTags valueForKey:@"name"];
     neededTagsName = [copyrightTagsName arrayByAddingObjectsFromArray:characterTagsName];
     
-    [UtilityFile exportArray:neededTagsName atPath:@"/Users/Mercury/Documents/同步文档/MyResourceBox/Tags/neededTagsName.txt"];
+    [MRBUtilityManager exportArray:neededTagsName atPath:@"/Users/Mercury/Documents/同步文档/MyResourceBox/Tags/neededTagsName.txt"];
     
     [self startExtracting];
 }
@@ -67,10 +67,10 @@ static NSString * const kNeededTagsFolderPath = @"/Users/Mercury/Documents/同�
         [other removeObjectsInArray:values];
         
         NSString *destPath = [kNeededTagsFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.txt", key]];
-        [UtilityFile exportArray:values atPath:destPath];
+        [MRBUtilityManager exportArray:values atPath:destPath];
     }
     
     NSString *destPath = [kNeededTagsFolderPath stringByAppendingPathComponent:@"~other.txt"];
-    [UtilityFile exportArray:other atPath:destPath];
+    [MRBUtilityManager exportArray:other atPath:destPath];
 }
 @end

@@ -122,16 +122,16 @@
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被拉黑，流程结束，请查看下载文件夹"];
     if (useless.count > 0) {
-        [UtilityFile exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilBlockUseless.txt"];
+        [MRBUtilityManager exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilBlockUseless.txt"];
     }
     if (news.count > 0) {
-        [UtilityFile exportArray:news atPath:@"/Users/Mercury/Downloads/PixivUtilBlockNews.txt"];
+        [MRBUtilityManager exportArray:news atPath:@"/Users/Mercury/Downloads/PixivUtilBlockNews.txt"];
     }
     if (block1Exists.count > 0) {
-        [UtilityFile exportArray:block1Exists atPath:@"/Users/Mercury/Downloads/PixivUtilBlock1Exists.txt"];
+        [MRBUtilityManager exportArray:block1Exists atPath:@"/Users/Mercury/Downloads/PixivUtilBlock1Exists.txt"];
     }
     if (notBlock1Exists.count > 0) {
-        [UtilityFile exportArray:notBlock1Exists atPath:@"/Users/Mercury/Downloads/PixivUtilNotBlock1Exists.txt"];
+        [MRBUtilityManager exportArray:notBlock1Exists atPath:@"/Users/Mercury/Downloads/PixivUtilNotBlock1Exists.txt"];
     }
 }
 - (void)updateBlockLevel1PixivUser {
@@ -202,7 +202,7 @@
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv屏蔽用户名单，流程结束"];
     if (useless.count > 0) {
-        [UtilityFile exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilUpdateBlockUseless.txt"];
+        [MRBUtilityManager exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilUpdateBlockUseless.txt"];
     }
 }
 - (void)updateBlockLevel2PixivUser {
@@ -273,7 +273,7 @@
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv不确定屏蔽用户名单，流程结束"];
     if (useless.count > 0) {
-        [UtilityFile exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilUpdateBlockUseless.txt"];
+        [MRBUtilityManager exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilUpdateBlockUseless.txt"];
     }
 }
 

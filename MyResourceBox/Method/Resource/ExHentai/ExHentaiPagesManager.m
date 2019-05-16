@@ -94,7 +94,7 @@
                 [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页原始数据失败，原因：%@", [error localizedDescription]];
                 
                 [self->failure addObject:url];
-                [UtilityFile exportArray:self->failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailurePages.txt"];
+                [MRBUtilityManager exportArray:self->failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailurePages.txt"];
             } else {
                 TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
                 NSArray *aArray = [xpathParser searchWithXPathQuery:@"//a"];
@@ -137,7 +137,7 @@
     [[MRBLogManager defaultManager] showLogWithFormat:@"已获取到%lu条包含图片的网页地址", urlArray.count];
     
     if (failure.count > 0) {
-        [UtilityFile exportArray:failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailurePages.txt"];
+        [MRBUtilityManager exportArray:failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailurePages.txt"];
         [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld个页面无法解析，已导出到下载文件夹的ExHentaiFailurePages.txt文件中", failure.count];
     }
     

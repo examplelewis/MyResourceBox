@@ -1,5 +1,5 @@
 //
-//  UtilityFile.h
+//  MRBUtilityManager.h
 //  SJYH
 //
 //  Created by 龚宇 on 15/1/20.
@@ -11,7 +11,7 @@
 
 #import "AppDelegate.h"
 
-@interface UtilityFile : NSObject
+@interface MRBUtilityManager : NSObject
 
 #pragma mark - 写入读取文本文件
 + (void)exportString:(NSString *)string atPath:(NSString *)path;

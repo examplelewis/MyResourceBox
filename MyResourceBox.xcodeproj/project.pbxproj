@@ -42,7 +42,7 @@
 		AC8508EF1DB39147004AFE84 /* MyResourceBoxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8508EE1DB39147004AFE84 /* MyResourceBoxUITests.m */; };
 		AC85090C1DB39677004AFE84 /* MyAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509051DB39677004AFE84 /* MyAlert.m */; };
 		AC85090D1DB39677004AFE84 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509071DB39677004AFE84 /* UserInfo.m */; };
-		AC85090E1DB39677004AFE84 /* UtilityFile.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509091DB39677004AFE84 /* UtilityFile.m */; };
+		AC85090E1DB39677004AFE84 /* MRBUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509091DB39677004AFE84 /* MRBUtilityManager.m */; };
 		AC8509191DB39692004AFE84 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509111DB39692004AFE84 /* FileManager.m */; };
 		AC85091B1DB39692004AFE84 /* WebArchiveMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509161DB39692004AFE84 /* WebArchiveMethod.m */; };
 		AC8509211DB3970D004AFE84 /* WeiboTokenWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC85091F1DB3970D004AFE84 /* WeiboTokenWindowController.m */; };
@@ -214,8 +214,8 @@
 		AC8509051DB39677004AFE84 /* MyAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlert.m; sourceTree = "<group>"; };
 		AC8509061DB39677004AFE84 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		AC8509071DB39677004AFE84 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
-		AC8509081DB39677004AFE84 /* UtilityFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilityFile.h; sourceTree = "<group>"; };
-		AC8509091DB39677004AFE84 /* UtilityFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityFile.m; sourceTree = "<group>"; };
+		AC8509081DB39677004AFE84 /* MRBUtilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBUtilityManager.h; sourceTree = "<group>"; };
+		AC8509091DB39677004AFE84 /* MRBUtilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBUtilityManager.m; sourceTree = "<group>"; };
 		AC8509101DB39692004AFE84 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		AC8509111DB39692004AFE84 /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
 		AC8509151DB39692004AFE84 /* WebArchiveMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebArchiveMethod.h; sourceTree = "<group>"; };
@@ -594,8 +594,6 @@
 				AC8509051DB39677004AFE84 /* MyAlert.m */,
 				AC8509061DB39677004AFE84 /* UserInfo.h */,
 				AC8509071DB39677004AFE84 /* UserInfo.m */,
-				AC8509081DB39677004AFE84 /* UtilityFile.h */,
-				AC8509091DB39677004AFE84 /* UtilityFile.m */,
 				ACC3149921773BFF00DA5276 /* XMLReader.h */,
 				ACC3149A21773BFF00DA5276 /* XMLReader.m */,
 				AC19E13F1E4844660084A510 /* PixivAPI */,
@@ -618,6 +616,8 @@
 				ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */,
 				ACCAA3B1228D09C40062BCE6 /* MRBLogManager.h */,
 				ACCAA3B2228D09C40062BCE6 /* MRBLogManager.m */,
+				AC8509081DB39677004AFE84 /* MRBUtilityManager.h */,
+				AC8509091DB39677004AFE84 /* MRBUtilityManager.m */,
 				AC9F4C621E499AD600FD01C5 /* Download */,
 				AC9870641E4C4AB90076DC92 /* SQLite */,
 			);
@@ -1169,7 +1169,7 @@
 				ACA3C1871DD09F5100A9B31D /* DownloadInfoObject.m in Sources */,
 				AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */,
 				ACC8EBB122826785003CF448 /* Rule34DownloadAndOrganizeManager.m in Sources */,
-				AC85090E1DB39677004AFE84 /* UtilityFile.m in Sources */,
+				AC85090E1DB39677004AFE84 /* MRBUtilityManager.m in Sources */,
 				ACC93F012277F54900C207E6 /* PixivFollowingManager.m in Sources */,
 				ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */,
 				AC9870621E4C4A980076DC92 /* PixivMangaObject.m in Sources */,

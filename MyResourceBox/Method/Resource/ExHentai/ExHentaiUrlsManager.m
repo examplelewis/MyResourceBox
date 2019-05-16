@@ -47,7 +47,7 @@
                 [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
                 
                 [self->failure addObject:url];
-                [UtilityFile exportArray:self->failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailureUrls.txt"];
+                [MRBUtilityManager exportArray:self->failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailureUrls.txt"];
             } else {
                 TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
                 // 查找是否包含 Download Original 的链接
@@ -90,9 +90,9 @@
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取完成"];
     [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条数据", resultArray.count];
-    [UtilityFile exportArray:resultArray atPath:@"/Users/Mercury/Downloads/ExHentaiImageUrls.txt"];
+    [MRBUtilityManager exportArray:resultArray atPath:@"/Users/Mercury/Downloads/ExHentaiImageUrls.txt"];
     if (failure.count > 0) {
-        [UtilityFile exportArray:failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailureUrls.txt"];
+        [MRBUtilityManager exportArray:failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailureUrls.txt"];
         [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld个文件无法下载，已导出到下载文件夹的ExHentaiFailureUrls.txt文件中", failure.count];
     }
     

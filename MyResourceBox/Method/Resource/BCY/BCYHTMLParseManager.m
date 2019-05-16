@@ -46,7 +46,7 @@
     
     // 导出结果
     [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条数据", newImageUrls.count];
-    [UtilityFile exportArray:newImageUrls atPath:BCYImageUrlsPath];
+    [MRBUtilityManager exportArray:newImageUrls atPath:BCYImageUrlsPath];
     [@{title:newImageUrls} writeToFile:BCYRenameInfoPath atomically:YES]; //RenameDict
     [[MRBLogManager defaultManager] showLogWithFormat:@"整个流程已经结束，如有需要，请从上方的结果框中查看记录"];
 }

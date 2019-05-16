@@ -43,7 +43,7 @@
         }
         
         if (strongSelf->fetchedFollowings.count > 0) {
-            [UtilityFile exportArray:strongSelf->fetchedFollowings atPlistPath:@"/Users/Mercury/Downloads/PixivFetchedUserIds.plist"];
+            [MRBUtilityManager exportArray:strongSelf->fetchedFollowings atPlistPath:@"/Users/Mercury/Downloads/PixivFetchedUserIds.plist"];
         }
         
         NSLog(@"nextUrl: %@", nextUrl);
@@ -137,13 +137,13 @@
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被关注，流程结束，请查看下载文件夹"];
     if (useless.count > 0) {
-        [UtilityFile exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilFollowUseless.txt"];
+        [MRBUtilityManager exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilFollowUseless.txt"];
     }
     if (news.count > 0) {
-        [UtilityFile exportArray:news atPath:@"/Users/Mercury/Downloads/PixivUtilFollowNews.txt"];
+        [MRBUtilityManager exportArray:news atPath:@"/Users/Mercury/Downloads/PixivUtilFollowNews.txt"];
     }
     if (exists.count > 0) {
-        [UtilityFile exportArray:exists atPath:@"/Users/Mercury/Downloads/PixivUtilFollowExists.txt"];
+        [MRBUtilityManager exportArray:exists atPath:@"/Users/Mercury/Downloads/PixivUtilFollowExists.txt"];
     }
 }
 

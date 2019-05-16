@@ -126,7 +126,7 @@
                 [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
                 
                 [self->failedURLArray addObject:[error userInfo][NSURLErrorFailingURLStringErrorKey]];
-                [UtilityFile exportArray:self->failedURLArray atPath:BCYFailedUrlsPath];
+                [MRBUtilityManager exportArray:self->failedURLArray atPath:BCYFailedUrlsPath];
                 [self didFinishDownloadingOnePicture:NO];
             } else {
                 TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
@@ -221,11 +221,11 @@
 // 5、导出结果
 - (void)doneThings {
     [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取了%ld个页面的图片地址", pageArray.count]; //获取到的页面地址
-    [UtilityFile exportArray:pageArray atPath:BCYPageUrlsPath];
+    [MRBUtilityManager exportArray:pageArray atPath:BCYPageUrlsPath];
     [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条图片地址，在右上方输出框内显示", resultArray.count];
-    [UtilityFile exportArray:resultArray atPath:BCYImageUrlsPath];
+    [MRBUtilityManager exportArray:resultArray atPath:BCYImageUrlsPath];
     [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld条网页解析失败，请查看错误文件", failedURLArray.count]; //获取失败的页面地址
-    [UtilityFile exportArray:failedURLArray atPath:BCYFailedUrlsPath];
+    [MRBUtilityManager exportArray:failedURLArray atPath:BCYFailedUrlsPath];
     [renameDict writeToFile:BCYRenameInfoPath atomically:YES]; //RenameDict
     
     if (checkDB) {

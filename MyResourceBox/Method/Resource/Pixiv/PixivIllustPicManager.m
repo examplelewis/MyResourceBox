@@ -74,11 +74,11 @@
 }
 // 获取完用户信息或者图片信息后开始下载
 - (void)startDownloading {
-    [UtilityFile exportArray:_imgsUrl atPath:@"/Users/Mercury/Downloads/PixivIllustURLs.txt"];
+    [MRBUtilityManager exportArray:_imgsUrl atPath:@"/Users/Mercury/Downloads/PixivIllustURLs.txt"];
     [_results writeToFile:@"/Users/Mercury/Downloads/PixivIllustInfo.plist" atomically:YES];
     if (_failures.count > 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld个用户获取失败，请查看错误文件", _failures.count]; //获取失败的页面地址
-        [UtilityFile exportArray:_failures atPath:@"/Users/Mercury/Downloads/PixivFailedURLs.txt"];
+        [MRBUtilityManager exportArray:_failures atPath:@"/Users/Mercury/Downloads/PixivFailedURLs.txt"];
     }
     
     PixivDownloadManager *manager = [[PixivDownloadManager alloc] initWithResult:_results];

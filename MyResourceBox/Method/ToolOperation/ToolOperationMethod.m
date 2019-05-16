@@ -96,8 +96,8 @@
         return;
     }
     
-    [UtilityFile exportArray:direct atPath:@"/Users/Mercury/Downloads/GoAgentXRules_Direct.txt"];
-    [UtilityFile exportArray:detect atPath:@"/Users/Mercury/Downloads/GoAgentXRules_Auto.txt"];
+    [MRBUtilityManager exportArray:direct atPath:@"/Users/Mercury/Downloads/GoAgentXRules_Direct.txt"];
+    [MRBUtilityManager exportArray:detect atPath:@"/Users/Mercury/Downloads/GoAgentXRules_Auto.txt"];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"流程已结束，请查看：GoAgentXRules_Direct.txt 以及 GoAgentXRules_Auto.txt 两个文件"];
 }

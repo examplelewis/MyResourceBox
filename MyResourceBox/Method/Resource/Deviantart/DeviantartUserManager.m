@@ -119,7 +119,7 @@
                 [strongSelf->galleryResultUrls addObject:src];
             }
         }
-        [UtilityFile exportArray:strongSelf->galleryResultUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/DeviantartUser【%@】Gallery.txt", [AppDelegate defaultVC].inputTextView.string]];
+        [MRBUtilityManager exportArray:strongSelf->galleryResultUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/DeviantartUser【%@】Gallery.txt", [AppDelegate defaultVC].inputTextView.string]];
         
         if ([response[@"has_more"] boolValue]) {
             strongSelf->galleryOffset = [response[@"next_offset"] integerValue];

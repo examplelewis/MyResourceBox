@@ -204,14 +204,14 @@ static NSInteger const defaultTimeoutInterval = 45;
     
     if (downloadUrls.count > 0 && redownloadTimes < _maxRedownloadTimes) {
         // 导出之前失败的内容
-        [UtilityFile exportArray:downloadUrls atPath:failurePath];
+        [MRBUtilityManager exportArray:downloadUrls atPath:failurePath];
         
         [[MRBLogManager defaultManager] showLogWithFormat:@"1秒后重新下载失败的图片"];
         [self performSelector:@selector(redownloadFailure) withObject:nil afterDelay:1.0f];
     } else {
         [[MRBLogManager defaultManager] showLogWithFormat:@"下载完成"];
         if (downloadUrls.count > 0) {
-            [UtilityFile exportArray:downloadUrls atPath:failurePath];
+            [MRBUtilityManager exportArray:downloadUrls atPath:failurePath];
             [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 个文件仍然无法下载，列表已导出到下载文件夹中的 %@ 文件中", downloadUrls.count, failurePath.lastPathComponent];
         }
         

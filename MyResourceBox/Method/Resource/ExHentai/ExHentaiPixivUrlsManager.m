@@ -49,7 +49,7 @@
                 [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
                 
                 [self->failure addObject:url];
-                [UtilityFile exportArray:self->failure atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivFailureUrls.txt"];
+                [MRBUtilityManager exportArray:self->failure atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivFailureUrls.txt"];
             } else {
                 TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
                 // 评论节点样式: <div class="c6" id="comment_0">Pixiv: https://www.pixiv.net/member.php?id=2141775</div>
@@ -120,12 +120,12 @@
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取完成"];
     [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条数据", pixivUrls.count];
-    [UtilityFile exportArray:pixivUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivUrls.txt"];
-    [UtilityFile exportArray:hasPixivUrlExHentaiUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivHasPixivUrlExHentaiUrls.txt"];
-    [UtilityFile exportArray:hasnotPixivUrlExHentaiUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivHasnotPixivUrlExHentaiUrls.txt"];
-    [UtilityFile exportDictionary:parseInfo atPlistPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivParseInfo.plist"];
+    [MRBUtilityManager exportArray:pixivUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivUrls.txt"];
+    [MRBUtilityManager exportArray:hasPixivUrlExHentaiUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivHasPixivUrlExHentaiUrls.txt"];
+    [MRBUtilityManager exportArray:hasnotPixivUrlExHentaiUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivHasnotPixivUrlExHentaiUrls.txt"];
+    [MRBUtilityManager exportDictionary:parseInfo atPlistPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivParseInfo.plist"];
     if (failure.count > 0) {
-        [UtilityFile exportArray:failure atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivFailureUrls.txt"];
+        [MRBUtilityManager exportArray:failure atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivFailureUrls.txt"];
         [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld个文件无法下载，已导出到下载文件夹的 ExHentaiParsePixivFailureUrls.txt 文件中", failure.count];
     }
     

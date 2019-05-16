@@ -323,14 +323,14 @@ static TumblrMethod *method;
     NSOrderedSet *set = [NSOrderedSet orderedSetWithArray:tumblrResults];
     tumblrResults = [NSMutableArray arrayWithArray:set.array];
     
-    [UtilityFile exportArray:tumblrResults atPath:tumblrResultTxtFilePath];
+    [MRBUtilityManager exportArray:tumblrResults atPath:tumblrResultTxtFilePath];
 }
 - (void)exportResult {
     if (tumblrResults.count > 0) {
         // 使用NSSet进行一次去重的操作
         NSOrderedSet *set = [NSOrderedSet orderedSetWithArray:tumblrResults];
         tumblrResults = [NSMutableArray arrayWithArray:set.array];
-        [UtilityFile exportArray:tumblrResults atPath:tumblrResultTxtFilePath];
+        [MRBUtilityManager exportArray:tumblrResults atPath:tumblrResultTxtFilePath];
         if (type != TumblrResourceTypeVideo) { // 视频文件就不用排列了
             [tumblrStatuses writeToFile:tumblrStatusPlistFilePath atomically:YES];
         }

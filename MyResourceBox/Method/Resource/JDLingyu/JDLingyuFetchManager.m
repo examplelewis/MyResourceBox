@@ -39,7 +39,7 @@
                 [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
                 
                 [self->failedURLArray addObject:[error userInfo][NSURLErrorFailingURLStringErrorKey]];
-                [UtilityFile exportArray:self->failedURLArray atPath:@"/Users/Mercury/Downloads/JDLingyuFailedURLs.txt"];
+                [MRBUtilityManager exportArray:self->failedURLArray atPath:@"/Users/Mercury/Downloads/JDLingyuFailedURLs.txt"];
                 [self didFinishDownloadingOneWebpage:NO];
             } else {
                 TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
@@ -83,11 +83,11 @@
 // 2、导出结果
 - (void)doneThings {
     [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取了%ld个页面的图片地址", urlArray.count]; //获取到的页面地址
-    [UtilityFile exportArray:resultArray atPath:@"/Users/Mercury/Downloads/JdlingyuImageURLs.txt"];
+    [MRBUtilityManager exportArray:resultArray atPath:@"/Users/Mercury/Downloads/JdlingyuImageURLs.txt"];
     [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条图片地址，在右上方输出框内显示", resultArray.count];
     if (failedURLArray.count > 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld条网页解析失败，请查看错误文件", failedURLArray.count]; //获取失败的页面地址
-        [UtilityFile exportArray:failedURLArray atPath:@"/Users/Mercury/Downloads/JDLingyuFailedURLs.txt"];
+        [MRBUtilityManager exportArray:failedURLArray atPath:@"/Users/Mercury/Downloads/JDLingyuFailedURLs.txt"];
     }
     [renameDict writeToFile:@"/Users/Mercury/Downloads/JDlingyuRenameInfo.plist" atomically:YES]; //RenameDict
     

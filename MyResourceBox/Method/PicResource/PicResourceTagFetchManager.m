@@ -153,7 +153,7 @@
     NSArray *characterNames = [characters valueForKey:@"name"];
     NSArray *neededName = [copyrightNames arrayByAddingObjectsFromArray:characterNames];
     
-    [UtilityFile exportArray:neededName atPath:[tagsFolderPath stringByAppendingPathComponent:@"copyrightName.txt"]];
+    [MRBUtilityManager exportArray:neededName atPath:[tagsFolderPath stringByAppendingPathComponent:@"copyrightName.txt"]];
     
     [self processNeededTags];
 }
@@ -254,7 +254,7 @@
     needed = [needed filteredArrayUsingPredicate:vocaloidPd];
     needed = [needed arrayByAddingObject:@"vocaloid"];
     
-    [UtilityFile exportArray:needed atPath:[tagsFolderPath stringByAppendingPathComponent:@"copyrightName - needed.txt"]];
+    [MRBUtilityManager exportArray:needed atPath:[tagsFolderPath stringByAppendingPathComponent:@"copyrightName - needed.txt"]];
     
     NSMutableArray *other = [NSMutableArray arrayWithArray:needed];
     for (NSInteger i = 0; i < neededTagsKeys.count - 1; i++) {
@@ -264,11 +264,11 @@
         [other removeObjectsInArray:values];
         
         NSString *destPath = [neededTagsFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.txt", key]];
-        [UtilityFile exportArray:values atPath:destPath];
+        [MRBUtilityManager exportArray:values atPath:destPath];
     }
     
     NSString *destPath = [neededTagsFolderPath stringByAppendingPathComponent:@"~other.txt"];
-    [UtilityFile exportArray:other atPath:destPath];
+    [MRBUtilityManager exportArray:other atPath:destPath];
     
     dispatch_main_sync_safe(^() {
         MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];

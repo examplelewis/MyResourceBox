@@ -79,7 +79,7 @@
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取到 %ld 条记录", fixedUserUrls.count];
     if (useless.count > 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条无用记录", useless.count];
-        [UtilityFile exportArray:useless atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivUselessUrls.txt"];
+        [MRBUtilityManager exportArray:useless atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivUselessUrls.txt"];
     }
 }
 
@@ -133,7 +133,7 @@
     
     if (exists.count > 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条记录已经关注", exists.count];
-        DDLogInfo(@"已关注的用户: %@", [UtilityFile convertResultArray:exists]);
+        DDLogInfo(@"已关注的用户: %@", [MRBUtilityManager convertResultArray:exists]);
     }
     if (news.count > 0) {
         fixedUserUrls = [NSMutableArray arrayWithArray:news];
@@ -188,11 +188,11 @@
     
     if (block1s.count > 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条记录确定被拉黑", block1s.count];
-        DDLogInfo(@"确定被拉黑的用户: %@", [UtilityFile convertResultArray:block1s]);
+        DDLogInfo(@"确定被拉黑的用户: %@", [MRBUtilityManager convertResultArray:block1s]);
     }
     if (notBlock1s.count > 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条记录不确定被拉黑或者未确定拉黑等级，现已全部导出至 PixivUtilBlockLevelNot1.txt 文件中", notBlock1s.count];
-        [UtilityFile exportArray:notBlock1s atPath:@"/Users/Mercury/Downloads/PixivUtilBlockLevelNot1.txt"];
+        [MRBUtilityManager exportArray:notBlock1s atPath:@"/Users/Mercury/Downloads/PixivUtilBlockLevelNot1.txt"];
     }
     if (news.count > 0) {
         fixedUserUrls = [NSMutableArray arrayWithArray:news];
@@ -243,11 +243,11 @@
     
     if (exists.count > 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条记录被抓取，现已全部导出至 PixivUtilFetchExists.txt 文件中", exists.count];
-        [UtilityFile exportArray:exists atPath:@"/Users/Mercury/Downloads/PixivUtilFetchExists.txt"];
+        [MRBUtilityManager exportArray:exists atPath:@"/Users/Mercury/Downloads/PixivUtilFetchExists.txt"];
     }
     if (news.count > 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条记录未被抓取，现已全部导出至 PixivUtilFetchNews.txt 文件中", news.count];
-        [UtilityFile exportArray:news atPath:@"/Users/Mercury/Downloads/PixivUtilFetchNews.txt"];
+        [MRBUtilityManager exportArray:news atPath:@"/Users/Mercury/Downloads/PixivUtilFetchNews.txt"];
     }
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程结束"];

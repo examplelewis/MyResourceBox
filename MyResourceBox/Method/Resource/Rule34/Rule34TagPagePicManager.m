@@ -79,14 +79,14 @@
             for (NSInteger i = 0; i < webmIds.count; i++) {
                 [webmUrls addObject:[NSString stringWithFormat:@"https://rule34.xxx/index.php?page=post&s=view&id=%@", webmIds[i]]];
             }
-            [UtilityFile exportArray:webmUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Rule34 %@ WebmUrl.txt", self->tag]];
+            [MRBUtilityManager exportArray:webmUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Rule34 %@ WebmUrl.txt", self->tag]];
             
             NSArray *webmFileUrls = [self->webmPosts valueForKey:@"file_url"];
-            [UtilityFile exportArray:webmFileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Rule34 %@ WebmPostUrl.txt", self->tag]];
+            [MRBUtilityManager exportArray:webmFileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Rule34 %@ WebmPostUrl.txt", self->tag]];
         }
         
         NSArray *urls = [self->posts valueForKey:@"file_url"];
-        [UtilityFile exportArray:urls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Rule34 %@ PostUrl.txt", self->tag]];
+        [MRBUtilityManager exportArray:urls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Rule34 %@ PostUrl.txt", self->tag]];
         [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self->tag, self->page];
         
         // 如果某一页小于100条原始数据，说明是最后一页
@@ -106,7 +106,7 @@
 - (void)fetchSucceed {
     [[MRBLogManager defaultManager] cleanLog];
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：流程结束", tag];
-    [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 图片地址:\n%@", tag, [UtilityFile convertResultArray:[self->posts valueForKey:@"file_url"]]];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 图片地址:\n%@", tag, [MRBUtilityManager convertResultArray:[self->posts valueForKey:@"file_url"]]];
 }
 
 - (void)startFetchingTagPicCount {

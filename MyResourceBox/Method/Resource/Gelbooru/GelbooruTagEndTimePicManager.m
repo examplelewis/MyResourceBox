@@ -96,14 +96,14 @@
             for (NSInteger i = 0; i < webmIds.count; i++) {
                 [webmUrls addObject:[NSString stringWithFormat:@"https://gelbooru.com/index.php?page=post&s=view&id=%@", webmIds[i]]];
             }
-            [UtilityFile exportArray:webmUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ WebmUrl.txt", self->tag]];
+            [MRBUtilityManager exportArray:webmUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ WebmUrl.txt", self->tag]];
             
             NSArray *webmFileUrls = [self->webmPosts valueForKey:@"file_url"];
-            [UtilityFile exportArray:webmFileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ WebmPostUrl.txt", self->tag]];
+            [MRBUtilityManager exportArray:webmFileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ WebmPostUrl.txt", self->tag]];
         }
         
         NSArray *fileUrls = [self->posts valueForKey:@"file_url"];
-        [UtilityFile exportArray:fileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostUrl.txt", self->tag]];
+        [MRBUtilityManager exportArray:fileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostUrl.txt", self->tag]];
         [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self->tag, self->page + 1];
         
         // API 限制最多 200 页；如果某一页小于 100 条原始数据，说明是最后一页；或者找到了第一条早于 endDate 的 post
@@ -123,7 +123,7 @@
 - (void)fetchSucceed {
     [[MRBLogManager defaultManager] cleanLog];
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址【截止时间】：流程结束", tag];
-    [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 图片地址:\n%@", tag, [UtilityFile convertResultArray:[posts valueForKey:@"file_url"]]];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 图片地址:\n%@", tag, [MRBUtilityManager convertResultArray:[posts valueForKey:@"file_url"]]];
 }
 
 - (void)prepareFetchingPicCount {

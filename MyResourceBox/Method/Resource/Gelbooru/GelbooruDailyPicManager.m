@@ -141,20 +141,20 @@
         NSArray *hUrls = [self->hPosts valueForKey:@"file_url"];
         NSArray *webUrls = [self->webmPosts valueForKey:@"file_url"];
         
-        [UtilityFile exportArray:fateUrls atPath:GelbooruFatePostTxtPath];
-        [UtilityFile exportArray:azurUrls atPath:GelbooruAzurPostTxtPath];
-        [UtilityFile exportArray:overwatchUrls atPath:GelbooruOverwatchPostTxtPath];
+        [MRBUtilityManager exportArray:fateUrls atPath:GelbooruFatePostTxtPath];
+        [MRBUtilityManager exportArray:azurUrls atPath:GelbooruAzurPostTxtPath];
+        [MRBUtilityManager exportArray:overwatchUrls atPath:GelbooruOverwatchPostTxtPath];
         
-        [UtilityFile exportArray:animeUrls atPath:GelbooruAnimePostTxtPath];
+        [MRBUtilityManager exportArray:animeUrls atPath:GelbooruAnimePostTxtPath];
         [self->animeNameInfo writeToFile:GelbooruAnimePostRenamePlistPath atomically:YES];
         
-        [UtilityFile exportArray:gameUrls atPath:GelbooruGamePostTxtPath];
+        [MRBUtilityManager exportArray:gameUrls atPath:GelbooruGamePostTxtPath];
         [self->gameNameInfo writeToFile:GelbooruGamePostRenamePlistPath atomically:YES];
         
-        [UtilityFile exportArray:hUrls atPath:GelbooruHPostTxtPath];
+        [MRBUtilityManager exportArray:hUrls atPath:GelbooruHPostTxtPath];
         [self->hNameInfo writeToFile:GelbooruHPostRenamePlistPath atomically:YES];
         
-        [UtilityFile exportArray:webUrls atPath:GelbooruWebmPostTxtPath];
+        [MRBUtilityManager exportArray:webUrls atPath:GelbooruWebmPostTxtPath];
         [self->webmNameInfo writeToFile:GelbooruWebmPostRenamePlistPath atomically:YES];
         
         

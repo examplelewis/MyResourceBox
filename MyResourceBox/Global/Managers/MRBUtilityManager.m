@@ -1,14 +1,14 @@
 //
-//  UtilityFile.m
+//  MRBUtilityManager.m
 //  SJYH
 //
 //  Created by 龚宇 on 15/1/20.
 //  Copyright (c) 2015年 设易. All rights reserved.
 //
 
-#import "UtilityFile.h"
+#import "MRBUtilityManager.h"
 
-@implementation UtilityFile
+@implementation MRBUtilityManager
 
 #pragma mark - 写入读取文本文件
 + (void)exportString:(NSString *)string atPath:(NSString *)path {
@@ -23,7 +23,7 @@
 }
 + (void)exportArray:(NSArray *)array atPath:(NSString *)path {
     NSError *error;
-    NSString *content = [UtilityFile convertResultArray:array];
+    NSString *content = [MRBUtilityManager convertResultArray:array];
     if (!content) {
         // 说明转换 array 的时候出了错误，换一种之间的方式
         content = [array componentsJoinedByString:@"\n"];
@@ -38,7 +38,7 @@
 }
 + (void)exportDictionary:(NSDictionary *)dictionary atPath:(NSString *)path {
     NSError *error;
-    NSString *content = [UtilityFile convertResultDict:dictionary];
+    NSString *content = [MRBUtilityManager convertResultDict:dictionary];
     
     BOOL success = [content writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
     if (!success) {

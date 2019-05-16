@@ -64,7 +64,7 @@ static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
         
         NSString *urlsPath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/WorldCosplayPageURLs__%@.txt", title];
         [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取了%ld个页面的图片地址", pageUrls.count]; //获取到的页面地址
-        [UtilityFile exportArray:pageUrls atPath:urlsPath];
+        [MRBUtilityManager exportArray:pageUrls atPath:urlsPath];
         
         [self parseHTML];
     } else {
@@ -109,7 +109,7 @@ static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
                     [self->failedURLArray addObject:url];
                     
                     NSString *failPath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/WorldCosplayFailedURLs__%@.txt", self->title];
-                    [UtilityFile exportArray:self->failedURLArray atPath:failPath];
+                    [MRBUtilityManager exportArray:self->failedURLArray atPath:failPath];
                 }
             } else {
                 [[MRBLogManager defaultManager] showNotAppendLogWithFormat:@"第%lu条网页已获取成功 | 共%lu条网页", self->downloaded, self->pageUrls.count];
@@ -172,9 +172,9 @@ static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
     NSString *failPath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/WorldCosplayFailedURLs__%@.txt", title];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条图片地址，在右上方输出框内显示", results.count];
-    [UtilityFile exportArray:results atPath:imgsPath];
+    [MRBUtilityManager exportArray:results atPath:imgsPath];
     [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld条网页解析失败，请查看错误文件", failedURLArray.count]; //获取失败的页面地址
-    [UtilityFile exportArray:failedURLArray atPath:failPath];
+    [MRBUtilityManager exportArray:failedURLArray atPath:failPath];
     
     // 下载
     //    [[MRBLogManager defaultManager] showLogWithFormat:@"1秒后开始下载图片"];

@@ -92,14 +92,14 @@
             for (NSInteger i = 0; i < webmIds.count; i++) {
                 [webmUrls addObject:[NSString stringWithFormat:@"https://gelbooru.com/index.php?page=post&s=view&id=%@", webmIds[i]]];
             }
-            [UtilityFile exportArray:webmUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ WebmUrl.txt", self->tag]];
+            [MRBUtilityManager exportArray:webmUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ WebmUrl.txt", self->tag]];
             
             NSArray *webmFileUrls = [self->webmPosts valueForKey:@"file_url"];
-            [UtilityFile exportArray:webmFileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ WebmPostUrl.txt", self->tag]];
+            [MRBUtilityManager exportArray:webmFileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ WebmPostUrl.txt", self->tag]];
         }
         
         NSArray *urls = [self->posts valueForKey:@"file_url"];
-        [UtilityFile exportArray:urls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostUrl.txt", self->tag]];
+        [MRBUtilityManager exportArray:urls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostUrl.txt", self->tag]];
         [self->renameInfo writeToFile:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostRenameInfo.plist", self->tag] atomically:YES];
         [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址【页数 + 导出标签】：第 %ld 页已获取", self->tag, self->page];
         
@@ -120,7 +120,7 @@
 - (void)fetchSucceed {
     [[MRBLogManager defaultManager] cleanLog];
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址【页数 + 导出标签】：流程结束", tag];
-    [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 图片地址:\n%@", tag, [UtilityFile convertResultArray:[self->posts valueForKey:@"file_url"]]];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 图片地址:\n%@", tag, [MRBUtilityManager convertResultArray:[self->posts valueForKey:@"file_url"]]];
 }
 
 @end

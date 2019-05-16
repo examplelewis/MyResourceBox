@@ -134,7 +134,7 @@
         // 使用NSOrderedSet进行一次去重的操作
         NSOrderedSet *set = [NSOrderedSet orderedSetWithArray:weiboImages];
         weiboImages = [NSMutableArray arrayWithArray:set.array];
-        [UtilityFile exportArray:weiboImages atPath:weiboImageTxtFilePath];
+        [MRBUtilityManager exportArray:weiboImages atPath:weiboImageTxtFilePath];
         [weiboStatuses writeToFile:weiboStatusPlistFilePath atomically:YES];
         
         [[MRBLogManager defaultManager] showLogWithFormat:@"将获取到微博信息存储到数据库中"];

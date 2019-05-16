@@ -55,7 +55,7 @@
                 [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
                 
                 [self->failure addObject:url];
-                [UtilityFile exportArray:self->failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailureTorrents.txt"];
+                [MRBUtilityManager exportArray:self->failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailureTorrents.txt"];
             } else {
                 TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
 //                BOOL hasTorrent = NO;
@@ -111,9 +111,9 @@
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取完成"];
     [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条数据", resultArray.count];
-    [UtilityFile exportArray:resultArray atPath:@"/Users/Mercury/Downloads/ExHentaiTorrents.txt"];
+    [MRBUtilityManager exportArray:resultArray atPath:@"/Users/Mercury/Downloads/ExHentaiTorrents.txt"];
     if (failure.count > 0) {
-        [UtilityFile exportArray:failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailureTorrents.txt"];
+        [MRBUtilityManager exportArray:failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailureTorrents.txt"];
         [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld个文件无法下载，已导出到下载文件夹的ExHentaiFailureTorrents.txt文件中", failure.count];
     }
     

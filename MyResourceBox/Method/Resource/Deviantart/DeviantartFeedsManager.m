@@ -144,7 +144,7 @@
                 break;
             }
         }
-        [UtilityFile exportArray:strongSelf->galleryResultUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/DeviantartFeedsGallery.txt"]];
+        [MRBUtilityManager exportArray:strongSelf->galleryResultUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/DeviantartFeedsGallery.txt"]];
         
         if ([response[@"has_more"] boolValue] && !foundFetched) {
             strongSelf->cursor = response[@"cursor"];
