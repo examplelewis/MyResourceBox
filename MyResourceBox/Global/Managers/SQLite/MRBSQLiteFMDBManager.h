@@ -1,5 +1,5 @@
 //
-//  SQLiteFMDBManager.h
+//  MRBSQLiteFMDBManager.h
 //  iOSLearningBox
 //
 //  Created by 龚宇 on 15/07/30.
@@ -10,11 +10,11 @@
 #import <FMDB.h>
 #import "WeiboStatusObject.h"
 
-@interface SQLiteFMDBManager : NSObject {
+@interface MRBSQLiteFMDBManager : NSObject {
     FMDatabase *db;
 }
 
-+ (SQLiteFMDBManager *)defaultDBManager;
++ (MRBSQLiteFMDBManager *)defaultDBManager;
 
 #pragma mark - BCYLink
 - (BOOL)isDuplicateFromDatabaseWithBCYLink:(NSString *)urlString;

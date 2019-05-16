@@ -1,22 +1,22 @@
 //
-//  SQLiteFMDBManager.m
+//  MRBSQLiteFMDBManager.m
 //  iOSLearningBox
 //
 //  Created by 龚宇 on 15/07/30.
 //  Copyright (c) 2015年 softweare. All rights reserved.
 //
 
-#import "SQLiteFMDBManager.h"
+#import "MRBSQLiteFMDBManager.h"
 
-@implementation SQLiteFMDBManager
+@implementation MRBSQLiteFMDBManager
 
 #pragma mark - 单例模式
-static SQLiteFMDBManager *_sharedDBManager;
-+ (SQLiteFMDBManager *)defaultDBManager {
+static MRBSQLiteFMDBManager *_sharedDBManager;
++ (MRBSQLiteFMDBManager *)defaultDBManager {
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        _sharedDBManager = [[SQLiteFMDBManager alloc] init];
+        _sharedDBManager = [[MRBSQLiteFMDBManager alloc] init];
     });
     
     return _sharedDBManager;

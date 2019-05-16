@@ -9,8 +9,8 @@
 #import "PixivFollowingManager.h"
 #import <FMDB.h>
 #import "PixivAPIManager.h"
-#import "SQLiteManager.h"
-#import "SQLiteFMDBManager.h"
+#import "MRBSQLiteManager.h"
+#import "MRBSQLiteFMDBManager.h"
 
 @interface PixivFollowingManager () {
     FMDatabase *db;
@@ -72,8 +72,8 @@
         j--;
     }
     
-    [[SQLiteFMDBManager defaultDBManager] cleanPixivFollowingUserTable];
-    [[SQLiteFMDBManager defaultDBManager] insertPixivFollowingUserInfoIntoDatabase:fetchedFollowings];
+    [[MRBSQLiteFMDBManager defaultDBManager] cleanPixivFollowingUserTable];
+    [[MRBSQLiteFMDBManager defaultDBManager] insertPixivFollowingUserInfoIntoDatabase:fetchedFollowings];
     [[MRBLogManager defaultManager] showLogWithFormat:@"已将获取到的 Pixiv 关注用户的信息存到数据库中"];
 }
 

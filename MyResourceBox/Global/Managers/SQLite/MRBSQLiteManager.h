@@ -1,5 +1,5 @@
 //
-//  SQLiteManager.h
+//  MRBSQLiteManager.h
 //  MyResourceBox
 //
 //  Created by 龚宇 on 16/11/20.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SQLiteManager : NSObject
+@interface MRBSQLiteManager : NSObject
 
 /**
  *  备份数据库文件

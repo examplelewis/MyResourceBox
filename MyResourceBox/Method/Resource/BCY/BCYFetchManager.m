@@ -8,8 +8,8 @@
 
 #import "BCYFetchManager.h"
 #import "BCYHeader.h"
-#import "SQLiteManager.h"
-#import "SQLiteFMDBManager.h"
+#import "MRBSQLiteManager.h"
+#import "MRBSQLiteFMDBManager.h"
 #import "MRBCookieManager.h"
 #import "MRBDownloadQueueManager.h"
 
@@ -93,7 +93,7 @@
     if (checkDB) {
         //从数据库中查询是否有重复的页面地址，如果页面地址重复从数组中删除，如果页面地址不重复添加到数据库中
         for (NSInteger i = pageArray.count - 1; i >= 0; i--) {
-            if ([[SQLiteFMDBManager defaultDBManager] isDuplicateFromDatabaseWithBCYLink:pageArray[i]]) {
+            if ([[MRBSQLiteFMDBManager defaultDBManager] isDuplicateFromDatabaseWithBCYLink:pageArray[i]]) {
                 [pageArray removeObjectAtIndex:i];
             }
         }
@@ -204,7 +204,7 @@
     if (checkDB) {
         //从数据库中查询是否有重复的图片地址，如果图片地址重复从数组中删除
         for (NSInteger i = resultArray.count - 1; i >= 0; i--) {
-            if ([[SQLiteFMDBManager defaultDBManager] isDuplicateFromDatabaseWithBCYImageLink:resultArray[i]]) {
+            if ([[MRBSQLiteFMDBManager defaultDBManager] isDuplicateFromDatabaseWithBCYImageLink:resultArray[i]]) {
                 NSLog(@"第%ld个图片地址重复: %@", i, resultArray[i]);
                 [resultArray removeObjectAtIndex:i];
             }
@@ -231,14 +231,14 @@
     if (checkDB) {
         //把页面地址和图片地址全部写入到数据库中
         for (NSString *obj in pageArray) {
-            [[SQLiteFMDBManager defaultDBManager] insertLinkIntoDatabase:obj];
+            [[MRBSQLiteFMDBManager defaultDBManager] insertLinkIntoDatabase:obj];
         }
         for (NSString *obj in resultArray) {
-            [[SQLiteFMDBManager defaultDBManager] insertImageLinkIntoDatabase:obj];
+            [[MRBSQLiteFMDBManager defaultDBManager] insertImageLinkIntoDatabase:obj];
         }
         
         // 备份数据库
-        [SQLiteManager backupDatabaseFile];
+        [MRBSQLiteManager backupDatabaseFile];
         [[MRBLogManager defaultManager] showLogWithFormat:@"整个流程已经结束，数据库已备份"];
     }
     

@@ -7,18 +7,18 @@
 //
 
 #import "FOFilteredImageManager.h"
-#import "SQLiteFMDBManager.h"
+#import "MRBSQLiteFMDBManager.h"
 
 @implementation FOFilteredImageManager
 
 + (void)organizingDatabase {
     [[MRBLogManager defaultManager] showLogWithFormat:@"开始整理数据表: photoOrganTotal"];
     
-    NSArray *downloads = [NSArray arrayWithArray:[[SQLiteFMDBManager defaultDBManager] readPhotoOrganDownload]];
-    NSArray *dests = [NSArray arrayWithArray:[[SQLiteFMDBManager defaultDBManager] readPhotoOrganDest]];
+    NSArray *downloads = [NSArray arrayWithArray:[[MRBSQLiteFMDBManager defaultDBManager] readPhotoOrganDownload]];
+    NSArray *dests = [NSArray arrayWithArray:[[MRBSQLiteFMDBManager defaultDBManager] readPhotoOrganDest]];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"开始删除已有的数据"];
-    [[SQLiteFMDBManager defaultDBManager] deleteAllPhotoOrganTotal];
+    [[MRBSQLiteFMDBManager defaultDBManager] deleteAllPhotoOrganTotal];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"开始添加新的数据"];
     for (NSInteger i = 0; i < downloads.count; i++) {
@@ -31,7 +31,7 @@
         }
         NSDictionary *dest = [NSDictionary dictionaryWithDictionary:filter.firstObject];
         
-        [[SQLiteFMDBManager defaultDBManager] insertSinglePhotoOrganTotal:download[@"folder"] dest:dest[@"destination"]];
+        [[MRBSQLiteFMDBManager defaultDBManager] insertSinglePhotoOrganTotal:download[@"folder"] dest:dest[@"destination"]];
     }
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"整理数据表: photoOrganTotal 完成"];
@@ -51,7 +51,7 @@
 + (void)organizingPhotos {
     [[MRBLogManager defaultManager] showLogWithFormat:@"整理图片开始"];
     
-    NSArray *total = [NSArray arrayWithArray:[[SQLiteFMDBManager defaultDBManager] readPhotoOrganTotal]];
+    NSArray *total = [NSArray arrayWithArray:[[MRBSQLiteFMDBManager defaultDBManager] readPhotoOrganTotal]];
     NSArray *subFolderPaths = [[MRBFileManager defaultManager] getFolderPathsInFolder:@"/Users/Mercury/Downloads"];
     
     for (NSInteger i = 0; i < subFolderPaths.count; i++) {

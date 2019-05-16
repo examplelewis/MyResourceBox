@@ -7,7 +7,7 @@
 //
 
 #import "PixivExHentaiManager.h"
-#import "SQLiteFMDBManager.h"
+#import "MRBSQLiteFMDBManager.h"
 
 @interface PixivExHentaiManager () {
     NSArray *originalUserUrls;

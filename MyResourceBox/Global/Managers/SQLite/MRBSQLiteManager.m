@@ -1,15 +1,15 @@
 //
-//  SQLiteManager.m
+//  MRBSQLiteManager.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 16/11/20.
 //  Copyright © 2016年 gongyuTest. All rights reserved.
 //
 
-#import "SQLiteManager.h"
-#import "SQLiteFMDBManager.h"
+#import "MRBSQLiteManager.h"
+#import "MRBSQLiteFMDBManager.h"
 
-@implementation SQLiteManager
+@implementation MRBSQLiteManager
 
 // 备份数据库文件
 + (void)backupDatabaseFile {
@@ -113,12 +113,12 @@
     [MRBLogManager resetCurrentDate];
     [[MRBLogManager defaultManager] showLogWithFormat:@"去除数据库中重复的内容：已经准备就绪"];
     
-    [[SQLiteFMDBManager defaultDBManager] removeDuplicateLinksFromDatabase];
-    [[SQLiteFMDBManager defaultDBManager] removeDuplicateImagesFromDatabase];
+    [[MRBSQLiteFMDBManager defaultDBManager] removeDuplicateLinksFromDatabase];
+    [[MRBSQLiteFMDBManager defaultDBManager] removeDuplicateImagesFromDatabase];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"去除数据库中重复的内容：流程已经结束"];
     
-    [SQLiteManager backupDatabaseFile];
+    [MRBSQLiteManager backupDatabaseFile];
     [[MRBLogManager defaultManager] showLogWithFormat:@"整个流程已经结束，数据库已备份"];
 }
 

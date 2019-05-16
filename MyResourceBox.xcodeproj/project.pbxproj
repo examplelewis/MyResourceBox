@@ -59,8 +59,8 @@
 		AC9870611E4C4A980076DC92 /* PixivDownloadObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC98705C1E4C4A980076DC92 /* PixivDownloadObject.m */; };
 		AC9870621E4C4A980076DC92 /* PixivMangaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC98705E1E4C4A980076DC92 /* PixivMangaObject.m */; };
 		AC9870631E4C4A980076DC92 /* PixivMasterObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870601E4C4A980076DC92 /* PixivMasterObject.m */; };
-		AC9870691E4C4AB90076DC92 /* SQLiteFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870661E4C4AB90076DC92 /* SQLiteFMDBManager.m */; };
-		AC98706A1E4C4AB90076DC92 /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870681E4C4AB90076DC92 /* SQLiteManager.m */; };
+		AC9870691E4C4AB90076DC92 /* MRBSQLiteFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870661E4C4AB90076DC92 /* MRBSQLiteFMDBManager.m */; };
+		AC98706A1E4C4AB90076DC92 /* MRBSQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9870681E4C4AB90076DC92 /* MRBSQLiteManager.m */; };
 		AC9F4C6B1E499B0E00FD01C5 /* MRBDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C6A1E499B0E00FD01C5 /* MRBDownloadOperation.m */; };
 		AC9F4C6E1E499BBB00FD01C5 /* MRBDownloadQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C6D1E499BBB00FD01C5 /* MRBDownloadQueueManager.m */; };
 		AC9F4C711E49B06E00FD01C5 /* PixivDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F4C701E49B06E00FD01C5 /* PixivDownloadManager.m */; };
@@ -245,10 +245,10 @@
 		AC98705E1E4C4A980076DC92 /* PixivMangaObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivMangaObject.m; sourceTree = "<group>"; };
 		AC98705F1E4C4A980076DC92 /* PixivMasterObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivMasterObject.h; sourceTree = "<group>"; };
 		AC9870601E4C4A980076DC92 /* PixivMasterObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivMasterObject.m; sourceTree = "<group>"; };
-		AC9870651E4C4AB90076DC92 /* SQLiteFMDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteFMDBManager.h; sourceTree = "<group>"; };
-		AC9870661E4C4AB90076DC92 /* SQLiteFMDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteFMDBManager.m; sourceTree = "<group>"; };
-		AC9870671E4C4AB90076DC92 /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
-		AC9870681E4C4AB90076DC92 /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
+		AC9870651E4C4AB90076DC92 /* MRBSQLiteFMDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBSQLiteFMDBManager.h; sourceTree = "<group>"; };
+		AC9870661E4C4AB90076DC92 /* MRBSQLiteFMDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBSQLiteFMDBManager.m; sourceTree = "<group>"; };
+		AC9870671E4C4AB90076DC92 /* MRBSQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBSQLiteManager.h; sourceTree = "<group>"; };
+		AC9870681E4C4AB90076DC92 /* MRBSQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBSQLiteManager.m; sourceTree = "<group>"; };
 		AC9F4C691E499B0E00FD01C5 /* MRBDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBDownloadOperation.h; sourceTree = "<group>"; };
 		AC9F4C6A1E499B0E00FD01C5 /* MRBDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBDownloadOperation.m; sourceTree = "<group>"; };
 		AC9F4C6C1E499BBB00FD01C5 /* MRBDownloadQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBDownloadQueueManager.h; sourceTree = "<group>"; };
@@ -687,10 +687,10 @@
 		AC9870641E4C4AB90076DC92 /* SQLite */ = {
 			isa = PBXGroup;
 			children = (
-				AC9870651E4C4AB90076DC92 /* SQLiteFMDBManager.h */,
-				AC9870661E4C4AB90076DC92 /* SQLiteFMDBManager.m */,
-				AC9870671E4C4AB90076DC92 /* SQLiteManager.h */,
-				AC9870681E4C4AB90076DC92 /* SQLiteManager.m */,
+				AC9870651E4C4AB90076DC92 /* MRBSQLiteFMDBManager.h */,
+				AC9870661E4C4AB90076DC92 /* MRBSQLiteFMDBManager.m */,
+				AC9870671E4C4AB90076DC92 /* MRBSQLiteManager.h */,
+				AC9870681E4C4AB90076DC92 /* MRBSQLiteManager.m */,
 			);
 			path = SQLite;
 			sourceTree = "<group>";
@@ -1226,11 +1226,11 @@
 				AC19E14D1E4844660084A510 /* PAPIIllust.m in Sources */,
 				ACC8EBAE22826785003CF448 /* Rule34Method.m in Sources */,
 				ACAFAADB21FDB13100323A0A /* PixivGeneralManager.m in Sources */,
-				AC9870691E4C4AB90076DC92 /* SQLiteFMDBManager.m in Sources */,
+				AC9870691E4C4AB90076DC92 /* MRBSQLiteFMDBManager.m in Sources */,
 				AC9870561E4C4A650076DC92 /* TumblrPhotoObject.m in Sources */,
 				AC19E14E1E4844660084A510 /* PAPIIllustList.m in Sources */,
 				AC19E1501E4844660084A510 /* PixivAPI.m in Sources */,
-				AC98706A1E4C4AB90076DC92 /* SQLiteManager.m in Sources */,
+				AC98706A1E4C4AB90076DC92 /* MRBSQLiteManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

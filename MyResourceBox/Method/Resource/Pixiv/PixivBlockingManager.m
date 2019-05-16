@@ -9,8 +9,8 @@
 #import "PixivBlockingManager.h"
 #import <FMDB.h>
 #import "PixivAPIManager.h"
-#import "SQLiteManager.h"
-#import "SQLiteFMDBManager.h"
+#import "MRBSQLiteManager.h"
+#import "MRBSQLiteFMDBManager.h"
 
 @interface PixivBlockingManager () {
     FMDatabase *db;
@@ -41,7 +41,7 @@
     }
     
     // 拉黑的等级：0. 未判断; 1. 确定拉黑; 2. 不确定拉黑
-    [[SQLiteFMDBManager defaultDBManager] insertPixivBlockUserInfoIntoDatabase:fetchedBlocks];
+    [[MRBSQLiteFMDBManager defaultDBManager] insertPixivBlockUserInfoIntoDatabase:fetchedBlocks];
     [[MRBLogManager defaultManager] showLogWithFormat:@"已将获取到的 Pixiv 屏蔽用户的信息存到数据库中"];
 }
 - (void)checkPixivUserHasBlocked {

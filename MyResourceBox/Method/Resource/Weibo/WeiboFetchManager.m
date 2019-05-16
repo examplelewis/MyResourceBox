@@ -12,8 +12,8 @@
 #import "MRBHttpManager.h"
 #import "MRBDownloadQueueManager.h"
 #import "OrganizeManager.h"
-#import "SQLiteFMDBManager.h"
-#import "SQLiteManager.h"
+#import "MRBSQLiteFMDBManager.h"
+#import "MRBSQLiteManager.h"
 
 @interface WeiboFetchManager () {
     NSMutableDictionary *weiboStatuses;
@@ -70,7 +70,7 @@
                 continue;
             }
             // 如果当前微博在数据库中有记录，那么跳过
-            if ([[SQLiteFMDBManager defaultDBManager] isDuplicateFromDatabaseWithWeiboStatusId:object.id_str]) {
+            if ([[MRBSQLiteFMDBManager defaultDBManager] isDuplicateFromDatabaseWithWeiboStatusId:object.id_str]) {
                 continue;
             }
             
@@ -141,8 +141,8 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             // 往数据库里写入的时候，要按照获取的倒序，也就是最早收藏的微博排在最前
             NSArray *reversedArray = [[self->weiboObjects reverseObjectEnumerator] allObjects];
-            [[SQLiteFMDBManager defaultDBManager] insertWeiboStatusIntoDatabase:reversedArray];
-            [SQLiteManager backupDatabaseFile];
+            [[MRBSQLiteFMDBManager defaultDBManager] insertWeiboStatusIntoDatabase:reversedArray];
+            [MRBSQLiteManager backupDatabaseFile];
         });
         
         [[MRBLogManager defaultManager] showLogWithFormat:@"1秒后开始下载图片"];

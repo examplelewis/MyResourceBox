@@ -9,8 +9,8 @@
 #import "PixivFetchingManager.h"
 #import <FMDB.h>
 #import "PixivAPIManager.h"
-#import "SQLiteManager.h"
-#import "SQLiteFMDBManager.h"
+#import "MRBSQLiteManager.h"
+#import "MRBSQLiteFMDBManager.h"
 
 @implementation PixivFetchingManager
 
