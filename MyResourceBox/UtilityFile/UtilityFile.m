@@ -42,7 +42,7 @@ static UtilityFile *_sharedInstance;
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [AppDelegate defaultVC].logTextView.string = @"";
-    [[UtilityFile sharedInstance] showLogWithFormat:@"------------------------------------------------------------"];
+    [[UtilityFile sharedInstance] showLogWithFormat:@"---------------------------------------------------------------------------------"];
 }
 
 // 通过变参函数显示需要通过[NSString stringWithFormat:]来构造的log语句
@@ -56,7 +56,7 @@ static UtilityFile *_sharedInstance;
     NSDate *now = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"currentDate"];
     NSTimeInterval timeDiff = [[NSDate date] timeIntervalSinceDate:now];
     NSString *timeDiffString = [UtilityFile convertTimeDifferenceToString:timeDiff];
-    NSString *dateString = [[NSDate date] formattedDateWithFormat:@"HH:mm:ss.SSS"];
+    NSString *dateString = [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
     
     NSString *string = [NSString stringWithFormat:@"%@ | %@\t\t%@\n", dateString, timeDiffString, alertString];
     lastLog = string;
@@ -78,7 +78,7 @@ static UtilityFile *_sharedInstance;
     NSDate *now = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"currentDate"];
     NSTimeInterval timeDiff = [[NSDate date] timeIntervalSinceDate:now];
     NSString *timeDiffString = [UtilityFile convertTimeDifferenceToString:timeDiff];
-    NSString *dateString = [[NSDate date] formattedDateWithFormat:@"HH:mm:ss.SSS"];
+    NSString *dateString = [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
     
     NSString *string = [NSString stringWithFormat:@"%@ | %@\n%@\n%@\n", dateString, timeDiffString, alertTitle, alertString];
     lastLog = string;
@@ -251,7 +251,7 @@ static UtilityFile *_sharedInstance;
     unsigned int unitFlags = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitNanosecond;
     NSDateComponents *breakdownInfo = [sysCalendar components:unitFlags fromDate:date1  toDate:date2  options:0];
     
-    NSString *string = [NSString stringWithFormat:@"%02ld:%02ld.%03ld", [breakdownInfo minute], [breakdownInfo second], (NSInteger)roundf([breakdownInfo nanosecond] / 1000000.0f)];
+    NSString *string = [NSString stringWithFormat:@"%02ld:%02ld:%02ld.%03ld", [breakdownInfo hour], [breakdownInfo minute], [breakdownInfo second], (NSInteger)roundf([breakdownInfo nanosecond] / 1000000.0f)];
     
     return string;
 }
