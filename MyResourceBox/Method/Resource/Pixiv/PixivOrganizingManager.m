@@ -17,7 +17,7 @@
         return;
     }
     
-    NSArray *filePaths = [[FileManager defaultManager] getFilePathsInFolder:folderPath];
+    NSArray *filePaths = [[MRBFileManager defaultManager] getFilePathsInFolder:folderPath];
     NSArray *pixivIds = [filePaths bk_map:^id(NSString *filePath) {
         return [filePath.lastPathComponent substringWithRange:NSMakeRange(0, 8)];
     }];
@@ -31,13 +31,13 @@
         }];
         
         NSString *pixivIdFolderPath = [folderPath stringByAppendingPathComponent:pixivId];
-        [[FileManager defaultManager] createFolderAtPathIfNotExist:pixivIdFolderPath];
+        [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:pixivIdFolderPath];
         
         [filter bk_each:^(NSString *filePath) {
             NSString *fileName = filePath.lastPathComponent;
             NSString *destPath = [pixivIdFolderPath stringByAppendingPathComponent:fileName];
             
-            [[FileManager defaultManager] moveItemAtPath:filePath toDestPath:destPath];
+            [[MRBFileManager defaultManager] moveItemAtPath:filePath toDestPath:destPath];
         }];
     }
 }

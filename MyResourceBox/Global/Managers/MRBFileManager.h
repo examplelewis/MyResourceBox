@@ -1,5 +1,5 @@
 //
-//  FileManager.h
+//  MRBFileManager.h
 //  MyComicView
 //
 //  Created by 龚宇 on 16/08/03.
@@ -10,14 +10,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FileManager : NSObject
+@interface MRBFileManager : NSObject
 
 /**
  *  单例模式方法
  *
  *  @return 返回一个初始化后的对象
  */
-+ (FileManager *)defaultManager;
++ (MRBFileManager *)defaultManager;
 
 /**
  *  在某个位置创建一个新的文件夹

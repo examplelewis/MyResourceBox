@@ -22,7 +22,7 @@ static NSString * const kNeededTagsFolderPath = @"/Users/Mercury/Documents/同�
 @implementation PicResourceTagExtractManager
 
 - (void)prepareExtracting {
-    if (![[FileManager defaultManager] isContentExistAtPath:kGelbooruTagXMLFilePath]) {
+    if (![[MRBFileManager defaultManager] isContentExistAtPath:kGelbooruTagXMLFilePath]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 文件不存在", kGelbooruTagXMLFilePath.lastPathComponent];
         return;
     }
@@ -56,7 +56,7 @@ static NSString * const kNeededTagsFolderPath = @"/Users/Mercury/Documents/同�
     [self startExtracting];
 }
 - (void)startExtracting {
-    [[FileManager defaultManager] createFolderAtPathIfNotExist:kNeededTagsFolderPath];
+    [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:kNeededTagsFolderPath];
     firstLetters = @[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h", @"i", @"j", @"k", @"l", @"m", @"n", @"o", @"p", @"q", @"r", @"s", @"t", @"u", @"v", @"w", @"x", @"y", @"z", @"~other"];
     
     NSMutableArray *other = [NSMutableArray arrayWithArray:neededTagsName];

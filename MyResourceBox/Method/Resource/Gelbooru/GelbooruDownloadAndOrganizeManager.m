@@ -47,7 +47,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Fate 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Azur 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:GelbooruFatePostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:GelbooruFatePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruAzurPostTxtPath targetFolderPath:GelbooruAzurRootFolderPath];
@@ -61,7 +61,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Azur 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Overwatch 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:GelbooruAzurPostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:GelbooruAzurPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruOverwatchPostTxtPath targetFolderPath:GelbooruOverwatchRootFolderPath];
@@ -75,7 +75,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Overwatch 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Anime 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:GelbooruOverwatchPostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:GelbooruOverwatchPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruAnimePostTxtPath targetFolderPath:GelbooruAnimeRootFolderPath];
@@ -89,7 +89,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Anime 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Game 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:GelbooruAnimePostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:GelbooruAnimePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruGamePostTxtPath targetFolderPath:GelbooruGameRootFolderPath];
@@ -103,7 +103,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Game 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 18 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:GelbooruGamePostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:GelbooruGamePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruHPostTxtPath targetFolderPath:GelbooruHRootFolderPath];
@@ -117,7 +117,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 18 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 webm 文件, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:GelbooruHPostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:GelbooruHPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruWebmPostTxtPath targetFolderPath:GelbooruWebmRootFolderPath];
@@ -131,7 +131,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 webm 文件, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Anime 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:GelbooruWebmPostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:GelbooruWebmPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:GelbooruAnimePostRenamePlistPath targetFolderPath:GelbooruAnimeRootFolderPath];

@@ -12,8 +12,8 @@
 @implementation AnalysisFileManager
 
 + (void)startAnalysising {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![fileManager fileExistsAtPath:@"/Users/Mercury/Downloads/Safari 书签.html"]) {
+    NSFileManager *MRBFileManager = [NSFileManager defaultManager];
+    if (![MRBFileManager fileExistsAtPath:@"/Users/Mercury/Downloads/Safari 书签.html"]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"没有找到书签文件"];
         return;
     }

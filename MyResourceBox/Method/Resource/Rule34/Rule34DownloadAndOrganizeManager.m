@@ -47,7 +47,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Fate 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Azur 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:Rule34FatePostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:Rule34FatePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34AzurPostTxtPath targetFolderPath:Rule34AzurRootFolderPath];
@@ -61,7 +61,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Azur 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Overwatch 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:Rule34AzurPostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:Rule34AzurPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34OverwatchPostTxtPath targetFolderPath:Rule34OverwatchRootFolderPath];
@@ -75,7 +75,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Overwatch 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Anime 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:Rule34OverwatchPostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:Rule34OverwatchPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34AnimePostTxtPath targetFolderPath:Rule34AnimeRootFolderPath];
@@ -89,7 +89,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Anime 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Game 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:Rule34AnimePostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:Rule34AnimePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34GamePostTxtPath targetFolderPath:Rule34GameRootFolderPath];
@@ -103,7 +103,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Game 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 18 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:Rule34GamePostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:Rule34GamePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34HPostTxtPath targetFolderPath:Rule34HRootFolderPath];
@@ -117,7 +117,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 18 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 webm 文件, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:Rule34HPostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:Rule34HPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:Rule34WebmPostTxtPath targetFolderPath:Rule34WebmRootFolderPath];
@@ -131,7 +131,7 @@
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 webm 文件, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Anime 图片, 开始"];
             
-            [[FileManager defaultManager] trashFileAtPath:Rule34WebmPostTxtPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:Rule34WebmPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
             
             ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:Rule34AnimePostRenamePlistPath targetFolderPath:Rule34AnimeRootFolderPath];

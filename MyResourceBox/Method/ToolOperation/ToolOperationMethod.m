@@ -28,7 +28,7 @@
         }
             break;
         case 3: {
-            if (![[FileManager defaultManager] isContentExistAtPath:@"/Users/Mercury/Downloads/GoAgentXRules.plist"]) {
+            if (![[MRBFileManager defaultManager] isContentExistAtPath:@"/Users/Mercury/Downloads/GoAgentXRules.plist"]) {
                 [[MRBLogManager defaultManager] showLogWithFormat:@"下载文件夹中找不到 GoAgentXRules.plist 文件，流程已停止"];
                 return;
             }

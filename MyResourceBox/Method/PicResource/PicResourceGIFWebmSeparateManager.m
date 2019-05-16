@@ -40,10 +40,10 @@
     NSString *gifRootFolder = [rootFolderPath stringByAppendingString:@" gif"];
     NSString *webmRootFolder = [rootFolderPath stringByAppendingString:@" webm"];
     
-    [[FileManager defaultManager] createFolderAtPathIfNotExist:gifRootFolder];
-    [[FileManager defaultManager] createFolderAtPathIfNotExist:webmRootFolder];
+    [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:gifRootFolder];
+    [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:webmRootFolder];
     
-    NSArray *subFolders = [[FileManager defaultManager] getFolderPathsInFolder:rootFolderPath];
+    NSArray *subFolders = [[MRBFileManager defaultManager] getFolderPathsInFolder:rootFolderPath];
     if (subFolders.count == 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 中没有任何文件夹，流程结束", rootFolderPath];
         [[MRBLogManager defaultManager] showLogWithFormat:@"分离 GelbooruDownloader 下载的 gif 和 webm 文件, 流程结束"];
@@ -58,7 +58,7 @@
             continue;
         }
         
-        NSArray *subFiles = [[FileManager defaultManager] getFolderPathsInFolder:subFolder];
+        NSArray *subFiles = [[MRBFileManager defaultManager] getFolderPathsInFolder:subFolder];
         if (subFiles.count == 0) {
             [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 中没有任何文件，跳过", subFolder];
             continue;
@@ -68,20 +68,20 @@
         NSString *gifFolder = [gifRootFolder stringByAppendingPathComponent:subFolder.lastPathComponent];
         NSString *webmFolder = [webmRootFolder stringByAppendingPathComponent:subFolder.lastPathComponent];
         
-        [[FileManager defaultManager] createFolderAtPathIfNotExist:gifFolder];
-        [[FileManager defaultManager] createFolderAtPathIfNotExist:webmFolder];
+        [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:gifFolder];
+        [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:webmFolder];
         
         for (NSInteger j = 0; j < subFiles.count; j++) {
             NSString *subFile = subFiles[j];
             
             if ([subFile.pathExtension isEqualToString:@"gif"]) {
                 NSString *gifFile = [gifFolder stringByAppendingPathComponent:subFile.lastPathComponent];
-                [[FileManager defaultManager] moveItemAtPath:subFile toDestPath:gifFile];
+                [[MRBFileManager defaultManager] moveItemAtPath:subFile toDestPath:gifFile];
             }
             
             if ([subFile.pathExtension isEqualToString:@"webm"]) {
                 NSString *webmFile = [webmFolder stringByAppendingPathComponent:subFile.lastPathComponent];
-                [[FileManager defaultManager] moveItemAtPath:subFile toDestPath:webmFile];
+                [[MRBFileManager defaultManager] moveItemAtPath:subFile toDestPath:webmFile];
             }
         }
     }

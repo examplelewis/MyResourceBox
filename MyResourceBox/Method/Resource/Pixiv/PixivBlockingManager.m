@@ -24,7 +24,7 @@
 - (void)fetchPixivBlacklist {
     NSString *txtFilePath = @"/Users/Mercury/Downloads/PixivBlock.txt";
     
-    if (![[FileManager defaultManager] isContentExistAtPath:txtFilePath]) {
+    if (![[MRBFileManager defaultManager] isContentExistAtPath:txtFilePath]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"下载文件夹中没有 PixivBlock.txt 文件"];
         return;
     }

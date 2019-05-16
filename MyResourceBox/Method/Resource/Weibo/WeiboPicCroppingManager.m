@@ -70,7 +70,7 @@
         if (result == NSFileHandlingPanelOKButton) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 DDLogInfo(@"已选择需要裁剪的图片: %@", panel.URLs);
-                self->imageFilePaths = [[FileManager defaultManager] convertFileURLsArrayToFilePathsArray:panel.URLs];
+                self->imageFilePaths = [[MRBFileManager defaultManager] convertFileURLsArrayToFilePathsArray:panel.URLs];
                 
                 [self startCropping];
             });
@@ -104,7 +104,7 @@
     NSString *imageFolderName = imageFolderPath.lastPathComponent;
     NSString *targetFolderPath = [imageFolderPath stringByReplacingOccurrencesOfString:imageFolderName withString:[NSString stringWithFormat:@"%@ Cropped", imageFolderName]];
     NSString *targetFilePath = [targetFolderPath stringByAppendingPathComponent:imageFilePath.lastPathComponent];
-    [[FileManager defaultManager] createFolderAtPathIfNotExist:targetFolderPath];
+    [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:targetFolderPath];
     
     // 获取当前图片
     CGImageRef imageRef = NULL;

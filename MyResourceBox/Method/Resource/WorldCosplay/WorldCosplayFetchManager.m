@@ -8,7 +8,7 @@
 
 #import "WorldCosplayFetchManager.h"
 #import "CookieManager.h"
-#import "FileManager.h"
+#import "MRBFileManager.h"
 #import "DownloadQueueManager.h"
 
 static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";

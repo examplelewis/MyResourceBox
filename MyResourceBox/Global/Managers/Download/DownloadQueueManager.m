@@ -123,7 +123,7 @@ static NSInteger const defaultTimeoutInterval = 45;
     for (NSInteger i = 0; i < downloadUrls.count; i++) {
         NSString *downloadUrl = downloadUrls[i];
 //        NSString *targetFilePath = [self getTargetFilePathWithUrl:downloadUrl];
-//        if (targetFilePath && [[FileManager defaultManager] isContentExistAtPath:targetFilePath]) {
+//        if (targetFilePath && [[MRBFileManager defaultManager] isContentExistAtPath:targetFilePath]) {
 //            [[MRBLogManager defaultManager] showLogWithFormat:@"在 %@ 位置已经存在同名文件，跳过 %@ 文件的下载", targetFilePath, downloadUrl];
 //
 //            success++;
@@ -243,7 +243,7 @@ static NSInteger const defaultTimeoutInterval = 45;
     _downloadPath = downloadPath;
     
     // 如果目标文件夹不存在，那么创建该文件夹
-    FileManager *fm = [FileManager defaultManager];
+    MRBFileManager *fm = [MRBFileManager defaultManager];
     if (![fm isContentExistAtPath:downloadPath]) {
         [fm createFolderAtPathIfNotExist:downloadPath];
     }

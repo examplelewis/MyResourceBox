@@ -41,14 +41,14 @@
         targetFolderPath = [targetFolderPath substringToIndex:targetFolderPath.length - 1];
     }
     targetFolderPath = [targetFolderPath stringByAppendingString:@" 复制/"];
-    [[FileManager defaultManager] createFolderAtPathIfNotExist:targetFolderPath];
+    [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:targetFolderPath];
     
-    NSArray *subFolders = [[FileManager defaultManager] getSubFoldersPathInFolder:rootFolderPath];
+    NSArray *subFolders = [[MRBFileManager defaultManager] getSubFoldersPathInFolder:rootFolderPath];
     for (NSInteger i = 0; i < subFolders.count; i++) {
         NSString *subFolder = subFolders[i];
         NSString *targetSubFolder = [subFolder stringByReplacingOccurrencesOfString:rootFolderPath withString:targetFolderPath];
         
-        [[FileManager defaultManager] createFolderAtPathIfNotExist:targetSubFolder];
+        [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:targetSubFolder];
     }
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"复制文件夹的层级, 流程结束"];

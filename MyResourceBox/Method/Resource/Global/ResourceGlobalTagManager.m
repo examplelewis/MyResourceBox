@@ -39,7 +39,7 @@ static ResourceGlobalTagManager *request;
     if (self) {
         NSString *rootPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
         neededTagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/NeededTags"];
-        NSAssert([[FileManager defaultManager] isContentExistAtPath:neededTagsFolderPath], @"NeededTags 文件夹不存在");
+        NSAssert([[MRBFileManager defaultManager] isContentExistAtPath:neededTagsFolderPath], @"NeededTags 文件夹不存在");
         
         [self readNeededTags];
         [self readTypedTags];
@@ -49,7 +49,7 @@ static ResourceGlobalTagManager *request;
 }
 
 - (void)readNeededTags {
-    if ([[FileManager defaultManager] getFilePathsInFolder:neededTagsFolderPath].count == 0) {
+    if ([[MRBFileManager defaultManager] getFilePathsInFolder:neededTagsFolderPath].count == 0) {
         return;
     }
     

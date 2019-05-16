@@ -7,7 +7,7 @@
 //
 
 #import "MRBImageManager.h"
-//#import "FileManager.h"
+//#import "MRBFileManager.h"
 
 @implementation MRBImageManager
 

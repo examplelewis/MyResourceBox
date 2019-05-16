@@ -30,7 +30,7 @@
 - (void)startOrganizing {
     [[MRBLogManager defaultManager] showLogWithFormat:@"整理 %@ 内的图片, 流程开始", rootFolderPath.lastPathComponent];
     
-    if (![[FileManager defaultManager] isContentExistAtPath:plistFilePath]) {
+    if (![[MRBFileManager defaultManager] isContentExistAtPath:plistFilePath]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 不存在，请检查下载文件夹", plistFilePath.lastPathComponent];
         [[MRBLogManager defaultManager] showLogWithFormat:@"整理下载的动漫图片, 流程结束"];
         
@@ -51,17 +51,17 @@
         NSString *targetPath = [NSString stringWithFormat:@"%@%@", rootFolderPath, value];
         
         NSError *error = nil;
-        [[FileManager defaultManager] moveItemAtPath:downloadPath toDestPath:targetPath error:&error];
+        [[MRBFileManager defaultManager] moveItemAtPath:downloadPath toDestPath:targetPath error:&error];
         // 文件如果已经存在，那么删除源文件，说明之前已经下载的相同的图片了
         if (error && error.code == NSFileWriteFileExistsError) {
-            NSDate *creationDate = [[FileManager defaultManager] getSpecificAttributeOfItemAtPath:targetPath attribute:NSFileCreationDate];
+            NSDate *creationDate = [[MRBFileManager defaultManager] getSpecificAttributeOfItemAtPath:targetPath attribute:NSFileCreationDate];
             NSString *creationDateStr = [creationDate formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"文件: %@ 在 %@ 下载过，将被删除", downloadPath, creationDateStr];
-            [[FileManager defaultManager] trashFileAtPath:downloadPath resultItemURL:nil];
+            [[MRBFileManager defaultManager] trashFileAtPath:downloadPath resultItemURL:nil];
         }
     }
     
-    [[FileManager defaultManager] trashFileAtPath:plistFilePath resultItemURL:nil];
+    [[MRBFileManager defaultManager] trashFileAtPath:plistFilePath resultItemURL:nil];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"整理 %@ 内的图片, 流程结束", rootFolderPath.lastPathComponent];
     

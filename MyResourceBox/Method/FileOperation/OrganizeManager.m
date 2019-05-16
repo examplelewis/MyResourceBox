@@ -30,7 +30,7 @@
 
 - (void)startOrganizing {
     //先判断有没有plist文件
-    if (![[FileManager defaultManager] isContentExistAtPath:self.plistPath]) {
+    if (![[MRBFileManager defaultManager] isContentExistAtPath:self.plistPath]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"plist不存在，请查看对应的文件夹"];
         return;
     }
@@ -50,7 +50,7 @@
     NSString *folderPath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/%@/", folderName];
     
     // 如果文件夹存在，那么直接对文件夹进行处理
-    if ([[FileManager defaultManager] isContentExistAtPath:folderPath]) {
+    if ([[MRBFileManager defaultManager] isContentExistAtPath:folderPath]) {
         [self organizingImageFile:folderPath];
     } else {
         //显示NSOpenPanel
@@ -78,7 +78,7 @@
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:self.plistPath];
     
     // 先查找文件夹里是否有图片文件。如果没有，可能是没有将图片文件移动到文件夹内，目前给出提示
-    NSArray *imageFiles = [[FileManager defaultManager] getFilePathsInFolder:rootFolderName specificExtensions:simplePhotoType];
+    NSArray *imageFiles = [[MRBFileManager defaultManager] getFilePathsInFolder:rootFolderName specificExtensions:simplePhotoType];
     if (imageFiles.count == 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"没有在文件夹内找到图片文件，可能是没有将图片文件移动到文件夹内，请检查文件夹"];
         return;
@@ -88,7 +88,7 @@
     for (NSString *folderName in [dict allKeys]) {
         //创建目录文件夹
         NSString *folderPath = [rootFolderName stringByAppendingPathComponent:folderName];
-        [[FileManager defaultManager] createFolderAtPathIfNotExist:folderPath];
+        [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:folderPath];
         
         //获取图片文件路径并且移动文件
         NSArray *array = [NSArray arrayWithArray:dict[folderName]];
@@ -96,13 +96,13 @@
             NSString *filePath = [rootFolderName stringByAppendingPathComponent:url.lastPathComponent];
             NSString *destPath = [folderPath stringByAppendingPathComponent:url.lastPathComponent];
             
-            [[FileManager defaultManager] moveItemAtPath:filePath toDestPath:destPath];
+            [[MRBFileManager defaultManager] moveItemAtPath:filePath toDestPath:destPath];
         }
     }
     [[MRBLogManager defaultManager] showLogWithFormat:@"所有图片已经整理完成"];
     
     // 删除 plist 文件
-    [[FileManager defaultManager] trashFileAtPath:self.plistPath resultItemURL:nil];
+    [[MRBFileManager defaultManager] trashFileAtPath:self.plistPath resultItemURL:nil];
     
     [self performSelector:@selector(showAlert) withObject:nil afterDelay:0.25f];
     

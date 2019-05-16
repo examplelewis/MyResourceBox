@@ -37,15 +37,15 @@
         typeTagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/xmls"];
         neededTagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags/NeededTags"];
         
-        [[FileManager defaultManager] createFolderAtPathIfNotExist:tagsFolderPath];
-        [[FileManager defaultManager] createFolderAtPathIfNotExist:typeTagsFolderPath];
-        [[FileManager defaultManager] createFolderAtPathIfNotExist:neededTagsFolderPath];
+        [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:tagsFolderPath];
+        [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:typeTagsFolderPath];
+        [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:neededTagsFolderPath];
         
         NSDictionary *preferences = [NSDictionary dictionaryWithContentsOfFile:preferencePath];
         pid = [preferences[@"tags_pid"] integerValue];
         neededTagsKeys = @[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h", @"i", @"j", @"k", @"l", @"m", @"n", @"o", @"p", @"q", @"r", @"s", @"t", @"u", @"v", @"w", @"x", @"y", @"z", @"~other"];
         
-        if (![[FileManager defaultManager] isContentExistAtPath:totalTagsFilePath]) {
+        if (![[MRBFileManager defaultManager] isContentExistAtPath:totalTagsFilePath]) {
             MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
             [alert setMessage:@"还没有下载过 Gelbooru 的 Tags，需要下载才能正常使用" infomation:nil];
             [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
@@ -97,7 +97,7 @@
     [self performSelector:@selector(organizeAllFetchedTags) withObject:nil afterDelay:1.0f];
 }
 - (void)organizeAllFetchedTags {
-    NSArray<NSString *> *xmls = [[FileManager defaultManager] getFilePathsInFolder:tagsFolderPath];
+    NSArray<NSString *> *xmls = [[MRBFileManager defaultManager] getFilePathsInFolder:tagsFolderPath];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF BEGINSWITH '/Users/Mercury/Documents/同步文档/MyResourceBox/Tags/FetchedTags_'"];
     NSArray *filter = [xmls filteredArrayUsingPredicate:predicate];
     if (filter.count == 0) {
@@ -122,7 +122,7 @@
 //        return;
 //    }
 //
-//    [[FileManager defaultManager] trashFilesAtPaths:trashes];
+//    [[MRBFileManager defaultManager] trashFilesAtPaths:trashes];
 
     [self filterAllTags];
 }

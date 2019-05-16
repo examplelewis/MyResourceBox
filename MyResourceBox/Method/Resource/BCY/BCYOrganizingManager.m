@@ -20,13 +20,13 @@
     [[MRBLogManager defaultManager] showLogWithFormat:@"整理半次元下载好的图片：已经准备就绪"];
     
     //先判断有没有plist文件
-    if (![[FileManager defaultManager] isContentExistAtPath:BCYRenameInfoPath]) {
+    if (![[MRBFileManager defaultManager] isContentExistAtPath:BCYRenameInfoPath]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"plist不存在，请查看对应的文件夹"];
         return;
     }
     
     // 如果文件夹存在，那么直接对文件夹进行处理
-    if ([[FileManager defaultManager] isContentExistAtPath:BCYDefaultDownloadPath]) {
+    if ([[MRBFileManager defaultManager] isContentExistAtPath:BCYDefaultDownloadPath]) {
         [self organizingRootFolder:BCYDefaultDownloadPath];
     } else {
         //显示NSOpenPanel
@@ -52,7 +52,7 @@
 }
 // 根据Plist文件将图片整理到对应的文件夹中（第二步，具体逻辑）
 + (void)organizingRootFolder:(NSString *)rootFolderName {
-    FileManager *fm = [FileManager defaultManager];
+    MRBFileManager *fm = [MRBFileManager defaultManager];
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:BCYRenameInfoPath];
     
     //根据Plist文件整理记录的图片

@@ -52,7 +52,7 @@
     [[MRBLogManager defaultManager] showLogWithFormat:@"整理图片开始"];
     
     NSArray *total = [NSArray arrayWithArray:[[SQLiteFMDBManager defaultDBManager] readPhotoOrganTotal]];
-    NSArray *subFolderPaths = [[FileManager defaultManager] getFolderPathsInFolder:@"/Users/Mercury/Downloads"];
+    NSArray *subFolderPaths = [[MRBFileManager defaultManager] getFolderPathsInFolder:@"/Users/Mercury/Downloads"];
     
     for (NSInteger i = 0; i < subFolderPaths.count; i++) {
         // 取得下载文件夹中源文件夹的路径和名字
@@ -77,17 +77,17 @@
         NSString *destFolderPath = destObj[@"destination"];
         
         // 遍历源文件夹中的内容，并把内容移动到目标文件夹中
-        NSArray *filePaths = [[FileManager defaultManager] getFilePathsInFolder:subFolderPath];
+        NSArray *filePaths = [[MRBFileManager defaultManager] getFilePathsInFolder:subFolderPath];
         for (NSInteger j = 0; j < filePaths.count; j++) {
             NSString *filePath = filePaths[j]; // 源文件路径
             NSString *fileName = filePath.lastPathComponent; // 源文件名
             NSString *destPath = [destFolderPath stringByAppendingPathComponent:fileName]; // 目标文件路径
             
-            [[FileManager defaultManager] moveItemAtPath:filePath toDestPath:destPath];
+            [[MRBFileManager defaultManager] moveItemAtPath:filePath toDestPath:destPath];
         }
         
         // 所有文件都移动之后，将源文件夹移动到废纸篓中
-        [[FileManager defaultManager] trashFileAtPath:subFolderPath resultItemURL:nil];
+        [[MRBFileManager defaultManager] trashFileAtPath:subFolderPath resultItemURL:nil];
         
         [[MRBLogManager defaultManager] showLogWithFormat:@"完成整理图片: %@", subFolderName];
     }
@@ -102,14 +102,14 @@
     // Cosplay 文件夹
     [[MRBLogManager defaultManager] showLogWithFormat:@"整理导出的Cosplay图片：流程准备开始"];
     NSString *cosplayFolder = @"/Users/Mercury/Downloads/Cosplay";
-    if ([[FileManager defaultManager] isContentExistAtPath:cosplayFolder]) {
-        NSArray *originalFilePaths = [[FileManager defaultManager] getFilePathsInFolder:cosplayFolder];
+    if ([[MRBFileManager defaultManager] isContentExistAtPath:cosplayFolder]) {
+        NSArray *originalFilePaths = [[MRBFileManager defaultManager] getFilePathsInFolder:cosplayFolder];
         
         for (NSInteger i = 0; i < originalFilePaths.count; i++) {
             NSString *originalFilePath = originalFilePaths[i];
             NSString *destFilePath = [originalFilePath stringByReplacingOccurrencesOfString:cosplayFolder withString:@"/User/Mercury/CloudStation/网络图片/Cosplay"];
             
-            [[FileManager defaultManager] moveItemAtPath:originalFilePath toDestPath:destFilePath];
+            [[MRBFileManager defaultManager] moveItemAtPath:originalFilePath toDestPath:destFilePath];
         }
     }
     [[MRBLogManager defaultManager] showLogWithFormat:@"整理导出的Cosplay图片：流程已经结束"];
@@ -117,14 +117,14 @@
     // 真人 文件夹
     [[MRBLogManager defaultManager] showLogWithFormat:@"整理导出的真人图片：流程准备开始"];
     NSString *zhenrenFolder = @"/Users/Mercury/Downloads/真人";
-    if ([[FileManager defaultManager] isContentExistAtPath:zhenrenFolder]) {
-        NSArray *originalFilePaths = [[FileManager defaultManager] getFilePathsInFolder:zhenrenFolder];
+    if ([[MRBFileManager defaultManager] isContentExistAtPath:zhenrenFolder]) {
+        NSArray *originalFilePaths = [[MRBFileManager defaultManager] getFilePathsInFolder:zhenrenFolder];
         
         for (NSInteger i = 0; i < originalFilePaths.count; i++) {
             NSString *originalFilePath = originalFilePaths[i];
             NSString *destFilePath = [originalFilePath stringByReplacingOccurrencesOfString:zhenrenFolder withString:@"/User/Mercury/CloudStation/网络图片/真人"];
             
-            [[FileManager defaultManager] moveItemAtPath:originalFilePath toDestPath:destFilePath];
+            [[MRBFileManager defaultManager] moveItemAtPath:originalFilePath toDestPath:destFilePath];
         }
     }
     [[MRBLogManager defaultManager] showLogWithFormat:@"整理导出的真人图片：流程已经结束"];
@@ -132,19 +132,19 @@
     // ACG 文件夹
     [[MRBLogManager defaultManager] showLogWithFormat:@"整理导出的ACG图片：流程准备开始"];
     NSString *acgFolder = @"/Users/Mercury/CloudStation/网络图片/ACG";
-    NSArray *acgFolders = [[FileManager defaultManager] getFolderPathsInFolder:acgFolder];
+    NSArray *acgFolders = [[MRBFileManager defaultManager] getFolderPathsInFolder:acgFolder];
     for (NSInteger i = 0; i < acgFolders.count; i++) {
         NSString *destACGFolder = acgFolders[i];
         NSString *originACGFolder = [destACGFolder stringByReplacingOccurrencesOfString:acgFolder withString:@"/Users/Mercury/Downloads"];
         
-        if ([[FileManager defaultManager] isContentExistAtPath:originACGFolder]) {
-            NSArray *originalFilePaths = [[FileManager defaultManager] getFilePathsInFolder:originACGFolder];
+        if ([[MRBFileManager defaultManager] isContentExistAtPath:originACGFolder]) {
+            NSArray *originalFilePaths = [[MRBFileManager defaultManager] getFilePathsInFolder:originACGFolder];
             
             for (NSInteger j = 0; j < originalFilePaths.count; j++) {
                 NSString *originalFilePath = originalFilePaths[j];
                 NSString *destFilePath = [originalFilePath stringByReplacingOccurrencesOfString:originACGFolder withString:destACGFolder];
                 
-                [[FileManager defaultManager] moveItemAtPath:originalFilePath toDestPath:destFilePath];
+                [[MRBFileManager defaultManager] moveItemAtPath:originalFilePath toDestPath:destFilePath];
             }
         }
     }

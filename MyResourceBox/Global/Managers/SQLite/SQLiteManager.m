@@ -16,18 +16,18 @@
     NSString *databaseName = @"data";
     NSString *folderPath = [DeviceInfo sharedDevice].path_root_folder;
     NSString *filePath = [[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSFileManager *MRBFileManager = [NSFileManager defaultManager];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"开始备份数据库文件"];
     
     //先查找要备份的文件是否存在
-    if ([fileManager fileExistsAtPath:filePath]) {
+    if ([MRBFileManager fileExistsAtPath:filePath]) {
         //如果文件存在，再查找是否已有备份文件
-        NSArray *tempArray = [fileManager contentsOfDirectoryAtPath:folderPath error:nil];
+        NSArray *tempArray = [MRBFileManager contentsOfDirectoryAtPath:folderPath error:nil];
         BOOL hasBackupFile = NO;
         for (NSString *fileName in tempArray) {
             NSString *fullPath = [folderPath stringByAppendingPathComponent:fileName];
-            if ([fileManager fileExistsAtPath:fullPath] && [fileName hasPrefix:[NSString stringWithFormat:@"%@_", databaseName]]) {
+            if ([MRBFileManager fileExistsAtPath:fullPath] && [fileName hasPrefix:[NSString stringWithFormat:@"%@_", databaseName]]) {
                 hasBackupFile = YES;
                 
                 NSError *error;
@@ -65,13 +65,13 @@
 + (void)restoreDatebaseFile {
     NSString *folderPath = [DeviceInfo sharedDevice].path_root_folder;
     NSString *filePath = [[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSFileManager *MRBFileManager = [NSFileManager defaultManager];
     
     [MRBLogManager resetCurrentDate];
     [[MRBLogManager defaultManager] showLogWithFormat:@"开始还原数据库文件"];
     
     //先查找备份数据库文件是否存在
-    NSArray *fileArray = [fileManager contentsOfDirectoryAtPath:folderPath error:nil];
+    NSArray *fileArray = [MRBFileManager contentsOfDirectoryAtPath:folderPath error:nil];
     NSString *foundFileName;
     for (NSString *fileName in fileArray) {
         if ([fileName hasPrefix:@"data_"]) {
@@ -83,7 +83,7 @@
     
     if (foundFileName) {
         //再查找原数据库文件是否存在，存在的话就删除
-        if ([fileManager fileExistsAtPath:filePath]) {
+        if ([MRBFileManager fileExistsAtPath:filePath]) {
             NSError *error;
             NSURL *url = [NSURL fileURLWithPath:filePath];
             if ([[NSFileManager defaultManager] trashItemAtURL:url resultingItemURL:nil error:&error]) {

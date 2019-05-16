@@ -50,8 +50,8 @@ static TumblrMethod *method;
     switch (cellRow) {
         case 1: {
             // 删除 txt 文件
-            if ([[FileManager defaultManager] isContentExistAtPath:tumblrResultTxtFilePath]) {
-                [[FileManager defaultManager] trashFileAtPath:tumblrResultTxtFilePath resultItemURL:nil];
+            if ([[MRBFileManager defaultManager] isContentExistAtPath:tumblrResultTxtFilePath]) {
+                [[MRBFileManager defaultManager] trashFileAtPath:tumblrResultTxtFilePath resultItemURL:nil];
             }
             
             OrganizeManager *manager = [[OrganizeManager alloc] initWithPlistPath:tumblrStatusPlistFilePath];

@@ -35,11 +35,11 @@
         manager.requestSerializer.timeoutInterval = 10.0f;
         [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
         
-        if ([[FileManager defaultManager] isContentExistAtPath:loginInfoFilePath]) {
+        if ([[MRBFileManager defaultManager] isContentExistAtPath:loginInfoFilePath]) {
             loginInfo = [[NSDictionary alloc] initWithContentsOfFile:loginInfoFilePath];
         }
         
-        if ([[FileManager defaultManager] isContentExistAtPath:deviantartPrefsFilePath]) {
+        if ([[MRBFileManager defaultManager] isContentExistAtPath:deviantartPrefsFilePath]) {
             deviantartPrefs = [[NSDictionary alloc] initWithContentsOfFile:deviantartPrefsFilePath];
             previousTime = [deviantartPrefs[@"publishedTime"] doubleValue];
         }

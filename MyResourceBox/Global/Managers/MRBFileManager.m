@@ -1,20 +1,20 @@
 //
-//  FileManager.m
+//  MRBFileManager.m
 //  MyComicView
 //
 //  Created by 龚宇 on 16/08/03.
 //  Copyright © 2016年 gongyuTest. All rights reserved.
 //
 
-#import "FileManager.h"
+#import "MRBFileManager.h"
 
-@interface FileManager () {
+@interface MRBFileManager () {
     NSFileManager *fm;
 }
 
 @end
 
-@implementation FileManager
+@implementation MRBFileManager
 
 #pragma mark -- 生命周期方法 --
 /**
@@ -22,11 +22,11 @@
  *
  *  返回一个初始化后的对象
  */
-static FileManager *inputInstance;
-+ (FileManager *)defaultManager {
+static MRBFileManager *inputInstance;
++ (MRBFileManager *)defaultManager {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        inputInstance = [[FileManager alloc] init];
+        inputInstance = [[MRBFileManager alloc] init];
     });
     
     return inputInstance;

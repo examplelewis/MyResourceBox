@@ -7,7 +7,7 @@
 //
 
 #import "FODayFolderManager.h"
-#import "FileManager.h"
+#import "MRBFileManager.h"
 #import "MRBImageManager.h"
 
 @implementation FODayFolderManager
@@ -21,14 +21,14 @@
 + (void)moveGIFFileToProperFolder {
     dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_group_t g = dispatch_group_create();
-    NSArray<NSString *> *fromGifFilePaths = [[FileManager defaultManager] getFilePathsInFolder:@"/Users/Mercury/Pictures/Day" specificExtensions:@[@"gif"]];
+    NSArray<NSString *> *fromGifFilePaths = [[MRBFileManager defaultManager] getFilePathsInFolder:@"/Users/Mercury/Pictures/Day" specificExtensions:@[@"gif"]];
     
     for (NSInteger i = 0; i < fromGifFilePaths.count; i++) {
         dispatch_group_async(g, q, ^{
             NSString *oriPath = fromGifFilePaths[i];
             NSString *destPath = [oriPath stringByReplacingOccurrencesOfString:@"/Users/Mercury/Pictures/Day" withString:@"/Users/Mercury/CloudStation/网络图片/动图"];
             
-            [[FileManager defaultManager] moveItemAtPath:oriPath toDestPath:destPath];
+            [[MRBFileManager defaultManager] moveItemAtPath:oriPath toDestPath:destPath];
         });
     }
     
@@ -44,7 +44,7 @@
 + (void)trashSmallSizedPhotos {
     dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_group_t g = dispatch_group_create();
-    NSArray<NSString *> *imageFilePaths = [[FileManager defaultManager] getFilePathsInFolder:@"/Users/Mercury/Pictures/Day" specificExtensions:@[@"jpg", @"jpeg", @"png"]];
+    NSArray<NSString *> *imageFilePaths = [[MRBFileManager defaultManager] getFilePathsInFolder:@"/Users/Mercury/Pictures/Day" specificExtensions:@[@"jpg", @"jpeg", @"png"]];
     
     for (NSInteger i = 0; i < imageFilePaths.count; i++) {
         dispatch_group_async(g, q, ^{
@@ -53,7 +53,7 @@
             if (size.width < 801 && size.height < 801) {
                 NSString *destFilePath = [imageFilePath stringByReplacingOccurrencesOfString:@"/Users/Mercury/Pictures/Day" withString:@"/Users/Mercury/.Trash"];
                 
-                [[FileManager defaultManager] moveItemAtPath:imageFilePath toDestPath:destFilePath];
+                [[MRBFileManager defaultManager] moveItemAtPath:imageFilePath toDestPath:destFilePath];
             }
         });
     }
@@ -70,19 +70,19 @@
 + (void)moveFilesToSpecificFolder {
     dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_group_t g = dispatch_group_create();
-    NSArray<NSString *> *fromImageFilePaths = [[FileManager defaultManager] getFilePathsInFolder:@"/Users/Mercury/Pictures/Day" specificExtensions:@[@"jpg", @"jpeg", @"png"]];
+    NSArray<NSString *> *fromImageFilePaths = [[MRBFileManager defaultManager] getFilePathsInFolder:@"/Users/Mercury/Pictures/Day" specificExtensions:@[@"jpg", @"jpeg", @"png"]];
     
     for (NSInteger i = 0; i < fromImageFilePaths.count; i++) {
         dispatch_group_async(g, q, ^{
             NSString *oriFilePath = fromImageFilePaths[i];
-            NSDate *creationDate = (NSDate *)[[FileManager defaultManager] getSpecificAttributeOfItemAtPath:oriFilePath attribute:NSFileCreationDate];
+            NSDate *creationDate = (NSDate *)[[MRBFileManager defaultManager] getSpecificAttributeOfItemAtPath:oriFilePath attribute:NSFileCreationDate];
             NSInteger integer = [creationDate weekday];
             integer--;
             if (integer == 0) integer = 7;
             
             NSString *destFilePath = [NSString stringWithFormat:@"/Users/Mercury/Pictures/Day/%ld/%@", integer, oriFilePath.lastPathComponent];
             
-            [[FileManager defaultManager] moveItemAtPath:oriFilePath toDestPath:destFilePath];
+            [[MRBFileManager defaultManager] moveItemAtPath:oriFilePath toDestPath:destFilePath];
         });
     }
     

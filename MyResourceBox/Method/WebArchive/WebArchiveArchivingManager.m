@@ -7,7 +7,7 @@
 //
 
 #import "WebArchiveArchivingManager.h"
-#import "FileManager.h"
+#import "MRBFileManager.h"
 #import "DTWebArchive.h"
 
 @interface WebArchiveArchivingManager () {
@@ -60,7 +60,7 @@
     [[MRBLogManager defaultManager] showLogWithFormat:@"开始处理文件：%@", filePath];
     NSString *targetFolderPath = filePath.stringByDeletingPathExtension;
     [targetFolderPaths addObject:targetFolderPath];
-    [[FileManager defaultManager] createFolderAtPathIfNotExist:targetFolderPath];
+    [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:targetFolderPath];
     
     NSData *webArchiveData = [NSData dataWithContentsOfFile:filePath];
     DTWebArchive *archive = [[DTWebArchive alloc] initWithData:webArchiveData];
@@ -94,7 +94,7 @@
     NSArray<NSString *> *imageFilePaths = @[];
     for (NSInteger i = 0; i < targetFolderPaths.count; i++) {
         NSString *targetFolderPath = targetFolderPaths[i];
-        NSArray<NSString *> *targetFolderImageFilePaths = [[FileManager defaultManager] getFilePathsInFolder:targetFolderPath specificExtensions:[UserInfo defaultUser].web_archive_mime_type];
+        NSArray<NSString *> *targetFolderImageFilePaths = [[MRBFileManager defaultManager] getFilePathsInFolder:targetFolderPath specificExtensions:[UserInfo defaultUser].web_archive_mime_type];
         imageFilePaths = [imageFilePaths arrayByAddingObjectsFromArray:targetFolderImageFilePaths];
     }
     

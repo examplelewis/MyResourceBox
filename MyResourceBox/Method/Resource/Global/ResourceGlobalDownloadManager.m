@@ -32,7 +32,7 @@
 }
 
 - (void)prepareDownloading {
-    if (![[FileManager defaultManager] isContentExistAtPath:txtFilePath]) {
+    if (![[MRBFileManager defaultManager] isContentExistAtPath:txtFilePath]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 不存在", txtFilePath.lastPathComponent];
         if (self.finishBlock) {
             self.finishBlock();

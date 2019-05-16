@@ -43,7 +43,7 @@
 		AC85090C1DB39677004AFE84 /* MyAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509051DB39677004AFE84 /* MyAlert.m */; };
 		AC85090D1DB39677004AFE84 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509071DB39677004AFE84 /* UserInfo.m */; };
 		AC85090E1DB39677004AFE84 /* MRBUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509091DB39677004AFE84 /* MRBUtilityManager.m */; };
-		AC8509191DB39692004AFE84 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509111DB39692004AFE84 /* FileManager.m */; };
+		AC8509191DB39692004AFE84 /* MRBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509111DB39692004AFE84 /* MRBFileManager.m */; };
 		AC85091B1DB39692004AFE84 /* WebArchiveMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509161DB39692004AFE84 /* WebArchiveMethod.m */; };
 		AC8509211DB3970D004AFE84 /* WeiboTokenWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC85091F1DB3970D004AFE84 /* WeiboTokenWindowController.m */; };
 		AC8509221DB3970D004AFE84 /* WeiboTokenWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8509201DB3970D004AFE84 /* WeiboTokenWindowController.xib */; };
@@ -216,8 +216,8 @@
 		AC8509071DB39677004AFE84 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		AC8509081DB39677004AFE84 /* MRBUtilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBUtilityManager.h; sourceTree = "<group>"; };
 		AC8509091DB39677004AFE84 /* MRBUtilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBUtilityManager.m; sourceTree = "<group>"; };
-		AC8509101DB39692004AFE84 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
-		AC8509111DB39692004AFE84 /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		AC8509101DB39692004AFE84 /* MRBFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBFileManager.h; sourceTree = "<group>"; };
+		AC8509111DB39692004AFE84 /* MRBFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBFileManager.m; sourceTree = "<group>"; };
 		AC8509151DB39692004AFE84 /* WebArchiveMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebArchiveMethod.h; sourceTree = "<group>"; };
 		AC8509161DB39692004AFE84 /* WebArchiveMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebArchiveMethod.m; sourceTree = "<group>"; };
 		AC85091E1DB3970D004AFE84 /* WeiboTokenWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboTokenWindowController.h; sourceTree = "<group>"; };
@@ -606,8 +606,8 @@
 			children = (
 				AC789C671DE1467000523A12 /* CookieManager.h */,
 				AC789C661DE1467000523A12 /* CookieManager.m */,
-				AC8509101DB39692004AFE84 /* FileManager.h */,
-				AC8509111DB39692004AFE84 /* FileManager.m */,
+				AC8509101DB39692004AFE84 /* MRBFileManager.h */,
+				AC8509111DB39692004AFE84 /* MRBFileManager.m */,
 				AC75C6511F8657800060CF6B /* MRBHttpManager.h */,
 				AC75C6521F8657800060CF6B /* MRBHttpManager.m */,
 				ACCAA0361E1B81250017EDDA /* MRBImageManager.h */,
@@ -1213,7 +1213,7 @@
 				ACC8BA6C22854F5F0000E193 /* Rule34TagPagePicExportTagsManager.m in Sources */,
 				AC789C7D1DE159E100523A12 /* ExHentaiManager.m in Sources */,
 				ACA9C92021FD954E00B33CB4 /* PixivLoginUserManager.m in Sources */,
-				AC8509191DB39692004AFE84 /* FileManager.m in Sources */,
+				AC8509191DB39692004AFE84 /* MRBFileManager.m in Sources */,
 				AC75C6531F8657800060CF6B /* MRBHttpManager.m in Sources */,
 				ACCAA3B3228D09C40062BCE6 /* MRBLogManager.m in Sources */,
 				AC9870581E4C4A650076DC92 /* WeiboStatusObject.m in Sources */,

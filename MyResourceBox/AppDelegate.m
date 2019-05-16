@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "FileManager.h"
+#import "MRBFileManager.h"
 #import <TMAPIClient.h>
 #import "MRBHttpManager.h"
 
@@ -176,10 +176,10 @@
     NSString *logsFolder = [UserInfo defaultUser].path_root_folder;
     NSDate *latestCreationDate = [NSDate dateWithYear:2000 month:1 day:1]; //新建一个NSDate对象，用于判断并查找最新创建的日志文件
     
-    NSArray *logsFile = [[FileManager defaultManager] getFilePathsInFolder:logsFolder specificExtensions:@[@"log"]];
+    NSArray *logsFile = [[MRBFileManager defaultManager] getFilePathsInFolder:logsFolder specificExtensions:@[@"log"]];
     NSString *latestFilePath = @"";
     for (NSString *filePath in logsFile) {
-        NSDate *creationDate = [[FileManager defaultManager] getSpecificAttributeOfItemAtPath:filePath attribute:NSFileCreationDate];
+        NSDate *creationDate = [[MRBFileManager defaultManager] getSpecificAttributeOfItemAtPath:filePath attribute:NSFileCreationDate];
         if ([creationDate isLaterThan:latestCreationDate]) {
             latestCreationDate = creationDate;
             latestFilePath = filePath;
