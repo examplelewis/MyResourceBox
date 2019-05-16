@@ -28,9 +28,9 @@
 
 #pragma mark - Pixiv
 - (void)cleanPixivFollowingUserTable;
-- (void)insertPixivFollowingUserInfoIntoDatabase:(NSArray *)userInfo;
+- (void)insertPixivFollowingUserInfoIntoDatabase:(NSArray *)MRBUserManager;
 - (NSString *)getLastPixivFollowingUserIdFromDatabase;
-- (void)insertPixivBlockUserInfoIntoDatabase:(NSArray *)userInfo;
+- (void)insertPixivBlockUserInfoIntoDatabase:(NSArray *)MRBUserManager;
 
 #pragma mark - 图片整理
 - (NSArray *)readPhotoOrganDest;

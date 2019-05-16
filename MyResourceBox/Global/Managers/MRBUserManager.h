@@ -1,5 +1,5 @@
 //
-//  UserInfo.h
+//  MRBUserManager.h
 //  MyResourceBox
 //
 //  Created by 龚宇 on 16/10/02.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserInfo : NSObject
+@interface MRBUserManager : NSObject
 
 // 文件地址
 @property (nonatomic, copy) NSString *path_root_folder;
@@ -29,7 +29,7 @@
 // WebArchive 相关
 @property (nonatomic, copy, readonly) NSArray *web_archive_mime_type;
 
-+ (UserInfo *)defaultUser;
++ (MRBUserManager *)defaultUser;
 - (void)configureData;
 - (void)saveAuthDictIntoPlistFile;
 - (BOOL)mimeTypeExistsInFormats:(NSString *)mimeType;

@@ -125,7 +125,7 @@
             if (error) {
                 [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
                 
-                [self->failedURLArray addObject:[error userInfo][NSURLErrorFailingURLStringErrorKey]];
+                [self->failedURLArray addObject:error.userInfo[NSURLErrorFailingURLStringErrorKey]];
                 [MRBUtilityManager exportArray:self->failedURLArray atPath:BCYFailedUrlsPath];
                 [self didFinishDownloadingOnePicture:NO];
             } else {

@@ -41,7 +41,7 @@
 		AC8508E41DB39147004AFE84 /* MyResourceBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8508E31DB39147004AFE84 /* MyResourceBoxTests.m */; };
 		AC8508EF1DB39147004AFE84 /* MyResourceBoxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8508EE1DB39147004AFE84 /* MyResourceBoxUITests.m */; };
 		AC85090C1DB39677004AFE84 /* MyAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509051DB39677004AFE84 /* MyAlert.m */; };
-		AC85090D1DB39677004AFE84 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509071DB39677004AFE84 /* UserInfo.m */; };
+		AC85090D1DB39677004AFE84 /* MRBUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509071DB39677004AFE84 /* MRBUserManager.m */; };
 		AC85090E1DB39677004AFE84 /* MRBUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509091DB39677004AFE84 /* MRBUtilityManager.m */; };
 		AC8509191DB39692004AFE84 /* MRBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509111DB39692004AFE84 /* MRBFileManager.m */; };
 		AC85091B1DB39692004AFE84 /* WebArchiveMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509161DB39692004AFE84 /* WebArchiveMethod.m */; };
@@ -212,8 +212,8 @@
 		AC8508FD1DB39629004AFE84 /* MyResourceBox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyResourceBox-Prefix.pch"; sourceTree = "<group>"; };
 		AC8509041DB39677004AFE84 /* MyAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlert.h; sourceTree = "<group>"; };
 		AC8509051DB39677004AFE84 /* MyAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlert.m; sourceTree = "<group>"; };
-		AC8509061DB39677004AFE84 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
-		AC8509071DB39677004AFE84 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		AC8509061DB39677004AFE84 /* MRBUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBUserManager.h; sourceTree = "<group>"; };
+		AC8509071DB39677004AFE84 /* MRBUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBUserManager.m; sourceTree = "<group>"; };
 		AC8509081DB39677004AFE84 /* MRBUtilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBUtilityManager.h; sourceTree = "<group>"; };
 		AC8509091DB39677004AFE84 /* MRBUtilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBUtilityManager.m; sourceTree = "<group>"; };
 		AC8509101DB39692004AFE84 /* MRBFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBFileManager.h; sourceTree = "<group>"; };
@@ -592,8 +592,6 @@
 				AC2D1B131DD0191C0085F8E0 /* DeviceInfo.m */,
 				AC8509041DB39677004AFE84 /* MyAlert.h */,
 				AC8509051DB39677004AFE84 /* MyAlert.m */,
-				AC8509061DB39677004AFE84 /* UserInfo.h */,
-				AC8509071DB39677004AFE84 /* UserInfo.m */,
 				ACC3149921773BFF00DA5276 /* XMLReader.h */,
 				ACC3149A21773BFF00DA5276 /* XMLReader.m */,
 				AC19E13F1E4844660084A510 /* PixivAPI */,
@@ -604,6 +602,8 @@
 		AC85090F1DB39692004AFE84 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				ACCFA0B8226D5D3C007514C0 /* MRBCatchCrashManager.h */,
+				ACCFA0B9226D5D3C007514C0 /* MRBCatchCrashManager.m */,
 				AC789C671DE1467000523A12 /* MRBCookieManager.h */,
 				AC789C661DE1467000523A12 /* MRBCookieManager.m */,
 				AC8509101DB39692004AFE84 /* MRBFileManager.h */,
@@ -612,10 +612,10 @@
 				AC75C6521F8657800060CF6B /* MRBHttpManager.m */,
 				ACCAA0361E1B81250017EDDA /* MRBImageManager.h */,
 				ACCAA0351E1B81250017EDDA /* MRBImageManager.m */,
-				ACCFA0B8226D5D3C007514C0 /* MRBCatchCrashManager.h */,
-				ACCFA0B9226D5D3C007514C0 /* MRBCatchCrashManager.m */,
 				ACCAA3B1228D09C40062BCE6 /* MRBLogManager.h */,
 				ACCAA3B2228D09C40062BCE6 /* MRBLogManager.m */,
+				AC8509061DB39677004AFE84 /* MRBUserManager.h */,
+				AC8509071DB39677004AFE84 /* MRBUserManager.m */,
 				AC8509081DB39677004AFE84 /* MRBUtilityManager.h */,
 				AC8509091DB39677004AFE84 /* MRBUtilityManager.m */,
 				AC9F4C621E499AD600FD01C5 /* Download */,
@@ -1199,7 +1199,7 @@
 				ACE0502A22802BAC00367F3A /* FODayFolderManager.m in Sources */,
 				ACC8DDC0226FFB6A005228D7 /* GelbooruDailyPicManager.m in Sources */,
 				ACA9C91A21FD933500B33CB4 /* PixivHttpSessionManager.m in Sources */,
-				AC85090D1DB39677004AFE84 /* UserInfo.m in Sources */,
+				AC85090D1DB39677004AFE84 /* MRBUserManager.m in Sources */,
 				AC789C751DE159B700523A12 /* WeiboMethod.m in Sources */,
 				ACC93EF82277F20C00C207E6 /* PixivIllustPicManager.m in Sources */,
 				ACA9C91D21FD950E00B33CB4 /* PixivAPIManager.m in Sources */,

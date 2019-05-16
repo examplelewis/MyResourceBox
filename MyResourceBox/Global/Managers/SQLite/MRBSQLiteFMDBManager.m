@@ -200,7 +200,7 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
         [[MRBLogManager defaultManager] showLogWithFormat:@"删除 pixivFollowingUser 所有数据时发生错误：%@", [db lastErrorMessage]];
     }
 }
-- (void)insertPixivFollowingUserInfoIntoDatabase:(NSArray *)userInfo {
+- (void)insertPixivFollowingUserInfoIntoDatabase:(NSArray *)MRBUserManager {
     //先判断数据库是否存在，如果不存在，创建数据库
     if (!db) {
         [self createDatabase];
@@ -217,8 +217,8 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     BOOL isRollBack = NO;
     
     @try {
-        for (NSInteger i = 0; i < userInfo.count; i++) {
-            NSDictionary *info = userInfo[i];
+        for (NSInteger i = 0; i < MRBUserManager.count; i++) {
+            NSDictionary *info = MRBUserManager[i];
             
             BOOL success = [db executeUpdate:@"INSERT INTO pixivFollowingUser (id, member_id, user_name) values(?, ?, ?)", NULL, info[@"id"], info[@"name"]];
             if (!success) {
@@ -261,7 +261,7 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     
     return last_member_id;
 }
-- (void)insertPixivBlockUserInfoIntoDatabase:(NSArray *)userInfo {
+- (void)insertPixivBlockUserInfoIntoDatabase:(NSArray *)MRBUserManager {
     //先判断数据库是否存在，如果不存在，创建数据库
     if (!db) {
         [self createDatabase];
@@ -278,8 +278,8 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     BOOL isRollBack = NO;
     
     @try {
-        for (NSInteger i = 0; i < userInfo.count; i++) {
-            NSDictionary *info = userInfo[i];
+        for (NSInteger i = 0; i < MRBUserManager.count; i++) {
+            NSDictionary *info = MRBUserManager[i];
             
             BOOL success = [db executeUpdate:@"INSERT INTO pixivBlockUser (id, member_id, user_name, block_level) values(?, ?, ?, ?)", NULL, info[@"userId"], info[@"userName"], @(0)];
             if (!success) {

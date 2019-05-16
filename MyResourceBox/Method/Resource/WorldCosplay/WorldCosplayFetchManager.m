@@ -104,7 +104,7 @@ static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
                 [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
                 [[MRBLogManager defaultManager] showNotAppendLogWithFormat:@"第%lu条网页已获取失败 | 共%lu条网页", self->downloaded, self->pageUrls.count];
                 
-                NSString *url = [error userInfo][NSURLErrorFailingURLStringErrorKey];
+                NSString *url = error.userInfo[NSURLErrorFailingURLStringErrorKey];
                 if (url) {
                     [self->failedURLArray addObject:url];
                     

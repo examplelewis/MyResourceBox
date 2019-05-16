@@ -1,28 +1,28 @@
 //
-//  UserInfo.m
+//  MRBUserManager.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 16/10/02.
 //  Copyright © 2016年 gongyuTest. All rights reserved.
 //
 
-#import "UserInfo.h"
+#import "MRBUserManager.h"
 
-@interface UserInfo () {
+@interface MRBUserManager () {
     NSMutableDictionary *authDict;
     NSMutableDictionary *prefDict;
 }
 
 @end
 
-@implementation UserInfo
+@implementation MRBUserManager
 
 #pragma mark -- 初始化数据存取方法 --
 
-+ (UserInfo *)defaultUser {
-    static UserInfo *user = nil;
++ (MRBUserManager *)defaultUser {
+    static MRBUserManager *user = nil;
     if (!user) {
-        user = [[UserInfo alloc] init];
+        user = [[MRBUserManager alloc] init];
     }
     
     return user;
@@ -30,8 +30,8 @@
 
 #pragma mark -- 设置方法 --
 - (void)configureData {
-    authDict = [NSMutableDictionary dictionaryWithContentsOfFile:[[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"Authorization.plist"]];
-    prefDict = [NSMutableDictionary dictionaryWithContentsOfFile:[[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"Preference.plist"]];
+    authDict = [NSMutableDictionary dictionaryWithContentsOfFile:[[MRBUserManager defaultUser].path_root_folder stringByAppendingPathComponent:@"Authorization.plist"]];
+    prefDict = [NSMutableDictionary dictionaryWithContentsOfFile:[[MRBUserManager defaultUser].path_root_folder stringByAppendingPathComponent:@"Preference.plist"]];
     
     [self configureWeiboInfo];
     [self configureWebArchiveInfo];
@@ -103,7 +103,7 @@
 
 #pragma mark -- 辅助方法 --
 - (void)saveAuthDictIntoPlistFile {
-    [authDict writeToFile:[[UserInfo defaultUser].path_root_folder stringByAppendingPathComponent:@"Authorization.plist"] atomically:YES];
+    [authDict writeToFile:[[MRBUserManager defaultUser].path_root_folder stringByAppendingPathComponent:@"Authorization.plist"] atomically:YES];
 }
 - (BOOL)mimeTypeExistsInFormats:(NSString *)format {
     return [_web_archive_mime_type containsObject:format];
