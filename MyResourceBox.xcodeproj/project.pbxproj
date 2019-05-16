@@ -538,7 +538,7 @@
 				AC85091D1DB3970D004AFE84 /* Controller */,
 				AC8509141DB39692004AFE84 /* Method */,
 				AC8508FE1DB39677004AFE84 /* Model */,
-				AC8509011DB39677004AFE84 /* UtilityFile */,
+				AC8509011DB39677004AFE84 /* ThirdParty */,
 				AC8508CF1DB39146004AFE84 /* Supporting Files */,
 			);
 			path = MyResourceBox;
@@ -585,14 +585,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		AC8509011DB39677004AFE84 /* UtilityFile */ = {
+		AC8509011DB39677004AFE84 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
 				ACC3149921773BFF00DA5276 /* XMLReader.h */,
 				ACC3149A21773BFF00DA5276 /* XMLReader.m */,
 				AC19E13F1E4844660084A510 /* PixivAPI */,
 			);
-			path = UtilityFile;
+			path = ThirdParty;
 			sourceTree = "<group>";
 		};
 		AC85090F1DB39692004AFE84 /* Managers */ = {
