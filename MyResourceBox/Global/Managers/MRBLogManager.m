@@ -96,13 +96,14 @@
     dispatch_main_sync_safe((^() {
         NSString *logContent = rootVC.logTextView.string;
         logContent = [logContent stringByReplacingOccurrencesOfString:self->lastLog withString:@""];
-        NSString *string = [NSString stringWithFormat:@"%@ | %@\n%@\n", dateString, timeDiffString, alertString];
+        NSString *string = [NSString stringWithFormat:@"%@ | %@\t\t%@\n", dateString, timeDiffString, alertString];
         self->lastLog = string;
         logContent = [logContent stringByAppendingString:string];
         rootVC.logTextView.string = logContent;
     }));
 }
 
+#pragma mark - 辅助方法
 - (void)cleanLog {
     lastLog = @"";
     ViewController *rootVC = [AppDelegate defaultVC];

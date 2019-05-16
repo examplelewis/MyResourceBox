@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)showLogWithTitle:(NSString *)alertTitle andFormat:(NSString *)alertFormat, ...;
 - (void)showNotAppendLogWithFormat:(NSString *)alertFormat, ...;
 
-#pragma mark - 复制方法
+#pragma mark - 辅助方法
 + (void)resetCurrentDate;
 - (void)cleanLog;
 
