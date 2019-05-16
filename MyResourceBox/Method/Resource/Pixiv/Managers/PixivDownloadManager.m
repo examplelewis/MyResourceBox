@@ -42,12 +42,12 @@
 
 - (void)startDownload {
     PixivDownloadObject *object = lists.firstObject;
-    [[UtilityFile sharedInstance] showLogWithFormat:@"正在下载用户: %@ 的图片", object.name];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"正在下载用户: %@ 的图片", object.name];
     
     DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:object.imgUrls];
     manager.finishBlock = ^() {
         PixivDownloadObject *object = self->lists.firstObject;
-        [[UtilityFile sharedInstance] showLogWithFormat:@"用户: %@ 已经下载完成", object.name];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"用户: %@ 已经下载完成", object.name];
         
         [self->lists removeObjectAtIndex:0];
         if (self->lists.count == 0) {
@@ -57,7 +57,7 @@
                 [self.delegate didFinishAllDonwload];
             }
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"1秒后开始下载下一个用户的图片"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"1秒后开始下载下一个用户的图片"];
             [self performSelector:@selector(startDownload) withObject:nil afterDelay:1.0];
         }
     };

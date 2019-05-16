@@ -33,7 +33,7 @@
 
 - (void)prepareDownloading {
     if (![[FileManager defaultManager] isContentExistAtPath:txtFilePath]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 不存在", txtFilePath.lastPathComponent];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 不存在", txtFilePath.lastPathComponent];
         if (self.finishBlock) {
             self.finishBlock();
         }
@@ -43,7 +43,7 @@
     
     NSString *url = [[NSString alloc] initWithContentsOfFile:txtFilePath encoding:NSUTF8StringEncoding error:nil];
     if (url.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 文件没有内容", txtFilePath.lastPathComponent];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 文件没有内容", txtFilePath.lastPathComponent];
         if (self.finishBlock) {
             self.finishBlock();
         }

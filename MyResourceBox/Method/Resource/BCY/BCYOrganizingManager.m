@@ -17,11 +17,11 @@
 
 // 根据Plist文件将图片整理到对应的文件夹中（第一步，显示NSOpenPanel）
 + (void)checkRootFolderIsExist {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理半次元下载好的图片：已经准备就绪"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理半次元下载好的图片：已经准备就绪"];
     
     //先判断有没有plist文件
     if (![[FileManager defaultManager] isContentExistAtPath:BCYRenameInfoPath]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"plist不存在，请查看对应的文件夹"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"plist不存在，请查看对应的文件夹"];
         return;
     }
     
@@ -43,7 +43,7 @@
             if (result == 1) {
                 NSURL *fileUrl = [panel URLs].firstObject;
                 NSString *filePath = [fileUrl path];
-                [[UtilityFile sharedInstance] showLogWithFormat:@"已选择路径：%@", filePath];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"已选择路径：%@", filePath];
                 
                 [self organizingRootFolder:filePath];
             }
@@ -82,7 +82,7 @@
             [fm moveItemAtPath:filePath toDestPath:destPath];
         }
     }
-    [[UtilityFile sharedInstance] showLogWithFormat:@"Plist中记录的图片已经整理完成"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"Plist中记录的图片已经整理完成"];
     
     // 新建"未整理"文件夹并将剩下的图片整理到"未整理"文件夹
     NSString *otherFolderName = [rootFolderName stringByAppendingPathComponent:@"未整理"];
@@ -96,8 +96,8 @@
     
     [fm trashFileAtPath:BCYRenameInfoPath resultItemURL:nil];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"其他图片已经整理完成"];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"所有半次元图片已经整理完成"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"其他图片已经整理完成"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"所有半次元图片已经整理完成"];
 }
 
 @end

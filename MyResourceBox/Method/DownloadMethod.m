@@ -16,7 +16,7 @@
 @implementation DownloadMethod
 
 + (void)configMethod:(NSInteger)cellRow {
-    [UtilityFile resetCurrentDate];
+    [MRBLogManager resetCurrentDate];
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     NSArray *inputs = [input componentsSeparatedByString:@"\n"];
     NSSet *inputSet = [NSSet setWithArray:inputs];

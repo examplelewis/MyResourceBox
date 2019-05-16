@@ -30,7 +30,7 @@
 - (void)startFetching {
     NSString *inputString = [AppDelegate defaultVC].inputTextView.string;
     if (inputString.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
         return;
     }
     
@@ -53,8 +53,8 @@
     page = minPage;
     DDLogInfo(@"fetchSpecificTagPostUrl minPage: %ld, maxPage: %ld, page: %ld", minPage, maxPage, page);
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【页数 + 导出标签】，流程开始", tag];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"注意：本流程将忽略 webm 文件"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址【页数 + 导出标签】，流程开始", tag];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"注意：本流程将忽略 webm 文件"];
     
     [self fetchSinglePostUrl];
 }
@@ -101,7 +101,7 @@
         NSArray *urls = [self->posts valueForKey:@"file_url"];
         [UtilityFile exportArray:urls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostUrl.txt", self->tag]];
         [self->renameInfo writeToFile:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Gelbooru %@ PostRenameInfo.plist", self->tag] atomically:YES];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【页数 + 导出标签】：第 %ld 页已获取", self->tag, self->page];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址【页数 + 导出标签】：第 %ld 页已获取", self->tag, self->page];
         
         // 如果某一页小于100条原始数据，说明是最后一页
         if (self->page >= self->maxPage || array.count != 100) {
@@ -113,14 +113,14 @@
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
         DDLogError(@"%@: %@", errorTitle, errorMsg);
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【页数 + 导出标签】，遇到错误：%@: %@", self->tag, errorTitle, errorMsg];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【页数 + 导出标签】：流程结束", self->tag];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址【页数 + 导出标签】，遇到错误：%@: %@", self->tag, errorTitle, errorMsg];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址【页数 + 导出标签】：流程结束", self->tag];
     }];
 }
 - (void)fetchSucceed {
-    [[UtilityFile sharedInstance] cleanLog];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【页数 + 导出标签】：流程结束", tag];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 图片地址:\n%@", tag, [UtilityFile convertResultArray:[self->posts valueForKey:@"file_url"]]];
+    [[MRBLogManager defaultManager] cleanLog];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址【页数 + 导出标签】：流程结束", tag];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 图片地址:\n%@", tag, [UtilityFile convertResultArray:[self->posts valueForKey:@"file_url"]]];
 }
 
 @end

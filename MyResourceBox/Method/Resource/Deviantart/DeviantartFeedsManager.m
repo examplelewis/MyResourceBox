@@ -60,7 +60,7 @@
 }
 - (void)fetchingFeedsAfterRefreshingToken {
     if (![[FileManager defaultManager] isContentExistAtPath:deviantartPrefsFilePath]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"/Users/Mercury/Documents/同步文档/MyResourceBox/DeviantartPres.plist 文件不存在，流程终止"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"/Users/Mercury/Documents/同步文档/MyResourceBox/DeviantartPres.plist 文件不存在，流程终止"];
         return;
     }
     
@@ -75,7 +75,7 @@
  * @brief 刷新 Token
  */
 - (void)refreshToken:(void(^)(void))successBlock {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"正在刷新 Deviantart Token"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"正在刷新 Deviantart Token"];
     NSString *url = [NSString stringWithFormat:@"https://www.deviantart.com/oauth2/token?client_id=9258&client_secret=61c80feafecec5591f799f14be74c109&grant_type=refresh_token&refresh_token=%@", loginInfo[@"refresh_token"]];
     //    NSString *url = [NSString stringWithFormat:@"https://www.deviantart.com/oauth2/token?client_id=9258&client_secret=61c80feafecec5591f799f14be74c109&grant_type=refresh_token&refresh_token=c28df5ccb8c2f867a27f8352d2cb4b465541f00b"];
     
@@ -89,13 +89,13 @@
         strongSelf->loginInfo = [NSDictionary dictionaryWithDictionary:info];
         [strongSelf->loginInfo writeToFile:loginInfoFilePath atomically:YES];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"已获取到新的 token，保存到 DeviantartLoginInfo.plist 文件中"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"已获取到新的 token，保存到 DeviantartLoginInfo.plist 文件中"];
         
         if (successBlock) {
             successBlock();
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"刷新 Deviantart Token 失败，可能是 refresh_token 已经过期，请参考 OAuth 2 Step 1: User Authorization 重新获取 Authorization Code"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"刷新 Deviantart Token 失败，可能是 refresh_token 已经过期，请参考 OAuth 2 Step 1: User Authorization 重新获取 Authorization Code"];
     }];
 }
 
@@ -103,7 +103,7 @@
  * @brief 获取最新的 feeds
  */
 - (void)fetchFeeds {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"正在加载Feeds, cursor: %@", cursor];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"正在加载Feeds, cursor: %@", cursor];
     NSString *url = [NSString stringWithFormat:@"https://www.deviantart.com/api/v1/oauth2/feed/home?cursor=%@&access_token=%@&mature_content=true", cursor, loginInfo[@"access_token"]];
     
     WS(weakSelf);
@@ -150,10 +150,10 @@
             strongSelf->cursor = response[@"cursor"];
             [strongSelf fetchFeeds];
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"Feeds 加载完成"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"Feeds 加载完成"];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"加载 Feeds 出错: %@", error.localizedDescription];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"加载 Feeds 出错: %@", error.localizedDescription];
     }];
 }
 

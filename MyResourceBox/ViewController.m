@@ -36,14 +36,14 @@
     if (input.length > 0) {
         [UtilityFile exportString:input atPath:@"/Users/Mercury/Downloads/Input.txt"];
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有可导出的输入"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有可导出的输入"];
     }
 }
 - (IBAction)cleanLog:(NSButton *)sender {
     self.logTextView.string = @"";
 }
 - (IBAction)processingTemp:(NSButton *)sender {
-    [[UtilityFile sharedInstance] showLogWithTitle:@"临时方法执行失败" andFormat:@"该方法没有实现"];
+    [[MRBLogManager defaultManager] showLogWithTitle:@"临时方法执行失败" andFormat:@"该方法没有实现"];
 
 //    NSString *content = self.inputTextView.string;
 //    NSString *content = [NSString stringWithContentsOfFile:@"" encoding:NSUTF8StringEncoding error:nil];

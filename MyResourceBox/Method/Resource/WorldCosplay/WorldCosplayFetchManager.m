@@ -51,7 +51,7 @@ static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
     pageUrls = [NSArray arrayWithArray:[filterArray valueForKeyPath:@"attributes.href"]];
     
     if (pageUrls.count > 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取到%ld条网页地址", pageUrls.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条网页地址", pageUrls.count];
         
         // 处理获取到的Pages
         NSMutableArray *fullPages = [NSMutableArray array];
@@ -63,12 +63,12 @@ static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
         pageUrls = [NSArray arrayWithArray:fullPages];
         
         NSString *urlsPath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/WorldCosplayPageURLs__%@.txt", title];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取了%ld个页面的图片地址", pageUrls.count]; //获取到的页面地址
+        [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取了%ld个页面的图片地址", pageUrls.count]; //获取到的页面地址
         [UtilityFile exportArray:pageUrls atPath:urlsPath];
         
         [self parseHTML];
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取失败，没有获得任何数据，请检查输入框"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取失败，没有获得任何数据，请检查输入框"];
     }
 }
 // 1.2、从输入中获取网页信息
@@ -80,11 +80,11 @@ static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
     pageUrls = [string componentsSeparatedByString:@"\n"];
     
     if (string.length > 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取到%ld条网页地址", pageUrls.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条网页地址", pageUrls.count];
         
         [self parseHTML];
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取失败，没有获得任何数据，请检查输入框"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取失败，没有获得任何数据，请检查输入框"];
     }
 }
 // 2、解析每个页面，获取图片地址
@@ -101,8 +101,8 @@ static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
             self->downloaded++;
             
             if (error) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
-                [[UtilityFile sharedInstance] showNotAppendLogWithFormat:@"第%lu条网页已获取失败 | 共%lu条网页", self->downloaded, self->pageUrls.count];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
+                [[MRBLogManager defaultManager] showNotAppendLogWithFormat:@"第%lu条网页已获取失败 | 共%lu条网页", self->downloaded, self->pageUrls.count];
                 
                 NSString *url = [error userInfo][NSURLErrorFailingURLStringErrorKey];
                 if (url) {
@@ -112,11 +112,11 @@ static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
                     [UtilityFile exportArray:self->failedURLArray atPath:failPath];
                 }
             } else {
-                [[UtilityFile sharedInstance] showNotAppendLogWithFormat:@"第%lu条网页已获取成功 | 共%lu条网页", self->downloaded, self->pageUrls.count];
+                [[MRBLogManager defaultManager] showNotAppendLogWithFormat:@"第%lu条网页已获取成功 | 共%lu条网页", self->downloaded, self->pageUrls.count];
                 
                 NSString *htmlString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 if ([htmlString isEqualToString:@"Retry later\n"]) {
-                    [[UtilityFile sharedInstance] showLogWithFormat:@"第%lu条网页 超过了最大限制次数", self->downloaded];
+                    [[MRBLogManager defaultManager] showLogWithFormat:@"第%lu条网页 超过了最大限制次数", self->downloaded];
                 }
                 NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:nil];
                 NSArray<NSTextCheckingResult *> *matchResults = [detector matchesInString:htmlString options:0 range:NSMakeRange(0, htmlString.length)];
@@ -171,13 +171,13 @@ static NSString * const kWorldCosplayPrefix = @"http://worldcosplay.net";
     NSString *imgsPath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/WorldCosplayImageURLs__%@.txt", title];
     NSString *failPath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/WorldCosplayFailedURLs__%@.txt", title];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取到%ld条图片地址，在右上方输出框内显示", results.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条图片地址，在右上方输出框内显示", results.count];
     [UtilityFile exportArray:results atPath:imgsPath];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"有%ld条网页解析失败，请查看错误文件", failedURLArray.count]; //获取失败的页面地址
+    [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld条网页解析失败，请查看错误文件", failedURLArray.count]; //获取失败的页面地址
     [UtilityFile exportArray:failedURLArray atPath:failPath];
     
     // 下载
-    //    [[UtilityFile sharedInstance] showLogWithFormat:@"1秒后开始下载图片"];
+    //    [[MRBLogManager defaultManager] showLogWithFormat:@"1秒后开始下载图片"];
     //    dispatch_async(dispatch_get_main_queue(), ^{
     //        [self performSelector:@selector(startDownload) withObject:nil afterDelay:1.0f];
     //    });

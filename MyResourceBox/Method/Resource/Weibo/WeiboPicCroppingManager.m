@@ -28,8 +28,8 @@
 
 - (void)prepareCropping {
     if (_croppingRatio == WeiboPicCroppingRatioNotSet) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"未设置裁剪的高度比"];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"批量裁剪微博图片的水印，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"未设置裁剪的高度比"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"批量裁剪微博图片的水印，流程结束"];
         return;
     }
     
@@ -78,14 +78,14 @@
     }];
 }
 - (void)startCropping {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"一共需要裁剪 %ld 张图片", imageFilePaths.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"一共需要裁剪 %ld 张图片", imageFilePaths.count];
     
     for (NSInteger i = 0; i < imageFilePaths.count; i++) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"开始裁剪第 %ld 张图片", i+ 1];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"开始裁剪第 %ld 张图片", i+ 1];
         [self croppingSinglePicture:imageFilePaths[i]];
     }
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"批量裁剪微博图片的水印【从底部裁宽度的%.1f%%】，流程结束", heightRatio * 100.0f];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"批量裁剪微博图片的水印【从底部裁宽度的%.1f%%】，流程结束", heightRatio * 100.0f];
 }
 - (void)croppingSinglePicture:(NSString *)imageFilePath {
     CFStringRef imageType = NULL;
@@ -95,7 +95,7 @@
         imageType = kUTTypePNG;
     }
     if (imageType == NULL) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"需要裁剪的图片: %@ 类型未知，跳过", imageFilePath];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"需要裁剪的图片: %@ 类型未知，跳过", imageFilePath];
         return;
     }
     
@@ -119,7 +119,7 @@
     CGFloat waterprintHeight = ceil(CGImageGetWidth(imageRef) * heightRatio);
     CGFloat croppedHeight = CGImageGetHeight(imageRef) - waterprintHeight;
     CGRect croppedRect = CGRectMake(0.0f, 0.0f, CGImageGetWidth(imageRef), croppedHeight);
-    [[UtilityFile sharedInstance] showLogWithFormat:@"图片: %@\nsize: %ld x %ld, ratio: %.3f, waterprint height: %f, croppedHeight: %f", imageFilePath, CGImageGetWidth(imageRef), CGImageGetHeight(imageRef), heightRatio, waterprintHeight, croppedHeight];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"图片: %@\nsize: %ld x %ld, ratio: %.3f, waterprint height: %f, croppedHeight: %f", imageFilePath, CGImageGetWidth(imageRef), CGImageGetHeight(imageRef), heightRatio, waterprintHeight, croppedHeight];
     
     // 进行裁剪
     CGImageRef croppedImage = CGImageCreateWithImageInRect(imageRef, croppedRect);
@@ -127,7 +127,7 @@
     CGImageDestinationRef destination = CGImageDestinationCreateWithURL(saveUrl, imageType, 1, NULL);
     CGImageDestinationAddImage(destination, croppedImage, nil);
     if (!CGImageDestinationFinalize(destination)) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"图片: %@ 裁剪出错，跳过", imageFilePath];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"图片: %@ 裁剪出错，跳过", imageFilePath];
     }
     
     // 手动 Release

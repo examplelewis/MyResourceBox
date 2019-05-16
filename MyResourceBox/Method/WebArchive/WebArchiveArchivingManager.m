@@ -52,12 +52,12 @@
         [self analyzeFileAtPath:fileURL.path];
     }
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"流程已经结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"流程已经结束"];
     
     //    [self finishAnalyzing];
 }
 - (void)analyzeFileAtPath:(NSString *)filePath {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"开始处理文件：%@", filePath];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"开始处理文件：%@", filePath];
     NSString *targetFolderPath = filePath.stringByDeletingPathExtension;
     [targetFolderPaths addObject:targetFolderPath];
     [[FileManager defaultManager] createFolderAtPathIfNotExist:targetFolderPath];
@@ -83,9 +83,9 @@
         
         NSError *error;
         if (![resource.data writeToFile:filePath options:NSDataWritingAtomic error:&error]) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"写入文件：%@, 发生错误：%@", filePath, error.localizedDescription];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"写入文件：%@, 发生错误：%@", filePath, error.localizedDescription];
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"写入文件：%@, 成功", filePath];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"写入文件：%@, 成功", filePath];
         }
     }
 }
@@ -110,18 +110,18 @@
     
     [[NSWorkspace sharedWorkspace] recycleURLs:trashes completionHandler:^(NSDictionary<NSURL *,NSURL *> * _Nonnull newURLs, NSError * _Nullable error) {
         if (error) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"删除尺寸过小的图片时发生错误：%@", error.localizedDescription];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"删除尺寸过小的图片时发生错误：%@", error.localizedDescription];
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"成功删除了 %ld 个尺寸过小的图片", newURLs.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"成功删除了 %ld 个尺寸过小的图片", newURLs.count];
         }
     }];
     
     // 删除 WebArchive 文件
     [[NSWorkspace sharedWorkspace] recycleURLs:archiveFileURLs completionHandler:^(NSDictionary<NSURL *,NSURL *> * _Nonnull newURLs, NSError * _Nullable error) {
         if (error) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"删除 WebArchive 文件时发生错误：%@", error.localizedDescription];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"删除 WebArchive 文件时发生错误：%@", error.localizedDescription];
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"成功删除了 %ld 个 WebArchive 文件", newURLs.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"成功删除了 %ld 个 WebArchive 文件", newURLs.count];
         }
     }];
 }

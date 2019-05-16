@@ -23,7 +23,7 @@ static NSString * const kNeededTagsFolderPath = @"/Users/Mercury/Documents/同�
 
 - (void)prepareExtracting {
     if (![[FileManager defaultManager] isContentExistAtPath:kGelbooruTagXMLFilePath]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 文件不存在", kGelbooruTagXMLFilePath.lastPathComponent];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 文件不存在", kGelbooruTagXMLFilePath.lastPathComponent];
         return;
     }
     
@@ -35,7 +35,7 @@ static NSString * const kNeededTagsFolderPath = @"/Users/Mercury/Documents/同�
     NSData *xmlData = [NSData dataWithContentsOfFile:kGelbooruTagXMLFilePath];
     NSDictionary *baseXMLDict = [XMLReader dictionaryForXMLData:xmlData error:&xmlError];
     if (xmlError) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"xml 文件解析错误: %@", xmlError.localizedDescription];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"xml 文件解析错误: %@", xmlError.localizedDescription];
         return;
     }
     

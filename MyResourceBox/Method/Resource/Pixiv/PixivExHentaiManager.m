@@ -19,12 +19,12 @@
 @implementation PixivExHentaiManager
 
 - (void)startManaging {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理ExHentai导出的用户，流程开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理ExHentai导出的用户，流程开始"];
     
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     if (input.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"整理ExHentai导出的用户，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"整理ExHentai导出的用户，流程结束"];
         return;
     }
     
@@ -36,18 +36,18 @@
     [self duplicateRemoval];
     // 如果全都关注了,那就终止操作
     if ([self checkFollowing]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"所有获取到的用户都被关注了，流程结束"];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"整理ExHentai导出的用户，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"所有获取到的用户都被关注了，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"整理ExHentai导出的用户，流程结束"];
         return;
     }
     if ([self checkLevel1Blocking]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"所有未关注的用户都确定被拉黑，流程结束"];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"整理ExHentai导出的用户，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"所有未关注的用户都确定被拉黑，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"整理ExHentai导出的用户，流程结束"];
         return;
     }
     [self checkFetched];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理ExHentai导出的用户，流程结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理ExHentai导出的用户，流程结束"];
 }
 
 // Step 1: 将 url 全部修正成 https://www.pixiv.net/member_illust.php?id=xxx 的格式
@@ -76,9 +76,9 @@
         }
     }
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取到 %ld 条记录", fixedUserUrls.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取到 %ld 条记录", fixedUserUrls.count];
     if (useless.count > 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"有 %ld 条无用记录", useless.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条无用记录", useless.count];
         [UtilityFile exportArray:useless atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivUselessUrls.txt"];
     }
 }
@@ -89,13 +89,13 @@
     NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:fixedUserUrls];
     fixedUserUrls = [NSMutableArray arrayWithArray:orderedSet.array];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"共有 %ld 条重复的记录", countBefore - fixedUserUrls.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"共有 %ld 条重复的记录", countBefore - fixedUserUrls.count];
 }
 
 // Step 3: 查询是否有关注的记录
 // 返回 YES，表明所有用户都被关注了，流程结束；返回 NO，表明还有未关注的用户，流程继续
 - (BOOL)checkFollowing {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被关注，流程开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被关注，流程开始"];
     
     NSMutableArray *exists = [NSMutableArray array]; // 存在的地址
     NSMutableArray *news = [NSMutableArray array]; // 不存在的地址
@@ -103,8 +103,8 @@
     FMDatabase *db = [FMDatabase databaseWithPath:[[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被关注时发生错误：%@", [db lastErrorMessage]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被关注，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被关注时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被关注，流程结束"];
         return YES;
     }
     //为数据库设置缓存，提高查询效率
@@ -132,21 +132,21 @@
     [db close];
     
     if (exists.count > 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"有 %ld 条记录已经关注", exists.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条记录已经关注", exists.count];
         DDLogInfo(@"已关注的用户: %@", [UtilityFile convertResultArray:exists]);
     }
     if (news.count > 0) {
         fixedUserUrls = [NSMutableArray arrayWithArray:news];
     }
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被关注，流程结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被关注，流程结束"];
     
     return news.count == 0;
 }
 
 // Step 4: 查询是否有被确定拉黑的记录
 - (BOOL)checkLevel1Blocking {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被拉黑，流程开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被拉黑，流程开始"];
     
     NSMutableArray *block1s = [NSMutableArray array]; // 确定被拉黑的地址
     NSMutableArray *notBlock1s = [NSMutableArray array]; // 不确定被拉黑或者未确定拉黑等级的地址
@@ -155,8 +155,8 @@
     FMDatabase *db = [FMDatabase databaseWithPath:[[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被拉黑 时发生错误：%@", [db lastErrorMessage]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被拉黑，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被拉黑 时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被拉黑，流程结束"];
         return YES;
     }
     //为数据库设置缓存，提高查询效率
@@ -187,25 +187,25 @@
     [db close];
     
     if (block1s.count > 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"有 %ld 条记录确定被拉黑", block1s.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条记录确定被拉黑", block1s.count];
         DDLogInfo(@"确定被拉黑的用户: %@", [UtilityFile convertResultArray:block1s]);
     }
     if (notBlock1s.count > 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"有 %ld 条记录不确定被拉黑或者未确定拉黑等级，现已全部导出至 PixivUtilBlockLevelNot1.txt 文件中", notBlock1s.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条记录不确定被拉黑或者未确定拉黑等级，现已全部导出至 PixivUtilBlockLevelNot1.txt 文件中", notBlock1s.count];
         [UtilityFile exportArray:notBlock1s atPath:@"/Users/Mercury/Downloads/PixivUtilBlockLevelNot1.txt"];
     }
     if (news.count > 0) {
         fixedUserUrls = [NSMutableArray arrayWithArray:news];
     }
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被拉黑，流程结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被拉黑，流程结束"];
     
     return news == 0;
 }
 
 // Step 5: 查询是否有抓取过
 - (void)checkFetched {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程开始"];
     
     NSMutableArray *exists = [NSMutableArray array]; // 存在的地址
     NSMutableArray *news = [NSMutableArray array]; // 不存在的地址
@@ -213,8 +213,8 @@
     FMDatabase *db = [FMDatabase databaseWithPath:@"/Users/Mercury/Documents/Tool/pixivutil/db.sqlite"];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被抓取 时发生错误：%@", [db lastErrorMessage]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被抓取 时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程结束"];
         return;
     }
     //为数据库设置缓存，提高查询效率
@@ -242,15 +242,15 @@
     [db close];
     
     if (exists.count > 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"有 %ld 条记录被抓取，现已全部导出至 PixivUtilFetchExists.txt 文件中", exists.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条记录被抓取，现已全部导出至 PixivUtilFetchExists.txt 文件中", exists.count];
         [UtilityFile exportArray:exists atPath:@"/Users/Mercury/Downloads/PixivUtilFetchExists.txt"];
     }
     if (news.count > 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"有 %ld 条记录未被抓取，现已全部导出至 PixivUtilFetchNews.txt 文件中", news.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条记录未被抓取，现已全部导出至 PixivUtilFetchNews.txt 文件中", news.count];
         [UtilityFile exportArray:news atPath:@"/Users/Mercury/Downloads/PixivUtilFetchNews.txt"];
     }
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程结束"];
 }
 
 @end

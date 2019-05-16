@@ -87,7 +87,7 @@
 - (void)outputAllCookies {
     NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:[NSURL URLWithString:cookie_domain]];
     for (NSHTTPCookie *tempCookie in cookies) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"getCookie: %@, %@", tempCookie.name, tempCookie.value];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"getCookie: %@, %@", tempCookie.name, tempCookie.value];
     }
 }
 

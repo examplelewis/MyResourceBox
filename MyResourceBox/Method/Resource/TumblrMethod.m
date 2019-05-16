@@ -93,7 +93,7 @@ static TumblrMethod *method;
     }
 }
 - (void)resetPref {
-    [UtilityFile resetCurrentDate];
+    [MRBLogManager resetCurrentDate];
     tumblrStatuses = [NSMutableDictionary dictionary];
     tumblrResults = [NSMutableArray array];
     blogName = [AppDelegate defaultVC].inputTextView.string;
@@ -105,7 +105,7 @@ static TumblrMethod *method;
 - (void)getFavoritePhotos {
     [[TMAPIClient sharedInstance] likes:@{@"offset":@(fetchCount)} callback:^(id obj, NSError *error) {
         if (error) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"获取收藏列表接口发生错误：%@", [error localizedDescription]];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"获取收藏列表接口发生错误：%@", [error localizedDescription]];
             return;
         }
         
@@ -125,11 +125,11 @@ static TumblrMethod *method;
         }
         
         if (list.count == 20) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"已经获取到%ld条记录中的地址，继续查找", self->tumblrStatuses.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"已经获取到%ld条记录中的地址，继续查找", self->tumblrStatuses.count];
             [self simpleExportResult];
             [self getFavoritePhotos];
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"已经获取到%ld条记录中的地址，完成查找", self->tumblrStatuses.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"已经获取到%ld条记录中的地址，完成查找", self->tumblrStatuses.count];
             [self exportResult];
         }
     }];
@@ -137,7 +137,7 @@ static TumblrMethod *method;
 - (void)getFavoriteVideos {
     [[TMAPIClient sharedInstance] likes:@{@"offset":@(fetchCount)} callback:^(id obj, NSError *error) {
         if (error) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"获取收藏列表接口发生错误：%@", [error localizedDescription]];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"获取收藏列表接口发生错误：%@", [error localizedDescription]];
             return;
         }
         
@@ -178,11 +178,11 @@ static TumblrMethod *method;
         }
         
         if (list.count == 20) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"已经获取到%ld条记录中的地址，继续查找", self->tumblrStatuses.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"已经获取到%ld条记录中的地址，继续查找", self->tumblrStatuses.count];
             [self simpleExportResult];
             [self getFavoriteVideos];
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"已经获取到%ld条记录中的地址，完成查找", self->tumblrStatuses.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"已经获取到%ld条记录中的地址，完成查找", self->tumblrStatuses.count];
             [self exportResult];
         }
     }];
@@ -190,7 +190,7 @@ static TumblrMethod *method;
 - (void)getUserFavorPhotos {
     [[TMAPIClient sharedInstance] likes:blogName parameters:@{@"type":@"photo", @"offset":@(fetchCount)} callback:^(id obj, NSError *error) {
         if (error) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"获取用户收藏接口发生错误：%@", [error localizedDescription]];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"获取用户收藏接口发生错误：%@", [error localizedDescription]];
             return;
         }
         
@@ -208,11 +208,11 @@ static TumblrMethod *method;
         
         // 首先得要有新的内容，其次这些新的内容中至少得有一个是之前没有的，两个条件都满足之后再获取新的接口
         if (list.count > 0 && beforeCount < self->tumblrStatuses.count) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"已经获取到%ld条记录中的地址，继续查找", self->tumblrStatuses.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"已经获取到%ld条记录中的地址，继续查找", self->tumblrStatuses.count];
             [self simpleExportResult];
             [self getUserFavorPhotos];
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"已经获取到%ld条记录中的地址，完成查找", self->tumblrStatuses.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"已经获取到%ld条记录中的地址，完成查找", self->tumblrStatuses.count];
             [self exportResult];
         }
     }];
@@ -220,7 +220,7 @@ static TumblrMethod *method;
 - (void)getUserFavorVideos {
     [[TMAPIClient sharedInstance] likes:blogName parameters:@{@"type":@"video", @"offset":@(fetchCount)} callback:^(id obj, NSError *error) {
         if (error) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"获取用户收藏接口发生错误：%@", [error localizedDescription]];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"获取用户收藏接口发生错误：%@", [error localizedDescription]];
             return;
         }
         
@@ -241,11 +241,11 @@ static TumblrMethod *method;
         
         // 首先得要有新的内容，其次这些新的内容中至少得有一个是之前没有的，两个条件都满足之后再获取新的接口
         if (list.count > 0 && beforeCount < self->tumblrStatuses.count) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"已经获取到%ld条记录中的地址，继续查找", self->tumblrStatuses.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"已经获取到%ld条记录中的地址，继续查找", self->tumblrStatuses.count];
             [self simpleExportResult];
             [self getUserFavorVideos];
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"已经获取到%ld条记录中的地址，完成查找", self->tumblrStatuses.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"已经获取到%ld条记录中的地址，完成查找", self->tumblrStatuses.count];
             [self exportResult];
         }
     }];
@@ -255,7 +255,7 @@ static TumblrMethod *method;
 - (void)getUserPhotos {
     [[TMAPIClient sharedInstance] posts:blogName type:@"photo" parameters:@{@"offset":@(fetchCount)} callback:^(id obj, NSError *error) {
         if (error) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"获取用户图片接口发生错误：%@", [error localizedDescription]];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"获取用户图片接口发生错误：%@", [error localizedDescription]];
             return;
         }
         
@@ -271,11 +271,11 @@ static TumblrMethod *method;
         }
         
         if (list.count == 20) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"已经获取到%ld条记录中的地址，继续查找", self->tumblrStatuses.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"已经获取到%ld条记录中的地址，继续查找", self->tumblrStatuses.count];
             [self simpleExportResult];
             [self getUserPhotos];
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"已经获取到%ld条记录中的地址，完成查找", self->tumblrStatuses.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"已经获取到%ld条记录中的地址，完成查找", self->tumblrStatuses.count];
             [self exportResult];
         }
     }];
@@ -283,7 +283,7 @@ static TumblrMethod *method;
 - (void)getUserVideos {
     [[TMAPIClient sharedInstance] posts:blogName type:@"video" parameters:@{@"offset":@(fetchCount)} callback:^(id obj, NSError *error) {
         if (error) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"获取用户视频接口发生错误：%@，当前offset为: %ld", error.localizedDescription, self->fetchCount];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"获取用户视频接口发生错误：%@，当前offset为: %ld", error.localizedDescription, self->fetchCount];
             [self getUserVideos];
             return;
         }
@@ -308,11 +308,11 @@ static TumblrMethod *method;
         }
         
         if (list.count == 20) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"已经获取到%ld条记录中的地址，继续查找", self->tumblrStatuses.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"已经获取到%ld条记录中的地址，继续查找", self->tumblrStatuses.count];
             [self simpleExportResult];
             [self getUserVideos];
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"已经获取到%ld条记录中的地址，完成查找", self->tumblrStatuses.count];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"已经获取到%ld条记录中的地址，完成查找", self->tumblrStatuses.count];
             [self exportResult];
         }
     }];
@@ -335,15 +335,15 @@ static TumblrMethod *method;
             [tumblrStatuses writeToFile:tumblrStatusPlistFilePath atomically:YES];
         }
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"流程已经完成，共抓取了 %ld 条Tumblr Post，其中 %ld 条资源地址被获取到", fetchCount, tumblrResults.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"流程已经完成，共抓取了 %ld 条Tumblr Post，其中 %ld 条资源地址被获取到", fetchCount, tumblrResults.count];
         DDLogInfo(@"资源地址是：%@", tumblrResults);
         
         if (type != TumblrResourceTypeVideo) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"1秒后开始下载"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"1秒后开始下载"];
             [self performSelector:@selector(startDownload) withObject:nil afterDelay:1.0f];
         }
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"未发现可下载的资源"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"未发现可下载的资源"];
         return;
     }
 }

@@ -34,7 +34,7 @@
         rootFolderPath = [rootFolderPath stringByReplacingOccurrencesOfString:@"file://" withString:@""];
     }
     rootFolderPath = [rootFolderPath stringByRemovingPercentEncoding];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"复制文件夹的层级, 流程开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"复制文件夹的层级, 流程开始"];
     
     NSString *targetFolderPath = rootFolderPath;
     if ([targetFolderPath hasSuffix:@"/"]) {
@@ -51,7 +51,7 @@
         [[FileManager defaultManager] createFolderAtPathIfNotExist:targetSubFolder];
     }
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"复制文件夹的层级, 流程结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"复制文件夹的层级, 流程结束"];
 }
 
 @end

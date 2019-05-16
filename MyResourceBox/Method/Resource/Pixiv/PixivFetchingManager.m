@@ -16,12 +16,12 @@
 
 // 查询用户是否已经被抓取
 + (void)checkPixivUtilHasFetched {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程开始"];
     
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     if (input.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程结束"];
         return;
     }
     
@@ -32,8 +32,8 @@
     FMDatabase *db = [FMDatabase databaseWithPath:@"/Users/Mercury/Documents/Tool/pixivutil/db.sqlite"];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被抓取 时发生错误：%@", [db lastErrorMessage]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被抓取 时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程结束"];
         return;
     }
     //为数据库设置缓存，提高查询效率
@@ -72,7 +72,7 @@
     
     [db close];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程结束，请查看下载文件夹"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被抓取，流程结束，请查看下载文件夹"];
     if (useless.count > 0) {
         [UtilityFile exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilFetchUseless.txt"];
     }

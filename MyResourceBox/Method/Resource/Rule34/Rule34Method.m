@@ -21,7 +21,7 @@
 @implementation Rule34Method
 
 + (void)configMethod:(NSInteger)cellRow {
-    [UtilityFile resetCurrentDate];
+    [MRBLogManager resetCurrentDate];
     
     switch (cellRow) {
         case 1: {
@@ -35,7 +35,7 @@
         }
             break;
         case 3: {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程开始"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"移动整理好的日常图片，流程开始"];
             
             [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:Rule34FateRootFolderPath];
             [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:Rule34AzurRootFolderPath];
@@ -45,7 +45,7 @@
 //            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:Rule34HRootFolderPath];
 //            [ResourceGlobalFileMoveManager moveFilesToDayFolderFromFolder:Rule34WebmRootFolderPath];
             
-            [[UtilityFile sharedInstance] showLogWithFormat:@"移动整理好的日常图片，流程结束"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"移动整理好的日常图片，流程结束"];
         }
             break;
         case 11: {
@@ -86,7 +86,7 @@
         case 18: {
             NSString *input = [AppDelegate defaultVC].inputTextView.string;
             if (input.length == 0) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
                 return;
             }
             
@@ -121,7 +121,7 @@
         case 25: {
             NSString *input = [AppDelegate defaultVC].inputTextView.string;
             if (input.length == 0) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
                 return;
             }
             

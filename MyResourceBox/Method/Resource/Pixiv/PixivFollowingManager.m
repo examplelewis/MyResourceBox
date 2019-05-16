@@ -53,7 +53,7 @@
             [strongSelf saveUserIdsIntoDatabase];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"抓取 Pixiv 关注的用户信息时出错: %@", error.localizedDescription];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"抓取 Pixiv 关注的用户信息时出错: %@", error.localizedDescription];
     }];
 }
 // 往数据库中存取
@@ -74,17 +74,17 @@
     
     [[SQLiteFMDBManager defaultDBManager] cleanPixivFollowingUserTable];
     [[SQLiteFMDBManager defaultDBManager] insertPixivFollowingUserInfoIntoDatabase:fetchedFollowings];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"已将获取到的 Pixiv 关注用户的信息存到数据库中"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"已将获取到的 Pixiv 关注用户的信息存到数据库中"];
 }
 
 // 查询用户是否已经被关注
 - (void)checkPixivUserHasFollowed {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被关注，流程开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被关注，流程开始"];
     
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     if (input.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被关注，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被关注，流程结束"];
         return;
     }
     
@@ -95,8 +95,8 @@
     db = [FMDatabase databaseWithPath:[[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被关注 时发生错误：%@", [db lastErrorMessage]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被关注，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被关注 时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被关注，流程结束"];
         return;
     }
     //为数据库设置缓存，提高查询效率
@@ -135,7 +135,7 @@
     
     [db close];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"查询Pixiv用户是否被关注，流程结束，请查看下载文件夹"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被关注，流程结束，请查看下载文件夹"];
     if (useless.count > 0) {
         [UtilityFile exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilFollowUseless.txt"];
     }

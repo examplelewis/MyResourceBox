@@ -14,7 +14,7 @@
 @implementation BCYMethod
 
 + (void)configMethod:(NSInteger)cellRow {
-    [UtilityFile resetCurrentDate];
+    [MRBLogManager resetCurrentDate];
     
     switch (cellRow) {
         case 1: {

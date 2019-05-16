@@ -27,7 +27,7 @@
                     chosenRootFolderPath = [chosenRootFolderPath substringFromIndex:7];
                 }
                 DDLogInfo(@"已选择需要分离的根文件夹：%@", chosenRootFolderPath);
-                [[UtilityFile sharedInstance] showLogWithFormat:@"已选择需要分离的根文件夹：%@", chosenRootFolderPath];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"已选择需要分离的根文件夹：%@", chosenRootFolderPath];
                 
                 [self startSeparatingAtFolderPath:chosenRootFolderPath];
             });
@@ -35,7 +35,7 @@
     }];
 }
 + (void)startSeparatingAtFolderPath:(NSString *)rootFolderPath {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"分离 GelbooruDownloader 下载的 gif 和 webm 文件，流程开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"分离 GelbooruDownloader 下载的 gif 和 webm 文件，流程开始"];
     
     NSString *gifRootFolder = [rootFolderPath stringByAppendingString:@" gif"];
     NSString *webmRootFolder = [rootFolderPath stringByAppendingString:@" webm"];
@@ -45,8 +45,8 @@
     
     NSArray *subFolders = [[FileManager defaultManager] getFolderPathsInFolder:rootFolderPath];
     if (subFolders.count == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 中没有任何文件夹，流程结束", rootFolderPath];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"分离 GelbooruDownloader 下载的 gif 和 webm 文件, 流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 中没有任何文件夹，流程结束", rootFolderPath];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"分离 GelbooruDownloader 下载的 gif 和 webm 文件, 流程结束"];
         
         return;
     }
@@ -60,7 +60,7 @@
         
         NSArray *subFiles = [[FileManager defaultManager] getFolderPathsInFolder:subFolder];
         if (subFiles.count == 0) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 中没有任何文件，跳过", subFolder];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 中没有任何文件，跳过", subFolder];
             continue;
         }
         
@@ -86,7 +86,7 @@
         }
     }
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"分离 GelbooruDownloader 下载的 gif 和 webm 文件, 流程结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"分离 GelbooruDownloader 下载的 gif 和 webm 文件, 流程结束"];
 }
 
 @end

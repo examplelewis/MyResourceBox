@@ -13,7 +13,7 @@
 + (void)organizePixivPhotos {
     NSString *folderPath = [AppDelegate defaultVC].inputTextView.string;
     if (folderPath.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"请输入Pixiv用户根目录的文件夹路径"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"请输入Pixiv用户根目录的文件夹路径"];
         return;
     }
     

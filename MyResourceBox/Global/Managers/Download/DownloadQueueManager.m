@@ -62,7 +62,7 @@ static NSInteger const defaultTimeoutInterval = 45;
         targetFileName = self.renameInfo[url];
         
         if (!targetFileName || ![targetFileName isKindOfClass:[NSString class]] || targetFileName.length == 0) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 对应的文件名无效。使用 [response suggestedFilename]", url];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 对应的文件名无效。使用 [response suggestedFilename]", url];
             targetFileName = nil;
         }
     }
@@ -104,7 +104,7 @@ static NSInteger const defaultTimeoutInterval = 45;
     [downloadErrors removeAllObjects];
     
     [AppDelegate defaultVC].progress.doubleValue = 0.0f;
-    [[UtilityFile sharedInstance] showLogWithFormat:@"下载开始，共 %ld 个文件", downloadUrls.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"下载开始，共 %ld 个文件", downloadUrls.count];
     
     _opQueue = [NSOperationQueue new];
     _opQueue.maxConcurrentOperationCount = _maxConcurrentOperationCount;
@@ -124,7 +124,7 @@ static NSInteger const defaultTimeoutInterval = 45;
         NSString *downloadUrl = downloadUrls[i];
 //        NSString *targetFilePath = [self getTargetFilePathWithUrl:downloadUrl];
 //        if (targetFilePath && [[FileManager defaultManager] isContentExistAtPath:targetFilePath]) {
-//            [[UtilityFile sharedInstance] showLogWithFormat:@"在 %@ 位置已经存在同名文件，跳过 %@ 文件的下载", targetFilePath, downloadUrl];
+//            [[MRBLogManager defaultManager] showLogWithFormat:@"在 %@ 位置已经存在同名文件，跳过 %@ 文件的下载", targetFilePath, downloadUrl];
 //
 //            success++;
 //            @synchronized (downloadResults) { // NSMutableArray 是线程不安全的，所以加个同步锁
@@ -144,9 +144,9 @@ static NSInteger const defaultTimeoutInterval = 45;
             if (error) {
                 DownloadInfoObject *object = [[DownloadInfoObject alloc] initWithError:error];
                 if (object.type == DownloadInfoTypeErrorConnectionLost) {
-                    [[UtilityFile sharedInstance] showLogWithFormat:@"文件:%@ 下载失败:%@", self->downloadUrls[i], error.localizedDescription];
+                    [[MRBLogManager defaultManager] showLogWithFormat:@"文件:%@ 下载失败:%@", self->downloadUrls[i], error.localizedDescription];
                 } else {
-                    [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 下载失败且无法重新下载", self->downloadUrls[i]];
+                    [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 下载失败且无法重新下载", self->downloadUrls[i]];
                 }
                 
                 self->failure++;
@@ -206,13 +206,13 @@ static NSInteger const defaultTimeoutInterval = 45;
         // 导出之前失败的内容
         [UtilityFile exportArray:downloadUrls atPath:failurePath];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"1秒后重新下载失败的图片"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"1秒后重新下载失败的图片"];
         [self performSelector:@selector(redownloadFailure) withObject:nil afterDelay:1.0f];
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"下载完成"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"下载完成"];
         if (downloadUrls.count > 0) {
             [UtilityFile exportArray:downloadUrls atPath:failurePath];
-            [[UtilityFile sharedInstance] showLogWithFormat:@"有 %ld 个文件仍然无法下载，列表已导出到下载文件夹中的 %@ 文件中", downloadUrls.count, failurePath.lastPathComponent];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 个文件仍然无法下载，列表已导出到下载文件夹中的 %@ 文件中", downloadUrls.count, failurePath.lastPathComponent];
         }
         
         if (self.showAlertAfterFinished) {
@@ -227,7 +227,7 @@ static NSInteger const defaultTimeoutInterval = 45;
 
 - (void)redownloadFailure {
     redownloadTimes++;
-    [[UtilityFile sharedInstance] showLogWithFormat:@"第%ld次重新下载失败的图片，共%ld个文件", redownloadTimes, downloadUrls.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"第%ld次重新下载失败的图片，共%ld个文件", redownloadTimes, downloadUrls.count];
     
     [self startDownload];
 }

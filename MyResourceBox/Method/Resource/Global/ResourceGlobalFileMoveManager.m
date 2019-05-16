@@ -12,7 +12,7 @@
 
 + (void)moveFilesToDayFolderFromFolder:(NSString *)fromFolder {
     if (![[FileManager defaultManager] isContentExistAtPath:fromFolder]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 文件夹不存在，无法移动内容到 Day 文件夹中", fromFolder];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 文件夹不存在，无法移动内容到 Day 文件夹中", fromFolder];
         
         return;
     }
@@ -28,10 +28,10 @@
         [[FileManager defaultManager] moveItemAtPath:fromFile toDestPath:toFile];
     }
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 文件内所有文件以及移动到 %@ 中", fromFolder, toFolder];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 文件内所有文件以及移动到 %@ 中", fromFolder, toFolder];
     
     [[FileManager defaultManager] trashFileAtPath:fromFolder resultItemURL:nil];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 文件夹已被移动到废纸篓中", fromFolder];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 文件夹已被移动到废纸篓中", fromFolder];
 }
 
 @end

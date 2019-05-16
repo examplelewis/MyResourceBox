@@ -55,8 +55,8 @@ static ExHentaiManager *manager;
 }
 
 - (void)getImage {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取E-Hentai的图片地址：已经准备就绪"];
+    [MRBLogManager resetCurrentDate];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取E-Hentai的图片地址：已经准备就绪"];
     
     CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeExHentai];
     [manager deleteCookieByName:@"yay"];
@@ -64,7 +64,7 @@ static ExHentaiManager *manager;
     
     NSString *homepage = [AppDelegate defaultVC].inputTextView.string;
     if (!homepage || homepage.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithTitle:@"错误" andFormat:@"没有从inputView中获取到数据"];
+        [[MRBLogManager defaultManager] showLogWithTitle:@"错误" andFormat:@"没有从inputView中获取到数据"];
         return;
     }
     
@@ -73,8 +73,8 @@ static ExHentaiManager *manager;
     [pagesManager startFetching];
 }
 - (void)parsePages {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取E-Hentai的图片地址：已经准备就绪"];
+    [MRBLogManager resetCurrentDate];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取E-Hentai的图片地址：已经准备就绪"];
     
     NSString *content = [AppDelegate defaultVC].inputTextView.string;
     NSArray *components = [content componentsSeparatedByString:@"\n"];
@@ -83,8 +83,8 @@ static ExHentaiManager *manager;
     [urlsManager startFetching];
 }
 - (void)parseTorrent {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取E-Hentai的种子文件地址：已经准备就绪"];
+    [MRBLogManager resetCurrentDate];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取E-Hentai的种子文件地址：已经准备就绪"];
     
     CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeExHentai];
     [manager deleteCookieByName:@"yay"];
@@ -97,8 +97,8 @@ static ExHentaiManager *manager;
     [torrentManager startFetching];
 }
 - (void)parsePixivUrls {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取E-Hentai的Pixiv地址：已经准备就绪"];
+    [MRBLogManager resetCurrentDate];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取E-Hentai的Pixiv地址：已经准备就绪"];
     
     CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeExHentai];
     [manager deleteCookieByName:@"yay"];
@@ -106,7 +106,7 @@ static ExHentaiManager *manager;
     
     NSString *homepage = [AppDelegate defaultVC].inputTextView.string;
     if (!homepage || homepage.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithTitle:@"错误" andFormat:@"没有从inputView中获取到数据"];
+        [[MRBLogManager defaultManager] showLogWithTitle:@"错误" andFormat:@"没有从inputView中获取到数据"];
         return;
     }
     
@@ -128,7 +128,7 @@ static ExHentaiManager *manager;
 // ExHentaiUrlsDelegate
 - (void)didGetAllImageUrls:(NSArray<NSString *> *)imageUrls error:(NSError *)error {
     if (imageUrls.count == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获取到可用的图片地址，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获取到可用的图片地址，流程结束"];
     } else {
         DownloadQueueManager *manager = [[DownloadQueueManager alloc] initWithUrls:imageUrls];
         if (pagesManager.title) {
@@ -143,7 +143,7 @@ static ExHentaiManager *manager;
 }
 // ExHentaiPixivUrlsDelegate
 - (void)didGetAllPixivUrls:(NSArray<NSString *> *)pixivUrls error:(NSError *)error {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取E-Hentai的Pixiv地址：流程结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取E-Hentai的Pixiv地址：流程结束"];
 }
 
 @end

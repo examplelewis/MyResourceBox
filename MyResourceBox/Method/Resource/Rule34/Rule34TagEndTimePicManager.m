@@ -30,7 +30,7 @@
 - (void)prepareFetching {
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     if (input.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
         return;
     }
     
@@ -45,12 +45,12 @@
     page = 0;
     tag = inputComps[0];
     if (inputComps.count == 1) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"未输入截止日期，将使用默认值：2018-10-11，如需修改请退出程序，重新设置"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"未输入截止日期，将使用默认值：2018-10-11，如需修改请退出程序，重新设置"];
         endDate = [NSDate dateWithYear:2018 month:10 day:11];
     } else {
         endDate = [NSDate dateWithString:inputComps[1] formatString:@"yyyy-MM-dd"];
         if (!endDate) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"输入的截止日期有误，请按照如下格式检查:\n%%tag%%|yyyy-MM-dd"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"输入的截止日期有误，请按照如下格式检查:\n%%tag%%|yyyy-MM-dd"];
             return;
         }
     }
@@ -58,8 +58,8 @@
     [self startFetching];
 }
 - (void)startFetching {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【截止时间】，流程开始", tag];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"注意：本流程将忽略 webm 文件"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址【截止时间】，流程开始", tag];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"注意：本流程将忽略 webm 文件"];
     
     [self fetchSinglePostUrl];
 }
@@ -104,7 +104,7 @@
         
         NSArray *fileUrls = [self->posts valueForKey:@"file_url"];
         [UtilityFile exportArray:fileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Rule34 %@ PostUrl.txt", self->tag]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self->tag, self->page + 1];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self->tag, self->page + 1];
         
         // API 限制最多 200 页；如果某一页小于 100 条原始数据，说明是最后一页；或者找到了第一条早于 endDate 的 post
         if (self->page >= 199 || array.count != 100 || foundNearest) {
@@ -116,20 +116,20 @@
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
         DDLogError(@"%@: %@", errorTitle, errorMsg);
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【截止时间】，遇到错误：%@: %@", self->tag, errorTitle, errorMsg];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【截止时间】，流程结束", self->tag];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址【截止时间】，遇到错误：%@: %@", self->tag, errorTitle, errorMsg];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址【截止时间】，流程结束", self->tag];
     }];
 }
 - (void)fetchSucceed {
-    [[UtilityFile sharedInstance] cleanLog];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址【截止时间】：流程结束", tag];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 图片地址:\n%@", tag, [UtilityFile convertResultArray:[posts valueForKey:@"file_url"]]];
+    [[MRBLogManager defaultManager] cleanLog];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址【截止时间】：流程结束", tag];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 图片地址:\n%@", tag, [UtilityFile convertResultArray:[posts valueForKey:@"file_url"]]];
 }
 
 - (void)prepareFetchingPicCount {
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     if (input.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
         return;
     }
     
@@ -140,12 +140,12 @@
     NSArray *inputComps = [input componentsSeparatedByString:@"|"];
     tag = inputComps[0];
     if (inputComps.count == 1) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"未输入截止日期，将使用默认值：2018-10-11，如需修改请退出程序，重新设置"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"未输入截止日期，将使用默认值：2018-10-11，如需修改请退出程序，重新设置"];
         endDate = [NSDate dateWithYear:2018 month:10 day:11];
     } else {
         endDate = [NSDate dateWithString:inputComps[1] formatString:@"yyyy-MM-dd"];
         if (!endDate) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"输入的截止日期有误，请按照如下格式检查:\n%%tag%%|yyyy-MM-dd"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"输入的截止日期有误，请按照如下格式检查:\n%%tag%%|yyyy-MM-dd"];
             return;
         }
     }
@@ -153,7 +153,7 @@
     countAfterPage = 199;
     page = 199;
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，流程开始", tag];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，流程开始", tag];
     
     [self fetchSinglePostCountUrl];
 }
@@ -164,11 +164,11 @@
         
         if (array.count == 0 || [firstCreatedAt isEarlierThan:self->endDate]) {
             if (self->page == 0) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，未查询到图片，请检查输入的 Tag", self->tag];
-                [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量：流程结束", self->tag];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，未查询到图片，请检查输入的 Tag", self->tag];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量：流程结束", self->tag];
             } else {
                 NSInteger nextPage = floor((self->page + self->countBeforePage) / 2.0);
-                [[UtilityFile sharedInstance] showLogWithFormat:@"\n----------------------------------------\n查询 %@ 图片地址【截止时间】的数量，正在查询第 %ld 页\n当前页数量为 0，二分法向前查找第 %ld 页", self->tag, self->page + 1, nextPage + 1];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"\n----------------------------------------\n查询 %@ 图片地址【截止时间】的数量，正在查询第 %ld 页\n当前页数量为 0，二分法向前查找第 %ld 页", self->tag, self->page + 1, nextPage + 1];
                 self->countAfterPage = self->page;
                 self->page = nextPage;
                 DDLogInfo(@"after ==0 page: %ld, countBeforePage: %ld, countAfterPage: %ld", self->page, self->countBeforePage, self->countAfterPage);
@@ -177,8 +177,8 @@
             }
         } else if ([lastCreatedAt isLaterThanOrEqualTo:self->endDate]) {
             if (self->page == 199) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，需要抓取 >200 页，图片数量 >20000 张", self->tag];
-                [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量：流程结束", self->tag];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，需要抓取 >200 页，图片数量 >20000 张", self->tag];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量：流程结束", self->tag];
             } else {
                 NSInteger nextPage = floor((self->page + self->countAfterPage) / 2.0);
                 if (nextPage == self->page) {
@@ -192,10 +192,10 @@
                         }
                     }
                     
-                    [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，需要抓取 %ld 页，图片数量 %ld 张", self->tag, self->page + 1, self->page * 100 + total];
-                    [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量：流程结束", self->tag];
+                    [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，需要抓取 %ld 页，图片数量 %ld 张", self->tag, self->page + 1, self->page * 100 + total];
+                    [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量：流程结束", self->tag];
                 } else {
-                    [[UtilityFile sharedInstance] showLogWithFormat:@"\n----------------------------------------\n查询 %@ 图片地址【截止时间】的数量，正在查询第 %ld 页\n当前页数量为 100，二分法向后查找第 %ld 页", self->tag, self->page + 1, nextPage + 1];
+                    [[MRBLogManager defaultManager] showLogWithFormat:@"\n----------------------------------------\n查询 %@ 图片地址【截止时间】的数量，正在查询第 %ld 页\n当前页数量为 100，二分法向后查找第 %ld 页", self->tag, self->page + 1, nextPage + 1];
                     self->countBeforePage = self->page;
                     self->page = nextPage;
                     DDLogInfo(@"after ==100 page: %ld, countBeforePage: %ld, countAfterPage: %ld", self->page, self->countBeforePage, self->countAfterPage);
@@ -214,14 +214,14 @@
                 }
             }
             
-            [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，需要抓取 %ld 页，图片数量 %ld 张", self->tag, self->page + 1, self->page * 100 + total];
-            [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量：流程结束", self->tag];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，需要抓取 %ld 页，图片数量 %ld 张", self->tag, self->page + 1, self->page * 100 + total];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量：流程结束", self->tag];
         }
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
         DDLogError(@"%@: %@", errorTitle, errorMsg);
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，遇到错误：%@: %@", self->tag, errorTitle, errorMsg];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量：流程结束", self->tag];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量，遇到错误：%@: %@", self->tag, errorTitle, errorMsg];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片地址【截止时间】的数量：流程结束", self->tag];
     }];
 }
 

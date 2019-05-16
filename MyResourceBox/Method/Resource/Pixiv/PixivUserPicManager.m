@@ -23,12 +23,12 @@
 @implementation PixivUserPicManager
 
 - (void)prepareFetching {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取Pixiv的User地址：已经准备就绪"];
+    [MRBLogManager resetCurrentDate];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取Pixiv的User地址：已经准备就绪"];
     
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     if (input.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
         return;
     }
     
@@ -37,7 +37,7 @@
     _imgsUrl = [NSMutableArray array];
     
     _users = [NSMutableArray arrayWithArray:[input componentsSeparatedByString:@"\n"]];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"从输入框解析到%ld条网页\n", _users.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"从输入框解析到%ld条网页\n", _users.count];
     
     [self fetchUserInfo:NO];
 }
@@ -55,7 +55,7 @@
     PixivUserManager *manager = [[PixivUserManager alloc] initWithUserPage:_users.firstObject];
     [manager fetchUserIllusts:^(BOOL success, NSString *errorMsg, NSDictionary *illusts) {
         if (!success) {
-            [[UtilityFile sharedInstance] showLogWithFormat:errorMsg];
+            [[MRBLogManager defaultManager] showLogWithFormat:errorMsg];
             [self->_failures addObject:illusts[@"userPage"]];
         } else {
             [self->_results addEntriesFromDictionary:illusts];
@@ -68,7 +68,7 @@
     [UtilityFile exportArray:_imgsUrl atPath:@"/Users/Mercury/Downloads/PixivIllustURLs.txt"];
     [_results writeToFile:@"/Users/Mercury/Downloads/PixivIllustInfo.plist" atomically:YES];
     if (_failures.count > 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"有%ld个用户获取失败，请查看错误文件", _failures.count]; //获取失败的页面地址
+        [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld个用户获取失败，请查看错误文件", _failures.count]; //获取失败的页面地址
         [UtilityFile exportArray:_failures atPath:@"/Users/Mercury/Downloads/PixivFailedURLs.txt"];
     }
     

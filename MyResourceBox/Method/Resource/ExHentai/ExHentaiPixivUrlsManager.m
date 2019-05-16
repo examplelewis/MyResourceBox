@@ -46,7 +46,7 @@
                     }
                 }
                 
-                [[UtilityFile sharedInstance] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
                 
                 [self->failure addObject:url];
                 [UtilityFile exportArray:self->failure atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivFailureUrls.txt"];
@@ -107,7 +107,7 @@
 // 完成下载图片地址的方法
 - (void)didFinishDownloadingOnePicture {
     downloaded++;
-    [[UtilityFile sharedInstance] showNotAppendLogWithFormat:@"已获取到第%lu条记录 | 共%lu条记录", downloaded, oriExhentaiUrls.count];
+    [[MRBLogManager defaultManager] showNotAppendLogWithFormat:@"已获取到第%lu条记录 | 共%lu条记录", downloaded, oriExhentaiUrls.count];
     
     if (downloaded != oriExhentaiUrls.count) {
         return;
@@ -118,15 +118,15 @@
     [totalSet minusSet:hasSet]; // 取差集后就剩下没有Pixiv的ExHentai地址了
     NSArray *hasnotPixivUrlExHentaiUrls = totalSet.allObjects;
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取完成"];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取到%ld条数据", pixivUrls.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取完成"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条数据", pixivUrls.count];
     [UtilityFile exportArray:pixivUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivUrls.txt"];
     [UtilityFile exportArray:hasPixivUrlExHentaiUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivHasPixivUrlExHentaiUrls.txt"];
     [UtilityFile exportArray:hasnotPixivUrlExHentaiUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivHasnotPixivUrlExHentaiUrls.txt"];
     [UtilityFile exportDictionary:parseInfo atPlistPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivParseInfo.plist"];
     if (failure.count > 0) {
         [UtilityFile exportArray:failure atPath:@"/Users/Mercury/Downloads/ExHentaiParsePixivFailureUrls.txt"];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"有%ld个文件无法下载，已导出到下载文件夹的 ExHentaiParsePixivFailureUrls.txt 文件中", failure.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld个文件无法下载，已导出到下载文件夹的 ExHentaiParsePixivFailureUrls.txt 文件中", failure.count];
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{

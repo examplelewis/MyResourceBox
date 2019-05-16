@@ -31,12 +31,12 @@
         } failure:^(NSError * _Nonnull error) {
             DDLogInfo(@"Pixiv 登录失败：%@", error.localizedDescription);
             
-            [[UtilityFile sharedInstance] showLogWithFormat:@"Pixiv 登陆失败，无法进行后续操作: %@", error.localizedDescription];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"Pixiv 登陆失败，无法进行后续操作: %@", error.localizedDescription];
         }];
     }
 }
 + (void)processMethod:(NSInteger)cellRow {
-    [UtilityFile resetCurrentDate];
+    [MRBLogManager resetCurrentDate];
     
     switch (cellRow) {
         case 1: {
@@ -63,7 +63,7 @@
     }
 }
 + (void)processOtherMethod:(NSInteger)cellRow {
-    [UtilityFile resetCurrentDate];
+    [MRBLogManager resetCurrentDate];
     
     switch (cellRow) {
         case 11: {

@@ -31,7 +31,7 @@
 
 // 1.1 ~ 1.2、获取半次元网页地址
 - (void)getPageURLFromInput:(BOOL)check {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取半次元的图片地址：已经准备就绪"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取半次元的图片地址：已经准备就绪"];
     
     CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeBCY];
     [manager writeCookiesIntoHTTPStorage];
@@ -42,16 +42,16 @@
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     if (input.length > 0) {
         pageArray = [NSMutableArray arrayWithArray:[input componentsSeparatedByString:@"\n"]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"从文件解析到%ld条网页\n", pageArray.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"从文件解析到%ld条网页\n", pageArray.count];
         
         [self ruleoutDuplicatePages];
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
     }
 }
 - (void)getPageURLFromFile {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取半次元的图片地址：已经准备就绪"];
+    [MRBLogManager resetCurrentDate];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取半次元的图片地址：已经准备就绪"];
     
     CookieManager *manager = [[CookieManager alloc] initWithCookieFileType:CookieFileTypeBCY];
     [manager writeCookiesIntoHTTPStorage];
@@ -75,11 +75,11 @@
     
     if (parsedArray.count > 0) {
         pageArray = [NSMutableArray arrayWithArray:parsedArray];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"从文件解析到%ld条网页\n", pageArray.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"从文件解析到%ld条网页\n", pageArray.count];
         
         [self ruleoutDuplicatePages];
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查书签文件"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查书签文件"];
     }
 }
 // 2、排除重复的页面地址
@@ -106,7 +106,7 @@
     }
     
     if (pageArray.count == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"未找到具体网页地址，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"未找到具体网页地址，流程结束"];
     } else {
         [self fetchHTML];
     }
@@ -123,7 +123,7 @@
                                              timeoutInterval:60.0f];
         NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             if (error) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
                 
                 [self->failedURLArray addObject:[error userInfo][NSURLErrorFailingURLStringErrorKey]];
                 [UtilityFile exportArray:self->failedURLArray atPath:BCYFailedUrlsPath];
@@ -220,11 +220,11 @@
 }
 // 5、导出结果
 - (void)doneThings {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取了%ld个页面的图片地址", pageArray.count]; //获取到的页面地址
+    [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取了%ld个页面的图片地址", pageArray.count]; //获取到的页面地址
     [UtilityFile exportArray:pageArray atPath:BCYPageUrlsPath];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取到%ld条图片地址，在右上方输出框内显示", resultArray.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条图片地址，在右上方输出框内显示", resultArray.count];
     [UtilityFile exportArray:resultArray atPath:BCYImageUrlsPath];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"有%ld条网页解析失败，请查看错误文件", failedURLArray.count]; //获取失败的页面地址
+    [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld条网页解析失败，请查看错误文件", failedURLArray.count]; //获取失败的页面地址
     [UtilityFile exportArray:failedURLArray atPath:BCYFailedUrlsPath];
     [renameDict writeToFile:BCYRenameInfoPath atomically:YES]; //RenameDict
     
@@ -239,11 +239,11 @@
         
         // 备份数据库
         [SQLiteManager backupDatabaseFile];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"整个流程已经结束，数据库已备份"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"整个流程已经结束，数据库已备份"];
     }
     
     // 下载
-    [[UtilityFile sharedInstance] showLogWithFormat:@"1秒后开始下载图片"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"1秒后开始下载图片"];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self performSelector:@selector(startDownload) withObject:nil afterDelay:1.0f];
     });
@@ -261,13 +261,13 @@
     downloaded++;
     
     if (success) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"第%lu条网页已获取完成 | 共%lu条网页", downloaded, pageArray.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"第%lu条网页已获取完成 | 共%lu条网页", downloaded, pageArray.count];
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"第%lu条网页已获取失败 | 共%lu条网页", downloaded, pageArray.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"第%lu条网页已获取失败 | 共%lu条网页", downloaded, pageArray.count];
     }
     
     if (downloaded == pageArray.count) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"已经完成获取图片地址的工作\n"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"已经完成获取图片地址的工作\n"];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self ruleoutDuplicateImages];

@@ -35,8 +35,8 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"从数据表:bcyLink中查询数据时发生错误：%@", [db lastErrorMessage]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", urlString];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表:bcyLink中查询数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", urlString];
         
         return NO;
     }
@@ -65,8 +65,8 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:bcyLink中插入数据时发生错误：%@", [db lastErrorMessage]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", urlString];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:bcyLink中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", urlString];
         
         return;
     }
@@ -75,8 +75,8 @@ static SQLiteFMDBManager *_sharedDBManager;
     
     BOOL success = [db executeUpdate:@"INSERT INTO bcyLink (id, url, time) values(?, ?, ?)", NULL, urlString, time];
     if (!success) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:bcyLink中插入数据时发生错误：%@", [db lastErrorMessage]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", urlString];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:bcyLink中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", urlString];
     }
     
     [db close];
@@ -88,14 +88,14 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"去除数据库中重复的内容时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"去除数据库中重复的内容时发生错误：%@", [db lastErrorMessage]];
     }
     //为数据库设置缓存，提高查询效率
     [db setShouldCacheStatements:YES];
     
     BOOL success = [db executeUpdate:@"DELETE FROM bcyLink WHERE id NOT IN(SELECT max(id) id from bcyLink group by url)"];
     if (!success) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"去除数据库中重复的内容时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"去除数据库中重复的内容时发生错误：%@", [db lastErrorMessage]];
     }
     
     [db close];
@@ -109,8 +109,8 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"从数据表:bcyImageLink中查询数据时发生错误：%@", [db lastErrorMessage]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", urlString];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表:bcyImageLink中查询数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", urlString];
         
         return NO;
     }
@@ -139,8 +139,8 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:bcyImageLink中插入数据时发生错误：%@", [db lastErrorMessage]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", urlString];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:bcyImageLink中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", urlString];
         
         return;
     }
@@ -149,8 +149,8 @@ static SQLiteFMDBManager *_sharedDBManager;
     
     BOOL success = [db executeUpdate:@"INSERT INTO bcyImageLink (id, url, time) values(?, ?, ?)", NULL, urlString, time];
     if (!success) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:bcyImageLink中插入数据时发生错误：%@", [db lastErrorMessage]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", urlString];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:bcyImageLink中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", urlString];
     }
     
     [db close];
@@ -162,14 +162,14 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"去除数据库中重复的内容时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"去除数据库中重复的内容时发生错误：%@", [db lastErrorMessage]];
     }
     //为数据库设置缓存，提高查询效率
     [db setShouldCacheStatements:YES];
     
     BOOL success = [db executeUpdate:@"DELETE FROM bcyImageLink WHERE id NOT IN(SELECT max(id) id from bcyImageLink group by url)"];
     if (!success) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"去除数据库中重复的内容时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"去除数据库中重复的内容时发生错误：%@", [db lastErrorMessage]];
     }
     
     [db close];
@@ -183,7 +183,7 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"删除 pixivFollowingUser 所有数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"删除 pixivFollowingUser 所有数据时发生错误：%@", [db lastErrorMessage]];
         
         return;
     }
@@ -192,12 +192,12 @@ static SQLiteFMDBManager *_sharedDBManager;
     if (deleteSuccess) {
         BOOL resetSeqSuccess = [db executeUpdate:@"UPDATE sqlite_sequence SET seq = 0 where name = 'pixivFollowingUser'"];
         if (resetSeqSuccess) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"删除 pixivFollowingUser 所有数据成功"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"删除 pixivFollowingUser 所有数据成功"];
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"删除 pixivFollowingUser 所有数据时发生错误：%@", [db lastErrorMessage]];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"删除 pixivFollowingUser 所有数据时发生错误：%@", [db lastErrorMessage]];
         }
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"删除 pixivFollowingUser 所有数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"删除 pixivFollowingUser 所有数据时发生错误：%@", [db lastErrorMessage]];
     }
 }
 - (void)insertPixivFollowingUserInfoIntoDatabase:(NSArray *)userInfo {
@@ -207,7 +207,7 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:pixivFollowingUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:pixivFollowingUser中插入数据时发生错误：%@", [db lastErrorMessage]];
         
         return;
     }
@@ -222,8 +222,8 @@ static SQLiteFMDBManager *_sharedDBManager;
             
             BOOL success = [db executeUpdate:@"INSERT INTO pixivFollowingUser (id, member_id, user_name) values(?, ?, ?)", NULL, info[@"id"], info[@"name"]];
             if (!success) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:pixivFollowingUser中插入数据时发生错误：%@", [db lastErrorMessage]];
-                [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", info];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:pixivFollowingUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", info];
             }
         }
     } @catch (NSException *exception) {
@@ -244,7 +244,7 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"从数据表:pixivFollowingUser中查询数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表:pixivFollowingUser中查询数据时发生错误：%@", [db lastErrorMessage]];
         
         return nil;
     }
@@ -268,7 +268,7 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:pixivBlockUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:pixivBlockUser中插入数据时发生错误：%@", [db lastErrorMessage]];
         
         return;
     }
@@ -283,8 +283,8 @@ static SQLiteFMDBManager *_sharedDBManager;
             
             BOOL success = [db executeUpdate:@"INSERT INTO pixivBlockUser (id, member_id, user_name, block_level) values(?, ?, ?, ?)", NULL, info[@"userId"], info[@"userName"], @(0)];
             if (!success) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:pixivBlockUser中插入数据时发生错误：%@", [db lastErrorMessage]];
-                [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", info];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:pixivBlockUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", info];
             }
         }
     } @catch (NSException *exception) {
@@ -307,7 +307,7 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"从数据表: photoOrganDest 中查询数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表: photoOrganDest 中查询数据时发生错误：%@", [db lastErrorMessage]];
         
         return @[];
     }
@@ -334,7 +334,7 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"从数据表: photoOrganDownload 中查询数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表: photoOrganDownload 中查询数据时发生错误：%@", [db lastErrorMessage]];
         
         
         return @[];
@@ -362,7 +362,7 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"从数据表: photoOrganTotal 中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表: photoOrganTotal 中插入数据时发生错误：%@", [db lastErrorMessage]];
         
         return;
     }
@@ -383,7 +383,7 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"从数据表: photoOrganTotal 中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表: photoOrganTotal 中插入数据时发生错误：%@", [db lastErrorMessage]];
         
         return;
     }
@@ -392,8 +392,8 @@ static SQLiteFMDBManager *_sharedDBManager;
     
     BOOL success = [db executeUpdate:@"INSERT INTO photoOrganTotal (folder, destination) values(?, ?)", folder, destination];
     if (!success) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表: photoOrganTotal 中插入数据时发生错误：%@", [db lastErrorMessage]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"数据：folder: %@, destination: %@", folder, destination];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表: photoOrganTotal 中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据：folder: %@, destination: %@", folder, destination];
     }
     
     [db close];
@@ -405,7 +405,7 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"从数据表: photoOrganTotal 中查询数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表: photoOrganTotal 中查询数据时发生错误：%@", [db lastErrorMessage]];
         
         return @[];
     }
@@ -434,8 +434,8 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"从数据表:weiboStatus中查询数据时发生错误：%@", [db lastErrorMessage]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", weiboStatusId];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表:weiboStatus中查询数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", weiboStatusId];
         
         return NO;
     }
@@ -461,7 +461,7 @@ static SQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:pixivFollowingUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:pixivFollowingUser中插入数据时发生错误：%@", [db lastErrorMessage]];
         
         return;
     }
@@ -476,15 +476,15 @@ static SQLiteFMDBManager *_sharedDBManager;
             
             BOOL weiboStatusSuccess = [db executeUpdate:@"INSERT INTO weiboStatus (id, weibo_id, author_id, author_name, text, publish_time, fetch_time) values(?, ?, ?, ?, ?, ?, ?)", NULL, object.id_str, object.user_id_str, object.user_screen_name, object.text, object.created_at_sqlite_str, [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"]];
             if (!weiboStatusSuccess) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:weiboStatus中插入数据时发生错误：%@", [db lastErrorMessage]];
-                [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", object];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboStatus中插入数据时发生错误：%@", [db lastErrorMessage]];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", object];
             }
             
             for (NSInteger j = 0; j < object.img_urls.count; j++) {
                 BOOL weiboImageSuccess = [db executeUpdate:@"INSERT INTO weiboImage (id, weibo_id, image_url) values(?, ?, ?)", NULL, object.id_str, object.img_urls[j]];
                 if (!weiboImageSuccess) {
-                    [[UtilityFile sharedInstance] showLogWithFormat:@"往数据表:weiboImage中插入数据时发生错误：%@", [db lastErrorMessage]];
-                    [[UtilityFile sharedInstance] showLogWithFormat:@"数据：%@", object];
+                    [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboImage中插入数据时发生错误：%@", [db lastErrorMessage]];
+                    [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", object];
                 }
             }
         }

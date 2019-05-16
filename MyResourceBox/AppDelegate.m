@@ -169,7 +169,7 @@
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"打开帮助文档时发生错误，打开失败"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"打开帮助文档时发生错误，打开失败"];
     }
 }
 - (IBAction)openLogFile:(NSMenuItem *)sender {
@@ -192,7 +192,7 @@
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"打开日志文件时发生错误，打开失败"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"打开日志文件时发生错误，打开失败"];
     }
 }
 - (IBAction)openAuthorizationFile:(NSMenuItem *)sender {
@@ -202,7 +202,7 @@
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"打开授权文件时发生错误，打开失败"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"打开授权文件时发生错误，打开失败"];
     }
 }
 - (IBAction)openPreferenceFile:(NSMenuItem *)sender {
@@ -212,7 +212,7 @@
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"打开配置文件时发生错误，打开失败"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"打开配置文件时发生错误，打开失败"];
     }
 }
 
@@ -287,14 +287,14 @@
         [UserInfo defaultUser].weibo_expires_at_date = [NSDate dateWithTimeIntervalSinceNow:[dic[@"expire_in"] integerValue]];
         [[UserInfo defaultUser] saveAuthDictIntoPlistFile];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取到Token信息：%@", dic];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到Token信息：%@", dic];
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
         MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:errorTitle infomation:errorMsg];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取Token信息发生错误：%@，原因：%@", errorTitle, errorMsg];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取Token信息发生错误：%@，原因：%@", errorTitle, errorMsg];
     }];
 }
 

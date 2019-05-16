@@ -28,11 +28,11 @@
 }
 
 - (void)startOrganizing {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理 %@ 内的图片, 流程开始", rootFolderPath.lastPathComponent];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理 %@ 内的图片, 流程开始", rootFolderPath.lastPathComponent];
     
     if (![[FileManager defaultManager] isContentExistAtPath:plistFilePath]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 不存在，请检查下载文件夹", plistFilePath.lastPathComponent];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"整理下载的动漫图片, 流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 不存在，请检查下载文件夹", plistFilePath.lastPathComponent];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"整理下载的动漫图片, 流程结束"];
         
         if (self.finishBlock) {
             self.finishBlock();
@@ -56,14 +56,14 @@
         if (error && error.code == NSFileWriteFileExistsError) {
             NSDate *creationDate = [[FileManager defaultManager] getSpecificAttributeOfItemAtPath:targetPath attribute:NSFileCreationDate];
             NSString *creationDateStr = [creationDate formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"];
-            [[UtilityFile sharedInstance] showLogWithFormat:@"文件: %@ 在 %@ 下载过，将被删除", downloadPath, creationDateStr];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"文件: %@ 在 %@ 下载过，将被删除", downloadPath, creationDateStr];
             [[FileManager defaultManager] trashFileAtPath:downloadPath resultItemURL:nil];
         }
     }
     
     [[FileManager defaultManager] trashFileAtPath:plistFilePath resultItemURL:nil];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理 %@ 内的图片, 流程结束", rootFolderPath.lastPathComponent];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理 %@ 内的图片, 流程结束", rootFolderPath.lastPathComponent];
     
     if (self.finishBlock) {
         self.finishBlock();

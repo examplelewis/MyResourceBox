@@ -79,7 +79,7 @@
             NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"#[^#]+#" options:NSRegularExpressionCaseInsensitive error:&error];
             NSArray *results = [regex matchesInString:object.text options:0 range:NSMakeRange(0, object.text.length)];
             if (error) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"正则解析微博文字中的标签出错，原因：%@", error.localizedDescription];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"正则解析微博文字中的标签出错，原因：%@", error.localizedDescription];
             }
             if (results.count == 0) {
                 // 如果没有标签的话，截取前30个文字
@@ -118,15 +118,15 @@
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取收藏列表接口发生错误：%@，原因：%@", errorTitle, errorMsg];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取收藏列表接口发生错误：%@，原因：%@", errorTitle, errorMsg];
     }];
 }
 
 
 #pragma mark -- 辅助方法 --
 - (void)exportResult {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"一共抓取到 %ld 条微博，去重后剩余 %ld 条，重复 %ld 条", fetchedCount, weiboStatuses.count, fetchedCount - weiboStatuses.count];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"流程已经完成，共有 %ld 条微博的 %ld 条图片地址被获取到", weiboStatuses.count, weiboImages.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"一共抓取到 %ld 条微博，去重后剩余 %ld 条，重复 %ld 条", fetchedCount, weiboStatuses.count, fetchedCount - weiboStatuses.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"流程已经完成，共有 %ld 条微博的 %ld 条图片地址被获取到", weiboStatuses.count, weiboImages.count];
     
     if (weiboImages.count > 0) {
         DDLogInfo(@"图片地址是：%@", weiboImages);
@@ -137,7 +137,7 @@
         [UtilityFile exportArray:weiboImages atPath:weiboImageTxtFilePath];
         [weiboStatuses writeToFile:weiboStatusPlistFilePath atomically:YES];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"将获取到微博信息存储到数据库中"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"将获取到微博信息存储到数据库中"];
         dispatch_async(dispatch_get_main_queue(), ^{
             // 往数据库里写入的时候，要按照获取的倒序，也就是最早收藏的微博排在最前
             NSArray *reversedArray = [[self->weiboObjects reverseObjectEnumerator] allObjects];
@@ -145,12 +145,12 @@
             [SQLiteManager backupDatabaseFile];
         });
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"1秒后开始下载图片"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"1秒后开始下载图片"];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self performSelector:@selector(startDownload) withObject:nil afterDelay:1.0f];
         });
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"未发现可下载的资源"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"未发现可下载的资源"];
     }
 }
 - (void)startDownload {

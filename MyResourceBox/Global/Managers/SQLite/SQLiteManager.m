@@ -18,7 +18,7 @@
     NSString *filePath = [[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"开始备份数据库文件"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"开始备份数据库文件"];
     
     //先查找要备份的文件是否存在
     if ([fileManager fileExistsAtPath:filePath]) {
@@ -33,9 +33,9 @@
                 NSError *error;
                 NSURL *url = [NSURL fileURLWithPath:fullPath];
                 if ([[NSFileManager defaultManager] trashItemAtURL:url resultingItemURL:nil error:&error]) {
-                    [[UtilityFile sharedInstance] showLogWithFormat:@"旧备份文件删除成功"];
+                    [[MRBLogManager defaultManager] showLogWithFormat:@"旧备份文件删除成功"];
                 } else {
-                    [[UtilityFile sharedInstance] showLogWithTitle:@"旧备份文件删除失败" andFormat:[error localizedDescription]];
+                    [[MRBLogManager defaultManager] showLogWithTitle:@"旧备份文件删除失败" andFormat:[error localizedDescription]];
                     
                     return;
                 }
@@ -44,7 +44,7 @@
             }
         }
         if (!hasBackupFile) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"未找到已有的备份文件"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"未找到已有的备份文件"];
         }
         
         //最后再复制一份新的
@@ -53,12 +53,12 @@
         
         NSError *error;
         if ([[NSFileManager defaultManager] copyItemAtPath:filePath toPath:copyFilePath error:&error]) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"文件：%@ 备份成功", copyFilePath];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"文件：%@ 备份成功", copyFilePath];
         } else {
-            [[UtilityFile sharedInstance] showLogWithTitle:[NSString stringWithFormat:@"文件：%@ 备份失败", copyFilePath] andFormat:[error localizedDescription]];
+            [[MRBLogManager defaultManager] showLogWithTitle:[NSString stringWithFormat:@"文件：%@ 备份失败", copyFilePath] andFormat:[error localizedDescription]];
         }
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"未在指定目录找到需要备份的数据库文件"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"未在指定目录找到需要备份的数据库文件"];
     }
 }
 // 还原数据库文件
@@ -67,8 +67,8 @@
     NSString *filePath = [[DeviceInfo sharedDevice].path_root_folder stringByAppendingPathComponent:@"data.sqlite"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"开始还原数据库文件"];
+    [MRBLogManager resetCurrentDate];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"开始还原数据库文件"];
     
     //先查找备份数据库文件是否存在
     NSArray *fileArray = [fileManager contentsOfDirectoryAtPath:folderPath error:nil];
@@ -87,9 +87,9 @@
             NSError *error;
             NSURL *url = [NSURL fileURLWithPath:filePath];
             if ([[NSFileManager defaultManager] trashItemAtURL:url resultingItemURL:nil error:&error]) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"原数据库文件删除成功"];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"原数据库文件删除成功"];
             } else {
-                [[UtilityFile sharedInstance] showLogWithTitle:@"原数据库文件删除失败" andFormat:[error localizedDescription]];
+                [[MRBLogManager defaultManager] showLogWithTitle:@"原数据库文件删除失败" andFormat:[error localizedDescription]];
                 
                 return;
             }
@@ -100,26 +100,26 @@
         NSError *error;
         
         if ([[NSFileManager defaultManager] copyItemAtPath:fullPath toPath:filePath error:&error]) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"文件：%@ 还原成功", fullPath];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"文件：%@ 还原成功", fullPath];
         } else {
-            [[UtilityFile sharedInstance] showLogWithTitle:[NSString stringWithFormat:@"文件：%@ 还原失败", fullPath] andFormat:[error localizedDescription]];
+            [[MRBLogManager defaultManager] showLogWithTitle:[NSString stringWithFormat:@"文件：%@ 还原失败", fullPath] andFormat:[error localizedDescription]];
         }
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"未在指定目录找到可以还原的数据库文件"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"未在指定目录找到可以还原的数据库文件"];
     }
 }
 // 去除数据库中重复的内容
 + (void)removeDuplicatesFromDatabase {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"去除数据库中重复的内容：已经准备就绪"];
+    [MRBLogManager resetCurrentDate];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"去除数据库中重复的内容：已经准备就绪"];
     
     [[SQLiteFMDBManager defaultDBManager] removeDuplicateLinksFromDatabase];
     [[SQLiteFMDBManager defaultDBManager] removeDuplicateImagesFromDatabase];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"去除数据库中重复的内容：流程已经结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"去除数据库中重复的内容：流程已经结束"];
     
     [SQLiteManager backupDatabaseFile];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整个流程已经结束，数据库已备份"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整个流程已经结束，数据库已备份"];
 }
 
 @end

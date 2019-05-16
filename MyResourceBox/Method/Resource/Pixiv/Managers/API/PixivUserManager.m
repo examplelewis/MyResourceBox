@@ -77,7 +77,7 @@
                     }
                 }];
                 operation.completionBlock = ^() {
-                    [[UtilityFile sharedInstance] showLogWithFormat:@"已获取到: %ld条信息, 共计: %ld条", self->fetchLists.count, [self->_user.response[@"stats"][@"works"] integerValue]];
+                    [[MRBLogManager defaultManager] showLogWithFormat:@"已获取到: %ld条信息, 共计: %ld条", self->fetchLists.count, [self->_user.response[@"stats"][@"works"] integerValue]];
                     
                     if (self->fetchLists.count == self->illustCount) {
                         NSMutableArray *imgUrls = [NSMutableArray array];

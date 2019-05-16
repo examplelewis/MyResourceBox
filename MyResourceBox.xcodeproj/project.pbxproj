@@ -103,6 +103,7 @@
 		ACC93F072277F98000C207E6 /* PixivFetchingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93F062277F98000C207E6 /* PixivFetchingManager.m */; };
 		ACC93F0A2277FA3100C207E6 /* PixivOrganizingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC93F092277FA3100C207E6 /* PixivOrganizingManager.m */; };
 		ACCAA0371E1B81250017EDDA /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA0351E1B81250017EDDA /* ImageManager.m */; };
+		ACCAA3B3228D09C40062BCE6 /* MRBLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCAA3B2228D09C40062BCE6 /* MRBLogManager.m */; };
 		ACCCE266227E8F0700A18C8D /* AnalysisInputManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCCE265227E8F0700A18C8D /* AnalysisInputManager.m */; };
 		ACCCE269227E8F4D00A18C8D /* AnalysisFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCCE268227E8F4D00A18C8D /* AnalysisFileManager.m */; };
 		ACCCE26D227E900A00A18C8D /* WebArchiveArchivingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCCE26C227E900A00A18C8D /* WebArchiveArchivingManager.m */; };
@@ -335,6 +336,8 @@
 		ACC93F092277FA3100C207E6 /* PixivOrganizingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivOrganizingManager.m; sourceTree = "<group>"; };
 		ACCAA0351E1B81250017EDDA /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
 		ACCAA0361E1B81250017EDDA /* ImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
+		ACCAA3B1228D09C40062BCE6 /* MRBLogManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBLogManager.h; sourceTree = "<group>"; };
+		ACCAA3B2228D09C40062BCE6 /* MRBLogManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBLogManager.m; sourceTree = "<group>"; };
 		ACCCE264227E8F0700A18C8D /* AnalysisInputManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalysisInputManager.h; sourceTree = "<group>"; };
 		ACCCE265227E8F0700A18C8D /* AnalysisInputManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnalysisInputManager.m; sourceTree = "<group>"; };
 		ACCCE267227E8F4D00A18C8D /* AnalysisFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalysisFileManager.h; sourceTree = "<group>"; };
@@ -613,6 +616,8 @@
 				ACCAA0351E1B81250017EDDA /* ImageManager.m */,
 				ACCFA0B8226D5D3C007514C0 /* CatchCrashManager.h */,
 				ACCFA0B9226D5D3C007514C0 /* CatchCrashManager.m */,
+				ACCAA3B1228D09C40062BCE6 /* MRBLogManager.h */,
+				ACCAA3B2228D09C40062BCE6 /* MRBLogManager.m */,
 				AC9F4C621E499AD600FD01C5 /* Download */,
 				AC9870641E4C4AB90076DC92 /* SQLite */,
 			);
@@ -1210,6 +1215,7 @@
 				ACA9C92021FD954E00B33CB4 /* PixivLoginUserManager.m in Sources */,
 				AC8509191DB39692004AFE84 /* FileManager.m in Sources */,
 				AC75C6531F8657800060CF6B /* HttpManager.m in Sources */,
+				ACCAA3B3228D09C40062BCE6 /* MRBLogManager.m in Sources */,
 				AC9870581E4C4A650076DC92 /* WeiboStatusObject.m in Sources */,
 				ACC8DDD0227015A8005228D7 /* GelbooruDownloadAndOrganizeManager.m in Sources */,
 				ACC8EBAF22826785003CF448 /* Rule34TagEndTimePicManager.m in Sources */,

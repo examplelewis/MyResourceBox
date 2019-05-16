@@ -61,7 +61,7 @@
     
     [[HttpManager sharedManager] getGelbooruTagsWithPid:pid success:^(NSArray *array) {
         if (array.count == 0) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"所有 Tags 下载完成"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"所有 Tags 下载完成"];
             [self readyToOrganize];
         } else {
 //            NSString *filePath = [allTagsPath stringByReplacingOccurrencesOfString:@"AllTags.plist" withString:[NSString stringWithFormat:@"AllTags_%ld.plist", pid]];
@@ -89,7 +89,7 @@
     [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
     [alert runModel];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"抓取第 %ld 页 Tags 出现错误：[%@ - %@]", pid, errorTitle, errorMsg];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"抓取第 %ld 页 Tags 出现错误：[%@ - %@]", pid, errorTitle, errorMsg];
 }
 
 - (void)readyToOrganize {
@@ -118,7 +118,7 @@
     // 异步写入 xml 文件
 //    BOOL success = [allTags writeToFile:allTagsPath atomically:YES];
 //    if (!success) {
-//        [[UtilityFile sharedInstance] showLogWithFormat:@"写入所有标签失败"];
+//        [[MRBLogManager defaultManager] showLogWithFormat:@"写入所有标签失败"];
 //        return;
 //    }
 //

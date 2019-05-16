@@ -41,7 +41,7 @@
     } else if ([inputString containsString:@"worldcosplay."]) {
         [WorldCosplayMethod configMethod:2];
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有解析到有用的地址，请检查输入框的内容"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有解析到有用的地址，请检查输入框的内容"];
     }
 }
 

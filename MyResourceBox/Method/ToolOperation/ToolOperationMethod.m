@@ -12,7 +12,7 @@
 @implementation ToolOperationMethod
 
 + (void)configMethod:(NSInteger)cellRow {
-    [UtilityFile resetCurrentDate];
+    [MRBLogManager resetCurrentDate];
     
     switch (cellRow) {
         case 1: {
@@ -29,7 +29,7 @@
             break;
         case 3: {
             if (![[FileManager defaultManager] isContentExistAtPath:@"/Users/Mercury/Downloads/GoAgentXRules.plist"]) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"下载文件夹中找不到 GoAgentXRules.plist 文件，流程已停止"];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"下载文件夹中找不到 GoAgentXRules.plist 文件，流程已停止"];
                 return;
             }
             
@@ -47,7 +47,7 @@
     
     CFURLRef helperApplicationURL = LSCopyDefaultApplicationURLForContentType(exUTI, kLSRolesAll, NULL);
     if (helperApplicationURL == NULL) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"类型：%@ 未注册到系统的Launch Services中，跳过", extension];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"类型：%@ 未注册到系统的Launch Services中，跳过", extension];
         return;
     }
     
@@ -57,9 +57,9 @@
     
     if (![helperApplicationName isEqualToString:@"IINA"]) {
         LSSetDefaultRoleHandlerForContentType(exUTI, kLSRolesAll, (__bridge CFStringRef)@"com.colliderli.iina");
-        [[UtilityFile sharedInstance] showLogWithFormat:@"类型：%@ 原打开方式为: %@，已修改为 IINA", extension, helperApplicationName];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"类型：%@ 原打开方式为: %@，已修改为 IINA", extension, helperApplicationName];
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"类型：%@ 默认打开方式为IINA，跳过", extension];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"类型：%@ 默认打开方式为IINA，跳过", extension];
     }
     
     CFRelease(helperApplicationURL);
@@ -92,14 +92,14 @@
     }];
     
     if (direct.count == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"可能GoAgentX的存储规则发生了改变，需要修改逻辑，流程已停止"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"可能GoAgentX的存储规则发生了改变，需要修改逻辑，流程已停止"];
         return;
     }
     
     [UtilityFile exportArray:direct atPath:@"/Users/Mercury/Downloads/GoAgentXRules_Direct.txt"];
     [UtilityFile exportArray:detect atPath:@"/Users/Mercury/Downloads/GoAgentXRules_Auto.txt"];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"流程已结束，请查看：GoAgentXRules_Direct.txt 以及 GoAgentXRules_Auto.txt 两个文件"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"流程已结束，请查看：GoAgentXRules_Direct.txt 以及 GoAgentXRules_Auto.txt 两个文件"];
 }
 
 

@@ -13,8 +13,8 @@
 @implementation FODayFolderManager
 
 + (void)start {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理Day文件夹：流程准备开始"];
+    [MRBLogManager resetCurrentDate];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理Day文件夹：流程准备开始"];
     
     [self moveGIFFileToProperFolder];
 }
@@ -34,7 +34,7 @@
     
     WS(weakSelf);
     dispatch_group_notify(g, q, ^{
-        [[UtilityFile sharedInstance] showLogWithFormat:@"移动GIF：流程已经结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"移动GIF：流程已经结束"];
         
         dispatch_main_sync_safe(^{
             [weakSelf trashSmallSizedPhotos];
@@ -60,7 +60,7 @@
     
     WS(weakSelf);
     dispatch_group_notify(g, q, ^{
-        [[UtilityFile sharedInstance] showLogWithFormat:@"删除小尺寸图片：流程已经结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"删除小尺寸图片：流程已经结束"];
         
         dispatch_main_sync_safe(^{
             [weakSelf moveFilesToSpecificFolder];
@@ -87,8 +87,8 @@
     }
     
     dispatch_group_notify(g, q, ^{
-        [[UtilityFile sharedInstance] showLogWithFormat:@"移动图片：流程已经结束"];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"整理Day文件夹：流程已经结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"移动图片：流程已经结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"整理Day文件夹：流程已经结束"];
     });
 }
 

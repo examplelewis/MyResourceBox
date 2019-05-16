@@ -66,7 +66,7 @@
         
         [self getAnotherPage];
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"ExHentai 接口调用失败，原因：%@", errorMsg];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"ExHentai 接口调用失败，原因：%@", errorMsg];
     }];
 }
 
@@ -91,7 +91,7 @@
                     }
                 }
                 
-                [[UtilityFile sharedInstance] showLogWithFormat:@"获取网页原始数据失败，原因：%@", [error localizedDescription]];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页原始数据失败，原因：%@", [error localizedDescription]];
                 
                 [self->failure addObject:url];
                 [UtilityFile exportArray:self->failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailurePages.txt"];
@@ -125,20 +125,20 @@
     }
     
     if (urlArray.count == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获取到包含图片的网页地址"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获取到包含图片的网页地址"];
         // 提醒 Cookie 过期
         if ([[NSDate date] timeIntervalSince1970] > 1541415982.704804) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"如果确认操作无误，有可能是ExHentai的Cookie过期了，请重新在Chrome中刷新Cookie。Cookie预计到期时间：2018年11月05日"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"如果确认操作无误，有可能是ExHentai的Cookie过期了，请重新在Chrome中刷新Cookie。Cookie预计到期时间：2018年11月05日"];
         }
         
         return;
     }
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"已获取到%lu条包含图片的网页地址", urlArray.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"已获取到%lu条包含图片的网页地址", urlArray.count];
     
     if (failure.count > 0) {
         [UtilityFile exportArray:failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailurePages.txt"];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"有%ld个页面无法解析，已导出到下载文件夹的ExHentaiFailurePages.txt文件中", failure.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld个页面无法解析，已导出到下载文件夹的ExHentaiFailurePages.txt文件中", failure.count];
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{

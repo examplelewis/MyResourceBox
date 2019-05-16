@@ -52,7 +52,7 @@
                     }
                 }
                 
-                [[UtilityFile sharedInstance] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
                 
                 [self->failure addObject:url];
                 [UtilityFile exportArray:self->failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailureTorrents.txt"];
@@ -103,18 +103,18 @@
 // 完成下载图片地址的方法
 - (void)didFinishDownloadingOnePicture {
     downloaded++;
-    [[UtilityFile sharedInstance] showNotAppendLogWithFormat:@"已获取到第%lu条记录 | 共%lu条记录", downloaded, urlsArray.count];
+    [[MRBLogManager defaultManager] showNotAppendLogWithFormat:@"已获取到第%lu条记录 | 共%lu条记录", downloaded, urlsArray.count];
     
     if (downloaded != urlsArray.count) {
         return;
     }
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取完成"];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取到%ld条数据", resultArray.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取完成"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条数据", resultArray.count];
     [UtilityFile exportArray:resultArray atPath:@"/Users/Mercury/Downloads/ExHentaiTorrents.txt"];
     if (failure.count > 0) {
         [UtilityFile exportArray:failure atPath:@"/Users/Mercury/Downloads/ExHentaiFailureTorrents.txt"];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"有%ld个文件无法下载，已导出到下载文件夹的ExHentaiFailureTorrents.txt文件中", failure.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld个文件无法下载，已导出到下载文件夹的ExHentaiFailureTorrents.txt文件中", failure.count];
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{

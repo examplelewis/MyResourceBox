@@ -70,7 +70,7 @@
  * @brief 刷新 Token
  */
 - (void)refreshToken:(void(^)(void))successBlock {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"正在刷新 Deviantart Token"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"正在刷新 Deviantart Token"];
     NSString *url = [NSString stringWithFormat:@"https://www.deviantart.com/oauth2/token?client_id=9258&client_secret=61c80feafecec5591f799f14be74c109&grant_type=refresh_token&refresh_token=%@", loginInfo[@"refresh_token"]];
     //    NSString *url = [NSString stringWithFormat:@"https://www.deviantart.com/oauth2/token?client_id=9258&client_secret=61c80feafecec5591f799f14be74c109&grant_type=refresh_token&refresh_token=c28df5ccb8c2f867a27f8352d2cb4b465541f00b"];
     
@@ -84,13 +84,13 @@
         strongSelf->loginInfo = [NSDictionary dictionaryWithDictionary:info];
         [strongSelf->loginInfo writeToFile:loginInfoFilePath atomically:YES];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"已获取到新的 token，保存到 DeviantartLoginInfo.plist 文件中"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"已获取到新的 token，保存到 DeviantartLoginInfo.plist 文件中"];
         
         if (successBlock) {
             successBlock();
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"刷新 Deviantart Token 失败，可能是 refresh_token 已经过期，请参考 OAuth 2 Step 1: User Authorization 重新获取 Authorization Code"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"刷新 Deviantart Token 失败，可能是 refresh_token 已经过期，请参考 OAuth 2 Step 1: User Authorization 重新获取 Authorization Code"];
     }];
 }
 
@@ -99,7 +99,7 @@
  * @brief 获取用户的 Gallery
  */
 - (void)fetchUserGallery {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"正在加载Gallery: %ld - %ld", galleryOffset + 1, galleryOffset + 24];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"正在加载Gallery: %ld - %ld", galleryOffset + 1, galleryOffset + 24];
     NSString *url = [NSString stringWithFormat:@"https://www.deviantart.com/api/v1/oauth2/gallery/all?username=%@&offset=%ld&limit=24&access_token=%@&mature_content=true", [AppDelegate defaultVC].inputTextView.string, galleryOffset, loginInfo[@"access_token"]];
     
     WS(weakSelf);
@@ -125,10 +125,10 @@
             strongSelf->galleryOffset = [response[@"next_offset"] integerValue];
             [strongSelf fetchUserGallery];
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"用户: %@ 的 Gallery 加载完成", [AppDelegate defaultVC].inputTextView.string];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"用户: %@ 的 Gallery 加载完成", [AppDelegate defaultVC].inputTextView.string];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"加载 Gallery 出错"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"加载 Gallery 出错"];
     }];
 }
 

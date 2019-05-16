@@ -36,7 +36,7 @@
                                              timeoutInterval:60.0f];
         NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if (error) {
-                [[UtilityFile sharedInstance] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"获取网页信息失败，原因：%@", [error localizedDescription]];
                 
                 [self->failedURLArray addObject:[error userInfo][NSURLErrorFailingURLStringErrorKey]];
                 [UtilityFile exportArray:self->failedURLArray atPath:@"/Users/Mercury/Downloads/JDLingyuFailedURLs.txt"];
@@ -82,16 +82,16 @@
 }
 // 2、导出结果
 - (void)doneThings {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取了%ld个页面的图片地址", urlArray.count]; //获取到的页面地址
+    [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取了%ld个页面的图片地址", urlArray.count]; //获取到的页面地址
     [UtilityFile exportArray:resultArray atPath:@"/Users/Mercury/Downloads/JdlingyuImageURLs.txt"];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"成功获取到%ld条图片地址，在右上方输出框内显示", resultArray.count];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到%ld条图片地址，在右上方输出框内显示", resultArray.count];
     if (failedURLArray.count > 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"有%ld条网页解析失败，请查看错误文件", failedURLArray.count]; //获取失败的页面地址
+        [[MRBLogManager defaultManager] showLogWithFormat:@"有%ld条网页解析失败，请查看错误文件", failedURLArray.count]; //获取失败的页面地址
         [UtilityFile exportArray:failedURLArray atPath:@"/Users/Mercury/Downloads/JDLingyuFailedURLs.txt"];
     }
     [renameDict writeToFile:@"/Users/Mercury/Downloads/JDlingyuRenameInfo.plist" atomically:YES]; //RenameDict
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"1秒后开始下载"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"1秒后开始下载"];
     [self performSelector:@selector(startDownload) withObject:nil afterDelay:1.0f];
 }
 // 3、下载图片
@@ -106,13 +106,13 @@
     downloaded++;
     
     if (success) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"第%lu条网页已获取完成 | 共%lu条网页", downloaded, urlArray.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"第%lu条网页已获取完成 | 共%lu条网页", downloaded, urlArray.count];
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"第%lu条网页已获取失败 | 共%lu条网页", downloaded, urlArray.count];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"第%lu条网页已获取失败 | 共%lu条网页", downloaded, urlArray.count];
     }
     
     if (downloaded == urlArray.count) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"已经完成获取图片地址的工作\n"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"已经完成获取图片地址的工作\n"];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self doneThings];

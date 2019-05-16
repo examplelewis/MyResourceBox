@@ -13,8 +13,8 @@
 @implementation JDLingyuMethod
 
 + (void)configMethod:(NSInteger)cellRow {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取绝对领域的图片地址：已经准备就绪"];
+    [MRBLogManager resetCurrentDate];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取绝对领域的图片地址：已经准备就绪"];
     
     switch (cellRow) {
         case 1: {

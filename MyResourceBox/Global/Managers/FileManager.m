@@ -56,7 +56,7 @@ static FileManager *inputInstance;
         if ([fm createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:&error]) {
             return YES;
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"创建文件夹：%@ 时失败，错误原因：\n%@", folderPath, [error localizedDescription]];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"创建文件夹：%@ 时失败，错误原因：\n%@", folderPath, [error localizedDescription]];
             return NO;
         }
     }
@@ -74,10 +74,10 @@ static FileManager *inputInstance;
 - (BOOL)trashFileAtPath:(NSString *)filePath resultItemURL:(NSURL *)resultURL {
     NSError *error;
     if ([fm trashItemAtURL:[NSURL fileURLWithPath:filePath] resultingItemURL:&resultURL error:&error]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 已经被删除", filePath.lastPathComponent];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 已经被删除", filePath.lastPathComponent];
         return YES;
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"删除文件 %@ 时出现错误：%@", filePath.lastPathComponent, [error localizedDescription]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"删除文件 %@ 时出现错误：%@", filePath.lastPathComponent, [error localizedDescription]];
         return NO;
     }
 }
@@ -92,10 +92,10 @@ static FileManager *inputInstance;
 - (BOOL)trashFileAtURL:(NSURL *)fileURL resultItemURL:(NSURL *)resultURL {
     NSError *error;
     if ([fm trashItemAtURL:fileURL resultingItemURL:&resultURL error:&error]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 已经被删除", fileURL.path.lastPathComponent];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 已经被删除", fileURL.path.lastPathComponent];
         return YES;
     } else {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"删除文件 %@ 时出现错误：%@", fileURL.path.lastPathComponent, [error localizedDescription]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"删除文件 %@ 时出现错误：%@", fileURL.path.lastPathComponent, [error localizedDescription]];
         return NO;
     }
 }
@@ -107,10 +107,10 @@ static FileManager *inputInstance;
 - (void)trashFilesAtPaths:(NSArray<NSURL *> *)filePaths {
     [[NSWorkspace sharedWorkspace] recycleURLs:filePaths completionHandler:^(NSDictionary<NSURL *,NSURL *> * _Nonnull newURLs, NSError * _Nullable error) {
         if (error) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"文件移动到废纸篓失败：\n%@", [error localizedDescription]];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"文件移动到废纸篓失败：\n%@", [error localizedDescription]];
 //#warning 这边应该加一个NSAlert
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"文件移动到废纸篓成功"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"文件移动到废纸篓成功"];
         }
     }];
 }
@@ -161,7 +161,7 @@ static FileManager *inputInstance;
 - (void)moveItemAtPath:(NSString *)oriPath toDestPath:(NSString *)destPath {
     NSError *error;
     if (![fm moveItemAtPath:oriPath toPath:destPath error:&error]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"移动文件：%@ 时发生错误：%@", oriPath, [error localizedDescription]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"移动文件：%@ 时发生错误：%@", oriPath, [error localizedDescription]];
     }
 }
 /**
@@ -173,7 +173,7 @@ static FileManager *inputInstance;
 - (void)moveItemAtURL:(NSURL *)oriURL toDestURL:(NSURL *)destURL {
     NSError *error;
     if (![fm moveItemAtURL:oriURL toURL:destURL error:&error]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"移动文件：%@ 时发生错误：%@", oriURL.path, [error localizedDescription]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"移动文件：%@ 时发生错误：%@", oriURL.path, [error localizedDescription]];
     }
 }
 /**
@@ -286,7 +286,7 @@ static FileManager *inputInstance;
     
     NSArray *contents = [fm contentsOfDirectoryAtPath:folderPath error:nil];
     if (contents.count == 1) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有在：%@ 中获取到解压好的文件，已跳过", folderPath];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有在：%@ 中获取到解压好的文件，已跳过", folderPath];
         return nil;
     }
     
@@ -372,7 +372,7 @@ static FileManager *inputInstance;
     
     NSArray *subpaths = [fm subpathsOfDirectoryAtPath:folderPath error:nil]; //所有的文件【递归】
     if (subpaths.count == 1) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有在：%@ 中获取到解压好的文件，已跳过", folderPath];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有在：%@ 中获取到解压好的文件，已跳过", folderPath];
         return nil;
     }
     

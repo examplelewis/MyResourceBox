@@ -59,7 +59,7 @@
 }
 
 - (void)startFetching {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取日常图片地址，流程开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取日常图片地址，流程开始"];
     
     [self fetchSingleDailyPostUrl];
 }
@@ -158,7 +158,7 @@
         [self->webmNameInfo writeToFile:Rule34WebmPostRenamePlistPath atomically:YES];
         
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取日常图片地址：第 %ld 页已获取", self->curPage + 1];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取日常图片地址：第 %ld 页已获取", self->curPage + 1];
         
         // 超过 200 页，就报错了
         if (self->curPage >= 199) {
@@ -175,8 +175,8 @@
         }
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
         DDLogError(@"%@: %@", errorTitle, errorMsg);
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取日常图片地址，遇到错误：%@: %@", errorTitle, errorMsg];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取日常图片地址：流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取日常图片地址，遇到错误：%@: %@", errorTitle, errorMsg];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取日常图片地址：流程结束"];
     }];
 }
 - (void)fetchFatePostsSucceed {
@@ -186,16 +186,16 @@
         
         BOOL success = [NSKeyedArchiver archiveRootObject:newestPost toFile:dest];
         if (success) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"已成功保存最新的Post, id: %@", newestPost[@"id"]];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"已成功保存最新的Post, id: %@", newestPost[@"id"]];
             
             latestPost = newestPost;
         } else {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"将最新Post保存至本地时出错，请重新保存"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"将最新Post保存至本地时出错，请重新保存"];
         }
     }
     
-    [[UtilityFile sharedInstance] cleanLog];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取日常图片地址：流程结束"];
+    [[MRBLogManager defaultManager] cleanLog];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取日常图片地址：流程结束"];
 }
 
 @end

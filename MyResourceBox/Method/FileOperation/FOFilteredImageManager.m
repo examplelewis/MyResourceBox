@@ -12,15 +12,15 @@
 @implementation FOFilteredImageManager
 
 + (void)organizingDatabase {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"开始整理数据表: photoOrganTotal"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"开始整理数据表: photoOrganTotal"];
     
     NSArray *downloads = [NSArray arrayWithArray:[[SQLiteFMDBManager defaultDBManager] readPhotoOrganDownload]];
     NSArray *dests = [NSArray arrayWithArray:[[SQLiteFMDBManager defaultDBManager] readPhotoOrganDest]];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"开始删除已有的数据"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"开始删除已有的数据"];
     [[SQLiteFMDBManager defaultDBManager] deleteAllPhotoOrganTotal];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"开始添加新的数据"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"开始添加新的数据"];
     for (NSInteger i = 0; i < downloads.count; i++) {
         NSDictionary *download = [NSDictionary dictionaryWithDictionary:downloads[i]];
         
@@ -34,7 +34,7 @@
         [[SQLiteFMDBManager defaultDBManager] insertSinglePhotoOrganTotal:download[@"folder"] dest:dest[@"destination"]];
     }
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理数据表: photoOrganTotal 完成"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理数据表: photoOrganTotal 完成"];
 }
 
 + (void)prepareOrganizingPhotos {
@@ -49,7 +49,7 @@
     }];
 }
 + (void)organizingPhotos {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理图片开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理图片开始"];
     
     NSArray *total = [NSArray arrayWithArray:[[SQLiteFMDBManager defaultDBManager] readPhotoOrganTotal]];
     NSArray *subFolderPaths = [[FileManager defaultManager] getFolderPathsInFolder:@"/Users/Mercury/Downloads"];
@@ -63,7 +63,7 @@
             continue; // .开头的文件夹都是隐藏文件夹，忽略
         }
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"整理图片: %@", subFolderName];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"整理图片: %@", subFolderName];
         
         // 根据文件夹的名字筛选出 dest 的对象，再获取到需要移动的文件夹的路径
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSDictionary * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
@@ -89,18 +89,18 @@
         // 所有文件都移动之后，将源文件夹移动到废纸篓中
         [[FileManager defaultManager] trashFileAtPath:subFolderPath resultItemURL:nil];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"完成整理图片: %@", subFolderName];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"完成整理图片: %@", subFolderName];
     }
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理图片结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理图片结束"];
 }
 
 + (void)organizingExportPhotos {
-    [UtilityFile resetCurrentDate];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理导出的图片：流程准备开始"];
+    [MRBLogManager resetCurrentDate];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理导出的图片：流程准备开始"];
     
     // Cosplay 文件夹
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理导出的Cosplay图片：流程准备开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理导出的Cosplay图片：流程准备开始"];
     NSString *cosplayFolder = @"/Users/Mercury/Downloads/Cosplay";
     if ([[FileManager defaultManager] isContentExistAtPath:cosplayFolder]) {
         NSArray *originalFilePaths = [[FileManager defaultManager] getFilePathsInFolder:cosplayFolder];
@@ -112,10 +112,10 @@
             [[FileManager defaultManager] moveItemAtPath:originalFilePath toDestPath:destFilePath];
         }
     }
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理导出的Cosplay图片：流程已经结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理导出的Cosplay图片：流程已经结束"];
     
     // 真人 文件夹
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理导出的真人图片：流程准备开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理导出的真人图片：流程准备开始"];
     NSString *zhenrenFolder = @"/Users/Mercury/Downloads/真人";
     if ([[FileManager defaultManager] isContentExistAtPath:zhenrenFolder]) {
         NSArray *originalFilePaths = [[FileManager defaultManager] getFilePathsInFolder:zhenrenFolder];
@@ -127,10 +127,10 @@
             [[FileManager defaultManager] moveItemAtPath:originalFilePath toDestPath:destFilePath];
         }
     }
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理导出的真人图片：流程已经结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理导出的真人图片：流程已经结束"];
     
     // ACG 文件夹
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理导出的ACG图片：流程准备开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理导出的ACG图片：流程准备开始"];
     NSString *acgFolder = @"/Users/Mercury/CloudStation/网络图片/ACG";
     NSArray *acgFolders = [[FileManager defaultManager] getFolderPathsInFolder:acgFolder];
     for (NSInteger i = 0; i < acgFolders.count; i++) {
@@ -148,9 +148,9 @@
             }
         }
     }
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理导出的ACG图片：流程已经结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理导出的ACG图片：流程已经结束"];
     
-    [[UtilityFile sharedInstance] showLogWithFormat:@"整理导出的图片：流程已经结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理导出的图片：流程已经结束"];
 }
 
 @end

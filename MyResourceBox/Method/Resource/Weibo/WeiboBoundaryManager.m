@@ -20,7 +20,7 @@
 
 - (void)getBoundaryID {
     [[UserInfo defaultUser] configureData]; //重新读一遍Plist文件
-    [[UtilityFile sharedInstance] showLogWithFormat:@"原有边界微博的ID：%@", [UserInfo defaultUser].weibo_boundary_id];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"原有边界微博的ID：%@", [UserInfo defaultUser].weibo_boundary_id];
     fetchedPage = 1;
     
     [self getBoundaryByApi];
@@ -36,7 +36,7 @@
             if ([object.text containsString:[UserInfo defaultUser].weibo_boundary_text] && [object.user_screen_name containsString:[UserInfo defaultUser].weibo_boundary_author]) {
                 [UserInfo defaultUser].weibo_boundary_id = object.id_str;
                 [[UserInfo defaultUser] saveAuthDictIntoPlistFile];
-                [[UtilityFile sharedInstance] showLogWithFormat:@"已经找到边界微博的ID：%@", object.id_str];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"已经找到边界微博的ID：%@", object.id_str];
                 found = YES;
                 
                 break;
@@ -47,7 +47,7 @@
         if (found) {
             // do nothing...
         } else if (favors.count < 50) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"没有找到符合条件的收藏内容，跳过"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"没有找到符合条件的收藏内容，跳过"];
         } else {
             self->fetchedPage += 1; // 计数
             [self getBoundaryByApi];
@@ -58,19 +58,19 @@
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取收藏列表接口发生错误：%@，原因：%@", errorTitle, errorMsg];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取收藏列表接口发生错误：%@，原因：%@", errorTitle, errorMsg];
     }];
 }
 
 - (void)markNewestFavorAsBoundary {
     [[UserInfo defaultUser] configureData]; //重新读一遍Plist文件
-    [[UtilityFile sharedInstance] showLogWithFormat:@"原有边界微博的ID：%@", [UserInfo defaultUser].weibo_boundary_id];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"原有边界微博的ID：%@", [UserInfo defaultUser].weibo_boundary_id];
     fetchedPage = 1;
     
     [[HttpManager sharedManager] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
         NSArray *favors = dic[@"favorites"];
         if (!favors || favors.count == 0) {
-            [[UtilityFile sharedInstance] showLogWithFormat:@"当前没有收藏内容，跳过"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"当前没有收藏内容，跳过"];
             return;
         }
         
@@ -81,14 +81,14 @@
         [UserInfo defaultUser].weibo_boundary_author = object.user_screen_name;
         [UserInfo defaultUser].weibo_boundary_text = object.text;
         [[UserInfo defaultUser] saveAuthDictIntoPlistFile];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"已经找到边界微博的ID：%@", object.id_str];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"已经找到边界微博的ID：%@", object.id_str];
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
         MyAlert *alert = [[MyAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:errorTitle infomation:errorMsg];
         [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
         [alert runModel];
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取收藏列表接口发生错误：%@，原因：%@", errorTitle, errorMsg];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取收藏列表接口发生错误：%@，原因：%@", errorTitle, errorMsg];
     }];
 }
 

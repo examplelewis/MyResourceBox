@@ -25,12 +25,12 @@
 @implementation Rule34TagPagePicManager
 
 - (void)startFetching {
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取特定标签的图片地址，流程开始"];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"注意：本流程将忽略 webm 文件"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取特定标签的图片地址，流程开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"注意：本流程将忽略 webm 文件"];
     
     NSString *inputString = [AppDelegate defaultVC].inputTextView.string;
     if (inputString.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
         return;
     }
     
@@ -87,7 +87,7 @@
         
         NSArray *urls = [self->posts valueForKey:@"file_url"];
         [UtilityFile exportArray:urls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Rule34 %@ PostUrl.txt", self->tag]];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self->tag, self->page];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self->tag, self->page];
         
         // 如果某一页小于100条原始数据，说明是最后一页
         if (self->page >= self->maxPage || array.count != 100) {
@@ -99,35 +99,35 @@
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
         DDLogError(@"%@: %@", errorTitle, errorMsg);
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址，遇到错误：%@: %@", self->tag, errorTitle, errorMsg];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：流程结束", self->tag];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址，遇到错误：%@: %@", self->tag, errorTitle, errorMsg];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：流程结束", self->tag];
     }];
 }
 - (void)fetchSucceed {
-    [[UtilityFile sharedInstance] cleanLog];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"获取 %@ 图片地址：流程结束", tag];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"%@ 图片地址:\n%@", tag, [UtilityFile convertResultArray:[self->posts valueForKey:@"file_url"]]];
+    [[MRBLogManager defaultManager] cleanLog];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：流程结束", tag];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 图片地址:\n%@", tag, [UtilityFile convertResultArray:[self->posts valueForKey:@"file_url"]]];
 }
 
 - (void)startFetchingTagPicCount {
     NSString *inputString = [AppDelegate defaultVC].inputTextView.string;
     if (inputString.length == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
         return;
     }
     
     NSArray *inputComps = [inputString componentsSeparatedByString:@"|"];
     NSString *inputTag = inputComps[0];
-    [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片数量：流程开始", inputTag];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片数量：流程开始", inputTag];
     
     [[HttpManager sharedManager] getSpecificTagPicCountFromRule34Tag:inputTag success:^(NSInteger totalCount) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片数量，需要抓取 %.0f 页，图片数量 %ld 张", inputTag, ceil(totalCount / 100.0), totalCount];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片数量：流程结束", inputTag];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片数量，需要抓取 %.0f 页，图片数量 %ld 张", inputTag, ceil(totalCount / 100.0), totalCount];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片数量：流程结束", inputTag];
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
         DDLogError(@"%@: %@", errorTitle, errorMsg);
         
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片数量，遇到错误：%@: %@", inputTag, errorTitle, errorMsg];
-        [[UtilityFile sharedInstance] showLogWithFormat:@"查询 %@ 图片数量：流程结束", inputTag];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片数量，遇到错误：%@: %@", inputTag, errorTitle, errorMsg];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询 %@ 图片数量：流程结束", inputTag];
     }];
 }
 

@@ -31,7 +31,7 @@
 - (void)startOrganizing {
     //先判断有没有plist文件
     if (![[FileManager defaultManager] isContentExistAtPath:self.plistPath]) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"plist不存在，请查看对应的文件夹"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"plist不存在，请查看对应的文件夹"];
         return;
     }
     
@@ -66,7 +66,7 @@
             if (result == 1) {
                 NSURL *fileUrl = [panel URLs].firstObject;
                 NSString *filePath = [fileUrl path];
-                [[UtilityFile sharedInstance] showLogWithFormat:@"已选择图片文件夹路径：%@", filePath];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"已选择图片文件夹路径：%@", filePath];
                 
                 [self organizingImageFile:filePath];
             }
@@ -80,7 +80,7 @@
     // 先查找文件夹里是否有图片文件。如果没有，可能是没有将图片文件移动到文件夹内，目前给出提示
     NSArray *imageFiles = [[FileManager defaultManager] getFilePathsInFolder:rootFolderName specificExtensions:simplePhotoType];
     if (imageFiles.count == 0) {
-        [[UtilityFile sharedInstance] showLogWithFormat:@"没有在文件夹内找到图片文件，可能是没有将图片文件移动到文件夹内，请检查文件夹"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有在文件夹内找到图片文件，可能是没有将图片文件移动到文件夹内，请检查文件夹"];
         return;
     }
     
@@ -99,7 +99,7 @@
             [[FileManager defaultManager] moveItemAtPath:filePath toDestPath:destPath];
         }
     }
-    [[UtilityFile sharedInstance] showLogWithFormat:@"所有图片已经整理完成"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"所有图片已经整理完成"];
     
     // 删除 plist 文件
     [[FileManager defaultManager] trashFileAtPath:self.plistPath resultItemURL:nil];
