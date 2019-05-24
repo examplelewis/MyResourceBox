@@ -31,10 +31,10 @@
 - (void)startOperation {
     switch (totalDownloadStep) {
         case 0: {
+            totalDownloadStep += 1;
+            
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载并整理日常图片，流程开始"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Fate 图片, 开始"];
-            
-            totalDownloadStep += 1;
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruFatePostTxtPath targetFolderPath:GelbooruFateRootFolderPath];
             manager.finishBlock = ^{
@@ -44,11 +44,11 @@
         }
             break;
         case 1: {
-            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Fate 图片, 结束"];
-            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Azur 图片, 开始"];
-            
             [[MRBFileManager defaultManager] trashFileAtPath:GelbooruFatePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
+            
+            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Fate 图片, 结束"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Azur 图片, 开始"];
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruAzurPostTxtPath targetFolderPath:GelbooruAzurRootFolderPath];
             manager.finishBlock = ^{
@@ -58,11 +58,11 @@
         }
             break;
         case 2: {
-            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Azur 图片, 结束"];
-            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Overwatch 图片, 开始"];
-            
             [[MRBFileManager defaultManager] trashFileAtPath:GelbooruAzurPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
+            
+            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Azur 图片, 结束"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Overwatch 图片, 开始"];
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruOverwatchPostTxtPath targetFolderPath:GelbooruOverwatchRootFolderPath];
             manager.finishBlock = ^{
@@ -72,11 +72,11 @@
         }
             break;
         case 3: {
-            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Overwatch 图片, 结束"];
-            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Anime 图片, 开始"];
-            
             [[MRBFileManager defaultManager] trashFileAtPath:GelbooruOverwatchPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
+            
+            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Overwatch 图片, 结束"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Anime 图片, 开始"];
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruAnimePostTxtPath targetFolderPath:GelbooruAnimeRootFolderPath];
             manager.finishBlock = ^{
@@ -86,11 +86,11 @@
         }
             break;
         case 4: {
-            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Anime 图片, 结束"];
-            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Game 图片, 开始"];
-            
             [[MRBFileManager defaultManager] trashFileAtPath:GelbooruAnimePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
+            
+            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Anime 图片, 结束"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Game 图片, 开始"];
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruGamePostTxtPath targetFolderPath:GelbooruGameRootFolderPath];
             manager.finishBlock = ^{
@@ -100,11 +100,11 @@
         }
             break;
         case 5: {
-            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Game 图片, 结束"];
-            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 18 图片, 开始"];
-            
             [[MRBFileManager defaultManager] trashFileAtPath:GelbooruGamePostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
+            
+            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 Game 图片, 结束"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 18 图片, 开始"];
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruHPostTxtPath targetFolderPath:GelbooruHRootFolderPath];
             manager.finishBlock = ^{
@@ -114,11 +114,11 @@
         }
             break;
         case 6: {
-            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 18 图片, 结束"];
-            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 webm 文件, 开始"];
-            
             [[MRBFileManager defaultManager] trashFileAtPath:GelbooruHPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
+            
+            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 18 图片, 结束"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 webm 文件, 开始"];
             
             ResourceGlobalDownloadManager *manager = [[ResourceGlobalDownloadManager alloc] initWithTXTFilePath:GelbooruWebmPostTxtPath targetFolderPath:GelbooruWebmRootFolderPath];
             manager.finishBlock = ^{
@@ -128,11 +128,11 @@
         }
             break;
         case 7: {
-            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 webm 文件, 结束"];
-            [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Anime 图片, 开始"];
-            
             [[MRBFileManager defaultManager] trashFileAtPath:GelbooruWebmPostTxtPath resultItemURL:nil];
             totalDownloadStep += 1;
+            
+            [[MRBLogManager defaultManager] showLogWithFormat:@"下载 webm 文件, 结束"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Anime 图片, 开始"];
             
             ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:GelbooruAnimePostRenamePlistPath targetFolderPath:GelbooruAnimeRootFolderPath];
             manager.finishBlock = ^{
