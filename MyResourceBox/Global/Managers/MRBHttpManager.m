@@ -30,7 +30,7 @@
     NSString *url = @"https://api.weibo.com/oauth2/access_token";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"client_id"] = @"587160380";
-    parameters[@"client_secret"] = @"5cdf1dc7f9eb3ad62a68aef8bdb395c7";
+    parameters[@"client_secret"] = @"d44d86c3ba2fbabf9a197f4514a67d21";
     parameters[@"redirect_uri"] = @"myresourcebox://success.html";
     parameters[@"grant_type"] = @"authorization_code";
     parameters[@"code"] = [MRBUserManager defaultManager].weibo_code;
