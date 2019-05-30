@@ -11,7 +11,6 @@
 #import "ExHentaiManager.h"
 #import "JDLingyuMethod.h"
 #import "PixivMethod.h"
-//#import "WNACGMethod.h"
 #import "WorldCosplayMethod.h"
 
 @implementation AnalysisInputManager
@@ -33,8 +32,6 @@
         } else {
             [PixivMethod configMethod:3];
         }
-    } else if ([inputString containsString:@"wnacg."]) {
-        //        [[WNACGMethod defaultMethod] configMethod:1];
     } else if ([inputString containsString:@"worldcosplay."]) {
         [WorldCosplayMethod configMethod:2];
     } else {
