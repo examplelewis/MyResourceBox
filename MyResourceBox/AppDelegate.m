@@ -14,13 +14,10 @@
 #import "BCYMethod.h"
 #import "ExHentaiManager.h"
 #import "GelbooruMethod.h"
-//#import "LofterMethod.h"
 #import "JDLingyuMethod.h"
 #import "PixivMethod.h"
-//#import "TumblrMethod.h"
 #import "WeiboMethod.h"
 #import "Rule34Method.h"
-//#import "WNACGMethod.h"
 #import "WorldCosplayMethod.h"
 #import "DeviantartMethod.h"
 
@@ -120,9 +117,6 @@
 - (IBAction)processingGelbooru:(NSMenuItem *)sender {
     [GelbooruMethod configMethod:sender.tag];
 }
-- (IBAction)processingLofter:(NSMenuItem *)sender {
-//    [[LofterMethod defaultMethod] configMethod:sender.tag];
-}
 - (IBAction)processingJDLingyu:(NSMenuItem *)sender {
     [JDLingyuMethod configMethod:sender.tag];
 }
@@ -132,14 +126,8 @@
 - (IBAction)processingRule34:(NSMenuItem *)sender {
     [Rule34Method configMethod:sender.tag];
 }
-- (IBAction)processingTumblr:(NSMenuItem *)sender {
-//    [[TumblrMethod defaultMethod] configMethod:sender.tag];
-}
 - (IBAction)processingWeibo:(NSMenuItem *)sender {
     [WeiboMethod configMethod:sender.tag];
-}
-- (IBAction)processingWNACG:(NSMenuItem *)sender {
-//    [[WNACGMethod defaultMethod] configMethod:sender.tag];
 }
 - (IBAction)processingWorldCosplay:(NSMenuItem *)sender {
     [WorldCosplayMethod configMethod:sender.tag];
