@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "MRBFileManager.h"
-#import <TMAPIClient.h>
 #import "MRBHttpManager.h"
 
 #import "AnalysisMethod.h"
@@ -18,7 +17,7 @@
 //#import "LofterMethod.h"
 #import "JDLingyuMethod.h"
 #import "PixivMethod.h"
-#import "TumblrMethod.h"
+//#import "TumblrMethod.h"
 #import "WeiboMethod.h"
 #import "Rule34Method.h"
 //#import "WNACGMethod.h"
@@ -52,7 +51,6 @@
     
     [self setLogger];
     [self setBuildTime];
-    [self setTumblr];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didGetCode:) name:@"WeiboTokenDidGet" object:nil];
 }
@@ -135,7 +133,7 @@
     [Rule34Method configMethod:sender.tag];
 }
 - (IBAction)processingTumblr:(NSMenuItem *)sender {
-    [[TumblrMethod defaultMethod] configMethod:sender.tag];
+//    [[TumblrMethod defaultMethod] configMethod:sender.tag];
 }
 - (IBAction)processingWeibo:(NSMenuItem *)sender {
     [WeiboMethod configMethod:sender.tag];
@@ -269,12 +267,6 @@
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSString *build = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
     self.buildVerItem.title = [NSString stringWithFormat:@"%@ (%@)", version, build];
-}
-- (void)setTumblr {
-    [TMAPIClient sharedInstance].OAuthConsumerKey = [MRBUserManager defaultManager].tumblr_OAuth_Consumer_Key;
-    [TMAPIClient sharedInstance].OAuthConsumerSecret = [MRBUserManager defaultManager].tumblr_OAuth_Consumer_Secret;
-    [TMAPIClient sharedInstance].OAuthToken = [MRBUserManager defaultManager].tumblr_OAuth_Token;
-    [TMAPIClient sharedInstance].OAuthTokenSecret = [MRBUserManager defaultManager].tumblr_OAuth_Token_Secret;
 }
 
 #pragma mark - Other

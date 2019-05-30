@@ -44,27 +44,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>JXHTTP.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-MyResourceBox.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Spectacles.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>TMTumblrSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

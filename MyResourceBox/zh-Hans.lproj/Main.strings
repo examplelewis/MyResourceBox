@@ -101,9 +101,6 @@
 /* Class = "NSMenuItem"; title = "获取我收藏的视频"; ObjectID = "CcC-UA-AtS"; */
 "CcC-UA-AtS.title" = "获取我收藏的视频";
 
-/* Class = "NSMenuItem"; title = "Tumblr"; ObjectID = "DHj-5F-oU9"; */
-"DHj-5F-oU9.title" = "Tumblr";
-
 /* Class = "NSMenuItem"; title = "Close"; ObjectID = "DVo-aG-piG"; */
 "DVo-aG-piG.title" = "关闭";
 
@@ -485,9 +482,6 @@
 /* Class = "NSButtonCell"; title = "临时"; ObjectID = "v6t-Dj-6ox"; */
 "v6t-Dj-6ox.title" = "临时";
 
-/* Class = "NSMenu"; title = "Tumblr"; ObjectID = "vEY-LV-N6P"; */
-"vEY-LV-N6P.title" = "Tumblr";
-
 /* Class = "NSMenuItem"; title = "Paste Style"; ObjectID = "vKC-jM-MkH"; */
 "vKC-jM-MkH.title" = "粘贴样式";
 
@@ -526,9 +520,6 @@
 
 /* Class = "NSMenuItem"; title = "批量获取种子文件"; ObjectID = "y6B-qK-RLC"; */
 "y6B-qK-RLC.title" = "批量获取种子文件";
-
-/* Class = "NSMenuItem"; title = "Tumblr"; ObjectID = "yNn-eA-n0H"; */
-"yNn-eA-n0H.title" = "Tumblr";
 
 /* Class = "NSMenuItem"; title = "Show Substitutions"; ObjectID = "z6F-FW-3nz"; */
 "z6F-FW-3nz.title" = "显示替换";

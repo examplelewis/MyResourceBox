@@ -38,22 +38,7 @@ PODS:
   - hpple (0.2.0)
   - JSONKit-NoWarning (1.2)
   - JSONModel (1.7.0)
-  - JXHTTP (3.0.2)
   - Masonry (1.1.0)
-  - Spectacles (1.0.1)
-  - TMTumblrSDK (4.0.5):
-    - TMTumblrSDK/Activity (= 4.0.5)
-    - TMTumblrSDK/APIClient (= 4.0.5)
-    - TMTumblrSDK/AppClient (= 4.0.5)
-    - TMTumblrSDK/Core (= 4.0.5)
-  - TMTumblrSDK/APIClient (4.0.5):
-    - JXHTTP
-    - TMTumblrSDK/APIClient/Authentication (= 4.0.5)
-  - TMTumblrSDK/APIClient/Authentication (4.0.5):
-    - JXHTTP
-    - TMTumblrSDK/Core
-  - TMTumblrSDK/Core (4.0.5):
-    - Spectacles (~> 1.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -66,7 +51,6 @@ DEPENDENCIES:
   - JSONKit-NoWarning
   - JSONModel
   - Masonry
-  - TMTumblrSDK (~> 4.0.4)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -79,10 +63,7 @@ SPEC REPOS:
     - hpple
     - JSONKit-NoWarning
     - JSONModel
-    - JXHTTP
     - Masonry
-    - Spectacles
-    - TMTumblrSDK
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -94,11 +75,8 @@ SPEC CHECKSUMS:
   hpple: 3b765f96fc2cd56ad1a49aef6f7be5cb2aa64b57
   JSONKit-NoWarning: 3d27e6f9e6846ecf741e8c64dcadd7d5aa7193cb
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
-  JXHTTP: c37120f210cd2dfcb3470d70239f5253335e2f1a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  Spectacles: 8dc60711140320653724560e2d6bbb8a8f0940e4
-  TMTumblrSDK: bafecf74bb5dae10d42536d35229e40c18e9e4a1
 
-PODFILE CHECKSUM: bfaf4ae28dca6fc026a052b8ee357a08eee6ad72
+PODFILE CHECKSUM: e5d932c5e3e820f019f12cbbf49ed2be0b730b7d
 
 COCOAPODS: 1.5.0

@@ -44,8 +44,6 @@
         folderName = @"Lofter";
     } else if ([plistName isEqualToString:@"weiboStatuses"]) {
         folderName = @"微博";
-    } else if ([plistName isEqualToString:@"tumblrStatuses"]) {
-        folderName = @"Tumblr";
     }
     NSString *folderPath = [NSString stringWithFormat:@"/Users/Mercury/Downloads/%@/", folderName];
     

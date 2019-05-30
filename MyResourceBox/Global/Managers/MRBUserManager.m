@@ -46,11 +46,6 @@
     _weibo_boundary_id = authDict[@"weibo_boundary_id"];
     _weibo_boundary_text = authDict[@"weibo_boundary_text"];
     _weibo_boundary_author = authDict[@"weibo_boundary_author"];
-    
-    _tumblr_OAuth_Consumer_Key = authDict[@"tumblr_OAuth_Consumer_Key"];
-    _tumblr_OAuth_Consumer_Secret = authDict[@"tumblr_OAuth_Consumer_Secret"];
-    _tumblr_OAuth_Token = authDict[@"tumblr_OAuth_Token"];
-    _tumblr_OAuth_Token_Secret = authDict[@"tumblr_OAuth_Token_Secret"];
 }
 - (void)configureWebArchiveInfo {
     _web_archive_mime_type = [NSArray arrayWithArray:prefDict[@"web_archive_mime_type"]];

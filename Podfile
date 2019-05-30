@@ -13,7 +13,6 @@ pod 'CocoaLumberjack'
 pod 'DateTools'
 pod 'hpple'
 pod 'DTWebArchive'
-pod 'TMTumblrSDK', '~> 4.0.4'
 pod 'FMDB'
 
 end

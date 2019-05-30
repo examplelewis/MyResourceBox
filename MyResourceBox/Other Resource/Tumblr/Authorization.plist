@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>tumblr_OAuth_Consumer_Key</key>
+	<string>lBckYWCNNSUEvnO8Lm3pX1v420YGmVhXgkx67QpduBBQIHJV8j</string>
+	<key>tumblr_OAuth_Consumer_Secret</key>
+	<string>pA3zlIPgFTInuVqnFKaXoujJQsWnCHmMZwTUAHP91ofasopgRD</string>
+	<key>tumblr_OAuth_Token</key>
+	<string>T9gV5prS5XqIuwKoS26NqJttJg7Hd7CwqiOSF8kckBybEWQ5LB</string>
+	<key>tumblr_OAuth_Token_Secret</key>
+	<string>rgN597HQPITz1LBQdsAmrHHfZGACJxq93fRmnDgwRZbvco8yyx</string>
+</dict>
+</plist>
