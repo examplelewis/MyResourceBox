@@ -1178,6 +1178,13 @@
                                                             <action selector="processingDownload:" target="Voe-Tx-rLC" id="Gpg-ux-Tsf"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="ufV-d3-qqZ"/>
+                                                    <menuItem title="选取 txt 下载列表文件" tag="31" id="zys-f4-wYc">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingDownload:" target="Voe-Tx-rLC" id="aaz-HB-3ZC"/>
+                                                        </connections>
+                                                    </menuItem>
                                                 </items>
                                             </menu>
                                         </menuItem>

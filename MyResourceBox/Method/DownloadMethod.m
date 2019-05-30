@@ -16,6 +16,11 @@
 @implementation DownloadMethod
 
 + (void)configMethod:(NSInteger)cellRow {
+    if (cellRow == 31) {
+        [self createDownloadQueueByTXTFile];
+        return;
+    }
+    
     [MRBLogManager resetCurrentDate];
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     NSArray *inputs = [input componentsSeparatedByString:@"\n"];
@@ -63,6 +68,37 @@
     }
     
     [manager startDownload];
+}
++ (void)createDownloadQueueByTXTFile {
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    [panel setMessage:@"请选择包含下载列表的 txt 文件"];
+    panel.prompt = @"确定";
+    panel.canChooseDirectories = NO;
+    panel.canCreateDirectories = NO;
+    panel.canChooseFiles = YES;
+    panel.allowsMultipleSelection = NO;
+    panel.allowedFileTypes = @[@"txt"];
+    
+    [panel beginSheetModalForWindow:[NSApplication sharedApplication].keyWindow completionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                DDLogInfo(@"已选择的 txt 文件：%@", panel.URLs.firstObject);
+                
+                NSString *txtFilePath = panel.URLs.firstObject.absoluteString;
+                txtFilePath = [txtFilePath stringByReplacingOccurrencesOfString:@"file://" withString:@""];
+                NSString *downloadStr = [[NSString alloc] initWithContentsOfFile:txtFilePath encoding:NSUTF8StringEncoding error:nil];
+                NSArray *downloadList = [downloadStr componentsSeparatedByString:@"\n"];
+                
+                MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:downloadList];
+                manager.maxConcurrentOperationCount = 10;
+                manager.maxRedownloadTimes = 1;
+                manager.timeoutInterval = 30;
+                manager.downloadPath = txtFilePath.stringByDeletingPathExtension;
+                
+                [manager startDownload];
+            });
+        }
+    }];
 }
 
 @end
