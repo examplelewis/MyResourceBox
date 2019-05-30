@@ -15,7 +15,7 @@
     NSString *inputString = [AppDelegate defaultVC].inputTextView.string;
     if (inputString.length == 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
-        return;Ω
+        return;
     }
     
     NSData *data = [inputString dataUsingEncoding:NSUTF8StringEncoding];
