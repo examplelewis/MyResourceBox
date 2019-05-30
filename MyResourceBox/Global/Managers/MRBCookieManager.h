@@ -12,7 +12,6 @@
 typedef NS_ENUM(NSUInteger, CookieFileType) {
     CookieFileTypeExHentai,
     CookieFileTypeBCY,
-    CookieFileTypeLofter,
     CookieFileTypeWorldCosplay
 };
 

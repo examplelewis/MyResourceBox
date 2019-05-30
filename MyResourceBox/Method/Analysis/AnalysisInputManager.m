@@ -9,7 +9,6 @@
 #import "AnalysisInputManager.h"
 #import "BCYMethod.h"
 #import "ExHentaiManager.h"
-//#import "LofterMethod.h"
 #import "JDLingyuMethod.h"
 #import "PixivMethod.h"
 //#import "WNACGMethod.h"
@@ -24,8 +23,6 @@
         [BCYMethod configMethod:1];
     } else if ([inputString containsString:@"exhentai."]) {
         [[ExHentaiManager defaultManager] configMethod:1];
-    } else if ([inputString containsString:@"lofter."]) {
-        //        [[LofterMethod defaultMethod] configMethod:2];
     } else if ([inputString containsString:@"jdlingyu."]) {
         [JDLingyuMethod configMethod:1];
     } else if ([inputString containsString:@"pixiv."]) {

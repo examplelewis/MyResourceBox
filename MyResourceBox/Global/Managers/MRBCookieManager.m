@@ -23,10 +23,6 @@
                 file_name = @"BCYCookie.txt";
                 cookie_domain = @"http://bcy.net/";
                 break;
-            case CookieFileTypeLofter:
-                file_name = @"LofterCookie.txt";
-                cookie_domain = @"http://lofter.com/";
-                break;
             case CookieFileTypeWorldCosplay:
                 file_name = @"WorldCosplayCookie.txt";
                 cookie_domain = @"https://worldcosplay.net/";
