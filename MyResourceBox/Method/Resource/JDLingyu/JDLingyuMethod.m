@@ -7,7 +7,6 @@
 //
 
 #import "JDLingyuMethod.h"
-#import "OrganizeManager.h"
 #import "JDLingyuFetchManager.h"
 
 @implementation JDLingyuMethod
@@ -19,11 +18,6 @@
     switch (cellRow) {
         case 1: {
             [[JDLingyuFetchManager new] parseHTML];
-        }
-            break;
-        case 2: {
-            OrganizeManager *manager = [[OrganizeManager alloc] initWithPlistPath:@"/Users/Mercury/Downloads/JDlingyuRenameInfo.plist"];
-            [manager startOrganizing];
         }
             break;
         default:

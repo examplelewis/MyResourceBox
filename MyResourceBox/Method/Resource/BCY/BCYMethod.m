@@ -24,21 +24,18 @@
             break;
         case 2: {
             BCYFetchManager *manager = [BCYFetchManager new];
-            [manager getPageURLFromFile];
+            [manager getPageURLFromInput:NO];
         }
             break;
         case 3: {
-            [BCYHTMLParseManager startParsing];
+            BCYFetchManager *manager = [BCYFetchManager new];
+            [manager getPageURLFromFile];
         }
             break;
         case 4: {
-            [BCYOrganizingManager prepareOrganizing];
+            [BCYHTMLParseManager startParsing];
         }
             break;
-        case 5: {
-            BCYFetchManager *manager = [BCYFetchManager new];
-            [manager getPageURLFromInput:NO];
-        }
         default:
             break;
     }

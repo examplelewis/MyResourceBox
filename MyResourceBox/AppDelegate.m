@@ -32,6 +32,7 @@
 #import "ToolOperationMethod.h"
 
 #import "MRBCatchCrashManager.h"
+#import "ResourceOrganizeMethod.h"
 
 @interface AppDelegate ()
 
@@ -159,6 +160,9 @@
 }
 - (IBAction)processingFileOperation:(NSMenuItem *)sender {
     [FileOperationMethod configMethod:sender.tag];
+}
+- (IBAction)processingResourceOrganize:(NSMenuItem *)sender {
+    [ResourceOrganizeMethod configMethod:sender.tag];
 }
 
 #pragma mark - Help

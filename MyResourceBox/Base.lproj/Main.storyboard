@@ -504,19 +504,19 @@
                                                             <action selector="processingBCY:" target="Voe-Tx-rLC" id="535-J0-NFM"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="从输入框中获取图片[不查重]" tag="5" id="EeS-p0-YZn">
+                                                    <menuItem title="从输入框中获取图片[不查重]" tag="2" id="EeS-p0-YZn">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingBCY:" target="Voe-Tx-rLC" id="icJ-kj-bAe"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="从书签文件中获取图片" tag="2" id="Fgl-sp-rZs">
+                                                    <menuItem title="从书签文件中获取图片" tag="3" id="Fgl-sp-rZs">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingBCY:" target="Voe-Tx-rLC" id="yB5-f3-dXp"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="从输入框中解析HTML" tag="3" id="2QK-iP-RCQ">
+                                                    <menuItem title="从输入框中解析HTML" tag="4" id="2QK-iP-RCQ">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingBCY:" target="Voe-Tx-rLC" id="yON-u6-ZdD"/>
@@ -549,26 +549,26 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="wkT-5K-r4x"/>
-                                                    <menuItem title="打开网页请求授权" tag="3" id="34j-Rr-Vq0">
+                                                    <menuItem title="打开网页请求授权" tag="11" id="34j-Rr-Vq0">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingWeibo:" target="Voe-Tx-rLC" id="8vc-Eq-IPT"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="显示授权详细信息" tag="4" id="180-yp-gHQ">
+                                                    <menuItem title="显示授权详细信息" tag="12" id="180-yp-gHQ">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingWeibo:" target="Voe-Tx-rLC" id="7yl-f5-1c8"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="Ecl-HL-kcH"/>
-                                                    <menuItem title="通过内容获取边界" tag="5" id="G6L-19-kBU">
+                                                    <menuItem title="通过内容获取边界" tag="21" id="G6L-19-kBU">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingWeibo:" target="Voe-Tx-rLC" id="du6-su-muJ"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="把最新的收藏标记为边界" tag="6" id="ius-9m-GPG">
+                                                    <menuItem title="把最新的收藏标记为边界" tag="22" id="ius-9m-GPG">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingWeibo:" target="Voe-Tx-rLC" id="LQe-ES-NH9"/>
@@ -1084,40 +1084,22 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="资源整理" id="Qpy-CQ-zjW">
                                                 <items>
-                                                    <menuItem title="半次元" tag="4" id="9fQ-7l-QOg">
+                                                    <menuItem title="半次元" tag="1" id="9fQ-7l-QOg">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
-                                                            <action selector="processingBCY:" target="Voe-Tx-rLC" id="dV2-X6-Z8w"/>
+                                                            <action selector="processingResourceOrganize:" target="Voe-Tx-rLC" id="im6-y5-Zmu"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem title="绝对领域" tag="2" id="cW0-Hv-9iC">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
-                                                            <action selector="processingJDLingyu:" target="Voe-Tx-rLC" id="0KY-kj-B0c"/>
+                                                            <action selector="processingResourceOrganize:" target="Voe-Tx-rLC" id="pC7-Cc-qsu"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="微博" tag="2" id="wOe-Xh-zG3">
+                                                    <menuItem title="微博" tag="3" id="wOe-Xh-zG3">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
-                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="wZ0-NL-zRm"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Lofter" tag="3" id="NrJ-VM-ogc">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="processingLofter:" target="Voe-Tx-rLC" id="VAP-av-5RF"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="WNACG" tag="2" id="IJj-hy-Yil">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="processingWNACG:" target="Voe-Tx-rLC" id="EX9-ZP-VGf"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Tumblr" tag="1" id="yNn-eA-n0H">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="processingTumblr:" target="Voe-Tx-rLC" id="Qce-fK-aEE"/>
+                                                            <action selector="processingResourceOrganize:" target="Voe-Tx-rLC" id="khC-Vb-6f1"/>
                                                         </connections>
                                                     </menuItem>
                                                 </items>

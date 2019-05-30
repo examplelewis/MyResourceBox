@@ -8,7 +8,6 @@
 
 #import "WeiboMethod.h"
 #import "WeiboHeader.h"
-#import "OrganizeManager.h"
 #import "WeiboTokenWindowController.h"
 #import "WeiboRequestTokenWindowController.h"
 #import "WeiboBoundaryManager.h"
@@ -25,30 +24,25 @@
             [[WeiboFetchManager new] getFavorList];
         }
             break;
-        case 2: {
-            OrganizeManager *manager = [[OrganizeManager alloc] initWithPlistPath:weiboStatusPlistFilePath];
-            [manager startOrganizing];
-        }
-            break;
-        case 3: {
+        case 11: {
             WeiboRequestTokenWindowController *wc = [[WeiboRequestTokenWindowController alloc] initWithWindowNibName:@"WeiboRequestTokenWindowController"];
             [[NSApplication sharedApplication].mainWindow addChildWindow:wc.window ordered:NSWindowAbove];
             [wc becomeFirstResponder];
             [wc showWindow:nil];
         }
             break;
-        case 4: {
+        case 12: {
             WeiboTokenWindowController *wc = [[WeiboTokenWindowController alloc] initWithWindowNibName:@"WeiboTokenWindowController"];
             [[NSApplication sharedApplication].mainWindow addChildWindow:wc.window ordered:NSWindowAbove];
             [wc becomeFirstResponder];
             [wc showWindow:nil];
         }
             break;
-        case 5: {
+        case 21: {
             [[WeiboBoundaryManager new] getBoundaryID];
         }
             break;
-        case 6: {
+        case 22: {
             [[WeiboBoundaryManager new] markNewestFavorAsBoundary];
         }
             break;

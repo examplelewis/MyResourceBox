@@ -121,6 +121,7 @@
 		ACE0502A22802BAC00367F3A /* FODayFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502922802BAC00367F3A /* FODayFolderManager.m */; };
 		ACE0502D22802CDD00367F3A /* FOFilteredImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502C22802CDD00367F3A /* FOFilteredImageManager.m */; };
 		ACE0503022802DF200367F3A /* FOFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502F22802DF200367F3A /* FOFolderManager.m */; };
+		ACFFB866229F7F4D00FC41AA /* ResourceOrganizeMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -376,6 +377,8 @@
 		ACE0502E22802DF200367F3A /* FOFolderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOFolderManager.h; sourceTree = "<group>"; };
 		ACE0502F22802DF200367F3A /* FOFolderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOFolderManager.m; sourceTree = "<group>"; };
 		ACF9FC67228159D600375505 /* MRBCommoms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCommoms.h; sourceTree = "<group>"; };
+		ACFFB864229F7F4D00FC41AA /* ResourceOrganizeMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceOrganizeMethod.h; sourceTree = "<group>"; };
+		ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceOrganizeMethod.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -736,6 +739,8 @@
 		ACC8BA6922852ADF0000E193 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				ACFFB864229F7F4D00FC41AA /* ResourceOrganizeMethod.h */,
+				ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */,
 				ACACB51C21C382D700C8D164 /* ResourceGlobalTagManager.h */,
 				ACACB51D21C382D700C8D164 /* ResourceGlobalTagManager.m */,
 				ACC5C00822893F06004E7C83 /* ResourceGlobalDownloadManager.h */,
@@ -1209,6 +1214,7 @@
 				AC789C731DE159B700523A12 /* BCYMethod.m in Sources */,
 				ACC93F0A2277FA3100C207E6 /* PixivOrganizingManager.m in Sources */,
 				AC9F4C6B1E499B0E00FD01C5 /* MRBDownloadOperation.m in Sources */,
+				ACFFB866229F7F4D00FC41AA /* ResourceOrganizeMethod.m in Sources */,
 				ACCCE26D227E900A00A18C8D /* WebArchiveArchivingManager.m in Sources */,
 				ACC93F072277F98000C207E6 /* PixivFetchingManager.m in Sources */,
 				AC789C741DE159B700523A12 /* TumblrMethod.m in Sources */,
