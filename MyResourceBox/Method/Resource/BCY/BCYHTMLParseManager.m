@@ -12,7 +12,13 @@
 @implementation BCYHTMLParseManager
 
 + (void)startParsing {
-    NSData *data = [[AppDelegate defaultVC].inputTextView.string dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *inputString = [AppDelegate defaultVC].inputTextView.string;
+    if (inputString.length == 0) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        return;Ω
+    }
+    
+    NSData *data = [inputString dataUsingEncoding:NSUTF8StringEncoding];
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
     
     //获取title标签
