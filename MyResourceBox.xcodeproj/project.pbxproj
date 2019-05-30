@@ -118,6 +118,7 @@
 		ACE0502D22802CDD00367F3A /* FOFilteredImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502C22802CDD00367F3A /* FOFilteredImageManager.m */; };
 		ACE0503022802DF200367F3A /* FOFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502F22802DF200367F3A /* FOFolderManager.m */; };
 		ACFFB866229F7F4D00FC41AA /* ResourceOrganizeMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */; };
+		ACFFB869229FAB7100FC41AA /* WeiboFetchedUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFFB868229FAB7100FC41AA /* WeiboFetchedUserManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -367,6 +368,8 @@
 		ACF9FC67228159D600375505 /* MRBCommoms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCommoms.h; sourceTree = "<group>"; };
 		ACFFB864229F7F4D00FC41AA /* ResourceOrganizeMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceOrganizeMethod.h; sourceTree = "<group>"; };
 		ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceOrganizeMethod.m; sourceTree = "<group>"; };
+		ACFFB867229FAB7100FC41AA /* WeiboFetchedUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboFetchedUserManager.h; sourceTree = "<group>"; };
+		ACFFB868229FAB7100FC41AA /* WeiboFetchedUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboFetchedUserManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -888,6 +891,8 @@
 				ACE05016227FDAF600367F3A /* WeiboFetchManager.m */,
 				ACDA9142228A981F0074027E /* WeiboPicCroppingManager.h */,
 				ACDA9143228A981F0074027E /* WeiboPicCroppingManager.m */,
+				ACFFB867229FAB7100FC41AA /* WeiboFetchedUserManager.h */,
+				ACFFB868229FAB7100FC41AA /* WeiboFetchedUserManager.m */,
 			);
 			path = Weibo;
 			sourceTree = "<group>";
@@ -1167,6 +1172,7 @@
 				AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */,
 				ACC8EBB122826785003CF448 /* Rule34DownloadAndOrganizeManager.m in Sources */,
 				AC85090E1DB39677004AFE84 /* MRBUtilityManager.m in Sources */,
+				ACFFB869229FAB7100FC41AA /* WeiboFetchedUserManager.m in Sources */,
 				ACC93F012277F54900C207E6 /* PixivFollowingManager.m in Sources */,
 				ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */,
 				AC9870621E4C4A980076DC92 /* PixivMangaObject.m in Sources */,

@@ -47,6 +47,7 @@
 
 //    NSString *content = self.inputTextView.string;
 //    NSString *content = [NSString stringWithContentsOfFile:@"" encoding:NSUTF8StringEncoding error:nil];
+//    NSArray *components = [content componentsSeparatedByString:@"\n"];
 //    NSMutableArray *result = [NSMutableArray array];
 //    for (NSString *string in components) {
 //

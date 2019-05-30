@@ -43,4 +43,8 @@
 - (BOOL)isDuplicateFromDatabaseWithWeiboStatusId:(NSString *)weiboStatusId;
 - (void)insertWeiboStatusIntoDatabase:(NSArray *)weiboObjects;
 
+#pragma mark - WeiboFetchedUser
+- (void)insertWeiboFetchedUserIntoDatabase:(NSArray *)weiboUsers status:(NSInteger)status;
+- (void)updateFetchedUserStatus:(NSArray *)weiboUserScreenNames status:(NSInteger)status;
+
 @end

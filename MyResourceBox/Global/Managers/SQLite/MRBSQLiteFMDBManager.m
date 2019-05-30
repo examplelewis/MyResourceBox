@@ -500,4 +500,85 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     [db close];
 }
 
+#pragma mark - WeiboFetchedUser
+/**
+ * @brief 将已筛选的微博用户存入数据库
+ * @param status 0: 未关注，未筛选，未拉黑; 1: 已筛选; 2: 已关注; 3: 已拉黑
+ */
+- (void)insertWeiboFetchedUserIntoDatabase:(NSArray *)weiboUsers status:(NSInteger)status {
+    //先判断数据库是否存在，如果不存在，创建数据库
+    if (!db) {
+        [self createDatabase];
+    }
+    //判断数据库是否已经打开，如果没有打开，提示失败
+    if (![db open]) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboFilteredUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+        
+        return;
+    }
+    
+    [db beginTransaction];
+    
+    BOOL isRollBack = NO;
+    
+    @try {
+        for (NSInteger i = 0; i < weiboUsers.count; i++) {
+            NSDictionary *weiboUser = weiboUsers[i];
+            
+            BOOL weiboUserSuccess = [db executeUpdate:@"INSERT INTO weiboFilteredUser (id, screen_name, user_url, add_time, status) values(?, ?, ?, ?, ?)", NULL, weiboUser[@"screenName"], weiboUser[@"userUrl"], [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"], @(status)];
+            if (!weiboUserSuccess) {
+                [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboFilteredUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", weiboUser];
+            }
+        }
+    } @catch (NSException *exception) {
+        isRollBack = YES;
+        [db rollback];
+    } @finally {
+        if (!isRollBack) {
+            [db commit];
+        }
+    }
+    
+    [db close];
+}
+- (void)updateFetchedUserStatus:(NSArray *)weiboUserScreenNames status:(NSInteger)status {
+    //先判断数据库是否存在，如果不存在，创建数据库
+    if (!db) {
+        [self createDatabase];
+    }
+    //判断数据库是否已经打开，如果没有打开，提示失败
+    if (![db open]) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboFilteredUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+        
+        return;
+    }
+    
+    [db beginTransaction];
+    
+    BOOL isRollBack = NO;
+    
+    @try {
+        for (NSInteger i = 0; i < weiboUserScreenNames.count; i++) {
+            NSString *weiboUserScreenName = weiboUserScreenNames[i];
+            
+            NSString *sqliteStr = [NSString stringWithFormat:@"UPDATE weiboFilteredUser SET status = %ld WHERE screen_name = %@", status, weiboUserScreenName];
+            BOOL weiboUserSuccess = [db executeUpdate:sqliteStr];
+            if (!weiboUserSuccess) {
+                [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboFilteredUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", weiboUserScreenName];
+            }
+        }
+    } @catch (NSException *exception) {
+        isRollBack = YES;
+        [db rollback];
+    } @finally {
+        if (!isRollBack) {
+            [db commit];
+        }
+    }
+    
+    [db close];
+}
+
 @end

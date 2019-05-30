@@ -13,6 +13,7 @@
 #import "WeiboBoundaryManager.h"
 #import "WeiboFetchManager.h"
 #import "WeiboPicCroppingManager.h"
+#import "WeiboFetchedUserManager.h"
 
 @implementation WeiboMethod
 
@@ -44,6 +45,10 @@
             break;
         case 22: {
             [[WeiboBoundaryManager new] markNewestFavorAsBoundary];
+        }
+            break;
+        case 31: {
+            [WeiboFetchedUserManager saveUnfetchedUser];
         }
             break;
         case 101: {
