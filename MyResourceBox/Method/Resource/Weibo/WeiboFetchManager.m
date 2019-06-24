@@ -82,7 +82,7 @@
                 [[MRBLogManager defaultManager] showLogWithFormat:@"正则解析微博文字中的标签出错，原因：%@", error.localizedDescription];
             }
             if (results.count == 0) {
-                // 如果没有标签的话，截取前30个文字
+                // 没有标签的话，截取前30个文字
                 if (object.text.length <= 30) {
                     statusKey = [statusKey stringByAppendingFormat:@"【无标签】+%@+", object.text];
                 } else {
@@ -94,6 +94,19 @@
                     NSString *hashtag = [object.text substringWithRange:result.range];
                     hashtag = [hashtag stringByReplacingOccurrencesOfString:@"#" withString:@""];
                     statusKey = [statusKey stringByAppendingFormat:@"%@+", hashtag];
+                }
+                
+                // 有标签的话，截取前20个文字
+                NSString *noTagText = object.text;
+                for (NSInteger i = results.count - 1; i >= 0; i--) {
+                    NSTextCheckingResult *result = results[i];
+                    noTagText = [noTagText stringByReplacingCharactersInRange:result.range withString:@""];
+                }
+                noTagText = [noTagText stringByReplacingOccurrencesOfString:@"\n" withString:@""]; // 删除换行符
+                if (noTagText.length <= 20) {
+                    statusKey = [statusKey stringByAppendingFormat:@"%@+", noTagText];
+                } else {
+                    statusKey = [statusKey stringByAppendingFormat:@"%@+", [noTagText substringToIndex:20]];
                 }
             }
             statusKey = [statusKey stringByAppendingFormat:@"【%@-%@】", object.user_screen_name, object.created_at_readable_str];
