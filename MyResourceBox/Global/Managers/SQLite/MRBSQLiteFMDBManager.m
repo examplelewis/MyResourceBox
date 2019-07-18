@@ -503,7 +503,7 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
 #pragma mark - WeiboFetchedUser
 /**
  * @brief 将已筛选的微博用户存入数据库
- * @param status 0: 未关注，未筛选，未拉黑; 1: 已筛选; 2: 已关注; 3: 已拉黑
+ * @param status 0: 未关注，未筛选，未拉黑; 1: 已筛选/已下载; 2: 已关注; 3: 已拉黑
  */
 - (void)insertWeiboFetchedUserIntoDatabase:(NSArray *)weiboUsers status:(NSInteger)status {
     //先判断数据库是否存在，如果不存在，创建数据库
