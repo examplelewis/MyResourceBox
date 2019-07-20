@@ -1,8 +1,8 @@
 //
-//  ExHentaiPixivUrlsManager.h
+//  ExHentaiTitlePixivUrlsManager.h
 //  MyResourceBox
 //
-//  Created by 龚宇 on 19/01/06.
+//  Created by 龚宇 on 19/07/20.
 //  Copyright © 2019 gongyuTest. All rights reserved.
 //
 
@@ -10,17 +10,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol ExHentaiPixivUrlsDelegate <NSObject>
+@protocol ExHentaiTitlePixivUrlsDelegate <NSObject>
 
 @required
-- (void)didGetAllPixivUrls:(NSArray<NSString *> *)pixivUrls error:(nullable NSError *)error;
+- (void)didGetAllTitlePixivUrls:(NSArray<NSString *> *)pixivUrls error:(nullable NSError *)error;
 
 @optional
-- (void)didGetOnePixivUrl:(NSString *)pixivUrl error:(nullable NSError *)error;
+- (void)didGetOneTitlePixivUrl:(NSString *)pixivUrl error:(nullable NSError *)error;
 
 @end
 
-@interface ExHentaiPixivUrlsManager : NSObject {
+
+@interface ExHentaiTitlePixivUrlsManager : NSObject {
     NSArray *oriExhentaiUrls;
     NSMutableArray *hasPixivUrlExHentaiUrls;
     NSMutableArray *pixivUrls;
@@ -30,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSMutableArray *failure;
 }
 
-@property (weak) id <ExHentaiPixivUrlsDelegate> delegate;
+@property (weak) id <ExHentaiTitlePixivUrlsDelegate> delegate;
 
 - (instancetype)initWithUrls:(NSArray *)urls;
 - (void)startFetching;

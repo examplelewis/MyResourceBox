@@ -14,12 +14,14 @@
 #import "ExHentaiUrlsManager.h"
 #import "ExHentaiTorrentManager.h"
 #import "ExHentaiPixivUrlsManager.h"
+#import "ExHentaiTitlePixivUrlsManager.h"
 
-@interface ExHentaiManager () <ExHentaiPagesDelegate, ExHentaiUrlsDelegate, ExHentaiTorrentDelegate, ExHentaiPixivUrlsDelegate> {
+@interface ExHentaiManager () <ExHentaiPagesDelegate, ExHentaiUrlsDelegate, ExHentaiTorrentDelegate, ExHentaiPixivUrlsDelegate, ExHentaiTitlePixivUrlsDelegate> {
     ExHentaiPagesManager *pagesManager;
     ExHentaiUrlsManager *urlsManager;
     ExHentaiTorrentManager *torrentManager;
     ExHentaiPixivUrlsManager *pixivUrlsManager;
+    ExHentaiTitlePixivUrlsManager *titlePixivUrlsManager;
 }
 
 @end
@@ -48,6 +50,9 @@ static ExHentaiManager *manager;
             break;
         case 4:
             [self parsePixivUrls];
+            break;
+        case 5:
+            [self parseTitlePixivUrls];
             break;
         default:
             break;
@@ -116,6 +121,13 @@ static ExHentaiManager *manager;
     pixivUrlsManager.delegate = self;
     [pixivUrlsManager startFetching];
 }
+- (void)parseTitlePixivUrls {
+    NSString *content = [AppDelegate defaultVC].inputTextView.string;
+    NSArray *components = [content componentsSeparatedByString:@"\n"];
+    titlePixivUrlsManager = [[ExHentaiTitlePixivUrlsManager alloc] initWithUrls:components];
+    titlePixivUrlsManager.delegate = self;
+    [titlePixivUrlsManager startFetching];
+}
 
 #pragma mark -- 委托方法 --
 // ExHentaiPagesDelegate
@@ -144,6 +156,10 @@ static ExHentaiManager *manager;
 // ExHentaiPixivUrlsDelegate
 - (void)didGetAllPixivUrls:(NSArray<NSString *> *)pixivUrls error:(NSError *)error {
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取E-Hentai的Pixiv地址：流程结束"];
+}
+// ExHentaiTitlePixivUrlsDelegate
+- (void)didGetAllTitlePixivUrls:(NSArray<NSString *> *)pixivUrls error:(NSError *)error {
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取E-Hentai Title 中的Pixiv地址：流程结束"];
 }
 
 @end

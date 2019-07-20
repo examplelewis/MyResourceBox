@@ -117,6 +117,7 @@
 		ACE0502A22802BAC00367F3A /* FODayFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502922802BAC00367F3A /* FODayFolderManager.m */; };
 		ACE0502D22802CDD00367F3A /* FOFilteredImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502C22802CDD00367F3A /* FOFilteredImageManager.m */; };
 		ACE0503022802DF200367F3A /* FOFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502F22802DF200367F3A /* FOFolderManager.m */; };
+		ACE060D722E34280005329C3 /* ExHentaiTitlePixivUrlsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE060D622E34280005329C3 /* ExHentaiTitlePixivUrlsManager.m */; };
 		ACFFB866229F7F4D00FC41AA /* ResourceOrganizeMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */; };
 		ACFFB869229FAB7100FC41AA /* WeiboFetchedUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFFB868229FAB7100FC41AA /* WeiboFetchedUserManager.m */; };
 /* End PBXBuildFile section */
@@ -365,6 +366,8 @@
 		ACE0502C22802CDD00367F3A /* FOFilteredImageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOFilteredImageManager.m; sourceTree = "<group>"; };
 		ACE0502E22802DF200367F3A /* FOFolderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOFolderManager.h; sourceTree = "<group>"; };
 		ACE0502F22802DF200367F3A /* FOFolderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOFolderManager.m; sourceTree = "<group>"; };
+		ACE060D522E34280005329C3 /* ExHentaiTitlePixivUrlsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExHentaiTitlePixivUrlsManager.h; sourceTree = "<group>"; };
+		ACE060D622E34280005329C3 /* ExHentaiTitlePixivUrlsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExHentaiTitlePixivUrlsManager.m; sourceTree = "<group>"; };
 		ACF9FC67228159D600375505 /* MRBCommoms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCommoms.h; sourceTree = "<group>"; };
 		ACFFB864229F7F4D00FC41AA /* ResourceOrganizeMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceOrganizeMethod.h; sourceTree = "<group>"; };
 		ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceOrganizeMethod.m; sourceTree = "<group>"; };
@@ -492,6 +495,8 @@
 				AC789C7C1DE159E100523A12 /* ExHentaiUrlsManager.m */,
 				ACA0F05021E19E200097D144 /* ExHentaiPixivUrlsManager.h */,
 				ACA0F05121E19E200097D144 /* ExHentaiPixivUrlsManager.m */,
+				ACE060D522E34280005329C3 /* ExHentaiTitlePixivUrlsManager.h */,
+				ACE060D622E34280005329C3 /* ExHentaiTitlePixivUrlsManager.m */,
 			);
 			path = ExHentai;
 			sourceTree = "<group>";
@@ -1230,6 +1235,7 @@
 				ACC8EBAE22826785003CF448 /* Rule34Method.m in Sources */,
 				ACAFAADB21FDB13100323A0A /* PixivGeneralManager.m in Sources */,
 				AC9870691E4C4AB90076DC92 /* MRBSQLiteFMDBManager.m in Sources */,
+				ACE060D722E34280005329C3 /* ExHentaiTitlePixivUrlsManager.m in Sources */,
 				AC19E14E1E4844660084A510 /* PAPIIllustList.m in Sources */,
 				AC19E1501E4844660084A510 /* PixivAPI.m in Sources */,
 				AC98706A1E4C4AB90076DC92 /* MRBSQLiteManager.m in Sources */,
