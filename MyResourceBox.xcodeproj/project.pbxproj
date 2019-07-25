@@ -107,6 +107,8 @@
 		ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */; };
 		ACDA9144228A981F0074027E /* WeiboPicCroppingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDA9143228A981F0074027E /* WeiboPicCroppingManager.m */; };
 		ACDCD4F4228902F1005FC4FF /* PicResourceMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCD4F3228902F1005FC4FF /* PicResourceMethod.m */; };
+		ACDE0BBD22E98D5E006367D9 /* FOExtractTypesFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE0BBC22E98D5E006367D9 /* FOExtractTypesFileManager.m */; };
+		ACDE0BC022E99D89006367D9 /* FOExtractTypesFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE0BBF22E99D89006367D9 /* FOExtractTypesFileModel.m */; };
 		ACE0500C227FD3A200367F3A /* WorldCosplayFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0500B227FD3A200367F3A /* WorldCosplayFetchManager.m */; };
 		ACE05010227FD57400367F3A /* JDLingyuFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0500F227FD57400367F3A /* JDLingyuFetchManager.m */; };
 		ACE05014227FD9EE00367F3A /* WeiboBoundaryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE05013227FD9EE00367F3A /* WeiboBoundaryManager.m */; };
@@ -343,6 +345,10 @@
 		ACDA9143228A981F0074027E /* WeiboPicCroppingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboPicCroppingManager.m; sourceTree = "<group>"; };
 		ACDCD4F2228902F1005FC4FF /* PicResourceMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PicResourceMethod.h; sourceTree = "<group>"; };
 		ACDCD4F3228902F1005FC4FF /* PicResourceMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PicResourceMethod.m; sourceTree = "<group>"; };
+		ACDE0BBB22E98D5E006367D9 /* FOExtractTypesFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOExtractTypesFileManager.h; sourceTree = "<group>"; };
+		ACDE0BBC22E98D5E006367D9 /* FOExtractTypesFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOExtractTypesFileManager.m; sourceTree = "<group>"; };
+		ACDE0BBE22E99D89006367D9 /* FOExtractTypesFileModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOExtractTypesFileModel.h; sourceTree = "<group>"; };
+		ACDE0BBF22E99D89006367D9 /* FOExtractTypesFileModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOExtractTypesFileModel.m; sourceTree = "<group>"; };
 		ACE0500A227FD3A200367F3A /* WorldCosplayFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorldCosplayFetchManager.h; sourceTree = "<group>"; };
 		ACE0500B227FD3A200367F3A /* WorldCosplayFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorldCosplayFetchManager.m; sourceTree = "<group>"; };
 		ACE0500E227FD57400367F3A /* JDLingyuFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JDLingyuFetchManager.h; sourceTree = "<group>"; };
@@ -656,6 +662,8 @@
 				AC9870511E4C4A650076DC92 /* WeiboStatusObject.h */,
 				AC9870521E4C4A650076DC92 /* WeiboStatusObject.m */,
 				AC98705A1E4C4A980076DC92 /* PixivObject */,
+				ACDE0BBE22E99D89006367D9 /* FOExtractTypesFileModel.h */,
+				ACDE0BBF22E99D89006367D9 /* FOExtractTypesFileModel.m */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -930,6 +938,8 @@
 				ACE0502F22802DF200367F3A /* FOFolderManager.m */,
 				AC47543D1DCC461800880934 /* OrganizeManager.h */,
 				AC47543E1DCC461800880934 /* OrganizeManager.m */,
+				ACDE0BBB22E98D5E006367D9 /* FOExtractTypesFileManager.h */,
+				ACDE0BBC22E98D5E006367D9 /* FOExtractTypesFileManager.m */,
 			);
 			path = FileOperation;
 			sourceTree = "<group>";
@@ -1150,6 +1160,7 @@
 				ACE05014227FD9EE00367F3A /* WeiboBoundaryManager.m in Sources */,
 				ACC5C00722890C32004E7C83 /* PicResourceGIFWebmSeparateManager.m in Sources */,
 				ACC5C00422890AB2004E7C83 /* PicResourceTagExtractManager.m in Sources */,
+				ACDE0BBD22E98D5E006367D9 /* FOExtractTypesFileManager.m in Sources */,
 				ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */,
 				ACCCE269227E8F4D00A18C8D /* AnalysisFileManager.m in Sources */,
 				AC8509211DB3970D004AFE84 /* WeiboTokenWindowController.m in Sources */,
@@ -1170,6 +1181,7 @@
 				ACE0500C227FD3A200367F3A /* WorldCosplayFetchManager.m in Sources */,
 				ACC8BA682285289F0000E193 /* PicResourceTagFetchManager.m in Sources */,
 				ACE05010227FD57400367F3A /* JDLingyuFetchManager.m in Sources */,
+				ACDE0BC022E99D89006367D9 /* FOExtractTypesFileModel.m in Sources */,
 				ACE0503022802DF200367F3A /* FOFolderManager.m in Sources */,
 				AC9870631E4C4A980076DC92 /* PixivMasterObject.m in Sources */,
 				ACC93F042277F78200C207E6 /* PixivBlockingManager.m in Sources */,

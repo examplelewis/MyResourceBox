@@ -10,6 +10,7 @@
 #import "FODayFolderManager.h"
 #import "FOFilteredImageManager.h"
 #import "FOFolderManager.h"
+#import "FOExtractTypesFileManager.h"
 
 @implementation FileOperationMethod
 
@@ -35,6 +36,14 @@
             break;
         case 5: {
             [FOFolderManager prepareCopyingFolder];
+        }
+            break;
+        case 6: {
+            [[FOExtractTypesFileManager new] startExtractingSpecificTypes:nil];
+        }
+            break;
+        case 7: {
+            [[FOExtractTypesFileManager new] startExtractingSpecificTypes:@[@"gif"]];
         }
             break;
         default:
