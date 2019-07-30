@@ -102,7 +102,7 @@
                 for (TFHppleElement *elemnt in aArray) {
                     NSDictionary *aDic = [elemnt attributes];
                     NSString *string = [aDic objectForKey:@"href"];
-                    if ([string hasPrefix:@"https://exhentai.org/s/"]) {
+                    if ([string hasPrefix:@"https://exhentai.org/s/"] || [string hasPrefix:@"https://e-hentai.org/s/"]) {
                         [self->urlArray addObject:string];
                     }
                 }

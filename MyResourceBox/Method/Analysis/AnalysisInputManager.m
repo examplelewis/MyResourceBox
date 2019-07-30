@@ -20,7 +20,7 @@
     
     if ([inputString containsString:@"bcy."]) {
         [BCYMethod configMethod:1];
-    } else if ([inputString containsString:@"exhentai."]) {
+    } else if ([inputString containsString:@"exhentai."] || [inputString containsString:@"e-hentai."]) {
         [[ExHentaiManager defaultManager] configMethod:1];
     } else if ([inputString containsString:@"jdlingyu."]) {
         [JDLingyuMethod configMethod:1];
