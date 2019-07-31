@@ -8,6 +8,7 @@
 
 #import "JDLingyuFetchManager.h"
 #import "MRBDownloadQueueManager.h"
+#import "OrganizeManager.h"
 
 @interface JDLingyuFetchManager () {
     NSArray *urlArray;
@@ -98,6 +99,10 @@
 - (void)startDownload {
     MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:resultArray];
     manager.downloadPath = @"/Users/Mercury/Downloads/绝对领域";
+    manager.finishBlock = ^{
+        OrganizeManager *manager = [[OrganizeManager alloc] initWithPlistPath:@"/Users/Mercury/Downloads/JDlingyuRenameInfo.plist"];
+        [manager startOrganizing];
+    };
     [manager startDownload];
 }
 

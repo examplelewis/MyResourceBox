@@ -8,6 +8,7 @@
 
 #import "BCYFetchManager.h"
 #import "BCYHeader.h"
+#import "BCYOrganizingManager.h"
 #import "MRBSQLiteManager.h"
 #import "MRBSQLiteFMDBManager.h"
 #import "MRBCookieManager.h"
@@ -252,6 +253,9 @@
 - (void)startDownload {
     MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:resultArray];
     manager.downloadPath = BCYDefaultDownloadPath;
+    manager.finishBlock = ^{
+        [BCYOrganizingManager prepareOrganizing];
+    };
     [manager startDownload];
 }
 
