@@ -59,7 +59,12 @@
 }
 
 - (void)startFetching {
-    [[MRBLogManager defaultManager] showLogWithFormat:@"获取日常图片地址，流程开始"];
+    if ([[MRBFileManager defaultManager] isContentExistAtPath:GelbooruFatePostTxtPath]) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"已检测到之前获取到的文件, 可能获取完成之后并没有下载, 请先下载之前获取到的图片, 或者删除已下载的 txt 文件"];
+        return;
+    }
+    
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Gelbooru 日常图片地址，流程开始"];
     
     [self fetchSingleDailyPostUrl];
 }
@@ -158,7 +163,7 @@
         [self->webmNameInfo writeToFile:GelbooruWebmPostRenamePlistPath atomically:YES];
         
         
-        [[MRBLogManager defaultManager] showLogWithFormat:@"获取日常图片地址：第 %ld 页已获取", self->curPage + 1];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Gelbooru 日常图片地址：第 %ld 页已获取", self->curPage + 1];
         
         // 超过 200 页，就报错了
         if (self->curPage >= 199) {
@@ -175,8 +180,8 @@
         }
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
         DDLogError(@"%@: %@", errorTitle, errorMsg);
-        [[MRBLogManager defaultManager] showLogWithFormat:@"获取日常图片地址，遇到错误：%@: %@", errorTitle, errorMsg];
-        [[MRBLogManager defaultManager] showLogWithFormat:@"获取日常图片地址：流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Gelbooru 日常图片地址，遇到错误：%@: %@", errorTitle, errorMsg];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Gelbooru 日常图片地址：流程结束"];
     }];
 }
 - (void)fetchFatePostsSucceed {
@@ -195,7 +200,7 @@
     }
     
     [[MRBLogManager defaultManager] cleanLog];
-    [[MRBLogManager defaultManager] showLogWithFormat:@"获取日常图片地址：流程结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Gelbooru 日常图片地址：流程结束"];
 }
 
 @end
