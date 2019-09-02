@@ -48,16 +48,14 @@
                 //获取title标签
                 NSArray *titleArray = [xpathParser searchWithXPathQuery:@"//title"];
                 TFHppleElement *element = (TFHppleElement *)titleArray.firstObject;
-                NSString *title = [element.text stringByReplacingOccurrencesOfString:@" – 绝对领域" withString:@""];
+                NSString *title = [element.text stringByReplacingOccurrencesOfString:@" - 绝对领域" withString:@""];
                 
                 //获取img标签
                 NSArray *imgArray = [xpathParser searchWithXPathQuery:@"//img"];
                 NSMutableArray *fetchArray = [NSMutableArray array];
                 for (TFHppleElement *elemnt in imgArray) {
-                    NSDictionary *dic = [elemnt attributes];
-                    NSString *classString = [dic objectForKey:@"class"];
-                    NSString *srcString = dic[@"src"];
-                    if ([classString isEqualToString:@"alignnone size-medium"] || [classString isEqualToString:@"po-img-big"]) {
+                    NSString *srcString = [elemnt attributes][@"src"];
+                    if ([srcString containsString:@"jp235.cn"]) {
                         [fetchArray addObject:srcString];
                     }
                 }
