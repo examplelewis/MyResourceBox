@@ -75,15 +75,17 @@
 }
 
 + (void)prepareOrganizingPhotos {
-    MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
-    [alert setMessage:@"下载文件夹完整度" infomation:@"该项操作必须保证下载文件夹内只包含需要整理的资源，是否确认？"];
-    [alert setButtonTitle:@"取消操作" keyEquivalent:[NSString stringWithFormat:@"%C", 0x1b]];
-    [alert setButtonTitle:@"确认操作" keyEquivalent:@"\r"];
-    [alert showAlertAtMainWindowWithCompletionHandler:^(NSModalResponse returnCode) {
-        if (returnCode == NSAlertSecondButtonReturn) {
-            [self organizingPhotos];
-        }
-    }];
+//    MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+//    [alert setMessage:@"下载文件夹完整度" infomation:@"该项操作必须保证下载文件夹内只包含需要整理的资源，是否确认？"];
+//    [alert setButtonTitle:@"取消操作" keyEquivalent:[NSString stringWithFormat:@"%C", 0x1b]];
+//    [alert setButtonTitle:@"确认操作" keyEquivalent:@"\r"];
+//    [alert showAlertAtMainWindowWithCompletionHandler:^(NSModalResponse returnCode) {
+//        if (returnCode == NSAlertSecondButtonReturn) {
+//            [self organizingPhotos];
+//        }
+//    }];
+    
+    [self organizingPhotos];
 }
 + (void)organizingPhotos {
     [[MRBLogManager defaultManager] showLogWithFormat:@"移动整理筛选好的图片开始"];
@@ -97,9 +99,12 @@
 }
 + (void)organizingPhotosWithRootFolder:(NSString *)rootFolder totalData:(NSArray *)total {
     if (![[MRBFileManager defaultManager] isContentExistAtPath:rootFolder]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 文件夹不存在，无法整理 ACG 文件夹里的内容", rootFolder];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 文件夹不存在，无法移动文件夹里的内容", rootFolder];
+        
         return;
     }
+    
+    [[MRBLogManager defaultManager] showLogWithFormat:@"开始移动 %@ 文件夹里的内容", rootFolder];
     
     NSArray *subFolderPaths = [[MRBFileManager defaultManager] getFolderPathsInFolder:rootFolder];
     for (NSInteger i = 0; i < subFolderPaths.count; i++) {
@@ -119,6 +124,8 @@
         }];
         NSArray *filter = [total filteredArrayUsingPredicate:predicate];
         if (filter.count == 0) {
+            [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 里没有 %@ 的目标记录", rootFolder, subFolderName];
+            
             continue; // 如果筛选没有结果，说明文件夹的名字在数据库中没有记录，那么跳过这个文件夹
         }
         NSDictionary *destObj = (NSDictionary *)filter.firstObject;
@@ -134,11 +141,16 @@
             [[MRBFileManager defaultManager] moveItemAtPath:filePath toDestPath:destPath];
         }
         
-        // 所有文件都移动之后，将源文件夹移动到废纸篓中
-        [[MRBFileManager defaultManager] trashFileAtPath:subFolderPath resultItemURL:nil];
+        // 判断文件夹内是否还有内容：如果有的话，那就不删除文件夹；没有内容的话，就将源文件夹移动到废纸篓中
+        NSArray *leftFiles = [[MRBFileManager defaultManager] getFilePathsInFolder:subFolderPath];
+        if (leftFiles.count == 0) {
+            [[MRBFileManager defaultManager] trashFileAtPath:subFolderPath resultItemURL:nil];
+        }
         
         [[MRBLogManager defaultManager] showLogWithFormat:@"完成整理图片: %@", subFolderName];
     }
+    
+    [[MRBLogManager defaultManager] showLogWithFormat:@"结束移动 %@ 文件夹里的内容", rootFolder];
 }
 
 + (void)organizingExportPhotos {
