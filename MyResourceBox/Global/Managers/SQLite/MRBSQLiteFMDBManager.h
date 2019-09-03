@@ -36,8 +36,9 @@
 - (NSArray *)readPhotoOrganDest;
 - (NSArray *)readPhotoOrganDownload;
 - (void)deleteAllPhotoOrganTotal;
-- (void)insertSinglePhotoOrganTotal:(NSString *)folder dest:(NSString *)destination;
+- (void)insertSinglePhotoOrganTotal:(NSString *)folder dest:(NSString *)destination inTable:(NSString *)table;
 - (NSArray *)readPhotoOrganTotal;
+- (NSString *)readOrganRootFolder;
 
 #pragma mark - WeiboStatus
 - (BOOL)isDuplicateFromDatabaseWithWeiboStatusId:(NSString *)weiboStatusId;

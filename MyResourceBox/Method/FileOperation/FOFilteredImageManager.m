@@ -12,29 +12,66 @@
 @implementation FOFilteredImageManager
 
 + (void)organizingDatabase {
-    [[MRBLogManager defaultManager] showLogWithFormat:@"开始整理数据表: photoOrganTotal"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"开始整理数据表"];
     
-    NSArray *downloads = [NSArray arrayWithArray:[[MRBSQLiteFMDBManager defaultDBManager] readPhotoOrganDownload]];
-    NSArray *dests = [NSArray arrayWithArray:[[MRBSQLiteFMDBManager defaultDBManager] readPhotoOrganDest]];
+    NSArray *downloads = [[MRBSQLiteFMDBManager defaultDBManager] readPhotoOrganDownload];
+    NSArray *acgDownloads = downloads[0];
+    NSArray *cosplayDownloads = downloads[1];
+    NSArray *zhenrenDownloads = downloads[2];
+    
+    NSArray *dests = [[MRBSQLiteFMDBManager defaultDBManager] readPhotoOrganDest];
+    NSArray *acgDests = dests[0];
+    NSArray *cosplayDests = dests[1];
+    NSArray *zhenrenDests = dests[2];
+    
+    NSString *root = [[MRBSQLiteFMDBManager defaultDBManager] readOrganRootFolder];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"开始删除已有的数据"];
     [[MRBSQLiteFMDBManager defaultDBManager] deleteAllPhotoOrganTotal];
     
-    [[MRBLogManager defaultManager] showLogWithFormat:@"开始添加新的数据"];
-    for (NSInteger i = 0; i < downloads.count; i++) {
-        NSDictionary *download = [NSDictionary dictionaryWithDictionary:downloads[i]];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"开始添加ACG新的数据"];
+    for (NSInteger i = 0; i < acgDownloads.count; i++) {
+        NSDictionary *download = [NSDictionary dictionaryWithDictionary:acgDownloads[i]];
+
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"copyright = %@", download[@"copyright"]];
+        NSArray *filter = [acgDests filteredArrayUsingPredicate:predicate];
+        if (filter.count == 0) {
+            continue;
+        }
+        NSDictionary *dest = [NSDictionary dictionaryWithDictionary:filter.firstObject];
+
+        [[MRBSQLiteFMDBManager defaultDBManager] insertSinglePhotoOrganTotal:download[@"folder"] dest:[root stringByAppendingPathComponent:dest[@"destination"]] inTable:@"photoOrganACGTotal"];
+    }
+    
+    [[MRBLogManager defaultManager] showLogWithFormat:@"开始添加Cosplay新的数据"];
+    for (NSInteger i = 0; i < cosplayDownloads.count; i++) {
+        NSDictionary *download = [NSDictionary dictionaryWithDictionary:cosplayDownloads[i]];
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"copyright = %@", download[@"copyright"]];
-        NSArray *filter = [dests filteredArrayUsingPredicate:predicate];
+        NSArray *filter = [cosplayDests filteredArrayUsingPredicate:predicate];
         if (filter.count == 0) {
             continue;
         }
         NSDictionary *dest = [NSDictionary dictionaryWithDictionary:filter.firstObject];
         
-        [[MRBSQLiteFMDBManager defaultDBManager] insertSinglePhotoOrganTotal:download[@"folder"] dest:dest[@"destination"]];
+        [[MRBSQLiteFMDBManager defaultDBManager] insertSinglePhotoOrganTotal:download[@"folder"] dest:[root stringByAppendingPathComponent:dest[@"destination"]] inTable:@"photoOrganCosplayTotal"];
     }
     
-    [[MRBLogManager defaultManager] showLogWithFormat:@"整理数据表: photoOrganTotal 完成"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"开始添加真人新的数据"];
+    for (NSInteger i = 0; i < zhenrenDownloads.count; i++) {
+        NSDictionary *download = [NSDictionary dictionaryWithDictionary:zhenrenDownloads[i]];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"copyright = %@", download[@"copyright"]];
+        NSArray *filter = [zhenrenDests filteredArrayUsingPredicate:predicate];
+        if (filter.count == 0) {
+            continue;
+        }
+        NSDictionary *dest = [NSDictionary dictionaryWithDictionary:filter.firstObject];
+        
+        [[MRBSQLiteFMDBManager defaultDBManager] insertSinglePhotoOrganTotal:download[@"folder"] dest:[root stringByAppendingPathComponent:dest[@"destination"]] inTable:@"photoOrganZhenrenTotal"];
+    }
+    
+    [[MRBLogManager defaultManager] showLogWithFormat:@"整理数据表完成"];
 }
 
 + (void)prepareOrganizingPhotos {
@@ -49,11 +86,22 @@
     }];
 }
 + (void)organizingPhotos {
-    [[MRBLogManager defaultManager] showLogWithFormat:@"整理图片开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"移动整理筛选好的图片开始"];
     
-    NSArray *total = [NSArray arrayWithArray:[[MRBSQLiteFMDBManager defaultDBManager] readPhotoOrganTotal]];
-    NSArray *subFolderPaths = [[MRBFileManager defaultManager] getFolderPathsInFolder:@"/Users/Mercury/Downloads"];
+    NSArray *total = [[MRBSQLiteFMDBManager defaultDBManager] readPhotoOrganTotal];
+    [self organizingPhotosWithRootFolder:@"/Users/Mercury/Downloads/ACG" totalData:total[0]];
+    [self organizingPhotosWithRootFolder:@"/Users/Mercury/Downloads/Cosplay" totalData:total[1]];
+    [self organizingPhotosWithRootFolder:@"/Users/Mercury/Downloads/真人" totalData:total[2]];
     
+    [[MRBLogManager defaultManager] showLogWithFormat:@"移动整理筛选好的图片结束"];
+}
++ (void)organizingPhotosWithRootFolder:(NSString *)rootFolder totalData:(NSArray *)total {
+    if (![[MRBFileManager defaultManager] isContentExistAtPath:rootFolder]) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 文件夹不存在，无法整理 ACG 文件夹里的内容", rootFolder];
+        return;
+    }
+    
+    NSArray *subFolderPaths = [[MRBFileManager defaultManager] getFolderPathsInFolder:rootFolder];
     for (NSInteger i = 0; i < subFolderPaths.count; i++) {
         // 取得下载文件夹中源文件夹的路径和名字
         NSString *subFolderPath = subFolderPaths[i];
@@ -91,8 +139,6 @@
         
         [[MRBLogManager defaultManager] showLogWithFormat:@"完成整理图片: %@", subFolderName];
     }
-    
-    [[MRBLogManager defaultManager] showLogWithFormat:@"整理图片结束"];
 }
 
 + (void)organizingExportPhotos {

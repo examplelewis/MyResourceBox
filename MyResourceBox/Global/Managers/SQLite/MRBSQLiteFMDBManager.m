@@ -307,25 +307,47 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表: photoOrganDest 中查询数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据库打开失败：%@", [db lastErrorMessage]];
         
         return @[];
     }
     //为数据库设置缓存，提高查询效率
     [db setShouldCacheStatements:YES];
     
-    NSMutableArray *array = [NSMutableArray array];
-    FMResultSet *rs = [db executeQuery:@"select * from photoOrganDest"];
-    while ([rs next]) {
-        NSString *copyright = [rs stringForColumn:@"copyright"];
-        NSString *destination = [rs stringForColumn:@"destination"];
+    NSMutableArray *acgResult = [NSMutableArray array];
+    FMResultSet *acgRS = [db executeQuery:@"select * from photoOrganACGDest"];
+    while ([acgRS next]) {
+        NSString *copyright = [acgRS stringForColumn:@"copyright"];
+        NSString *destination = [acgRS stringForColumn:@"destination"];
         
-        [array addObject:@{@"copyright": copyright, @"destination": destination}];
+        [acgResult addObject:@{@"copyright": copyright, @"destination": destination}];
     }
-    [rs close];
+    
+    NSMutableArray *cosplayResult = [NSMutableArray array];
+    FMResultSet *cosplayRS = [db executeQuery:@"select * from photoOrganCosplayDest"];
+    while ([cosplayRS next]) {
+        NSString *copyright = [cosplayRS stringForColumn:@"copyright"];
+        NSString *destination = [cosplayRS stringForColumn:@"destination"];
+        
+        [cosplayResult addObject:@{@"copyright": copyright, @"destination": destination}];
+    }
+    
+    NSMutableArray *zhenrenResult = [NSMutableArray array];
+    FMResultSet *zhenrenRS = [db executeQuery:@"select * from photoOrganZhenrenDest"];
+    while ([zhenrenRS next]) {
+        NSString *copyright = [zhenrenRS stringForColumn:@"copyright"];
+        NSString *destination = [zhenrenRS stringForColumn:@"destination"];
+        
+        [zhenrenResult addObject:@{@"copyright": copyright, @"destination": destination}];
+    }
+    
+    [acgRS close];
+    [cosplayRS close];
+    [zhenrenRS close];
+    
     [db close];
     
-    return [array copy];
+    return @[[acgResult copy], [cosplayResult copy], [zhenrenResult copy]];
 }
 - (NSArray *)readPhotoOrganDownload {
     //先判断数据库是否存在，如果不存在，创建数据库
@@ -334,26 +356,47 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表: photoOrganDownload 中查询数据时发生错误：%@", [db lastErrorMessage]];
-        
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据库打开失败：%@", [db lastErrorMessage]];
         
         return @[];
     }
     //为数据库设置缓存，提高查询效率
     [db setShouldCacheStatements:YES];
     
-    NSMutableArray *array = [NSMutableArray array];
-    FMResultSet *rs = [db executeQuery:@"select * from photoOrganDownload"];
-    while ([rs next]) {
-        NSString *copyright = [rs stringForColumn:@"copyright"];
-        NSString *folder = [rs stringForColumn:@"folder"];
+    NSMutableArray *acgResult = [NSMutableArray array];
+    FMResultSet *acgRS = [db executeQuery:@"select * from photoOrganACGDownload"];
+    while ([acgRS next]) {
+        NSString *copyright = [acgRS stringForColumn:@"copyright"];
+        NSString *folder = [acgRS stringForColumn:@"folder"];
         
-        [array addObject:@{@"copyright": copyright, @"folder": folder}];
+        [acgResult addObject:@{@"copyright": copyright, @"folder": folder}];
     }
-    [rs close];
+    
+    NSMutableArray *cosplayResult = [NSMutableArray array];
+    FMResultSet *cosplayRS = [db executeQuery:@"select * from photoOrganCosplayDownload"];
+    while ([cosplayRS next]) {
+        NSString *copyright = [cosplayRS stringForColumn:@"copyright"];
+        NSString *folder = [cosplayRS stringForColumn:@"folder"];
+        
+        [cosplayResult addObject:@{@"copyright": copyright, @"folder": folder}];
+    }
+    
+    NSMutableArray *zhenrenResult = [NSMutableArray array];
+    FMResultSet *zhenrenRS = [db executeQuery:@"select * from photoOrganZhenrenDownload"];
+    while ([zhenrenRS next]) {
+        NSString *copyright = [zhenrenRS stringForColumn:@"copyright"];
+        NSString *folder = [zhenrenRS stringForColumn:@"folder"];
+        
+        [zhenrenResult addObject:@{@"copyright": copyright, @"folder": folder}];
+    }
+    
+    [acgRS close];
+    [cosplayRS close];
+    [zhenrenRS close];
+    
     [db close];
     
-    return [array copy];
+    return @[[acgResult copy], [cosplayResult copy], [zhenrenResult copy]];
 }
 - (void)deleteAllPhotoOrganTotal {
     //先判断数据库是否存在，如果不存在，创建数据库
@@ -362,37 +405,46 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表: photoOrganTotal 中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据库打开失败：%@", [db lastErrorMessage]];
         
         return;
     }
     //为数据库设置缓存，提高查询效率
     [db setShouldCacheStatements:YES];
     
-    BOOL success = [db executeUpdate:@"delete from photoOrganTotal"];
-    if (!success) {
-        NSLog(@"从数据表: photoOrganTotal 中删除所有数据时发生错误: %@", [db lastErrorMessage]);
+    BOOL acgSuccess = [db executeUpdate:@"delete from photoOrganACGTotal"];
+    if (!acgSuccess) {
+        NSLog(@"从数据表: photoOrganACGTotal 中删除所有数据时发生错误: %@", [db lastErrorMessage]);
+    }
+    BOOL cosplaySuccess = [db executeUpdate:@"delete from photoOrganCosplayTotal"];
+    if (!cosplaySuccess) {
+        NSLog(@"从数据表: photoOrganCosplayTotal 中删除所有数据时发生错误: %@", [db lastErrorMessage]);
+    }
+    BOOL zhenrenSuccess = [db executeUpdate:@"delete from photoOrganZhenrenTotal"];
+    if (!zhenrenSuccess) {
+        NSLog(@"从数据表: photoOrganZhenrenTotal 中删除所有数据时发生错误: %@", [db lastErrorMessage]);
     }
     
     [db close];
 }
-- (void)insertSinglePhotoOrganTotal:(NSString *)folder dest:(NSString *)destination {
+- (void)insertSinglePhotoOrganTotal:(NSString *)folder dest:(NSString *)destination inTable:(NSString *)table {
     //先判断数据库是否存在，如果不存在，创建数据库
     if (!db) {
         [self createDatabase];
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表: photoOrganTotal 中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据库打开失败：%@", [db lastErrorMessage]];
         
         return;
     }
     //为数据库设置缓存，提高查询效率
     [db setShouldCacheStatements:YES];
     
-    BOOL success = [db executeUpdate:@"INSERT INTO photoOrganTotal (folder, destination) values(?, ?)", folder, destination];
+    NSString *update = [NSString stringWithFormat:@"INSERT INTO %@ (folder, destination) values('%@', '%@');", table, folder, destination];
+    BOOL success = [db executeUpdate:update];
     if (!success) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表: photoOrganTotal 中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表: %@ 中插入数据时发生错误：%@", table, [db lastErrorMessage]];
         [[MRBLogManager defaultManager] showLogWithFormat:@"数据：folder: %@, destination: %@", folder, destination];
     }
     
@@ -405,25 +457,71 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表: photoOrganTotal 中查询数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据库打开失败：%@", [db lastErrorMessage]];
         
         return @[];
     }
     //为数据库设置缓存，提高查询效率
     [db setShouldCacheStatements:YES];
     
-    NSMutableArray *array = [NSMutableArray array];
-    FMResultSet *rs = [db executeQuery:@"select * from photoOrganTotal"];
-    while ([rs next]) {
-        NSString *destination = [rs stringForColumn:@"destination"];
-        NSString *folder = [rs stringForColumn:@"folder"];
+    NSMutableArray *acgResult = [NSMutableArray array];
+    FMResultSet *acgRS = [db executeQuery:@"select * from photoOrganACGTotal"];
+    while ([acgRS next]) {
+        NSString *destination = [acgRS stringForColumn:@"destination"];
+        NSString *folder = [acgRS stringForColumn:@"folder"];
         
-        [array addObject:@{@"destination": destination, @"folder": folder}];
+        [acgResult addObject:@{@"destination": destination, @"folder": folder}];
+    }
+    
+    NSMutableArray *cosplayResult = [NSMutableArray array];
+    FMResultSet *cosplayRS = [db executeQuery:@"select * from photoOrganCosplayTotal"];
+    while ([cosplayRS next]) {
+        NSString *destination = [cosplayRS stringForColumn:@"destination"];
+        NSString *folder = [cosplayRS stringForColumn:@"folder"];
+        
+        [cosplayResult addObject:@{@"destination": destination, @"folder": folder}];
+    }
+    
+    NSMutableArray *zhenrenResult = [NSMutableArray array];
+    FMResultSet *zhenrenRS = [db executeQuery:@"select * from photoOrganZhenrenTotal"];
+    while ([zhenrenRS next]) {
+        NSString *destination = [zhenrenRS stringForColumn:@"destination"];
+        NSString *folder = [zhenrenRS stringForColumn:@"folder"];
+        
+        [zhenrenResult addObject:@{@"destination": destination, @"folder": folder}];
+    }
+    
+    [acgRS close];
+    [cosplayRS close];
+    [zhenrenRS close];
+    
+    [db close];
+    
+    return @[[acgResult copy], [cosplayResult copy], [zhenrenResult copy]];
+}
+- (NSString *)readOrganRootFolder {
+    //先判断数据库是否存在，如果不存在，创建数据库
+    if (!db) {
+        [self createDatabase];
+    }
+    //判断数据库是否已经打开，如果没有打开，提示失败
+    if (![db open]) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据库打开失败：%@", [db lastErrorMessage]];
+        
+        return @"";
+    }
+    //为数据库设置缓存，提高查询效率
+    [db setShouldCacheStatements:YES];
+    
+    NSString *root = @"";
+    FMResultSet *rs = [db executeQuery:@"select value from sysConst where type = 2"];
+    while ([rs next]) {
+        root = [rs stringForColumn:@"value"];
     }
     [rs close];
     [db close];
     
-    return [array copy];
+    return root;
 }
 
 #pragma mark - WeiboStatus
