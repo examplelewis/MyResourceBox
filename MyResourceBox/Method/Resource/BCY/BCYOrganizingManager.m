@@ -84,14 +84,16 @@
     }
     [[MRBLogManager defaultManager] showLogWithFormat:@"Plist中记录的图片已经整理完成"];
     
-    // 新建"未整理"文件夹并将剩下的图片整理到"未整理"文件夹
-    NSString *otherFolderName = [rootFolderName stringByAppendingPathComponent:@"未整理"];
-    [fm createFolderAtPathIfNotExist:otherFolderName];
-    
+    // 如果还有未整理的文件的话，新建"未整理"文件夹并将剩下的图片整理到"未整理"文件夹
     NSArray<NSString *> *imageFiles = [fm getFilePathsInFolder:rootFolderName specificExtensions:simplePhotoType];
-    for (NSString *filePath in imageFiles) {
-        NSString *destPath = [otherFolderName stringByAppendingPathComponent:filePath.lastPathComponent];
-        [fm moveItemAtPath:filePath toDestPath:destPath];
+    if (imageFiles.count > 0) {
+        NSString *otherFolderName = [rootFolderName stringByAppendingPathComponent:@"未整理"];
+        [fm createFolderAtPathIfNotExist:otherFolderName];
+        
+        for (NSString *filePath in imageFiles) {
+            NSString *destPath = [otherFolderName stringByAppendingPathComponent:filePath.lastPathComponent];
+            [fm moveItemAtPath:filePath toDestPath:destPath];
+        }
     }
     
     [fm trashFileAtPath:BCYRenameInfoPath resultItemURL:nil];

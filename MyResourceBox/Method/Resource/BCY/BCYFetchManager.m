@@ -136,6 +136,7 @@
                 NSArray *titleArray = [xpathParser searchWithXPathQuery:@"//title"];
                 TFHppleElement *element = (TFHppleElement *)titleArray.firstObject;
                 NSString *title = [element.text stringByReplacingOccurrencesOfString:@" | 半次元-第一中文COS绘画小说社区" withString:@""];
+                title = [title stringByReplacingOccurrencesOfString:@" - 半次元 - ACG爱好者社区" withString:@""];
                 title = [title stringByReplacingOccurrencesOfString:@"/" withString:@" "];
                 
                 
@@ -156,33 +157,44 @@
                 NSArray *matchUrlsResult = [matchResult valueForKeyPath:@"URL.absoluteString"];
                 
                 NSArray *imageUrls = [matchUrlsResult bk_select:^BOOL(NSString *obj) {
-                    BOOL contains = [obj containsString:@"img-bcy-qn.pstatp.com/coser/"] || [obj containsString:@"img-bcy-qn.pstatp.com/user/"];
-                    BOOL doesnotContains = ![obj containsString:@"post_count"] && ![obj containsString:@"2X2"];
+                    // 确认地址
+                    BOOL hostContains = [obj containsString:@"img-bcy-qn.pstatp.com/coser/"] || [obj containsString:@"img-bcy-qn.pstatp.com/user/"] || [obj containsString:@"byteimg.com/img/banciyuan/user/"];
+                    // 确认原图
+                    BOOL originalImageContains = [obj containsString:@"~noop.image"];
                     
-                    return contains && doesnotContains;
-                }];
-                NSArray *rawImageUrls = [imageUrls bk_map:^(NSString *obj) {
-                    NSString *newObj = [obj stringByReplacingOccurrencesOfString:@",\"type\"" withString:@""];
-                    newObj = [newObj stringByReplacingOccurrencesOfString:@"/w650\"" withString:@""];
-                    newObj = [newObj stringByReplacingOccurrencesOfString:@"/w230\"" withString:@""];
-                    newObj = [newObj stringByReplacingOccurrencesOfString:@"\"},{\"type\"" withString:@""];
-                    
-                    return newObj;
+                    return hostContains && originalImageContains;
                 }];
                 
-                NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-                    return [evaluatedObject hasSuffix:@"jpg"] || [evaluatedObject hasSuffix:@"jpeg"] || [evaluatedObject hasSuffix:@"png"];
-                }];
-                NSMutableArray *newImageUrls = [NSMutableArray arrayWithArray:[rawImageUrls filteredArrayUsingPredicate:predicate]];
+//                // 修饰图片后缀
+//                NSArray *rawImageUrls = [imageUrls bk_map:^(NSString *obj) {
+//                    NSString *newObj = [obj stringByReplacingOccurrencesOfString:@",\"type\"" withString:@""];
+//                    newObj = [newObj stringByReplacingOccurrencesOfString:@"/w650\"" withString:@""];
+//                    newObj = [newObj stringByReplacingOccurrencesOfString:@"/w230\"" withString:@""];
+//                    newObj = [newObj stringByReplacingOccurrencesOfString:@"\"},{\"type\"" withString:@""];
+//
+//                    return newObj;
+//                }];
+                
+//                // 排除可能错误的格式
+//                NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+//                    return [evaluatedObject hasSuffix:@"jpg"] || [evaluatedObject hasSuffix:@"jpeg"] || [evaluatedObject hasSuffix:@"png"];
+//                }];
+//                NSMutableArray *newImageUrls = [NSMutableArray arrayWithArray:[rawImageUrls filteredArrayUsingPredicate:predicate]];
+                
+                NSArray *newImageUrls = [imageUrls copy];
                 
                 // 结果
                 if (newImageUrls.count > 0) {
                     [self->resultArray addObjectsFromArray:newImageUrls];
                     
+                    // 现在的图片地址后面带上了 ~noop.image，需要去除
+                    NSArray *renameUrls = [newImageUrls bk_map:^id(NSString *obj) {
+                        return [obj stringByReplacingOccurrencesOfString:@"~noop.image" withString:@""];
+                    }];
                     if ([self->renameDict.allKeys containsObject:title]) {
-                        [(NSMutableArray *)self->renameDict[title] addObjectsFromArray:newImageUrls];
+                        [(NSMutableArray *)self->renameDict[title] addObjectsFromArray:renameUrls];
                     } else {
-                        [self->renameDict setObject:newImageUrls forKey:title];
+                        [self->renameDict setObject:renameUrls forKey:title];
                     }
                     
                     [self didFinishDownloadingOnePicture:YES];
@@ -254,9 +266,21 @@
     MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:resultArray];
     manager.downloadPath = BCYDefaultDownloadPath;
     manager.finishBlock = ^{
+        [BCYFetchManager renameAllDownloadFilenames];
         [BCYOrganizingManager prepareOrganizing];
     };
     [manager startDownload];
+}
+// 7、下载完成后重命名
++ (void)renameAllDownloadFilenames {
+    NSArray *filePaths = [[MRBFileManager defaultManager] getFilePathsInFolder:BCYDefaultDownloadPath];
+    for (NSInteger i = 0; i < filePaths.count; i++) {
+        NSString *filePath = filePaths[i];
+        NSString *destPath = [filePath stringByReplacingOccurrencesOfString:@"~noop.image" withString:@""];
+        destPath = [destPath stringByDeletingPathExtension];
+        
+        [[MRBFileManager defaultManager] moveItemAtPath:filePath toDestPath:destPath];
+    }
 }
 
 #pragma mark -- 辅助方法 --
