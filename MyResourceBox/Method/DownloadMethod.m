@@ -85,6 +85,7 @@
                 DDLogInfo(@"已选择的 txt 文件：%@", panel.URLs.firstObject);
                 
                 NSString *txtFilePath = panel.URLs.firstObject.absoluteString;
+                txtFilePath = [txtFilePath stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
                 txtFilePath = [txtFilePath stringByReplacingOccurrencesOfString:@"file://" withString:@""];
                 NSString *downloadStr = [[NSString alloc] initWithContentsOfFile:txtFilePath encoding:NSUTF8StringEncoding error:nil];
                 NSArray *downloadList = [downloadStr componentsSeparatedByString:@"\n"];

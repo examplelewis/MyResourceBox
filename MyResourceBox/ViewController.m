@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <TFHpple.h>
 
 @implementation ViewController
 
@@ -53,6 +54,36 @@
 //
 //    }
 //    self.outputTextView.string = [MRBUtilityManager convertResultArray:result];
+}
+
+- (void)patchShortLinkNumbers {
+    NSString *testString = [NSString stringWithContentsOfFile:@"/Users/Mercury/Downloads/test.txt" encoding:NSUTF8StringEncoding error:nil];
+    NSData *data = [testString dataUsingEncoding:NSUTF8StringEncoding];
+    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:data];
+    
+    //获取 tbody 标签
+    NSString *result = @"";
+    NSArray *tbodyArray = [xpathParser searchWithXPathQuery:@"//tbody"];
+    TFHppleElement *element = (TFHppleElement *)tbodyArray.firstObject;
+    for (NSInteger i = 0; i < element.children.count; i++) {
+        TFHppleElement *childElement = (TFHppleElement *)element.children[i];
+        for (NSInteger j = 0; j < childElement.children.count; j++) {
+            TFHppleElement *rowElement = (TFHppleElement *)childElement.children[j];
+            TFHppleElement *subElement = (TFHppleElement *)rowElement.children[0];
+            if (subElement.isTextNode) {
+                result = [result stringByAppendingFormat:@"%@\t", subElement.content];
+            } else {
+                result = [result stringByAppendingFormat:@"%@\t", subElement.attributes[@"title"]];
+            }
+        }
+        
+        result = [result substringToIndex:result.length - 1]; // 去掉最后一个 \t
+        result = [result stringByAppendingString:@"\n"];
+    }
+    
+    result = [result substringToIndex:result.length - 1]; // 去掉最后一个 \n
+    
+    [result writeToFile:@"/Users/Mercury/Downloads/testResult.txt" atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 
 @end
