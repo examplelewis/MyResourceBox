@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -896,19 +896,19 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Rule34" id="Vpw-mk-gMg">
                                                 <items>
-                                                    <menuItem title="获取日常图片地址" tag="1" id="l3C-il-L2O">
+                                                    <menuItem title="获取日常图片地址【暂时不用】" tag="1" id="l3C-il-L2O">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingRule34:" target="Voe-Tx-rLC" id="w2b-sX-7Uh"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="下载并整理日常图片" tag="2" id="AgG-gu-QTH">
+                                                    <menuItem title="下载并整理日常图片【暂时不用】" tag="2" id="AgG-gu-QTH">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingRule34:" target="Voe-Tx-rLC" id="zQn-24-hQB"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="移动整理好的日常图片" tag="3" id="QM9-ie-dhM">
+                                                    <menuItem title="移动整理好的日常图片【暂时不用】" tag="3" id="QM9-ie-dhM">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingRule34:" target="Voe-Tx-rLC" id="FW2-xm-ZsJ"/>
@@ -1328,24 +1328,24 @@
                                 <rect key="frame" x="62" y="592" width="94" height="32"/>
                                 <buttonCell key="cell" type="push" title="导出输入" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gCb-Ht-uci">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="processingExportInput:" target="XfG-lQ-9wD" id="peU-Jw-Bz1"/>
                                 </connections>
                             </button>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgR-Yu-4ZH">
-                                <rect key="frame" x="20" y="95" width="320" height="496"/>
+                                <rect key="frame" x="20" y="94" width="320" height="497"/>
                                 <clipView key="contentView" drawsBackground="NO" id="Wfw-0J-Os6">
-                                    <rect key="frame" x="1" y="1" width="318" height="494"/>
+                                    <rect key="frame" x="1" y="1" width="318" height="495"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="F0B-Y0-ZEn">
-                                            <rect key="frame" x="0.0" y="0.0" width="318" height="494"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="318" height="495"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="318" height="494"/>
+                                            <size key="minSize" width="318" height="495"/>
                                             <size key="maxSize" width="790" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
@@ -1360,7 +1360,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="47Q-De-Gky">
-                                    <rect key="frame" x="303" y="1" width="16" height="494"/>
+                                    <rect key="frame" x="303" y="1" width="16" height="495"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1370,7 +1370,7 @@
                                     <constraint firstAttribute="height" constant="21" id="rd2-zb-RoB"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="输入" id="VH9-Ae-GhK">
-                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1381,23 +1381,23 @@
                                     <constraint firstAttribute="height" constant="21" id="CLv-tC-OSf"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="日志" id="Bsf-pf-efe">
-                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <scrollView wantsLayer="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvG-4t-YjL">
-                                <rect key="frame" x="360" y="95" width="644" height="496"/>
+                                <rect key="frame" x="360" y="94" width="644" height="497"/>
                                 <clipView key="contentView" drawsBackground="NO" id="88d-PJ-wLz">
-                                    <rect key="frame" x="1" y="1" width="642" height="494"/>
+                                    <rect key="frame" x="1" y="1" width="642" height="495"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="DgS-6a-90d">
-                                            <rect key="frame" x="0.0" y="0.0" width="642" height="494"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="642" height="495"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="642" height="494"/>
+                                            <size key="minSize" width="642" height="495"/>
                                             <size key="maxSize" width="662" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
@@ -1412,12 +1412,12 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="wa4-ov-5lj">
-                                    <rect key="frame" x="627" y="1" width="16" height="494"/>
+                                    <rect key="frame" x="627" y="1" width="16" height="495"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cpf-GE-6vb">
-                                <rect key="frame" x="974" y="58" width="32" height="17"/>
+                                <rect key="frame" x="974" y="58" width="32" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0 / 0" id="Vbm-AT-vLX">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1444,7 +1444,7 @@
                                 <rect key="frame" x="278" y="592" width="67" height="32"/>
                                 <buttonCell key="cell" type="push" title="临时" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v6t-Dj-6ox">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="processingTemp:" target="XfG-lQ-9wD" id="y4K-FM-QRe"/>
