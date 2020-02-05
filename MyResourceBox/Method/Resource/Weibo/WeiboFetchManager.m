@@ -111,6 +111,7 @@
             }
             statusKey = [statusKey stringByAppendingFormat:@"【%@-%@】", object.user_screen_name, object.created_at_readable_str];
             statusKey = [statusKey stringByReplacingOccurrencesOfString:@"/" withString:@" "]; // 防止有 / 出现
+            statusKey = [statusKey stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
             
             [self->weiboIds addObject:object.id_str];
             [self->weiboObjects addObject:object];
