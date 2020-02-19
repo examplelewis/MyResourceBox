@@ -50,29 +50,25 @@
     [[MRBLogManager defaultManager] showLogWithFormat:@"整理ExHentai导出的用户，流程结束"];
 }
 
-// Step 1: 将 url 全部修正成 https://www.pixiv.net/member_illust.php?id=xxx 的格式
+// Step 1: 将 url 全部修正成 userId 的格式
 - (void)fixPixivUrls {
     NSMutableArray *useless = [NSMutableArray array]; // 无用的
     
     for (NSInteger i = fixedUserUrls.count - 1; i >= 0; i--) {
         NSString *url = fixedUserUrls[i];
         
-        if ([url containsString:@"fanbox"]) {
-            // https://www.pixiv.net/fanbox/creator/24872309
-            url = [NSString stringWithFormat:@"https://www.pixiv.net/member_illust.php?id=%@", url.lastPathComponent];
-            
-            [fixedUserUrls replaceObjectAtIndex:i withObject:url];
-        } else {
-            // https://www.pixiv.net/member.php?id=24872309
-            url = [url stringByReplacingOccurrencesOfString:@"http://" withString:@"https://"];
-            url = [url stringByReplacingOccurrencesOfString:@"member.php" withString:@"member_illust.php"];
-            
-            [fixedUserUrls replaceObjectAtIndex:i withObject:url];
-        }
+        NSScanner *scanner = [NSScanner scannerWithString:url];
+        NSCharacterSet *numberSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+
+        [scanner scanUpToCharactersFromSet:numberSet intoString:NULL];
+        NSString *numberString;
+        [scanner scanCharactersFromSet:numberSet intoString:&numberString];
         
-        if (![url containsString:@"www.pixiv.net"] || ![url containsString:@"="]) {
+        if ([numberString integerValue] == 0) {
             [useless addObject:url];
             [fixedUserUrls removeObjectAtIndex:i];
+        } else {
+            [fixedUserUrls replaceObjectAtIndex:i withObject:numberString];
         }
     }
     
@@ -111,9 +107,8 @@
     [db setShouldCacheStatements:YES];
     
     for (NSInteger i = 0; i < fixedUserUrls.count; i++) {
-        NSString *url = fixedUserUrls[i];
-        NSArray *urlComp = [url componentsSeparatedByString:@"="];
-        NSInteger userId = [urlComp[1] integerValue];
+        NSString *userIdString = fixedUserUrls[i];
+        NSInteger userId = [userIdString integerValue];
         
         NSInteger totalCount = 0;
         FMResultSet *rs = [db executeQuery:@"select count(member_id) from pixivFollowingUser where member_id = ?", @(userId)];
@@ -123,9 +118,9 @@
         [rs close];
         
         if (totalCount == 0) {
-            [news addObject:url];
+            [news addObject:userIdString];
         } else {
-            [exists addObject:url];
+            [exists addObject:[NSString stringWithFormat:@"https://www.pixiv.net/member_illust.php?id=%ld", userId]];
         }
     }
     
@@ -163,9 +158,8 @@
     [db setShouldCacheStatements:YES];
     
     for (NSInteger i = 0; i < fixedUserUrls.count; i++) {
-        NSString *url = fixedUserUrls[i];
-        NSArray *urlComp = [url componentsSeparatedByString:@"="];
-        NSInteger userId = [urlComp[1] integerValue];
+        NSString *userIdString = fixedUserUrls[i];
+        NSInteger userId = [userIdString integerValue];
         
         NSInteger blockLevel = -1;
         FMResultSet *rs = [db executeQuery:@"select * from pixivBlockUser where member_id = ?", @(userId)];
@@ -175,8 +169,9 @@
         [rs close];
         
         // 数据库查不到就说明没有记录
+        NSString *url = [NSString stringWithFormat:@"https://www.pixiv.net/member_illust.php?id=%ld", userId];
         if (blockLevel == -1) {
-            [news addObject:url];
+            [news addObject:userIdString];
         } else if (blockLevel == 1) {
             [block1s addObject:url];
         } else {
@@ -221,9 +216,7 @@
     [db setShouldCacheStatements:YES];
     
     for (NSInteger i = 0; i < fixedUserUrls.count; i++) {
-        NSString *url = fixedUserUrls[i];
-        NSArray *urlComp = [url componentsSeparatedByString:@"="];
-        NSInteger userId = [urlComp[1] integerValue];
+        NSInteger userId = [fixedUserUrls[i] integerValue];
         
         NSInteger totalCount = 0;
         FMResultSet *rs = [db executeQuery:@"select count(image_id) from pixiv_master_image where member_id = ?", @(userId)];
@@ -232,6 +225,7 @@
         }
         [rs close];
         
+        NSString *url = [NSString stringWithFormat:@"https://www.pixiv.net/member_illust.php?id=%ld", userId];
         if (totalCount == 0) {
             [news addObject:url];
         } else {

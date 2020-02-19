@@ -105,18 +105,18 @@
     NSArray *urls = [input componentsSeparatedByString:@"\n"];
     for (NSInteger i = 0; i < urls.count; i++) {
         NSString *url = urls[i];
-        NSInteger userId = [url integerValue]; // 先看看是否是数字
+        NSScanner *scanner = [NSScanner scannerWithString:url];
+        NSCharacterSet *numberSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+
+        [scanner scanUpToCharactersFromSet:numberSet intoString:NULL];
+        NSString *numberString;
+        [scanner scanCharactersFromSet:numberSet intoString:&numberString];
         
+        NSInteger userId = [numberString integerValue];
         if (userId == 0) {
-            // 既不是数字，也不是包含 pixiv.net 的字符串，判定为非 pixiv 的地址
-            if (![url containsString:@"pixiv.net"]) {
-                [useless addObject:url];
-                continue;
-            }
-            
-            // 如果字符串包含 pixiv.net，那么从字符串中解析 userId
-            NSArray *urlComp = [url componentsSeparatedByString:@"="];
-            userId = [urlComp[1] integerValue];
+            // 没有找到数字，就假定传入有问题，跳过
+            [useless addObject:url];
+            continue;
         }
         
         NSInteger totalCount = 0;
