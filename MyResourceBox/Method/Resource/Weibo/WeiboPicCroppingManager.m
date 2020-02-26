@@ -89,9 +89,9 @@
 }
 - (void)croppingSinglePicture:(NSString *)imageFilePath {
     CFStringRef imageType = NULL;
-    if ([imageFilePath.pathExtension isEqualToString:@"jpeg"] || [imageFilePath.pathExtension isEqualToString:@"jpg"]) {
+    if ([imageFilePath.pathExtension caseInsensitiveCompare:@"jpeg"] == NSOrderedSame || [imageFilePath.pathExtension caseInsensitiveCompare:@"jpg"] == NSOrderedSame) {
         imageType = kUTTypeJPEG;
-    } else if ([imageFilePath.pathExtension isEqualToString:@"png"]) {
+    } else if ([imageFilePath.pathExtension caseInsensitiveCompare:@"png"] == NSOrderedSame) {
         imageType = kUTTypePNG;
     }
     if (imageType == NULL) {
