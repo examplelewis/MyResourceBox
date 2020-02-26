@@ -13,6 +13,7 @@
 #import "WeiboBoundaryManager.h"
 #import "WeiboFetchManager.h"
 #import "WeiboPicCroppingManager.h"
+#import "WeiboPicRootFolderCroppingManager.h"
 #import "WeiboFetchedUserManager.h"
 
 @implementation WeiboMethod
@@ -72,6 +73,30 @@
         case 104: {
             WeiboPicCroppingManager *manager = [WeiboPicCroppingManager new];
             manager.croppingRatio = WeiboPicCroppingRatio48;
+            [manager prepareCropping];
+        }
+            break;
+        case 111: {
+            WeiboPicRootFolderCroppingManager *manager = [WeiboPicRootFolderCroppingManager new];
+            manager.croppingRatio = WeiboPicRootFolderCroppingRatio42;
+            [manager prepareCropping];
+        }
+            break;
+        case 112: {
+            WeiboPicRootFolderCroppingManager *manager = [WeiboPicRootFolderCroppingManager new];
+            manager.croppingRatio = WeiboPicRootFolderCroppingRatio45;
+            [manager prepareCropping];
+        }
+            break;
+        case 113: {
+            WeiboPicRootFolderCroppingManager *manager = [WeiboPicRootFolderCroppingManager new];
+            manager.croppingRatio = WeiboPicRootFolderCroppingRatio47;
+            [manager prepareCropping];
+        }
+            break;
+        case 114: {
+            WeiboPicRootFolderCroppingManager *manager = [WeiboPicRootFolderCroppingManager new];
+            manager.croppingRatio = WeiboPicRootFolderCroppingRatio48;
             [manager prepareCropping];
         }
             break;
