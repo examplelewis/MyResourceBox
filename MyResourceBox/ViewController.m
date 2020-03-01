@@ -8,14 +8,18 @@
 
 #import "ViewController.h"
 #import <TFHpple.h>
+#import "MRBCroppingPictureManager.h"
 
 @implementation ViewController
 
+#pragma mark - Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.inputTextView setFont:[NSFont fontWithName:@"PingFangSC-Regular" size:12.0f]];
     [self.logTextView setFont:[NSFont fontWithName:@"PingFangSC-Regular" size:12.0f]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSetCroppingPictureParams:) name:@"MRBDidSetCroppingPictureParams" object:nil];
 }
 - (void)viewDidAppear {
     [super viewDidAppear];
@@ -26,12 +30,11 @@
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
 }
-
-- (void)scrollLogTextViewToBottom {
-    [self.logTextView scrollRangeToVisible:NSMakeRange(self.logTextView.string.length, 0)];
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MRBDidSetCroppingPictureParams" object:nil];
 }
 
-#pragma mark -- 控件方法 --
+#pragma mark - IBAction
 - (IBAction)processingExportInput:(NSButton *)sender {
     NSString *input = self.inputTextView.string;
     if (input.length > 0) {
@@ -56,6 +59,10 @@
 //    self.outputTextView.string = [MRBUtilityManager convertResultArray:result];
 }
 
+#pragma mark - Other
+- (void)scrollLogTextViewToBottom {
+    [self.logTextView scrollRangeToVisible:NSMakeRange(self.logTextView.string.length, 0)];
+}
 - (void)patchShortLinkNumbers {
     NSString *testString = [NSString stringWithContentsOfFile:@"/Users/Mercury/Downloads/test.txt" encoding:NSUTF8StringEncoding error:nil];
     NSData *data = [testString dataUsingEncoding:NSUTF8StringEncoding];
@@ -84,6 +91,14 @@
     result = [result substringToIndex:result.length - 1]; // 去掉最后一个 \n
     
     [result writeToFile:@"/Users/Mercury/Downloads/testResult.txt" atomically:YES encoding:NSUTF8StringEncoding error:nil];
+}
+
+#pragma mark - MRBCroppingPicture
+- (void)didSetCroppingPictureParams:(NSNotification *)notification {
+    NSArray *data = (NSArray *)notification.object;
+    MRBCroppingPictureManager *manager = [MRBCroppingPictureManager managerWithEdgeInsets:data[0] mode:[data[1] integerValue] paths:data[2]];
+    
+    [manager prepareCropping];
 }
 
 @end

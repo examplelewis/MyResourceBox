@@ -10,6 +10,15 @@
 		7DD98B59A739879607997CD9 /* libPods-MyResourceBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD74EB7EFE1808C528C0641 /* libPods-MyResourceBox.a */; };
 		AC010D032407069A000C25F4 /* WeiboPicRootFolderCroppingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC010D022407069A000C25F4 /* WeiboPicRootFolderCroppingManager.m */; };
 		AC010D0624070F28000C25F4 /* WeiboPicRootFolderCroppingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC010D0524070F28000C25F4 /* WeiboPicRootFolderCroppingOperation.m */; };
+		AC01F810240AF78E0061D719 /* PictureOperationMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01F80F240AF78E0061D719 /* PictureOperationMethod.m */; };
+		AC01F814240AF84E0061D719 /* MRBCroppingPictureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01F813240AF84E0061D719 /* MRBCroppingPictureManager.m */; };
+		AC01F819240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01F817240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.m */; };
+		AC01F81A240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC01F818240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.xib */; };
+		AC01F81E240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01F81C240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.m */; };
+		AC01F81F240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC01F81D240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.xib */; };
+		AC1401A8240BA99F00C77F73 /* MRBCroppingPictureEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1401A7240BA99F00C77F73 /* MRBCroppingPictureEdgeInsets.m */; };
+		AC1401AC240BAF9D00C77F73 /* NSString+MRBString.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1401AB240BAF9D00C77F73 /* NSString+MRBString.m */; };
+		AC1401B2240BE78400C77F73 /* MRBCroppingPictureOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1401B1240BE78400C77F73 /* MRBCroppingPictureOperation.m */; };
 		AC19E14C1E4844660084A510 /* PAPIAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E1411E4844660084A510 /* PAPIAuthor.m */; };
 		AC19E14D1E4844660084A510 /* PAPIIllust.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E1431E4844660084A510 /* PAPIIllust.m */; };
 		AC19E14E1E4844660084A510 /* PAPIIllustList.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E1451E4844660084A510 /* PAPIIllustList.m */; };
@@ -151,6 +160,23 @@
 		AC010D022407069A000C25F4 /* WeiboPicRootFolderCroppingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboPicRootFolderCroppingManager.m; sourceTree = "<group>"; };
 		AC010D0424070F28000C25F4 /* WeiboPicRootFolderCroppingOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboPicRootFolderCroppingOperation.h; sourceTree = "<group>"; };
 		AC010D0524070F28000C25F4 /* WeiboPicRootFolderCroppingOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboPicRootFolderCroppingOperation.m; sourceTree = "<group>"; };
+		AC01F80E240AF78E0061D719 /* PictureOperationMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureOperationMethod.h; sourceTree = "<group>"; };
+		AC01F80F240AF78E0061D719 /* PictureOperationMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureOperationMethod.m; sourceTree = "<group>"; };
+		AC01F812240AF84E0061D719 /* MRBCroppingPictureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureManager.h; sourceTree = "<group>"; };
+		AC01F813240AF84E0061D719 /* MRBCroppingPictureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureManager.m; sourceTree = "<group>"; };
+		AC01F815240AFA7E0061D719 /* MRBCroppingPictureHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureHeader.h; sourceTree = "<group>"; };
+		AC01F816240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureInputParamsWindowController.h; sourceTree = "<group>"; };
+		AC01F817240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureInputParamsWindowController.m; sourceTree = "<group>"; };
+		AC01F818240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBCroppingPictureInputParamsWindowController.xib; sourceTree = "<group>"; };
+		AC01F81B240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureInputParamsViewController.h; sourceTree = "<group>"; };
+		AC01F81C240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureInputParamsViewController.m; sourceTree = "<group>"; };
+		AC01F81D240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBCroppingPictureInputParamsViewController.xib; sourceTree = "<group>"; };
+		AC1401A6240BA99F00C77F73 /* MRBCroppingPictureEdgeInsets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureEdgeInsets.h; sourceTree = "<group>"; };
+		AC1401A7240BA99F00C77F73 /* MRBCroppingPictureEdgeInsets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureEdgeInsets.m; sourceTree = "<group>"; };
+		AC1401AA240BAF9D00C77F73 /* NSString+MRBString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MRBString.h"; sourceTree = "<group>"; };
+		AC1401AB240BAF9D00C77F73 /* NSString+MRBString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MRBString.m"; sourceTree = "<group>"; };
+		AC1401B0240BE78400C77F73 /* MRBCroppingPictureOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureOperation.h; sourceTree = "<group>"; };
+		AC1401B1240BE78400C77F73 /* MRBCroppingPictureOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureOperation.m; sourceTree = "<group>"; };
 		AC19E1401E4844660084A510 /* PAPIAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPIAuthor.h; sourceTree = "<group>"; };
 		AC19E1411E4844660084A510 /* PAPIAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPIAuthor.m; sourceTree = "<group>"; };
 		AC19E1421E4844660084A510 /* PAPIIllust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPIIllust.h; sourceTree = "<group>"; };
@@ -432,6 +458,45 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AC01F80D240AF7680061D719 /* PictureOpperation */ = {
+			isa = PBXGroup;
+			children = (
+				AC01F80E240AF78E0061D719 /* PictureOperationMethod.h */,
+				AC01F80F240AF78E0061D719 /* PictureOperationMethod.m */,
+				AC01F811240AF7B20061D719 /* CroppingPicture */,
+			);
+			path = PictureOpperation;
+			sourceTree = "<group>";
+		};
+		AC01F811240AF7B20061D719 /* CroppingPicture */ = {
+			isa = PBXGroup;
+			children = (
+				AC01F815240AFA7E0061D719 /* MRBCroppingPictureHeader.h */,
+				AC1401A6240BA99F00C77F73 /* MRBCroppingPictureEdgeInsets.h */,
+				AC1401A7240BA99F00C77F73 /* MRBCroppingPictureEdgeInsets.m */,
+				AC01F812240AF84E0061D719 /* MRBCroppingPictureManager.h */,
+				AC01F813240AF84E0061D719 /* MRBCroppingPictureManager.m */,
+				AC1401B0240BE78400C77F73 /* MRBCroppingPictureOperation.h */,
+				AC1401B1240BE78400C77F73 /* MRBCroppingPictureOperation.m */,
+				AC01F816240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.h */,
+				AC01F817240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.m */,
+				AC01F818240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.xib */,
+				AC01F81B240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.h */,
+				AC01F81C240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.m */,
+				AC01F81D240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.xib */,
+			);
+			path = CroppingPicture;
+			sourceTree = "<group>";
+		};
+		AC1401A9240BAF7900C77F73 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				AC1401AA240BAF9D00C77F73 /* NSString+MRBString.h */,
+				AC1401AB240BAF9D00C77F73 /* NSString+MRBString.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		AC19E13F1E4844660084A510 /* PixivAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -642,6 +707,7 @@
 				ACDCD4F1228902D2005FC4FF /* PicResource */,
 				ACE0502222802A6F00367F3A /* FileOperation */,
 				ACC5BFFE228907A6004E7C83 /* ToolOperation */,
+				AC01F80D240AF7680061D719 /* PictureOpperation */,
 			);
 			path = Method;
 			sourceTree = "<group>";
@@ -823,6 +889,7 @@
 		ACCAA3B4228D11280062BCE6 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				AC1401A9240BAF7900C77F73 /* Categories */,
 				ACCAA3B5228D11320062BCE6 /* Subclasses */,
 			);
 			path = Class;
@@ -1075,6 +1142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC19E14F1E4844660084A510 /* PixivAPI.js in Resources */,
+				AC01F81A240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.xib in Resources */,
+				AC01F81F240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.xib in Resources */,
 				AC8508D61DB39146004AFE84 /* Assets.xcassets in Resources */,
 				AC8509221DB3970D004AFE84 /* WeiboTokenWindowController.xib in Resources */,
 				AC883A2A1DBB920800CC579E /* WeiboRequestTokenWindowController.xib in Resources */,
@@ -1161,6 +1230,7 @@
 				AC789C881DE15A3600523A12 /* WorldCosplayMethod.m in Sources */,
 				AC789C8B1DE1602500523A12 /* AnalysisMethod.m in Sources */,
 				ACA0F05221E19E200097D144 /* ExHentaiPixivUrlsManager.m in Sources */,
+				AC01F810240AF78E0061D719 /* PictureOperationMethod.m in Sources */,
 				ACC1DCB8226F071F001243C1 /* GelbooruTagEndTimePicManager.m in Sources */,
 				AC19E14C1E4844660084A510 /* PAPIAuthor.m in Sources */,
 				AC19E15B1E4857210084A510 /* PixivUserManager.m in Sources */,
@@ -1178,6 +1248,7 @@
 				AC010D032407069A000C25F4 /* WeiboPicRootFolderCroppingManager.m in Sources */,
 				AC883A371DBB9DCD00CC579E /* WeiboRequestTokenViewController.m in Sources */,
 				AC8508D41DB39146004AFE84 /* ViewController.m in Sources */,
+				AC01F819240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.m in Sources */,
 				ACE0502D22802CDD00367F3A /* FOFilteredImageManager.m in Sources */,
 				ACC93EFB2277F41100C207E6 /* PixivPicDownloadManager.m in Sources */,
 				AC47543F1DCC461800880934 /* OrganizeManager.m in Sources */,
@@ -1198,7 +1269,9 @@
 				ACC93F042277F78200C207E6 /* PixivBlockingManager.m in Sources */,
 				AC010D0624070F28000C25F4 /* WeiboPicRootFolderCroppingOperation.m in Sources */,
 				ACA3C1871DD09F5100A9B31D /* DownloadInfoObject.m in Sources */,
+				AC01F81E240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.m in Sources */,
 				AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */,
+				AC01F814240AF84E0061D719 /* MRBCroppingPictureManager.m in Sources */,
 				ACC8EBB122826785003CF448 /* Rule34DownloadAndOrganizeManager.m in Sources */,
 				AC85090E1DB39677004AFE84 /* MRBUtilityManager.m in Sources */,
 				ACFFB869229FAB7100FC41AA /* WeiboFetchedUserManager.m in Sources */,
@@ -1211,6 +1284,7 @@
 				ACC93EF02277EBCD00C207E6 /* BCYOrganizingManager.m in Sources */,
 				ACC5C001228907C0004E7C83 /* ToolOperationMethod.m in Sources */,
 				ACC8EBAC22826785003CF448 /* Rule34DailyPicManager.m in Sources */,
+				AC1401B2240BE78400C77F73 /* MRBCroppingPictureOperation.m in Sources */,
 				AC789C7E1DE159E100523A12 /* ExHentaiPagesManager.m in Sources */,
 				ACACB51E21C382D700C8D164 /* ResourceGlobalTagManager.m in Sources */,
 				AC79E1CD1F4EA125008432B9 /* ExHentaiTorrentManager.m in Sources */,
@@ -1235,10 +1309,12 @@
 				AC789C751DE159B700523A12 /* WeiboMethod.m in Sources */,
 				ACC93EF82277F20C00C207E6 /* PixivIllustPicManager.m in Sources */,
 				ACA9C91D21FD950E00B33CB4 /* PixivAPIManager.m in Sources */,
+				AC1401A8240BA99F00C77F73 /* MRBCroppingPictureEdgeInsets.m in Sources */,
 				ACC3149B21773BFF00DA5276 /* XMLReader.m in Sources */,
 				ACC5C0102289404A004E7C83 /* ResourceGlobalFileMoveManager.m in Sources */,
 				AC789C7F1DE159E100523A12 /* ExHentaiUrlsManager.m in Sources */,
 				AC19E1581E4857020084A510 /* PixivMethod.m in Sources */,
+				AC1401AC240BAF9D00C77F73 /* NSString+MRBString.m in Sources */,
 				ACE05020227FE62800367F3A /* DeviantartUserManager.m in Sources */,
 				AC789C651DE1466200523A12 /* CookieInfoObject.m in Sources */,
 				ACCAA0371E1B81250017EDDA /* MRBImageManager.m in Sources */,

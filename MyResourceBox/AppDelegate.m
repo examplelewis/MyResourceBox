@@ -26,6 +26,7 @@
 #import "DownloadMethod.h"
 #import "PicResourceMethod.h"
 #import "ToolOperationMethod.h"
+#import "PictureOperationMethod.h"
 
 #import "MRBCatchCrashManager.h"
 #import "ResourceOrganizeMethod.h"
@@ -149,6 +150,9 @@
 }
 - (IBAction)processingResourceOrganize:(NSMenuItem *)sender {
     [ResourceOrganizeMethod configMethod:sender.tag];
+}
+- (IBAction)processingPictureOperation:(NSMenuItem *)sender {
+    [PictureOperationMethod configMethod:sender.tag];
 }
 
 #pragma mark - Help
