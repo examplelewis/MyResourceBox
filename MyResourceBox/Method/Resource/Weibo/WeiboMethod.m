@@ -12,8 +12,6 @@
 #import "WeiboRequestTokenWindowController.h"
 #import "WeiboBoundaryManager.h"
 #import "WeiboFetchManager.h"
-#import "WeiboPicCroppingManager.h"
-#import "WeiboPicRootFolderCroppingManager.h"
 #import "WeiboFetchedUserManager.h"
 
 @implementation WeiboMethod
@@ -50,54 +48,6 @@
             break;
         case 31: {
             [WeiboFetchedUserManager saveUnfetchedUser];
-        }
-            break;
-        case 101: {
-            WeiboPicCroppingManager *manager = [WeiboPicCroppingManager new];
-            manager.croppingRatio = WeiboPicCroppingRatio42;
-            [manager prepareCropping];
-        }
-            break;
-        case 102: {
-            WeiboPicCroppingManager *manager = [WeiboPicCroppingManager new];
-            manager.croppingRatio = WeiboPicCroppingRatio45;
-            [manager prepareCropping];
-        }
-            break;
-        case 103: {
-            WeiboPicCroppingManager *manager = [WeiboPicCroppingManager new];
-            manager.croppingRatio = WeiboPicCroppingRatio47;
-            [manager prepareCropping];
-        }
-            break;
-        case 104: {
-            WeiboPicCroppingManager *manager = [WeiboPicCroppingManager new];
-            manager.croppingRatio = WeiboPicCroppingRatio48;
-            [manager prepareCropping];
-        }
-            break;
-        case 111: {
-            WeiboPicRootFolderCroppingManager *manager = [WeiboPicRootFolderCroppingManager new];
-            manager.croppingRatio = WeiboPicRootFolderCroppingRatio42;
-            [manager prepareCropping];
-        }
-            break;
-        case 112: {
-            WeiboPicRootFolderCroppingManager *manager = [WeiboPicRootFolderCroppingManager new];
-            manager.croppingRatio = WeiboPicRootFolderCroppingRatio45;
-            [manager prepareCropping];
-        }
-            break;
-        case 113: {
-            WeiboPicRootFolderCroppingManager *manager = [WeiboPicRootFolderCroppingManager new];
-            manager.croppingRatio = WeiboPicRootFolderCroppingRatio47;
-            [manager prepareCropping];
-        }
-            break;
-        case 114: {
-            WeiboPicRootFolderCroppingManager *manager = [WeiboPicRootFolderCroppingManager new];
-            manager.croppingRatio = WeiboPicRootFolderCroppingRatio48;
-            [manager prepareCropping];
         }
             break;
         default:

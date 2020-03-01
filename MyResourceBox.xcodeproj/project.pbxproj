@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7DD98B59A739879607997CD9 /* libPods-MyResourceBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD74EB7EFE1808C528C0641 /* libPods-MyResourceBox.a */; };
-		AC010D032407069A000C25F4 /* WeiboPicRootFolderCroppingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC010D022407069A000C25F4 /* WeiboPicRootFolderCroppingManager.m */; };
-		AC010D0624070F28000C25F4 /* WeiboPicRootFolderCroppingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC010D0524070F28000C25F4 /* WeiboPicRootFolderCroppingOperation.m */; };
 		AC01F810240AF78E0061D719 /* PictureOperationMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01F80F240AF78E0061D719 /* PictureOperationMethod.m */; };
 		AC01F814240AF84E0061D719 /* MRBCroppingPictureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01F813240AF84E0061D719 /* MRBCroppingPictureManager.m */; };
 		AC01F819240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01F817240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.m */; };
@@ -116,7 +114,6 @@
 		ACCCE26D227E900A00A18C8D /* WebArchiveArchivingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCCE26C227E900A00A18C8D /* WebArchiveArchivingManager.m */; };
 		ACCFA0BA226D5D3D007514C0 /* MRBCatchCrashManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCFA0B9226D5D3C007514C0 /* MRBCatchCrashManager.m */; };
 		ACD1AA37225B44660017A8D3 /* PixivExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */; };
-		ACDA9144228A981F0074027E /* WeiboPicCroppingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDA9143228A981F0074027E /* WeiboPicCroppingManager.m */; };
 		ACDCD4F4228902F1005FC4FF /* PicResourceMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCD4F3228902F1005FC4FF /* PicResourceMethod.m */; };
 		ACDE0BBD22E98D5E006367D9 /* FOExtractTypesFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE0BBC22E98D5E006367D9 /* FOExtractTypesFileManager.m */; };
 		ACDE0BC022E99D89006367D9 /* FOExtractTypesFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE0BBF22E99D89006367D9 /* FOExtractTypesFileModel.m */; };
@@ -156,10 +153,6 @@
 		0E6EF246B14293D67685967F /* Pods-MyResourceBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyResourceBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyResourceBox/Pods-MyResourceBox.release.xcconfig"; sourceTree = "<group>"; };
 		2BD74EB7EFE1808C528C0641 /* libPods-MyResourceBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyResourceBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F06A2677008C24265A66745 /* Pods-MyResourceBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyResourceBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyResourceBox/Pods-MyResourceBox.debug.xcconfig"; sourceTree = "<group>"; };
-		AC010D012407069A000C25F4 /* WeiboPicRootFolderCroppingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboPicRootFolderCroppingManager.h; sourceTree = "<group>"; };
-		AC010D022407069A000C25F4 /* WeiboPicRootFolderCroppingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboPicRootFolderCroppingManager.m; sourceTree = "<group>"; };
-		AC010D0424070F28000C25F4 /* WeiboPicRootFolderCroppingOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboPicRootFolderCroppingOperation.h; sourceTree = "<group>"; };
-		AC010D0524070F28000C25F4 /* WeiboPicRootFolderCroppingOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboPicRootFolderCroppingOperation.m; sourceTree = "<group>"; };
 		AC01F80E240AF78E0061D719 /* PictureOperationMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureOperationMethod.h; sourceTree = "<group>"; };
 		AC01F80F240AF78E0061D719 /* PictureOperationMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureOperationMethod.m; sourceTree = "<group>"; };
 		AC01F812240AF84E0061D719 /* MRBCroppingPictureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureManager.h; sourceTree = "<group>"; };
@@ -373,8 +366,6 @@
 		ACCFA0B9226D5D3C007514C0 /* MRBCatchCrashManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBCatchCrashManager.m; sourceTree = "<group>"; };
 		ACD1AA35225B44660017A8D3 /* PixivExHentaiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivExHentaiManager.h; sourceTree = "<group>"; };
 		ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivExHentaiManager.m; sourceTree = "<group>"; };
-		ACDA9142228A981F0074027E /* WeiboPicCroppingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboPicCroppingManager.h; sourceTree = "<group>"; };
-		ACDA9143228A981F0074027E /* WeiboPicCroppingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboPicCroppingManager.m; sourceTree = "<group>"; };
 		ACDCD4F2228902F1005FC4FF /* PicResourceMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PicResourceMethod.h; sourceTree = "<group>"; };
 		ACDCD4F3228902F1005FC4FF /* PicResourceMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PicResourceMethod.m; sourceTree = "<group>"; };
 		ACDE0BBB22E98D5E006367D9 /* FOExtractTypesFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FOExtractTypesFileManager.h; sourceTree = "<group>"; };
@@ -975,12 +966,6 @@
 				ACE05013227FD9EE00367F3A /* WeiboBoundaryManager.m */,
 				ACE05015227FDAF600367F3A /* WeiboFetchManager.h */,
 				ACE05016227FDAF600367F3A /* WeiboFetchManager.m */,
-				ACDA9142228A981F0074027E /* WeiboPicCroppingManager.h */,
-				ACDA9143228A981F0074027E /* WeiboPicCroppingManager.m */,
-				AC010D012407069A000C25F4 /* WeiboPicRootFolderCroppingManager.h */,
-				AC010D022407069A000C25F4 /* WeiboPicRootFolderCroppingManager.m */,
-				AC010D0424070F28000C25F4 /* WeiboPicRootFolderCroppingOperation.h */,
-				AC010D0524070F28000C25F4 /* WeiboPicRootFolderCroppingOperation.m */,
 				ACFFB867229FAB7100FC41AA /* WeiboFetchedUserManager.h */,
 				ACFFB868229FAB7100FC41AA /* WeiboFetchedUserManager.m */,
 			);
@@ -1245,7 +1230,6 @@
 				ACCCE269227E8F4D00A18C8D /* AnalysisFileManager.m in Sources */,
 				AC8509211DB3970D004AFE84 /* WeiboTokenWindowController.m in Sources */,
 				ACE0501D227FE52A00367F3A /* DeviantartFeedsManager.m in Sources */,
-				AC010D032407069A000C25F4 /* WeiboPicRootFolderCroppingManager.m in Sources */,
 				AC883A371DBB9DCD00CC579E /* WeiboRequestTokenViewController.m in Sources */,
 				AC8508D41DB39146004AFE84 /* ViewController.m in Sources */,
 				AC01F819240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.m in Sources */,
@@ -1267,7 +1251,6 @@
 				ACE0503022802DF200367F3A /* FOFolderManager.m in Sources */,
 				AC9870631E4C4A980076DC92 /* PixivMasterObject.m in Sources */,
 				ACC93F042277F78200C207E6 /* PixivBlockingManager.m in Sources */,
-				AC010D0624070F28000C25F4 /* WeiboPicRootFolderCroppingOperation.m in Sources */,
 				ACA3C1871DD09F5100A9B31D /* DownloadInfoObject.m in Sources */,
 				AC01F81E240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.m in Sources */,
 				AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */,
@@ -1288,7 +1271,6 @@
 				AC789C7E1DE159E100523A12 /* ExHentaiPagesManager.m in Sources */,
 				ACACB51E21C382D700C8D164 /* ResourceGlobalTagManager.m in Sources */,
 				AC79E1CD1F4EA125008432B9 /* ExHentaiTorrentManager.m in Sources */,
-				ACDA9144228A981F0074027E /* WeiboPicCroppingManager.m in Sources */,
 				ACA5162D220175F20074AB73 /* DeviantartMethod.m in Sources */,
 				ACC93EEC2277E9DD00C207E6 /* BCYFetchManager.m in Sources */,
 				ACCCE266227E8F0700A18C8D /* AnalysisInputManager.m in Sources */,
