@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <TFHpple.h>
 #import "MRBCroppingPictureManager.h"
+#import "MRBCroppingPictureCustomManager.h"
 
 @implementation ViewController
 
@@ -20,6 +21,7 @@
     [self.logTextView setFont:[NSFont fontWithName:@"PingFangSC-Regular" size:12.0f]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSetCroppingPictureParams:) name:@"MRBDidSetCroppingPictureParams" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSetCroppingPictureCustomParams:) name:@"MRBDidSetCroppingPictureCustomParams" object:nil];
 }
 - (void)viewDidAppear {
     [super viewDidAppear];
@@ -32,6 +34,7 @@
 }
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MRBDidSetCroppingPictureParams" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MRBDidSetCroppingPictureCustomParams" object:nil];
 }
 
 #pragma mark - IBAction
@@ -97,6 +100,12 @@
 - (void)didSetCroppingPictureParams:(NSNotification *)notification {
     NSArray *data = (NSArray *)notification.object;
     MRBCroppingPictureManager *manager = [MRBCroppingPictureManager managerWithEdgeInsets:data[0] mode:[data[1] integerValue] paths:data[2]];
+    
+    [manager prepareCropping];
+}
+- (void)didSetCroppingPictureCustomParams:(NSNotification *)notification {
+    NSArray *data = (NSArray *)notification.object;
+    MRBCroppingPictureCustomManager *manager = [MRBCroppingPictureCustomManager managerWithButtonTag:[data[0] integerValue] mode:[data[1] integerValue] paths:data[2]];
     
     [manager prepareCropping];
 }

@@ -128,6 +128,12 @@
 		ACE0502D22802CDD00367F3A /* FOFilteredImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502C22802CDD00367F3A /* FOFilteredImageManager.m */; };
 		ACE0503022802DF200367F3A /* FOFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502F22802DF200367F3A /* FOFolderManager.m */; };
 		ACE060D722E34280005329C3 /* ExHentaiTitlePixivUrlsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE060D622E34280005329C3 /* ExHentaiTitlePixivUrlsManager.m */; };
+		ACECBDC9240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDC7240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.m */; };
+		ACECBDCA240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACECBDC8240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib */; };
+		ACECBDCE240C291400DB92DC /* MRBCroppingPictureCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDCC240C291400DB92DC /* MRBCroppingPictureCustomViewController.m */; };
+		ACECBDCF240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACECBDCD240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib */; };
+		ACECBDD2240C292C00DB92DC /* MRBCroppingPictureCustomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD1240C292C00DB92DC /* MRBCroppingPictureCustomManager.m */; };
+		ACECBDDA240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD9240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m */; };
 		ACFFB866229F7F4D00FC41AA /* ResourceOrganizeMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */; };
 		ACFFB869229FAB7100FC41AA /* WeiboFetchedUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFFB868229FAB7100FC41AA /* WeiboFetchedUserManager.m */; };
 /* End PBXBuildFile section */
@@ -397,6 +403,16 @@
 		ACE0502F22802DF200367F3A /* FOFolderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOFolderManager.m; sourceTree = "<group>"; };
 		ACE060D522E34280005329C3 /* ExHentaiTitlePixivUrlsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExHentaiTitlePixivUrlsManager.h; sourceTree = "<group>"; };
 		ACE060D622E34280005329C3 /* ExHentaiTitlePixivUrlsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExHentaiTitlePixivUrlsManager.m; sourceTree = "<group>"; };
+		ACECBDC6240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureCustomWindowController.h; sourceTree = "<group>"; };
+		ACECBDC7240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureCustomWindowController.m; sourceTree = "<group>"; };
+		ACECBDC8240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBCroppingPictureCustomWindowController.xib; sourceTree = "<group>"; };
+		ACECBDCB240C291400DB92DC /* MRBCroppingPictureCustomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureCustomViewController.h; sourceTree = "<group>"; };
+		ACECBDCC240C291400DB92DC /* MRBCroppingPictureCustomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureCustomViewController.m; sourceTree = "<group>"; };
+		ACECBDCD240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBCroppingPictureCustomViewController.xib; sourceTree = "<group>"; };
+		ACECBDD0240C292C00DB92DC /* MRBCroppingPictureCustomManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureCustomManager.h; sourceTree = "<group>"; };
+		ACECBDD1240C292C00DB92DC /* MRBCroppingPictureCustomManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureCustomManager.m; sourceTree = "<group>"; };
+		ACECBDD8240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureCustomWeiboWaterprintOperation.h; sourceTree = "<group>"; };
+		ACECBDD9240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureCustomWeiboWaterprintOperation.m; sourceTree = "<group>"; };
 		ACF9FC67228159D600375505 /* MRBCommoms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCommoms.h; sourceTree = "<group>"; };
 		ACFFB864229F7F4D00FC41AA /* ResourceOrganizeMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceOrganizeMethod.h; sourceTree = "<group>"; };
 		ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceOrganizeMethod.m; sourceTree = "<group>"; };
@@ -455,6 +471,7 @@
 				AC01F80E240AF78E0061D719 /* PictureOperationMethod.h */,
 				AC01F80F240AF78E0061D719 /* PictureOperationMethod.m */,
 				AC01F811240AF7B20061D719 /* CroppingPicture */,
+				ACECBDC5240C28B700DB92DC /* CroppingPictureCustom */,
 			);
 			path = PictureOpperation;
 			sourceTree = "<group>";
@@ -1006,6 +1023,31 @@
 			path = FileOperation;
 			sourceTree = "<group>";
 		};
+		ACECBDC5240C28B700DB92DC /* CroppingPictureCustom */ = {
+			isa = PBXGroup;
+			children = (
+				ACECBDD0240C292C00DB92DC /* MRBCroppingPictureCustomManager.h */,
+				ACECBDD1240C292C00DB92DC /* MRBCroppingPictureCustomManager.m */,
+				ACECBDC6240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.h */,
+				ACECBDC7240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.m */,
+				ACECBDC8240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib */,
+				ACECBDCB240C291400DB92DC /* MRBCroppingPictureCustomViewController.h */,
+				ACECBDCC240C291400DB92DC /* MRBCroppingPictureCustomViewController.m */,
+				ACECBDCD240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib */,
+				ACECBDD7240C38BC00DB92DC /* Operations */,
+			);
+			path = CroppingPictureCustom;
+			sourceTree = "<group>";
+		};
+		ACECBDD7240C38BC00DB92DC /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				ACECBDD8240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.h */,
+				ACECBDD9240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		ACF9FC66228159BE00375505 /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -1128,10 +1170,12 @@
 			files = (
 				AC19E14F1E4844660084A510 /* PixivAPI.js in Resources */,
 				AC01F81A240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.xib in Resources */,
+				ACECBDCF240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib in Resources */,
 				AC01F81F240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.xib in Resources */,
 				AC8508D61DB39146004AFE84 /* Assets.xcassets in Resources */,
 				AC8509221DB3970D004AFE84 /* WeiboTokenWindowController.xib in Resources */,
 				AC883A2A1DBB920800CC579E /* WeiboRequestTokenWindowController.xib in Resources */,
+				ACECBDCA240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib in Resources */,
 				AC883A381DBB9DCD00CC579E /* WeiboRequestTokenViewController.xib in Resources */,
 				AC8508D91DB39146004AFE84 /* Main.storyboard in Resources */,
 			);
@@ -1271,6 +1315,8 @@
 				AC789C7E1DE159E100523A12 /* ExHentaiPagesManager.m in Sources */,
 				ACACB51E21C382D700C8D164 /* ResourceGlobalTagManager.m in Sources */,
 				AC79E1CD1F4EA125008432B9 /* ExHentaiTorrentManager.m in Sources */,
+				ACECBDD2240C292C00DB92DC /* MRBCroppingPictureCustomManager.m in Sources */,
+				ACECBDDA240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m in Sources */,
 				ACA5162D220175F20074AB73 /* DeviantartMethod.m in Sources */,
 				ACC93EEC2277E9DD00C207E6 /* BCYFetchManager.m in Sources */,
 				ACCCE266227E8F0700A18C8D /* AnalysisInputManager.m in Sources */,
@@ -1280,6 +1326,7 @@
 				ACC93EE92277E92100C207E6 /* BCYHTMLParseManager.m in Sources */,
 				AC789C731DE159B700523A12 /* BCYMethod.m in Sources */,
 				ACC93F0A2277FA3100C207E6 /* PixivOrganizingManager.m in Sources */,
+				ACECBDCE240C291400DB92DC /* MRBCroppingPictureCustomViewController.m in Sources */,
 				AC9F4C6B1E499B0E00FD01C5 /* MRBDownloadOperation.m in Sources */,
 				ACFFB866229F7F4D00FC41AA /* ResourceOrganizeMethod.m in Sources */,
 				ACCCE26D227E900A00A18C8D /* WebArchiveArchivingManager.m in Sources */,
@@ -1301,6 +1348,7 @@
 				AC789C651DE1466200523A12 /* CookieInfoObject.m in Sources */,
 				ACCAA0371E1B81250017EDDA /* MRBImageManager.m in Sources */,
 				ACC8BA6C22854F5F0000E193 /* Rule34TagPagePicExportTagsManager.m in Sources */,
+				ACECBDC9240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.m in Sources */,
 				AC789C7D1DE159E100523A12 /* ExHentaiManager.m in Sources */,
 				ACA9C92021FD954E00B33CB4 /* PixivLoginUserManager.m in Sources */,
 				AC8509191DB39692004AFE84 /* MRBFileManager.m in Sources */,

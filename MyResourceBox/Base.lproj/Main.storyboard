@@ -1211,10 +1211,16 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="图片工具" id="XN1-YM-9UO">
                                                 <items>
-                                                    <menuItem title="批量裁剪图片" tag="1" id="RTN-oh-m5n">
+                                                    <menuItem title="简单批量裁剪图片" tag="1" id="RTN-oh-m5n">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingPictureOperation:" target="Voe-Tx-rLC" id="Im6-H9-z5z"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="自定义批量裁剪图片" tag="2" id="J9a-NK-Wbv">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPictureOperation:" target="Voe-Tx-rLC" id="fqm-6u-uwL"/>
                                                         </connections>
                                                     </menuItem>
                                                 </items>

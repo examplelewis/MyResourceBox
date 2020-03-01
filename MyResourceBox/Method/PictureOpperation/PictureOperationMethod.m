@@ -8,6 +8,7 @@
 
 #import "PictureOperationMethod.h"
 #import "MRBCroppingPictureInputParamsWindowController.h"
+#import "MRBCroppingPictureCustomWindowController.h"
 
 @implementation PictureOperationMethod
 
@@ -29,7 +30,9 @@
         }
             break;
         case 2: {
-            
+            MRBCroppingPictureCustomWindowController *wc = [[MRBCroppingPictureCustomWindowController alloc] initWithWindowNibName:@"MRBCroppingPictureCustomWindowController"];
+            [[NSApplication sharedApplication] runModalForWindow:wc.window];
+            [wc.window close];
         }
             break;
         case 3: {
