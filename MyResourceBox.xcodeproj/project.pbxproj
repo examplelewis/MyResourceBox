@@ -1081,7 +1081,7 @@
 		AC8508C11DB39146004AFE84 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = gongyuTest;
 				TargetAttributes = {
 					AC8508C81DB39146004AFE84 = {
@@ -1484,6 +1484,7 @@
 			baseConfigurationReference = 3F06A2677008C24265A66745 /* Pods-MyResourceBox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MyResourceBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -1498,6 +1499,7 @@
 			baseConfigurationReference = 0E6EF246B14293D67685967F /* Pods-MyResourceBox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MyResourceBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
