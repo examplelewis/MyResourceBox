@@ -326,5 +326,8 @@
     
     [[NSApplication sharedApplication] stopModal];
 }
+- (IBAction)cancelCropping:(NSButton *)sender {
+    [[NSApplication sharedApplication] stopModal];
+}
 
 @end

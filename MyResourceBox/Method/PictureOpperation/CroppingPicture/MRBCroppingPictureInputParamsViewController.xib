@@ -399,7 +399,7 @@
                     </constraints>
                 </customView>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jqb-rv-Cr0">
-                    <rect key="frame" x="618" y="13" width="94" height="32"/>
+                    <rect key="frame" x="701" y="13" width="94" height="32"/>
                     <buttonCell key="cell" type="push" title="确定裁剪" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kkb-o9-3jS">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" usesAppearanceFont="YES"/>
@@ -408,10 +408,21 @@
                         <action selector="confirmCropping:" target="-2" id="Gjg-yG-W1a"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IWG-uq-nc7">
+                    <rect key="frame" x="536" y="13" width="94" height="32"/>
+                    <buttonCell key="cell" type="push" title="取消裁剪" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e6Q-oZ-524">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" usesAppearanceFont="YES"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="cancelCropping:" target="-2" id="WHb-zh-7En"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="Dhe-V2-Hz1" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="0K8-DS-04F"/>
                 <constraint firstItem="VRw-0O-f7a" firstAttribute="centerX" secondItem="VtW-WK-uHC" secondAttribute="centerX" id="9Ww-cq-6yr"/>
+                <constraint firstItem="Jqb-rv-Cr0" firstAttribute="centerX" secondItem="m65-yb-IeX" secondAttribute="centerX" id="9t3-qp-Oig"/>
                 <constraint firstItem="XAZ-r6-0zE" firstAttribute="leading" secondItem="l28-Vs-udC" secondAttribute="trailing" constant="20" id="AWz-B5-h3H"/>
                 <constraint firstAttribute="bottom" secondItem="srC-Bc-0fd" secondAttribute="bottom" constant="20" id="Bt3-pU-W5S"/>
                 <constraint firstItem="XAZ-r6-0zE" firstAttribute="centerY" secondItem="l28-Vs-udC" secondAttribute="centerY" id="E72-22-oKa"/>
@@ -422,11 +433,12 @@
                 <constraint firstItem="xUk-Rf-DLk" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="Tpo-ix-ukW"/>
                 <constraint firstItem="l28-Vs-udC" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="148" id="XSD-qs-5mq"/>
                 <constraint firstItem="l28-Vs-udC" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="XeU-pa-y53"/>
-                <constraint firstItem="Jqb-rv-Cr0" firstAttribute="centerX" secondItem="aHf-zy-TKd" secondAttribute="centerX" id="Zbn-Rs-t9o"/>
                 <constraint firstItem="5C2-z5-85v" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="fq4-bI-0Xk"/>
                 <constraint firstItem="Jqb-rv-Cr0" firstAttribute="top" secondItem="aHf-zy-TKd" secondAttribute="bottom" constant="20" id="gvS-ZT-K48"/>
                 <constraint firstItem="m65-yb-IeX" firstAttribute="centerX" secondItem="S0h-l8-njS" secondAttribute="centerX" id="hLE-G8-F3A"/>
+                <constraint firstAttribute="bottom" secondItem="IWG-uq-nc7" secondAttribute="bottom" constant="20" id="ifJ-fR-bHP"/>
                 <constraint firstAttribute="trailing" secondItem="xUk-Rf-DLk" secondAttribute="trailing" constant="20" id="kqk-Kt-Lfm"/>
+                <constraint firstItem="IWG-uq-nc7" firstAttribute="centerX" secondItem="VRw-0O-f7a" secondAttribute="centerX" id="lnQ-PG-KnX"/>
                 <constraint firstItem="srC-Bc-0fd" firstAttribute="centerX" secondItem="l28-Vs-udC" secondAttribute="centerX" id="mQl-WY-7Xf"/>
                 <constraint firstItem="m65-yb-IeX" firstAttribute="top" secondItem="xUk-Rf-DLk" secondAttribute="bottom" constant="20" id="sw5-US-IfV"/>
                 <constraint firstItem="VRw-0O-f7a" firstAttribute="top" secondItem="xUk-Rf-DLk" secondAttribute="bottom" constant="20" id="vOM-pk-E7O"/>
