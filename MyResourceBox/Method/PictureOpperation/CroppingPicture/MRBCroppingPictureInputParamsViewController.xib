@@ -215,50 +215,6 @@
                         <constraint firstAttribute="height" constant="50" id="kdU-b5-DMW"/>
                     </constraints>
                 </customView>
-                <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="ctg-YE-Bmk">
-                    <rect key="frame" x="14" y="427" width="99" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="底部4.2%" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qp1-Rk-ccF">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" usesAppearanceFont="YES"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="shortcutBottom42Percent:" target="-2" id="IaV-2e-a7r"/>
-                    </connections>
-                </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="BAj-aZ-z9C">
-                    <rect key="frame" x="14" y="394" width="99" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="底部4.5%" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mXX-Gq-Ty4">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" usesAppearanceFont="YES"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="shortcutBottom45Percent:" target="-2" id="YSq-iT-G8W"/>
-                    </connections>
-                </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="4gG-ku-rRc">
-                    <rect key="frame" x="15" y="361" width="98" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="底部4.7%" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5UY-RS-8ed">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" usesAppearanceFont="YES"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="shortcutBottom47Percent:" target="-2" id="Ckt-KJ-kU4"/>
-                    </connections>
-                </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="VAw-0r-kB9">
-                    <rect key="frame" x="14" y="328" width="99" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="底部4.8%" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wjn-6Z-oPj">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" usesAppearanceFont="YES"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="shortcutBottom48Percent:" target="-2" id="MNb-sj-tA7"/>
-                    </connections>
-                </button>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="xUk-Rf-DLk">
                     <rect key="frame" x="496" y="339" width="338" height="116"/>
                     <subviews>
@@ -445,7 +401,7 @@
                 <constraint firstAttribute="trailing" secondItem="aHf-zy-TKd" secondAttribute="trailing" constant="20" id="wlM-qK-2aM"/>
                 <constraint firstAttribute="bottom" secondItem="Jqb-rv-Cr0" secondAttribute="bottom" constant="20" id="xrq-LJ-h3v"/>
             </constraints>
-            <point key="canvasLocation" x="18" y="-35"/>
+            <point key="canvasLocation" x="54" y="-241"/>
         </customView>
     </objects>
     <resources>

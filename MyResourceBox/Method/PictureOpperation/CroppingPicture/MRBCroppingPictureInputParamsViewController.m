@@ -253,37 +253,10 @@
     self.confirmButton.enabled = edgeInsets.hasCroppingParams && selectedMode != 0;
 }
 
-#pragma mark - QuickSetParams
-- (void)configBottomParams:(NSString *)value unitState:(NSControlStateValue)state {
-    self.topInputTextField.stringValue = @"";
-    self.leftInputTextField.stringValue = @"";
-    self.rightInputTextField.stringValue = @"";
-    self.bottomInputTextField.stringValue = value;
-    
-    self.topEnableCheckBox.state = NSOffState;
-    self.leftEnableCheckBox.state = NSOffState;
-    self.rightEnableCheckBox.state = NSOffState;
-    self.bottomEnableCheckBox.state = NSOnState;
-    
-    self.bottomUnitCheckBox.state = state;
-}
-
 #pragma mark - IBActions
 - (IBAction)checkboxDidPressed:(NSButton *)sender {
     [sender willChangeValueForKey:@"state"];
     [sender didChangeValueForKey:@"state"];
-}
-- (IBAction)shortcutBottom42Percent:(NSButton *)sender {
-    [self configBottomParams:@"4.2" unitState:NSOffState];
-}
-- (IBAction)shortcutBottom45Percent:(NSButton *)sender {
-    [self configBottomParams:@"4.5" unitState:NSOffState];
-}
-- (IBAction)shortcutBottom47Percent:(NSButton *)sender {
-    [self configBottomParams:@"4.7" unitState:NSOffState];
-}
-- (IBAction)shortcutBottom48Percent:(NSButton *)sender {
-    [self configBottomParams:@"4.8" unitState:NSOffState];
 }
 - (IBAction)selectFiles:(NSButton *)sender {
     NSOpenPanel *panel = [NSOpenPanel openPanel];
