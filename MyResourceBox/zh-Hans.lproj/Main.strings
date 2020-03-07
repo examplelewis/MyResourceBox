@@ -30,7 +30,7 @@
 "3Om-Ey-2VK.title" = "使用默认";
 
 /* Class = "NSMenuItem"; title = "Tighten"; ObjectID = "46P-cB-AYj"; */
-"46P-cB-AYj.title" = "Tighten";
+"46P-cB-AYj.title" = "紧排";
 
 /* Class = "NSMenuItem"; title = "Find"; ObjectID = "4EN-yA-p0u"; */
 "4EN-yA-p0u.title" = "查找";
@@ -54,7 +54,7 @@
 "5kV-Vb-QxS.title" = "关于 MyResourceBox";
 
 /* Class = "NSMenuItem"; title = "工具"; ObjectID = "5wH-zA-k6X"; */
-"5wH-zA-k6X.title" = "工具";
+"5wH-zA-k6X.title" = "文件";
 
 /* Class = "NSMenuItem"; title = "Redo"; ObjectID = "6dh-zS-Vam"; */
 "6dh-zS-Vam.title" = "重做";
@@ -138,10 +138,10 @@
 "Gi5-1S-RQB.title" = "字体";
 
 /* Class = "NSMenuItem"; title = "Operation"; ObjectID = "Glu-T2-6Lx"; */
-"Glu-T2-6Lx.title" = "Operation";
+"Glu-T2-6Lx.title" = "资源";
 
 /* Class = "NSMenuItem"; title = "Operation"; ObjectID = "W71-jA-KRA"; */
-"W71-jA-KRA.title" = "Tools";
+"W71-jA-KRA.title" = "工具";
 
 /* Class = "NSMenuItem"; title = "Writing Direction"; ObjectID = "H1b-Si-o9J"; */
 "H1b-Si-o9J.title" = "书写方向";
@@ -195,7 +195,7 @@
 "Mwd-Dp-10J.title" = "获取用户发布视频";
 
 /* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
-"NMo-om-nkz.title" = "Services";
+"NMo-om-nkz.title" = "服务";
 
 /* Class = "NSMenuItem"; title = "\tDefault"; ObjectID = "Nop-cj-93Q"; */
 "Nop-cj-93Q.title" = "\t默认";
@@ -231,10 +231,10 @@
 "Qj0-kv-Cz8.title" = "绝对领域";
 
 /* Class = "NSMenu"; title = "资源整理"; ObjectID = "Qpy-CQ-zjW"; */
-"Qpy-CQ-zjW.title" = "资源整理";
+"Qpy-CQ-zjW.title" = "整理";
 
 /* Class = "NSMenuItem"; title = "资源整理"; ObjectID = "Qxr-gf-ahS"; */
-"Qxr-gf-ahS.title" = "资源整理";
+"Qxr-gf-ahS.title" = "整理";
 
 /* Class = "NSMenuItem"; title = "\tRight to Left"; ObjectID = "RB4-Sm-HuC"; */
 "RB4-Sm-HuC.title" = "\t从右到左";
@@ -387,13 +387,13 @@
 "gkF-je-Ls2.title" = "获取用户的图片";
 
 /* Class = "NSMenu"; title = "工具"; ObjectID = "grn-fW-4TI"; */
-"grn-fW-4TI.title" = "工具";
+"grn-fW-4TI.title" = "文件";
 
 /* Class = "NSMenuItem"; title = "Smart Quotes"; ObjectID = "hQb-2v-fYv"; */
 "hQb-2v-fYv.title" = "智能引号";
 
 /* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
-"hz9-B4-Xy5.title" = "Services";
+"hz9-B4-Xy5.title" = "服务";
 
 /* Class = "NSMenuItem"; title = "Smaller"; ObjectID = "i1d-Er-qST"; */
 "i1d-Er-qST.title" = "较小";
@@ -426,7 +426,7 @@
 "o6e-r0-MWq.title" = "使用连字";
 
 /* Class = "NSMenuItem"; title = "Loosen"; ObjectID = "ogc-rX-tC1"; */
-"ogc-rX-tC1.title" = "Loosen";
+"ogc-rX-tC1.title" = "松排";
 
 /* Class = "NSMenuItem"; title = "获取illust的图片"; ObjectID = "oz0-Jt-Wrz"; */
 "oz0-Jt-Wrz.title" = "获取illust的图片";
@@ -510,7 +510,7 @@
 "xQD-1f-W4t.title" = "全部使用";
 
 /* Class = "NSMenu"; title = "Operation"; ObjectID = "xtJ-DM-ian"; */
-"xtJ-DM-ian.title" = "Operation";
+"xtJ-DM-ian.title" = "资源";
 
 /* Class = "NSMenuItem"; title = "批量获取种子文件"; ObjectID = "y6B-qK-RLC"; */
 "y6B-qK-RLC.title" = "批量获取种子文件";

@@ -479,9 +479,9 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Operation" id="Glu-T2-6Lx">
+                            <menuItem title="资源" id="Glu-T2-6Lx">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Operation" id="xtJ-DM-ian">
+                                <menu key="submenu" title="资源" id="xtJ-DM-ian">
                                     <items>
                                         <menuItem title="从输入框中解析" tag="1" keyEquivalent="1" id="ZC9-di-UzD">
                                             <connections>
@@ -1016,9 +1016,9 @@
                                             </menu>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="p6z-q9-Mv4"/>
-                                        <menuItem title="资源整理" id="Qxr-gf-ahS">
+                                        <menuItem title="整理" id="Qxr-gf-ahS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="资源整理" id="Qpy-CQ-zjW">
+                                            <menu key="submenu" title="整理" id="Qpy-CQ-zjW">
                                                 <items>
                                                     <menuItem title="半次元" tag="1" id="9fQ-7l-QOg">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
@@ -1044,9 +1044,9 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Tools" id="q6t-kw-VtF">
+                            <menuItem title="工具" id="q6t-kw-VtF">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Tools" id="W71-jA-KRA">
+                                <menu key="submenu" title="工具" id="W71-jA-KRA">
                                     <items>
                                         <menuItem title="下载" id="pxB-ZK-4gf">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -1107,9 +1107,9 @@
                                             </menu>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="XJ2-Np-oTs"/>
-                                        <menuItem title="图站整理" id="hzY-wd-xKh">
+                                        <menuItem title="图站" id="hzY-wd-xKh">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="图站整理" id="59c-eA-yqa">
+                                            <menu key="submenu" title="图站" id="59c-eA-yqa">
                                                 <items>
                                                     <menuItem title="抓取 Gelbooru 的所有标签【未完成】" tag="1" id="cD9-kQ-gVA">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
@@ -1130,9 +1130,9 @@
                                             </menu>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="vO1-1B-L0G"/>
-                                        <menuItem title="文件整理" id="5wH-zA-k6X">
+                                        <menuItem title="文件" id="5wH-zA-k6X">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="文件整理" id="grn-fW-4TI">
+                                            <menu key="submenu" title="文件" id="grn-fW-4TI">
                                                 <items>
                                                     <menuItem title="整理 Day 中的图片" tag="1" keyEquivalent="3" id="siZ-H5-irB">
                                                         <connections>
@@ -1181,9 +1181,9 @@
                                             </menu>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="JGB-G4-K59"/>
-                                        <menuItem title="系统工具" id="LXK-fX-3gL">
+                                        <menuItem title="系统" id="LXK-fX-3gL">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="系统工具" id="9kw-oa-oab">
+                                            <menu key="submenu" title="系统" id="9kw-oa-oab">
                                                 <items>
                                                     <menuItem title="解析WebArchive文件" tag="1" id="jsR-Rr-nG1">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
@@ -1207,9 +1207,9 @@
                                             </menu>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="CFl-aI-6SG"/>
-                                        <menuItem title="图片工具" id="i8A-85-7og">
+                                        <menuItem title="图片" id="i8A-85-7og">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="图片工具" id="XN1-YM-9UO">
+                                            <menu key="submenu" title="图片" id="XN1-YM-9UO">
                                                 <items>
                                                     <menuItem title="简单批量裁剪图片" tag="1" id="RTN-oh-m5n">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
