@@ -42,15 +42,15 @@
     
     // 拉黑的等级：0. 未判断; 1. 确定拉黑; 2. 不确定拉黑
     [[MRBSQLiteFMDBManager defaultDBManager] insertPixivBlockUserInfoIntoDatabase:fetchedBlocks];
-    [[MRBLogManager defaultManager] showLogWithFormat:@"已将获取到的 Pixiv 屏蔽用户的信息存到数据库中"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"已将获取到的 Pixiv 确定拉黑用户的信息存到数据库中"];
 }
 - (void)checkPixivUserHasBlocked {
-    [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被拉黑，流程开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询 Pixiv 用户是否被拉黑，流程开始"];
     
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     if (input.length == 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
-        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被拉黑，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询 Pixiv 用户是否被拉黑，流程结束"];
         return;
     }
     
@@ -62,8 +62,8 @@
     db = [FMDatabase databaseWithPath:[[MRBDeviceManager defaultManager].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被拉黑 时发生错误：%@", [db lastErrorMessage]];
-        [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被拉黑，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询 Pixiv 用户是否被拉黑 时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"查询 Pixiv 用户是否被拉黑，流程结束"];
         return;
     }
     //为数据库设置缓存，提高查询效率
@@ -120,7 +120,7 @@
     
     [db close];
     
-    [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被拉黑，流程结束，请查看下载文件夹"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查询 Pixiv 用户是否被拉黑，流程结束，请查看下载文件夹"];
     if (useless.count > 0) {
         [MRBUtilityManager exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilBlockUseless.txt"];
     }
@@ -135,12 +135,12 @@
     }
 }
 - (void)updateBlockLevel1PixivUser {
-    [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv屏蔽用户名单，流程开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"更新 Pixiv 确定拉黑用户名单，流程开始"];
     
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     if (input.length == 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
-        [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv屏蔽用户名单，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"更新 Pixiv 确定拉黑用户名单，流程结束"];
         return;
     }
     
@@ -149,8 +149,8 @@
     db = [FMDatabase databaseWithPath:[[MRBDeviceManager defaultManager].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv屏蔽用户名单 时发生错误：%@", [db lastErrorMessage]];
-        [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv屏蔽用户名单，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"更新 Pixiv 确定拉黑用户名单 时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"更新 Pixiv 确定拉黑用户名单，流程结束"];
         return;
     }
     //为数据库设置缓存，提高查询效率
@@ -200,18 +200,18 @@
     
     [db close];
     
-    [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv屏蔽用户名单，流程结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"更新 Pixiv 确定拉黑用户名单，流程结束"];
     if (useless.count > 0) {
         [MRBUtilityManager exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilUpdateBlockUseless.txt"];
     }
 }
 - (void)updateBlockLevel2PixivUser {
-    [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv不确定屏蔽用户名单，流程开始"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"更新 Pixiv 不确定拉黑用户名单，流程开始"];
     
     NSString *input = [AppDelegate defaultVC].inputTextView.string;
     if (input.length == 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
-        [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv不确定屏蔽用户名单，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"更新 Pixiv 不确定拉黑用户名单，流程结束"];
         return;
     }
     
@@ -220,8 +220,8 @@
     db = [FMDatabase databaseWithPath:[[MRBDeviceManager defaultManager].path_root_folder stringByAppendingPathComponent:@"data.sqlite"]];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv不确定屏蔽用户名单 时发生错误：%@", [db lastErrorMessage]];
-        [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv不确定屏蔽用户名单，流程结束"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"更新 Pixiv 不确定拉黑用户名单 时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"更新 Pixiv 不确定拉黑用户名单，流程结束"];
         return;
     }
     //为数据库设置缓存，提高查询效率
@@ -271,11 +271,10 @@
     
     [db close];
     
-    [[MRBLogManager defaultManager] showLogWithFormat:@"更新Pixiv不确定屏蔽用户名单，流程结束"];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"更新 Pixiv 不确定拉黑用户名单，流程结束"];
     if (useless.count > 0) {
         [MRBUtilityManager exportArray:useless atPath:@"/Users/Mercury/Downloads/PixivUtilUpdateBlockUseless.txt"];
     }
 }
-
 
 @end
