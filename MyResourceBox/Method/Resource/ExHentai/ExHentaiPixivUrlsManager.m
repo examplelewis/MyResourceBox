@@ -76,23 +76,26 @@
                     
                     if (commentArray.count > 0) {
                         TFHppleElement *commentElemnt = commentArray.firstObject;
-                        NSPredicate *subCommentPredicate = [NSPredicate predicateWithBlock:^BOOL(TFHppleElement *subElemnt, NSDictionary<NSString *,id> * _Nullable bindings) {
-                            return [subElemnt.content containsString:@"www.pixiv.net"];
-                        }];
-                        NSArray *subCommentArray = [commentElemnt.children filteredArrayUsingPredicate:subCommentPredicate];
-                        TFHppleElement *subCommentElemnt = subCommentArray.firstObject;
-                        NSString *commentContent = subCommentElemnt.content;
-                        
-                        NSError *error = nil;
-                        NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:&error];
-                        NSArray *results = [detector matchesInString:commentContent options:kNilOptions range:NSMakeRange(0, [commentContent length])];
-                        if (results.count > 0) {
-                            NSArray *resultUrls = [results valueForKeyPath:@"URL.absoluteString"];
-                            NSString *exHentaiUrl = response.URL.absoluteString;
+                        BOOL commentNotContainsPatreon = [commentElemnt.raw rangeOfString:@"patreon" options:NSCaseInsensitiveSearch].location == NSNotFound; // 只收集不包含 patreon 的 Pixiv 用户
+                        if (commentNotContainsPatreon) {
+                            NSPredicate *subCommentPredicate = [NSPredicate predicateWithBlock:^BOOL(TFHppleElement *subElemnt, NSDictionary<NSString *,id> * _Nullable bindings) {
+                                return [subElemnt.content containsString:@"www.pixiv.net"];
+                            }];
+                            NSArray *subCommentArray = [commentElemnt.children filteredArrayUsingPredicate:subCommentPredicate];
+                            TFHppleElement *subCommentElemnt = subCommentArray.firstObject;
+                            NSString *commentContent = subCommentElemnt.content;
                             
-                            [self->pixivUrls addObjectsFromArray:resultUrls];
-                            [self->parseInfo setObject:resultUrls forKey:exHentaiUrl];
-                            [self->hasPixivUrlExHentaiUrls addObject:exHentaiUrl];
+                            NSError *error = nil;
+                            NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:&error];
+                            NSArray *results = [detector matchesInString:commentContent options:kNilOptions range:NSMakeRange(0, [commentContent length])];
+                            if (results.count > 0) {
+                                NSArray *resultUrls = [results valueForKeyPath:@"URL.absoluteString"];
+                                NSString *exHentaiUrl = response.URL.absoluteString;
+                                
+                                [self->pixivUrls addObjectsFromArray:resultUrls];
+                                [self->parseInfo setObject:resultUrls forKey:exHentaiUrl];
+                                [self->hasPixivUrlExHentaiUrls addObject:exHentaiUrl];
+                            }
                         }
                     }
                 }
