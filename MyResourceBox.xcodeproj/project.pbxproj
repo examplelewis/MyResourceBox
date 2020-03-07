@@ -134,6 +134,11 @@
 		ACECBDCF240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACECBDCD240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib */; };
 		ACECBDD2240C292C00DB92DC /* MRBCroppingPictureCustomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD1240C292C00DB92DC /* MRBCroppingPictureCustomManager.m */; };
 		ACECBDDA240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD9240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m */; };
+		ACF9D91F24139F4C00C0019A /* MRBDigital.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF9D91E24139F4C00C0019A /* MRBDigital.m */; };
+		ACF9D9272413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF9D9252413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m */; };
+		ACF9D9282413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF9D9262413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib */; };
+		ACF9D92C2413A10D00C0019A /* MRBScreenSizeResolutionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF9D92A2413A10D00C0019A /* MRBScreenSizeResolutionViewController.m */; };
+		ACF9D92D2413A10D00C0019A /* MRBScreenSizeResolutionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF9D92B2413A10D00C0019A /* MRBScreenSizeResolutionViewController.xib */; };
 		ACFFB866229F7F4D00FC41AA /* ResourceOrganizeMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */; };
 		ACFFB869229FAB7100FC41AA /* WeiboFetchedUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFFB868229FAB7100FC41AA /* WeiboFetchedUserManager.m */; };
 /* End PBXBuildFile section */
@@ -413,6 +418,14 @@
 		ACECBDD1240C292C00DB92DC /* MRBCroppingPictureCustomManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureCustomManager.m; sourceTree = "<group>"; };
 		ACECBDD8240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureCustomWeiboWaterprintOperation.h; sourceTree = "<group>"; };
 		ACECBDD9240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureCustomWeiboWaterprintOperation.m; sourceTree = "<group>"; };
+		ACF9D91D24139F4C00C0019A /* MRBDigital.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBDigital.h; sourceTree = "<group>"; };
+		ACF9D91E24139F4C00C0019A /* MRBDigital.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBDigital.m; sourceTree = "<group>"; };
+		ACF9D9242413A08F00C0019A /* MRBScreenSizeResolutionWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBScreenSizeResolutionWindowController.h; sourceTree = "<group>"; };
+		ACF9D9252413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBScreenSizeResolutionWindowController.m; sourceTree = "<group>"; };
+		ACF9D9262413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBScreenSizeResolutionWindowController.xib; sourceTree = "<group>"; };
+		ACF9D9292413A10D00C0019A /* MRBScreenSizeResolutionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBScreenSizeResolutionViewController.h; sourceTree = "<group>"; };
+		ACF9D92A2413A10D00C0019A /* MRBScreenSizeResolutionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBScreenSizeResolutionViewController.m; sourceTree = "<group>"; };
+		ACF9D92B2413A10D00C0019A /* MRBScreenSizeResolutionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBScreenSizeResolutionViewController.xib; sourceTree = "<group>"; };
 		ACF9FC67228159D600375505 /* MRBCommoms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCommoms.h; sourceTree = "<group>"; };
 		ACFFB864229F7F4D00FC41AA /* ResourceOrganizeMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceOrganizeMethod.h; sourceTree = "<group>"; };
 		ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceOrganizeMethod.m; sourceTree = "<group>"; };
@@ -620,6 +633,7 @@
 				AC85091D1DB3970D004AFE84 /* Controller */,
 				AC8509141DB39692004AFE84 /* Method */,
 				AC8508FE1DB39677004AFE84 /* Model */,
+				ACF9D91B24139F2000C0019A /* Tool */,
 				AC8509011DB39677004AFE84 /* ThirdParty */,
 				AC8508CF1DB39146004AFE84 /* Supporting Files */,
 			);
@@ -1048,6 +1062,37 @@
 			path = Operations;
 			sourceTree = "<group>";
 		};
+		ACF9D91B24139F2000C0019A /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				ACF9D91C24139F3100C0019A /* Digital */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		ACF9D91C24139F3100C0019A /* Digital */ = {
+			isa = PBXGroup;
+			children = (
+				ACF9D91D24139F4C00C0019A /* MRBDigital.h */,
+				ACF9D91E24139F4C00C0019A /* MRBDigital.m */,
+				ACF9D92024139F5700C0019A /* ScreenSizeResolution */,
+			);
+			path = Digital;
+			sourceTree = "<group>";
+		};
+		ACF9D92024139F5700C0019A /* ScreenSizeResolution */ = {
+			isa = PBXGroup;
+			children = (
+				ACF9D9242413A08F00C0019A /* MRBScreenSizeResolutionWindowController.h */,
+				ACF9D9252413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m */,
+				ACF9D9262413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib */,
+				ACF9D9292413A10D00C0019A /* MRBScreenSizeResolutionViewController.h */,
+				ACF9D92A2413A10D00C0019A /* MRBScreenSizeResolutionViewController.m */,
+				ACF9D92B2413A10D00C0019A /* MRBScreenSizeResolutionViewController.xib */,
+			);
+			path = ScreenSizeResolution;
+			sourceTree = "<group>";
+		};
 		ACF9FC66228159BE00375505 /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -1173,6 +1218,8 @@
 				ACECBDCF240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib in Resources */,
 				AC01F81F240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.xib in Resources */,
 				AC8508D61DB39146004AFE84 /* Assets.xcassets in Resources */,
+				ACF9D92D2413A10D00C0019A /* MRBScreenSizeResolutionViewController.xib in Resources */,
+				ACF9D9282413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib in Resources */,
 				AC8509221DB3970D004AFE84 /* WeiboTokenWindowController.xib in Resources */,
 				AC883A2A1DBB920800CC579E /* WeiboRequestTokenWindowController.xib in Resources */,
 				ACECBDCA240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib in Resources */,
@@ -1268,6 +1315,7 @@
 				AC85091B1DB39692004AFE84 /* WebArchiveMethod.m in Sources */,
 				ACE05014227FD9EE00367F3A /* WeiboBoundaryManager.m in Sources */,
 				ACC5C00722890C32004E7C83 /* PicResourceGIFWebmSeparateManager.m in Sources */,
+				ACF9D91F24139F4C00C0019A /* MRBDigital.m in Sources */,
 				ACC5C00422890AB2004E7C83 /* PicResourceTagExtractManager.m in Sources */,
 				ACDE0BBD22E98D5E006367D9 /* FOExtractTypesFileManager.m in Sources */,
 				ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */,
@@ -1284,6 +1332,7 @@
 				AC883A291DBB920800CC579E /* WeiboRequestTokenWindowController.m in Sources */,
 				AC19E1511E4844660084A510 /* SAPIIllust.m in Sources */,
 				AC8508D11DB39146004AFE84 /* main.m in Sources */,
+				ACF9D92C2413A10D00C0019A /* MRBScreenSizeResolutionViewController.m in Sources */,
 				ACC8BA65228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m in Sources */,
 				AC9870611E4C4A980076DC92 /* PixivDownloadObject.m in Sources */,
 				ACE05017227FDAF600367F3A /* WeiboFetchManager.m in Sources */,
@@ -1344,6 +1393,7 @@
 				AC789C7F1DE159E100523A12 /* ExHentaiUrlsManager.m in Sources */,
 				AC19E1581E4857020084A510 /* PixivMethod.m in Sources */,
 				AC1401AC240BAF9D00C77F73 /* NSString+MRBString.m in Sources */,
+				ACF9D9272413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m in Sources */,
 				ACE05020227FE62800367F3A /* DeviantartUserManager.m in Sources */,
 				AC789C651DE1466200523A12 /* CookieInfoObject.m in Sources */,
 				ACCAA0371E1B81250017EDDA /* MRBImageManager.m in Sources */,

@@ -1226,6 +1226,20 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="xiz-tT-b2e"/>
+                                        <menuItem title="数码" id="Sd9-WF-Ofc">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="数码" id="h4e-4s-h7N">
+                                                <items>
+                                                    <menuItem title="屏幕尺寸 / 分辨率计算" tag="1" id="xfm-wB-t5D">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingDigital:" target="Voe-Tx-rLC" id="LPb-2Y-KSw"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>

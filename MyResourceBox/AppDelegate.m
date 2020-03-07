@@ -28,6 +28,8 @@
 #import "ToolOperationMethod.h"
 #import "PictureOperationMethod.h"
 
+#import "MRBDigital.h"
+
 #import "MRBCatchCrashManager.h"
 #import "ResourceOrganizeMethod.h"
 
@@ -153,6 +155,9 @@
 }
 - (IBAction)processingPictureOperation:(NSMenuItem *)sender {
     [PictureOperationMethod configMethod:sender.tag];
+}
+- (IBAction)processingDigital:(NSMenuItem *)sender {
+    [MRBDigital configMethod:sender.tag];
 }
 
 #pragma mark - Help
