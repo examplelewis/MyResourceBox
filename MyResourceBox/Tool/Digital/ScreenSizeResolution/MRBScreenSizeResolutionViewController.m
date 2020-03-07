@@ -69,11 +69,11 @@
     NSString *sizeDesc = [NSString stringWithFormat:@"尺寸：\t%@ 英寸", _sizeScreenInput.stringValue];
     NSString *ratioDesc = [NSString stringWithFormat:@"比例：\t%@ : %@", _sizeRatioLeftInput.stringValue, _sizeRatioRightInput.stringValue];
     NSString *inchHDesc = [NSString stringWithFormat:@"\t%.2f 英寸 × %.2f 英寸", largeInch, smallInch];
-    NSString *cmHDesc = [NSString stringWithFormat:@"\t%.1f cm × %.1f cm", largeCM, smallCM];
-    NSString *mmHDesc = [NSString stringWithFormat:@"\t%.0f mm × %.0f mm", largeMM, smallMM];
+    NSString *cmHDesc = [NSString stringWithFormat:@"\t%.2f cm × %.2f cm", largeCM, smallCM];
+    NSString *mmHDesc = [NSString stringWithFormat:@"\t%.1f mm × %.1f mm", largeMM, smallMM];
     NSString *inchVDesc = [NSString stringWithFormat:@"\t%.2f 英寸 × %.2f 英寸", smallInch, largeInch];
-    NSString *cmVDesc = [NSString stringWithFormat:@"\t%.1f cm × %.1f cm", smallCM, largeCM];
-    NSString *mmVDesc = [NSString stringWithFormat:@"\t%.0f mm × %.0f mm", smallMM, largeMM];
+    NSString *cmVDesc = [NSString stringWithFormat:@"\t%.2f cm × %.2f cm", smallCM, largeCM];
+    NSString *mmVDesc = [NSString stringWithFormat:@"\t%.1f mm × %.1f mm", smallMM, largeMM];
     _sizeResultTextView.string = [NSString stringWithFormat:@"%@\n%@\n横屏：\n%@\n%@\n%@\n竖屏：\n%@\n%@\n%@", sizeDesc, ratioDesc, inchHDesc, cmHDesc, mmHDesc,inchVDesc, cmVDesc, mmVDesc];
     _sizeResultTextView.textColor = [NSColor textColor];
 }
