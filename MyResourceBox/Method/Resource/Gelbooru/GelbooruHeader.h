@@ -18,6 +18,9 @@ static NSString * const GelbooruGamePostTxtPath = @"/Users/Mercury/Downloads/Gel
 static NSString * const GelbooruHPostTxtPath = @"/Users/Mercury/Downloads/GelbooruHPostUrl.txt";
 
 static NSString * const GelbooruWebmPostRenamePlistPath = @"/Users/Mercury/Downloads/GelbooruWebmPostRenameInfo.plist";
+static NSString * const GelbooruFatePostRenamePlistPath = @"/Users/Mercury/Downloads/GelbooruFatePostRenameInfo.plist";
+static NSString * const GelbooruAzurPostRenamePlistPath = @"/Users/Mercury/Downloads/GelbooruAzurPostRenameInfo.plist";
+static NSString * const GelbooruOverwatchPostRenamePlistPath = @"/Users/Mercury/Downloads/GelbooruOverwatchPostRenameInfo.plist";
 static NSString * const GelbooruAnimePostRenamePlistPath = @"/Users/Mercury/Downloads/GelbooruAnimePostRenameInfo.plist";
 static NSString * const GelbooruGamePostRenamePlistPath = @"/Users/Mercury/Downloads/GelbooruGamePostRenameInfo.plist";
 static NSString * const GelbooruHPostRenamePlistPath = @"/Users/Mercury/Downloads/GelbooruHPostRenameInfo.plist";

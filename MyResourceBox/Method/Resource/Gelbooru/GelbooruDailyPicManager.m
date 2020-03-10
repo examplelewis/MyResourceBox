@@ -7,7 +7,7 @@
 //
 
 #import "GelbooruDailyPicManager.h"
-#import "ResourceGlobalTagManager.h"
+#import "MRBResourceGlobalTagManager.h"
 #import "MRBHttpManager.h"
 #import "GelbooruHeader.h"
 
@@ -25,6 +25,9 @@
     NSMutableDictionary *animeNameInfo;
     NSMutableDictionary *gameNameInfo;
     NSMutableDictionary *hNameInfo;
+    NSMutableDictionary *fateNameInfo;
+    NSMutableDictionary *azurNameInfo;
+    NSMutableDictionary *overwatchNameInfo;
     NSMutableDictionary *webmNameInfo;
     
     NSDictionary *latestPost;
@@ -49,6 +52,9 @@
         animeNameInfo = [NSMutableDictionary dictionary];
         gameNameInfo = [NSMutableDictionary dictionary];
         hNameInfo = [NSMutableDictionary dictionary];
+        fateNameInfo = [NSMutableDictionary dictionary];
+        azurNameInfo = [NSMutableDictionary dictionary];
+        overwatchNameInfo = [NSMutableDictionary dictionary];
         webmNameInfo = [NSMutableDictionary dictionary];
         
         NSString *filePath = [[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"FetchResource/GelbooruLatestPost.plist"];
@@ -81,14 +87,9 @@
             if ([[data[@"file_url"] pathExtension] isEqualToString:@"webm"]) {
                 [self->webmPosts addObject:data];
                 
-                NSArray *dataTags = [data[@"tags"] componentsSeparatedByString:@" "];
-                NSString *copyrightTags = [[ResourceGlobalTagManager defaultManager] getNeededCopyrightTags:dataTags];
-                NSString *donwloadFileNameAndExtension = [data[@"file_url"] lastPathComponent];
-                if (copyrightTags.length == 0) {
-                    [self->webmNameInfo setObject:[NSString stringWithFormat:@"%@.%@", data[@"id"], donwloadFileNameAndExtension.pathExtension] forKey:donwloadFileNameAndExtension];
-                } else {
-                    [self->webmNameInfo setObject:[NSString stringWithFormat:@"%@ - %@.%@", copyrightTags, data[@"id"], donwloadFileNameAndExtension.pathExtension] forKey:donwloadFileNameAndExtension];
-                }
+                NSString *usefulTags = [[MRBResourceGlobalTagManager defaultManager] extractUsefulTagsFromTagsString:data[@"tags"]];
+                NSString *targetName = [self targetFileNameAndExtensionWithData:data typeTags:@"" usefulTags:usefulTags];
+                [self->webmNameInfo setObject:targetName forKey:[data[@"file_url"] lastPathComponent]];
                 
                 continue;
             }
@@ -100,40 +101,58 @@
             
             if ([data[@"tags"] containsString:@"fate"]) {
                 [self->fatePosts addObject:data];
+                
+                NSString *usefulTags = [[MRBResourceGlobalTagManager defaultManager] extractUsefulTagsFromTagsString:data[@"tags"]];
+                NSString *targetName = [self targetFileNameAndExtensionWithData:data typeTags:@"fate_(series)" usefulTags:usefulTags];
+                [self->fateNameInfo setObject:targetName forKey:[data[@"file_url"] lastPathComponent]];
+                
                 continue;
             }
             
             if ([data[@"tags"] containsString:@"azur_lane"]) {
                 [self->azurPosts addObject:data];
+                
+                NSString *usefulTags = [[MRBResourceGlobalTagManager defaultManager] extractUsefulTagsFromTagsString:data[@"tags"]];
+                NSString *targetName = [self targetFileNameAndExtensionWithData:data typeTags:@"azur_lane" usefulTags:usefulTags];
+                [self->azurNameInfo setObject:targetName forKey:[data[@"file_url"] lastPathComponent]];
+                
                 continue;
             }
             
             if ([data[@"tags"] containsString:@"overwatch"]) {
                 [self->overwatchPosts addObject:data];
+                
+                NSString *usefulTags = [[MRBResourceGlobalTagManager defaultManager] extractUsefulTagsFromTagsString:data[@"tags"]];
+                NSString *targetName = [self targetFileNameAndExtensionWithData:data typeTags:@"overwatch" usefulTags:usefulTags];
+                [self->overwatchNameInfo setObject:targetName forKey:[data[@"file_url"] lastPathComponent]];
+                
                 continue;
             }
             
             // 可能存在一张图片既在动漫又在游戏的情况，这是为了确定图片的真实tag
-            NSString *animeTags = [[ResourceGlobalTagManager defaultManager] getAnimeTags:data[@"tags"]];
+            NSString *animeTags = [[MRBResourceGlobalTagManager defaultManager] extractAnimeTagsFromTags:data[@"tags"] atSite:MRBResourceGlobalTagSiteGelbooru];
             if (animeTags.length > 0) {
                 [self->animePosts addObject:data];
                 
-                NSString *donwloadFileNameAndExtension = [data[@"file_url"] lastPathComponent];
-                [self->animeNameInfo setObject:[NSString stringWithFormat:@"%@ - %@", animeTags, donwloadFileNameAndExtension] forKey:donwloadFileNameAndExtension];
+                NSString *usefulTags = [[MRBResourceGlobalTagManager defaultManager] extractUsefulTagsFromTagsString:data[@"tags"]];
+                NSString *targetName = [self targetFileNameAndExtensionWithData:data typeTags:animeTags usefulTags:usefulTags];
+                [self->animeNameInfo setObject:targetName forKey:[data[@"file_url"] lastPathComponent]];
             }
-            NSString *gameTags = [[ResourceGlobalTagManager defaultManager] getGameTags:data[@"tags"]];
+            NSString *gameTags = [[MRBResourceGlobalTagManager defaultManager] extractGameTagsFromTags:data[@"tags"] atSite:MRBResourceGlobalTagSiteGelbooru];
             if (gameTags.length > 0) {
                 [self->gamePosts addObject:data];
                 
-                NSString *donwloadFileNameAndExtension = [data[@"file_url"] lastPathComponent];
-                [self->gameNameInfo setObject:[NSString stringWithFormat:@"%@ - %@", gameTags, donwloadFileNameAndExtension] forKey:donwloadFileNameAndExtension];
+                NSString *usefulTags = [[MRBResourceGlobalTagManager defaultManager] extractUsefulTagsFromTagsString:data[@"tags"]];
+                NSString *targetName = [self targetFileNameAndExtensionWithData:data typeTags:gameTags usefulTags:usefulTags];
+                [self->gameNameInfo setObject:targetName forKey:[data[@"file_url"] lastPathComponent]];
             }
-            NSString *hTags = [[ResourceGlobalTagManager defaultManager] getHTags:data[@"tags"]];
+            NSString *hTags = [[MRBResourceGlobalTagManager defaultManager] extractHTagsFromTags:data[@"tags"] atSite:MRBResourceGlobalTagSiteGelbooru];
             if (hTags.length > 0) {
                 [self->hPosts addObject:data];
                 
-                NSString *donwloadFileNameAndExtension = [data[@"file_url"] lastPathComponent];
-                [self->hNameInfo setObject:[NSString stringWithFormat:@"%@ - %@", hTags, donwloadFileNameAndExtension] forKey:donwloadFileNameAndExtension];
+                NSString *usefulTags = [[MRBResourceGlobalTagManager defaultManager] extractUsefulTagsFromTagsString:data[@"tags"]];
+                NSString *targetName = [self targetFileNameAndExtensionWithData:data typeTags:hTags usefulTags:usefulTags];
+                [self->hNameInfo setObject:targetName forKey:[data[@"file_url"] lastPathComponent]];
             }
         }
         
@@ -144,11 +163,16 @@
         NSArray *animeUrls = [self->animePosts valueForKey:@"file_url"];
         NSArray *gameUrls = [self->gamePosts valueForKey:@"file_url"];
         NSArray *hUrls = [self->hPosts valueForKey:@"file_url"];
-        NSArray *webUrls = [self->webmPosts valueForKey:@"file_url"];
+        NSArray *webmUrls = [self->webmPosts valueForKey:@"file_url"];
         
         [MRBUtilityManager exportArray:fateUrls atPath:GelbooruFatePostTxtPath];
+        [self->fateNameInfo writeToFile:GelbooruFatePostRenamePlistPath atomically:YES];
+        
         [MRBUtilityManager exportArray:azurUrls atPath:GelbooruAzurPostTxtPath];
+        [self->azurNameInfo writeToFile:GelbooruAzurPostRenamePlistPath atomically:YES];
+        
         [MRBUtilityManager exportArray:overwatchUrls atPath:GelbooruOverwatchPostTxtPath];
+        [self->overwatchNameInfo writeToFile:GelbooruOverwatchPostRenamePlistPath atomically:YES];
         
         [MRBUtilityManager exportArray:animeUrls atPath:GelbooruAnimePostTxtPath];
         [self->animeNameInfo writeToFile:GelbooruAnimePostRenamePlistPath atomically:YES];
@@ -159,7 +183,7 @@
         [MRBUtilityManager exportArray:hUrls atPath:GelbooruHPostTxtPath];
         [self->hNameInfo writeToFile:GelbooruHPostRenamePlistPath atomically:YES];
         
-        [MRBUtilityManager exportArray:webUrls atPath:GelbooruWebmPostTxtPath];
+        [MRBUtilityManager exportArray:webmUrls atPath:GelbooruWebmPostTxtPath];
         [self->webmNameInfo writeToFile:GelbooruWebmPostRenamePlistPath atomically:YES];
         
         
@@ -201,6 +225,38 @@
     
     [[MRBLogManager defaultManager] cleanLog];
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Gelbooru 日常图片地址：流程结束"];
+}
+
+- (NSString *)targetFileNameAndExtensionWithData:(NSDictionary *)data typeTags:(NSString *)typeTags usefulTags:(NSString *)usefulTags {
+    // 如果 usefulTags 中包含 typeTags, 那么需要去除
+    if (typeTags && typeTags.length > 0) {
+        NSMutableArray *tags = [NSMutableArray arrayWithArray:[usefulTags componentsSeparatedByString:@"+"]];
+        if ([tags indexOfObject:typeTags] != NSNotFound) {
+            [tags removeObject:typeTags];
+            usefulTags = [tags componentsJoinedByString:@"+"];
+        }
+    }
+    
+    NSMutableArray *components = [NSMutableArray array];
+    if (typeTags && typeTags.length > 0) {
+        // fate、azue_lane、overwatch 不添加
+        if (![typeTags isEqualToString:@"fate_(series)"] && ![typeTags isEqualToString:@"azur_lane"] && ![typeTags isEqualToString:@"overwatch"]) {
+            [components addObject:typeTags];
+        }
+    }
+    if (data[@"id"] && [data[@"id"] length] > 0) {
+        [components addObject:data[@"id"]];
+    }
+    if (usefulTags && usefulTags.length > 0) {
+        [components addObject:usefulTags];
+    }
+    
+    NSString *targetName = [components componentsJoinedByString:@" - "];
+    if (targetName.length > 230) {
+        targetName = [targetName substringToIndex:230];
+    }
+    
+    return [NSString stringWithFormat:@"%@.%@", targetName, [data[@"file_url"] pathExtension]];
 }
 
 @end

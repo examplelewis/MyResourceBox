@@ -18,6 +18,9 @@ static NSString * const Rule34GamePostTxtPath = @"/Users/Mercury/Downloads/Rule3
 static NSString * const Rule34HPostTxtPath = @"/Users/Mercury/Downloads/Rule34HPostUrl.txt";
 
 static NSString * const Rule34WebmPostRenamePlistPath = @"/Users/Mercury/Downloads/Rule34WebmPostRenameInfo.plist";
+static NSString * const Rule34FatePostRenamePlistPath = @"/Users/Mercury/Downloads/Rule34FatePostRenameInfo.plist";
+static NSString * const Rule34AzurPostRenamePlistPath = @"/Users/Mercury/Downloads/Rule34AzurPostRenameInfo.plist";
+static NSString * const Rule34OverwatchPostRenamePlistPath = @"/Users/Mercury/Downloads/Rule34OverwatchPostRenameInfo.plist";
 static NSString * const Rule34AnimePostRenamePlistPath = @"/Users/Mercury/Downloads/Rule34AnimePostRenameInfo.plist";
 static NSString * const Rule34GamePostRenamePlistPath = @"/Users/Mercury/Downloads/Rule34GamePostRenameInfo.plist";
 static NSString * const Rule34HPostRenamePlistPath = @"/Users/Mercury/Downloads/Rule34HPostRenameInfo.plist";

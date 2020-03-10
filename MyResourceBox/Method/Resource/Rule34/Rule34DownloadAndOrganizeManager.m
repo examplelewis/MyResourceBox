@@ -129,9 +129,48 @@
             break;
         case 7: {
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载 webm 文件, 结束"];
-            [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Anime 图片, 开始"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Fate 图片, 开始"];
             
             [[MRBFileManager defaultManager] trashFileAtPath:Rule34WebmPostTxtPath resultItemURL:nil];
+            totalDownloadStep += 1;
+            
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:Rule34FatePostRenamePlistPath targetFolderPath:Rule34FateRootFolderPath];
+            manager.finishBlock = ^{
+                [self startOperation];
+            };
+            [manager startOrganizing];
+        }
+            break;
+        case 8: {
+            [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Fate 图片, 结束"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Azur Lane 图片, 开始"];
+            
+            totalDownloadStep += 1;
+            
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:Rule34AzurPostRenamePlistPath targetFolderPath:Rule34AzurRootFolderPath];
+            manager.finishBlock = ^{
+                [self startOperation];
+            };
+            [manager startOrganizing];
+        }
+            break;
+        case 9: {
+            [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Azur Lane 图片, 结束"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Overwatch 图片, 开始"];
+            
+            totalDownloadStep += 1;
+            
+            ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:Rule34OverwatchPostRenamePlistPath targetFolderPath:Rule34OverwatchRootFolderPath];
+            manager.finishBlock = ^{
+                [self startOperation];
+            };
+            [manager startOrganizing];
+        }
+            break;
+        case 10: {
+            [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Overwatch 图片, 结束"];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Anime 图片, 开始"];
+            
             totalDownloadStep += 1;
             
             ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:Rule34AnimePostRenamePlistPath targetFolderPath:Rule34AnimeRootFolderPath];
@@ -141,7 +180,7 @@
             [manager startOrganizing];
         }
             break;
-        case 8: {
+        case 11: {
             [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Anime 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Game 图片, 开始"];
             
@@ -154,7 +193,7 @@
             [manager startOrganizing];
         }
             break;
-        case 9: {
+        case 12: {
             [[MRBLogManager defaultManager] showLogWithFormat:@"整理 Game 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"整理 18 图片, 开始"];
             
@@ -167,7 +206,7 @@
             [manager startOrganizing];
         }
             break;
-        case 10: {
+        case 13: {
             [[MRBLogManager defaultManager] showLogWithFormat:@"整理 18 图片, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"整理 webm 文件, 开始"];
             
@@ -180,7 +219,7 @@
             [manager startOrganizing];
         }
             break;
-        case 11: {
+        case 14: {
             [[MRBLogManager defaultManager] showLogWithFormat:@"整理 webm 文件, 结束"];
             [[MRBLogManager defaultManager] showLogWithFormat:@"下载并整理日常图片，流程结束"];
         }
