@@ -12,7 +12,7 @@
 #import "Rule34DailyPicManager.h"
 #import "Rule34TagEndTimePicManager.h"
 #import "Rule34TagPagePicManager.h"
-#import "Rule34TagPagePicExportTagsManager.h"
+//#import "Rule34TagPagePicExportTagsManager.h"
 #import "ResourceGlobalDownloadManager.h"
 #import "ResourceGlobalOrganizeManager.h"
 #import "ResourceGlobalFileMoveManager.h"
@@ -153,8 +153,8 @@
         }
             break;
         case 35: {
-            Rule34TagPagePicExportTagsManager *manager = [Rule34TagPagePicExportTagsManager new];
-            [manager startFetching];
+//            Rule34TagPagePicExportTagsManager *manager = [Rule34TagPagePicExportTagsManager new];
+//            [manager startFetching];
         }
             break;
         default:

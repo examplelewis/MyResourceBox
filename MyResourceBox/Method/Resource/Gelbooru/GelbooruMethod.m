@@ -12,7 +12,7 @@
 #import "GelbooruDailyPicManager.h"
 #import "GelbooruTagEndTimePicManager.h"
 #import "GelbooruTagPagePicManager.h"
-#import "GelbooruTagPagePicExportTagsManager.h"
+//#import "GelbooruTagPagePicExportTagsManager.h"
 #import "ResourceGlobalDownloadManager.h"
 #import "ResourceGlobalOrganizeManager.h"
 #import "ResourceGlobalFileMoveManager.h"
@@ -153,8 +153,8 @@
         }
             break;
         case 35: {
-            GelbooruTagPagePicExportTagsManager *manager = [GelbooruTagPagePicExportTagsManager new];
-            [manager startFetching];
+//            GelbooruTagPagePicExportTagsManager *manager = [GelbooruTagPagePicExportTagsManager new];
+//            [manager startFetching];
         }
             break;
         default:

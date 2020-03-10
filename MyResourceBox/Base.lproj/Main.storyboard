@@ -768,7 +768,7 @@
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="1Ul-G4-ba8"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="获取特定标签图片地址【页数 + 导出标签】" tag="35" id="S5e-al-kPY">
+                                                    <menuItem title="获取特定标签图片地址【页数 + 导出标签】" tag="35" enabled="NO" id="S5e-al-kPY">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingGelbooru:" target="Voe-Tx-rLC" id="3kp-Dr-xHn"/>
@@ -987,7 +987,7 @@
                                                             <action selector="processingRule34:" target="Voe-Tx-rLC" id="hNm-6Z-YxN"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="获取特定标签图片地址【页数 + 导出标签】" tag="35" id="O26-5b-OiK">
+                                                    <menuItem title="获取特定标签图片地址【页数 + 导出标签】" tag="35" enabled="NO" id="O26-5b-OiK">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingRule34:" target="Voe-Tx-rLC" id="lvs-4P-vIa"/>

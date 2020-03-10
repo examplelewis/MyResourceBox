@@ -89,8 +89,6 @@
 		ACC5C00A22893F06004E7C83 /* ResourceGlobalDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC5C00922893F06004E7C83 /* ResourceGlobalDownloadManager.m */; };
 		ACC5C00D22893FC0004E7C83 /* ResourceGlobalOrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC5C00C22893FC0004E7C83 /* ResourceGlobalOrganizeManager.m */; };
 		ACC5C0102289404A004E7C83 /* ResourceGlobalFileMoveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC5C00F2289404A004E7C83 /* ResourceGlobalFileMoveManager.m */; };
-		ACC8BA65228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8BA64228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m */; };
-		ACC8BA6C22854F5F0000E193 /* Rule34TagPagePicExportTagsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8BA6A22854F5D0000E193 /* Rule34TagPagePicExportTagsManager.m */; };
 		ACC8DDC0226FFB6A005228D7 /* GelbooruDailyPicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8DDBF226FFB6A005228D7 /* GelbooruDailyPicManager.m */; };
 		ACC8DDC3226FFFAE005228D7 /* GelbooruTagPagePicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8DDC2226FFFAE005228D7 /* GelbooruTagPagePicManager.m */; };
 		ACC8DDD0227015A8005228D7 /* GelbooruDownloadAndOrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC8DDCF227015A8005228D7 /* GelbooruDownloadAndOrganizeManager.m */; };
@@ -212,6 +210,8 @@
 		AC4AB7E42417E25B008FD444 /* MRBResourceSites.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBResourceSites.m; sourceTree = "<group>"; };
 		AC4AB7E62417E739008FD444 /* MRBResourceSitesTagFetchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBResourceSitesTagFetchManager.h; sourceTree = "<group>"; };
 		AC4AB7E72417E739008FD444 /* MRBResourceSitesTagFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBResourceSitesTagFetchManager.m; sourceTree = "<group>"; };
+		AC4AB7E92417E93B008FD444 /* MRBResourceGlobalTagManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBResourceGlobalTagManager.h; sourceTree = "<group>"; };
+		AC4AB7EA2417E93B008FD444 /* MRBResourceGlobalTagManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBResourceGlobalTagManager.m; sourceTree = "<group>"; };
 		AC75C6511F8657800060CF6B /* MRBHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBHttpManager.h; sourceTree = "<group>"; };
 		AC75C6521F8657800060CF6B /* MRBHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBHttpManager.m; sourceTree = "<group>"; };
 		AC789C631DE1466200523A12 /* CookieInfoObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieInfoObject.m; sourceTree = "<group>"; };
@@ -323,10 +323,6 @@
 		ACC5C00C22893FC0004E7C83 /* ResourceGlobalOrganizeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceGlobalOrganizeManager.m; sourceTree = "<group>"; };
 		ACC5C00E2289404A004E7C83 /* ResourceGlobalFileMoveManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceGlobalFileMoveManager.h; sourceTree = "<group>"; };
 		ACC5C00F2289404A004E7C83 /* ResourceGlobalFileMoveManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceGlobalFileMoveManager.m; sourceTree = "<group>"; };
-		ACC8BA63228517C30000E193 /* GelbooruTagPagePicExportTagsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruTagPagePicExportTagsManager.h; sourceTree = "<group>"; };
-		ACC8BA64228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruTagPagePicExportTagsManager.m; sourceTree = "<group>"; };
-		ACC8BA6A22854F5D0000E193 /* Rule34TagPagePicExportTagsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rule34TagPagePicExportTagsManager.m; sourceTree = "<group>"; };
-		ACC8BA6B22854F5D0000E193 /* Rule34TagPagePicExportTagsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule34TagPagePicExportTagsManager.h; sourceTree = "<group>"; };
 		ACC8DDBA226FF493005228D7 /* GelbooruHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruHeader.h; sourceTree = "<group>"; };
 		ACC8DDBE226FFB6A005228D7 /* GelbooruDailyPicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GelbooruDailyPicManager.h; sourceTree = "<group>"; };
 		ACC8DDBF226FFB6A005228D7 /* GelbooruDailyPicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GelbooruDailyPicManager.m; sourceTree = "<group>"; };
@@ -825,8 +821,6 @@
 				ACC1DCB7226F071F001243C1 /* GelbooruTagEndTimePicManager.m */,
 				ACC8DDC1226FFFAE005228D7 /* GelbooruTagPagePicManager.h */,
 				ACC8DDC2226FFFAE005228D7 /* GelbooruTagPagePicManager.m */,
-				ACC8BA63228517C30000E193 /* GelbooruTagPagePicExportTagsManager.h */,
-				ACC8BA64228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m */,
 				ACC8DDCE227015A8005228D7 /* GelbooruDownloadAndOrganizeManager.h */,
 				ACC8DDCF227015A8005228D7 /* GelbooruDownloadAndOrganizeManager.m */,
 			);
@@ -849,6 +843,8 @@
 				ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */,
 				ACACB51C21C382D700C8D164 /* ResourceGlobalTagManager.h */,
 				ACACB51D21C382D700C8D164 /* ResourceGlobalTagManager.m */,
+				AC4AB7E92417E93B008FD444 /* MRBResourceGlobalTagManager.h */,
+				AC4AB7EA2417E93B008FD444 /* MRBResourceGlobalTagManager.m */,
 				ACC5C00822893F06004E7C83 /* ResourceGlobalDownloadManager.h */,
 				ACC5C00922893F06004E7C83 /* ResourceGlobalDownloadManager.m */,
 				ACC5C00B22893FC0004E7C83 /* ResourceGlobalOrganizeManager.h */,
@@ -871,8 +867,6 @@
 				ACC8EBA022826785003CF448 /* Rule34TagEndTimePicManager.m */,
 				ACC8EB9F22826785003CF448 /* Rule34TagPagePicManager.h */,
 				ACC8EBA922826785003CF448 /* Rule34TagPagePicManager.m */,
-				ACC8BA6B22854F5D0000E193 /* Rule34TagPagePicExportTagsManager.h */,
-				ACC8BA6A22854F5D0000E193 /* Rule34TagPagePicExportTagsManager.m */,
 				ACC8EB9B22826785003CF448 /* Rule34DownloadAndOrganizeManager.h */,
 				ACC8EBA522826785003CF448 /* Rule34DownloadAndOrganizeManager.m */,
 			);
@@ -1328,6 +1322,7 @@
 				AC01F819240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.m in Sources */,
 				AC4AB7E22417E1F8008FD444 /* MRBResourceSitesTagExtractManager.m in Sources */,
 				ACE0502D22802CDD00367F3A /* FOFilteredImageManager.m in Sources */,
+				AC4AB7EB2417E93B008FD444 /* MRBResourceGlobalTagManager.m in Sources */,
 				ACC93EFB2277F41100C207E6 /* PixivPicDownloadManager.m in Sources */,
 				AC47543F1DCC461800880934 /* OrganizeManager.m in Sources */,
 				AC9F4C711E49B06E00FD01C5 /* PixivDownloadManager.m in Sources */,
@@ -1335,7 +1330,6 @@
 				AC19E1511E4844660084A510 /* SAPIIllust.m in Sources */,
 				AC8508D11DB39146004AFE84 /* main.m in Sources */,
 				ACF9D92C2413A10D00C0019A /* MRBScreenSizeResolutionViewController.m in Sources */,
-				ACC8BA65228517C30000E193 /* GelbooruTagPagePicExportTagsManager.m in Sources */,
 				AC9870611E4C4A980076DC92 /* PixivDownloadObject.m in Sources */,
 				ACE05017227FDAF600367F3A /* WeiboFetchManager.m in Sources */,
 				AC8508CE1DB39146004AFE84 /* AppDelegate.m in Sources */,
@@ -1398,7 +1392,6 @@
 				ACE05020227FE62800367F3A /* DeviantartUserManager.m in Sources */,
 				AC789C651DE1466200523A12 /* CookieInfoObject.m in Sources */,
 				ACCAA0371E1B81250017EDDA /* MRBImageManager.m in Sources */,
-				ACC8BA6C22854F5F0000E193 /* Rule34TagPagePicExportTagsManager.m in Sources */,
 				ACECBDC9240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.m in Sources */,
 				AC789C7D1DE159E100523A12 /* ExHentaiManager.m in Sources */,
 				ACA9C92021FD954E00B33CB4 /* PixivLoginUserManager.m in Sources */,
