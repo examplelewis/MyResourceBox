@@ -1,16 +1,16 @@
 //
-//  PicResourceTagFetchManager.m
+//  MRBResourceSitesTagFetchManager.m
 //  MyResourceBox
 //
-//  Created by 龚宇 on 19/05/10.
-//  Copyright © 2019 gongyuTest. All rights reserved.
+//  Created by 龚宇 on 20/03/10.
+//  Copyright © 2020 gongyuTest. All rights reserved.
 //
 
-#import "PicResourceTagFetchManager.h"
+#import "MRBResourceSitesTagFetchManager.h"
 #import "XMLReader.h"
 #import "MRBHttpManager.h"
 
-@interface PicResourceTagFetchManager () {
+@interface MRBResourceSitesTagFetchManager () {
     NSString *preferencePath; // Preference.plist 文件的路径
     NSString *tagsFolderPath; // Tags 文件夹的路径
     NSString *totalTagsFilePath; // tags-gelbooru_com.xml 文件的路径
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation PicResourceTagFetchManager
+@implementation MRBResourceSitesTagFetchManager
 
 - (instancetype)init {
     self = [super init];

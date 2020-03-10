@@ -1041,6 +1041,29 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="ZEy-pc-fts"/>
+                                        <menuItem title="图站" id="hzY-wd-xKh">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="图站" id="59c-eA-yqa">
+                                                <items>
+                                                    <menuItem title="抓取 Gelbooru 的所有标签【未完成】" tag="1" id="cD9-kQ-gVA">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="提取 GelbooruDownloader 下载的标签" tag="2" id="OWy-o1-yID">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingResourceSites:" target="Voe-Tx-rLC" id="7ho-Oa-zjQ"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="分离 GelbooruDownloader 下载的 gif 和 webm 文件" tag="3" id="UPH-JF-Kud">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingResourceSites:" target="Voe-Tx-rLC" id="say-Zu-LJY"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -1107,28 +1130,6 @@
                                             </menu>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="XJ2-Np-oTs"/>
-                                        <menuItem title="图站" id="hzY-wd-xKh">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="图站" id="59c-eA-yqa">
-                                                <items>
-                                                    <menuItem title="抓取 Gelbooru 的所有标签【未完成】" tag="1" id="cD9-kQ-gVA">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                    </menuItem>
-                                                    <menuItem title="提取 GelbooruDownloader 下载的标签" tag="2" id="OWy-o1-yID">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="processingPicResource:" target="Voe-Tx-rLC" id="7mc-t6-tOL"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="分离 GelbooruDownloader 下载的 gif 和 webm 文件" tag="3" id="UPH-JF-Kud">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="processingPicResource:" target="Voe-Tx-rLC" id="UK3-Wf-NnY"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
-                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="vO1-1B-L0G"/>
                                         <menuItem title="文件" id="5wH-zA-k6X">
                                             <modifierMask key="keyEquivalentModifierMask"/>
