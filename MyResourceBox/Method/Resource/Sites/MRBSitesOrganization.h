@@ -1,5 +1,5 @@
 //
-//  MRBResourceSites.h
+//  MRBSitesOrganization.h
 //  MyResourceBox
 //
 //  Created by 龚宇 on 20/03/10.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MRBResourceSites : NSObject
+@interface MRBSitesOrganization : NSObject
 
 + (void)configMethod:(NSInteger)cellRow;
 

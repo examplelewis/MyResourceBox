@@ -24,7 +24,7 @@
 #import "FileOperationMethod.h"
 #import "WebArchiveMethod.h"
 #import "DownloadMethod.h"
-#import "MRBResourceSites.h"
+#import "MRBSitesOrganization.h"
 #import "ToolOperationMethod.h"
 #import "PictureOperationMethod.h"
 
@@ -144,8 +144,8 @@
 - (IBAction)processingDeviantart:(NSMenuItem *)sender {
     [DeviantartMethod configMethod:sender.tag];
 }
-- (IBAction)processingResourceSites:(NSMenuItem *)sender {
-    [MRBResourceSites configMethod:sender.tag];
+- (IBAction)processingSitesOrganization:(NSMenuItem *)sender {
+    [MRBSitesOrganization configMethod:sender.tag];
 }
 - (IBAction)processingFileOperation:(NSMenuItem *)sender {
     [FileOperationMethod configMethod:sender.tag];

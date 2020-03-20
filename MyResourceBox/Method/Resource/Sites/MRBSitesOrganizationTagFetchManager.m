@@ -1,16 +1,16 @@
 //
-//  MRBResourceSitesTagFetchManager.m
+//  MRBSitesOrganizationTagFetchManager.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 20/03/10.
 //  Copyright © 2020 gongyuTest. All rights reserved.
 //
 
-#import "MRBResourceSitesTagFetchManager.h"
+#import "MRBSitesOrganizationTagFetchManager.h"
 #import "XMLReader.h"
 #import "MRBHttpManager.h"
 
-@interface MRBResourceSitesTagFetchManager () {
+@interface MRBSitesOrganizationTagFetchManager () {
     NSString *preferencePath; // Preference.plist 文件的路径
     NSString *tagsFolderPath; // Tags 文件夹的路径
     NSString *totalTagsFilePath; // tags-gelbooru_com.xml 文件的路径
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation MRBResourceSitesTagFetchManager
+@implementation MRBSitesOrganizationTagFetchManager
 
 - (instancetype)init {
     self = [super init];

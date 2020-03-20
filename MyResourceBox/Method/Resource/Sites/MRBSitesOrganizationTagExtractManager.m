@@ -1,25 +1,25 @@
 //
-//  MRBResourceSitesTagExtractManager.m
+//  MRBSitesOrganizationTagExtractManager.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 20/03/10.
 //  Copyright © 2020 gongyuTest. All rights reserved.
 //
 
-#import "MRBResourceSitesTagExtractManager.h"
+#import "MRBSitesOrganizationTagExtractManager.h"
 #import "XMLReader.h"
 
 static NSString * const kGelbooruTagXMLFilePath = @"/Users/Mercury/Documents/Tool/DanbooruDownloader/tags.xml";
 static NSString * const kNeededTagsTxtPath = @"/Users/Mercury/Documents/同步文档/MyResourceBox/FetchResource/NeededTags.txt";
 static NSString * const kNeededTagsPlistPath = @"/Users/Mercury/Documents/同步文档/MyResourceBox/FetchResource/NeededTags.plist";
 
-@interface MRBResourceSitesTagExtractManager () {
+@interface MRBSitesOrganizationTagExtractManager () {
     NSArray *neededTags; // 包括 copyright 和 character 的标签
 }
 
 @end
 
-@implementation MRBResourceSitesTagExtractManager
+@implementation MRBSitesOrganizationTagExtractManager
 
 - (void)prepareExtracting {
     if (![[MRBFileManager defaultManager] isContentExistAtPath:kGelbooruTagXMLFilePath]) {

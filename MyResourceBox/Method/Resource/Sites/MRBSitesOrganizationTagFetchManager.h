@@ -1,5 +1,5 @@
 //
-//  MRBResourceSitesTagFetchManager.h
+//  MRBSitesOrganizationTagFetchManager.h
 //  MyResourceBox
 //
 //  Created by 龚宇 on 20/03/10.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MRBResourceSitesTagFetchManager : NSObject
+@interface MRBSitesOrganizationTagFetchManager : NSObject
 
 - (void)readyToOrganize;
 - (void)filterAllTags;
