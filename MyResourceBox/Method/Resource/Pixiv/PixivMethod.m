@@ -16,6 +16,7 @@
 #import "PixivFetchingManager.h"
 #import "PixivExHentaiManager.h"
 #import "PixivOrganizingManager.h"
+#import "MRBPixivFollowingAndBlockingDuplicateManager.h"
 
 @implementation PixivMethod
 
@@ -98,6 +99,10 @@
         case 31: {
             PixivExHentaiManager *manager = [PixivExHentaiManager new];
             [manager startManaging];
+        }
+            break;
+        case 41: {
+            [[MRBPixivFollowingAndBlockingDuplicateManager new] startSearching];
         }
             break;
         case 91: {

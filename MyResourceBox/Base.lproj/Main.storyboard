@@ -850,6 +850,13 @@
                                                             <action selector="processingPixiv:" target="Voe-Tx-rLC" id="ATa-rm-2jt"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="LDs-PH-oqg"/>
+                                                    <menuItem title="获取关注和拉黑的重复名单" tag="41" id="66Y-S5-45n">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="ATM-ey-8Sg"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="kJl-cT-xPJ"/>
                                                     <menuItem title="整理下载好的用户" tag="91" id="SrW-Qj-z2t">
                                                         <modifierMask key="keyEquivalentModifierMask"/>

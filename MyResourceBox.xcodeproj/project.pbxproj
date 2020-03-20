@@ -136,6 +136,7 @@
 		ACF306782424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF306762424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib */; };
 		ACF3067C2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3067A2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m */; };
 		ACF3067D2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF3067B2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib */; };
+		ACF306802424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3067F2424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m */; };
 		ACF9D91F24139F4C00C0019A /* MRBDigital.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF9D91E24139F4C00C0019A /* MRBDigital.m */; };
 		ACF9D9272413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF9D9252413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m */; };
 		ACF9D9282413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF9D9262413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib */; };
@@ -422,6 +423,8 @@
 		ACF306792424A4F700D15F67 /* MRBShadowsocksXRuleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBShadowsocksXRuleViewController.h; sourceTree = "<group>"; };
 		ACF3067A2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBShadowsocksXRuleViewController.m; sourceTree = "<group>"; };
 		ACF3067B2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBShadowsocksXRuleViewController.xib; sourceTree = "<group>"; };
+		ACF3067E2424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBPixivFollowingAndBlockingDuplicateManager.h; sourceTree = "<group>"; };
+		ACF3067F2424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBPixivFollowingAndBlockingDuplicateManager.m; sourceTree = "<group>"; };
 		ACF9D91D24139F4C00C0019A /* MRBDigital.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBDigital.h; sourceTree = "<group>"; };
 		ACF9D91E24139F4C00C0019A /* MRBDigital.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBDigital.m; sourceTree = "<group>"; };
 		ACF9D9242413A08F00C0019A /* MRBScreenSizeResolutionWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBScreenSizeResolutionWindowController.h; sourceTree = "<group>"; };
@@ -562,6 +565,8 @@
 				ACD1AA36225B44660017A8D3 /* PixivExHentaiManager.m */,
 				ACC93F082277FA3100C207E6 /* PixivOrganizingManager.h */,
 				ACC93F092277FA3100C207E6 /* PixivOrganizingManager.m */,
+				ACF3067E2424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.h */,
+				ACF3067F2424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m */,
 				ACC93EF22277EF6900C207E6 /* Managers */,
 			);
 			path = Pixiv;
@@ -1362,6 +1367,7 @@
 				AC9870631E4C4A980076DC92 /* PixivMasterObject.m in Sources */,
 				ACC93F042277F78200C207E6 /* PixivBlockingManager.m in Sources */,
 				ACA3C1871DD09F5100A9B31D /* DownloadInfoObject.m in Sources */,
+				ACF306802424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m in Sources */,
 				AC01F81E240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.m in Sources */,
 				AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */,
 				AC01F814240AF84E0061D719 /* MRBCroppingPictureManager.m in Sources */,
