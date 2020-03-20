@@ -25,6 +25,8 @@
     [super viewDidLoad];
 }
 - (void)viewDidDisappear {
+    [super viewDidDisappear];
+    
     [[NSApplication sharedApplication] stopModal];
 }
 
