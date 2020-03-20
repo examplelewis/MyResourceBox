@@ -1022,6 +1022,20 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="n2g-4v-V7U"/>
+                                        <menuItem title="图站通用" id="57b-Zj-0BJ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="图站通用" id="kfc-G3-Mbv">
+                                                <items>
+                                                    <menuItem title="根据参数获取图片地址" tag="1" id="rjr-Y0-8jb">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingResourceSites:" target="Voe-Tx-rLC" id="A9w-WA-hxZ"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="p6z-q9-Mv4"/>
                                         <menuItem title="整理" id="Qxr-gf-ahS">
                                             <modifierMask key="keyEquivalentModifierMask"/>

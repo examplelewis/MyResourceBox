@@ -525,6 +525,55 @@
      ];
 }
 
+#pragma mark - ResourceSites
+- (void)getResourceSitesPostsWithUrl:(NSString *)url
+                                 tag:(NSString *)tag
+                                page:(NSInteger)page
+                             success:(void(^)(NSArray *array))success
+                              failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager GET:url parameters:@{@"pid":@(page), @"tags": tag} progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             NSString *xmlString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+             NSError *error = nil;
+             NSDictionary *xmlDict = [XMLReader dictionaryForXMLString:xmlString error:&error];
+             
+             if (error) { // 如果解析出现错误
+                 if (failed) {
+                     failed(@"数据解析发生错误", [error localizedDescription]);
+                 }
+             } else {
+                 if (!xmlDict[@"posts"]) {
+                     if (failed) {
+                         failed(@"接口返回数据异常", xmlDict[@"response"][@"reason"]);
+                     }
+                 } else {
+                     id post = xmlDict[@"posts"][@"post"];
+                     if (!post) {
+                         if (success) {
+                             success(@[]);
+                         }
+                     } else if ([post isKindOfClass:[NSArray class]]) {
+                         NSArray *array = [NSArray arrayWithArray:post];
+                         if (success) {
+                             success(array);
+                         }
+                     } else if ([post isKindOfClass:[NSDictionary class]]) {
+                         if (success) {
+                             success(@[post]);
+                         }
+                     }
+                 }
+             }
+         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             if (failed) {
+                 failed(@"服务器通讯发生错误", [error localizedDescription]);
+             }
+         }
+     ];
+}
+
 #pragma mark - ExHentai
 - (void)getExHentaiPostDetailWithUrl:(NSString *)url
                              success:(void(^)(NSDictionary *result))success

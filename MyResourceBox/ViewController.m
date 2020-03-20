@@ -10,6 +10,7 @@
 #import <TFHpple.h>
 #import "MRBCroppingPictureManager.h"
 #import "MRBCroppingPictureCustomManager.h"
+#import "MRBSitesImageDownloadManager.h"
 
 @implementation ViewController
 
@@ -22,6 +23,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSetCroppingPictureParams:) name:@"MRBDidSetCroppingPictureParams" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSetCroppingPictureCustomParams:) name:@"MRBDidSetCroppingPictureCustomParams" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willStartFetchSiteTagResource:) name:@"MRBWillStartFetchSiteTagResource" object:nil];
 }
 - (void)viewDidAppear {
     [super viewDidAppear];
@@ -35,6 +37,7 @@
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MRBDidSetCroppingPictureParams" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MRBDidSetCroppingPictureCustomParams" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"MRBWillStartFetchSiteTagResource" object:nil];
 }
 
 #pragma mark - IBAction
@@ -112,6 +115,15 @@
     MRBCroppingPictureCustomManager *manager = [MRBCroppingPictureCustomManager managerWithButtonTag:[data[0] integerValue] mode:[data[1] integerValue] paths:data[2]];
     
     [manager prepareCropping];
+}
+
+#pragma mark - MRBResourceSites
+- (void)willStartFetchSiteTagResource:(NSNotification *)notification {
+    [MRBLogManager resetCurrentDate];
+    
+    MRBSitesImageDownloadModel *model = (MRBSitesImageDownloadModel *)notification.object;
+    MRBSitesImageDownloadManager *manager = [[MRBSitesImageDownloadManager alloc] initWithModel:model];
+    [manager prepareFetching];
 }
 
 @end

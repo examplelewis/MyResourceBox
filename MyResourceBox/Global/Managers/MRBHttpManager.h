@@ -69,6 +69,13 @@
                                     success:(void(^)(NSInteger totalCount))success
                                      failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
 
+#pragma mark - ResourceSites
+- (void)getResourceSitesPostsWithUrl:(NSString *)url
+                                 tag:(NSString *)tag
+                                page:(NSInteger)page
+                             success:(void(^)(NSArray *array))success
+                              failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
+
 #pragma mark - ExHentai
 - (void)getExHentaiPostDetailWithUrl:(NSString *)url
                              success:(void(^)(NSDictionary *result))success

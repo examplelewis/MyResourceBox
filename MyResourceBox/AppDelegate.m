@@ -29,6 +29,7 @@
 #import "PictureOperationMethod.h"
 
 #import "MRBDigital.h"
+#import "MRBResourceSites.h"
 
 #import "MRBCatchCrashManager.h"
 #import "ResourceOrganizeMethod.h"
@@ -158,6 +159,9 @@
 }
 - (IBAction)processingDigital:(NSMenuItem *)sender {
     [MRBDigital configMethod:sender.tag];
+}
+- (IBAction)processingResourceSites:(NSMenuItem *)sender {
+    [MRBResourceSites configMethod:sender.tag];
 }
 
 #pragma mark - Help
