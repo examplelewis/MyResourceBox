@@ -572,7 +572,7 @@
 			path = Pixiv;
 			sourceTree = "<group>";
 		};
-		AC4AB7DF2417E1C7008FD444 /* Sites */ = {
+		AC4AB7DF2417E1C7008FD444 /* SitesOrganization */ = {
 			isa = PBXGroup;
 			children = (
 				AC4AB7E32417E25B008FD444 /* MRBSitesOrganization.h */,
@@ -584,7 +584,7 @@
 				ACC5C00522890C32004E7C83 /* PicResourceGIFWebmSeparateManager.h */,
 				ACC5C00622890C32004E7C83 /* PicResourceGIFWebmSeparateManager.m */,
 			);
-			path = Sites;
+			path = SitesOrganization;
 			sourceTree = "<group>";
 		};
 		AC789C6C1DE159B700523A12 /* Resource */ = {
@@ -600,7 +600,7 @@
 				AC19E1551E4857020084A510 /* Pixiv */,
 				AC789C761DE159E100523A12 /* ExHentai */,
 				ACE05019227FE4C500367F3A /* Deviantart */,
-				AC4AB7DF2417E1C7008FD444 /* Sites */,
+				AC4AB7DF2417E1C7008FD444 /* SitesOrganization */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
