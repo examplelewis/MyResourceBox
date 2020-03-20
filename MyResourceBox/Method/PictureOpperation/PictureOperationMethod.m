@@ -13,8 +13,6 @@
 @implementation PictureOperationMethod
 
 + (void)configMethod:(NSInteger)cellRow {
-    [MRBLogManager resetCurrentDate];
-    
     switch (cellRow) {
         case 1: {
             // 参考：https://www.raywenderlich.com/613-windows-and-windowcontroller-tutorial-for-macos  Modal Windows 章节

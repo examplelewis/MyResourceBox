@@ -98,12 +98,16 @@
 
 #pragma mark - MRBCroppingPicture
 - (void)didSetCroppingPictureParams:(NSNotification *)notification {
+    [MRBLogManager resetCurrentDate];
+    
     NSArray *data = (NSArray *)notification.object;
     MRBCroppingPictureManager *manager = [MRBCroppingPictureManager managerWithEdgeInsets:data[0] mode:[data[1] integerValue] paths:data[2]];
     
     [manager prepareCropping];
 }
 - (void)didSetCroppingPictureCustomParams:(NSNotification *)notification {
+    [MRBLogManager resetCurrentDate];
+    
     NSArray *data = (NSArray *)notification.object;
     MRBCroppingPictureCustomManager *manager = [MRBCroppingPictureCustomManager managerWithButtonTag:[data[0] integerValue] mode:[data[1] integerValue] paths:data[2]];
     
