@@ -132,6 +132,10 @@
 		ACECBDCF240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACECBDCD240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib */; };
 		ACECBDD2240C292C00DB92DC /* MRBCroppingPictureCustomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD1240C292C00DB92DC /* MRBCroppingPictureCustomManager.m */; };
 		ACECBDDA240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD9240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m */; };
+		ACF306772424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF306752424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.m */; };
+		ACF306782424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF306762424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib */; };
+		ACF3067C2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3067A2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m */; };
+		ACF3067D2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF3067B2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib */; };
 		ACF9D91F24139F4C00C0019A /* MRBDigital.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF9D91E24139F4C00C0019A /* MRBDigital.m */; };
 		ACF9D9272413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF9D9252413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m */; };
 		ACF9D9282413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF9D9262413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib */; };
@@ -412,6 +416,12 @@
 		ACECBDD1240C292C00DB92DC /* MRBCroppingPictureCustomManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureCustomManager.m; sourceTree = "<group>"; };
 		ACECBDD8240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureCustomWeiboWaterprintOperation.h; sourceTree = "<group>"; };
 		ACECBDD9240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureCustomWeiboWaterprintOperation.m; sourceTree = "<group>"; };
+		ACF306742424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBShadowsocksXRuleWindowController.h; sourceTree = "<group>"; };
+		ACF306752424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBShadowsocksXRuleWindowController.m; sourceTree = "<group>"; };
+		ACF306762424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBShadowsocksXRuleWindowController.xib; sourceTree = "<group>"; };
+		ACF306792424A4F700D15F67 /* MRBShadowsocksXRuleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBShadowsocksXRuleViewController.h; sourceTree = "<group>"; };
+		ACF3067A2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBShadowsocksXRuleViewController.m; sourceTree = "<group>"; };
+		ACF3067B2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBShadowsocksXRuleViewController.xib; sourceTree = "<group>"; };
 		ACF9D91D24139F4C00C0019A /* MRBDigital.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBDigital.h; sourceTree = "<group>"; };
 		ACF9D91E24139F4C00C0019A /* MRBDigital.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBDigital.m; sourceTree = "<group>"; };
 		ACF9D9242413A08F00C0019A /* MRBScreenSizeResolutionWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBScreenSizeResolutionWindowController.h; sourceTree = "<group>"; };
@@ -829,6 +839,7 @@
 			children = (
 				ACC5BFFF228907C0004E7C83 /* ToolOperationMethod.h */,
 				ACC5C000228907C0004E7C83 /* ToolOperationMethod.m */,
+				ACF306702424A47A00D15F67 /* ShadowsocksXRule */,
 			);
 			path = ToolOperation;
 			sourceTree = "<group>";
@@ -1052,6 +1063,19 @@
 			path = Operations;
 			sourceTree = "<group>";
 		};
+		ACF306702424A47A00D15F67 /* ShadowsocksXRule */ = {
+			isa = PBXGroup;
+			children = (
+				ACF306742424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.h */,
+				ACF306752424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.m */,
+				ACF306762424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib */,
+				ACF306792424A4F700D15F67 /* MRBShadowsocksXRuleViewController.h */,
+				ACF3067A2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m */,
+				ACF3067B2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib */,
+			);
+			path = ShadowsocksXRule;
+			sourceTree = "<group>";
+		};
 		ACF9D91B24139F2000C0019A /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -1204,6 +1228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC19E14F1E4844660084A510 /* PixivAPI.js in Resources */,
+				ACF3067D2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib in Resources */,
 				AC01F81A240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.xib in Resources */,
 				ACECBDCF240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib in Resources */,
 				AC01F81F240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.xib in Resources */,
@@ -1212,6 +1237,7 @@
 				ACF9D9282413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib in Resources */,
 				AC8509221DB3970D004AFE84 /* WeiboTokenWindowController.xib in Resources */,
 				AC883A2A1DBB920800CC579E /* WeiboRequestTokenWindowController.xib in Resources */,
+				ACF306782424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib in Resources */,
 				ACECBDCA240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib in Resources */,
 				AC883A381DBB9DCD00CC579E /* WeiboRequestTokenViewController.xib in Resources */,
 				AC8508D91DB39146004AFE84 /* Main.storyboard in Resources */,
@@ -1329,6 +1355,7 @@
 				ACE05017227FDAF600367F3A /* WeiboFetchManager.m in Sources */,
 				AC8508CE1DB39146004AFE84 /* AppDelegate.m in Sources */,
 				ACE0500C227FD3A200367F3A /* WorldCosplayFetchManager.m in Sources */,
+				ACF3067C2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m in Sources */,
 				ACE05010227FD57400367F3A /* JDLingyuFetchManager.m in Sources */,
 				ACDE0BC022E99D89006367D9 /* FOExtractTypesFileModel.m in Sources */,
 				ACE0503022802DF200367F3A /* FOFolderManager.m in Sources */,
@@ -1400,6 +1427,7 @@
 				ACC8DDC3226FFFAE005228D7 /* GelbooruTagPagePicManager.m in Sources */,
 				ACC93EF52277F09400C207E6 /* PixivUserPicManager.m in Sources */,
 				AC19E14D1E4844660084A510 /* PAPIIllust.m in Sources */,
+				ACF306772424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.m in Sources */,
 				ACC8EBAE22826785003CF448 /* Rule34Method.m in Sources */,
 				ACAFAADB21FDB13100323A0A /* PixivGeneralManager.m in Sources */,
 				AC9870691E4C4AB90076DC92 /* MRBSQLiteFMDBManager.m in Sources */,

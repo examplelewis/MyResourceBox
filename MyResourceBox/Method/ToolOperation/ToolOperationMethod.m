@@ -8,6 +8,7 @@
 
 #import "ToolOperationMethod.h"
 #import "WebArchiveMethod.h"
+#import "MRBShadowsocksXRuleWindowController.h"
 
 @implementation ToolOperationMethod
 
@@ -34,6 +35,12 @@
             }
             
             [self convertGoAgentXRules];
+        }
+            break;
+        case 4: {
+            MRBShadowsocksXRuleWindowController *wc = [[MRBShadowsocksXRuleWindowController alloc] initWithWindowNibName:@"MRBShadowsocksXRuleWindowController"];
+            [[NSApplication sharedApplication] runModalForWindow:wc.window];
+            [wc.window close];
         }
             break;
         default:

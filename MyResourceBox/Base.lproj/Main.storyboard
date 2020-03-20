@@ -1129,7 +1129,6 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="XJ2-Np-oTs"/>
                                         <menuItem isSeparatorItem="YES" id="vO1-1B-L0G"/>
                                         <menuItem title="文件" id="5wH-zA-k6X">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -1202,6 +1201,13 @@
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingTool:" target="Voe-Tx-rLC" id="nq3-CX-yhr"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="MKG-fG-keT"/>
+                                                    <menuItem title="合并 ShadowsocksX 规则" tag="4" id="Eri-I6-6ti">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingTool:" target="Voe-Tx-rLC" id="OOV-1a-TDQ"/>
                                                         </connections>
                                                     </menuItem>
                                                 </items>
