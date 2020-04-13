@@ -29,6 +29,7 @@
 #import "PictureOperationMethod.h"
 
 #import "MRBDigital.h"
+#import "MRBTemp.h"
 #import "MRBResourceSites.h"
 
 #import "MRBCatchCrashManager.h"
@@ -163,6 +164,10 @@
 - (IBAction)processingResourceSites:(NSMenuItem *)sender {
     [MRBResourceSites configMethod:sender.tag];
 }
+- (IBAction)processingTemp:(NSMenuItem *)sender {
+    [MRBTemp configMethod:sender.tag];
+}
+
 
 #pragma mark - Help
 - (IBAction)openHelpingDocument:(NSMenuItem *)sender {

@@ -34,6 +34,8 @@
 		AC4AB7E52417E25B008FD444 /* MRBSitesOrganization.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4AB7E42417E25B008FD444 /* MRBSitesOrganization.m */; };
 		AC4AB7E82417E739008FD444 /* MRBSitesOrganizationTagFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4AB7E72417E739008FD444 /* MRBSitesOrganizationTagFetchManager.m */; };
 		AC4AB7EB2417E93B008FD444 /* MRBResourceGlobalTagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4AB7EA2417E93B008FD444 /* MRBResourceGlobalTagManager.m */; };
+		AC564E0D24443D1800B6C9FF /* MRBTemp.m in Sources */ = {isa = PBXBuildFile; fileRef = AC564E0C24443D1800B6C9FF /* MRBTemp.m */; };
+		AC564E1124445E3100B6C9FF /* MRBMacmini2018ConfigureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC564E1024445E3100B6C9FF /* MRBMacmini2018ConfigureManager.m */; };
 		AC75C6531F8657800060CF6B /* MRBHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC75C6521F8657800060CF6B /* MRBHttpManager.m */; };
 		AC789C651DE1466200523A12 /* CookieInfoObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C631DE1466200523A12 /* CookieInfoObject.m */; };
 		AC789C681DE1467000523A12 /* MRBCookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC789C661DE1467000523A12 /* MRBCookieManager.m */; };
@@ -225,6 +227,10 @@
 		AC4AB7E72417E739008FD444 /* MRBSitesOrganizationTagFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBSitesOrganizationTagFetchManager.m; sourceTree = "<group>"; };
 		AC4AB7E92417E93B008FD444 /* MRBResourceGlobalTagManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBResourceGlobalTagManager.h; sourceTree = "<group>"; };
 		AC4AB7EA2417E93B008FD444 /* MRBResourceGlobalTagManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBResourceGlobalTagManager.m; sourceTree = "<group>"; };
+		AC564E0B24443D1800B6C9FF /* MRBTemp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBTemp.h; sourceTree = "<group>"; };
+		AC564E0C24443D1800B6C9FF /* MRBTemp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBTemp.m; sourceTree = "<group>"; };
+		AC564E0F24445E3100B6C9FF /* MRBMacmini2018ConfigureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBMacmini2018ConfigureManager.h; sourceTree = "<group>"; };
+		AC564E1024445E3100B6C9FF /* MRBMacmini2018ConfigureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBMacmini2018ConfigureManager.m; sourceTree = "<group>"; };
 		AC75C6511F8657800060CF6B /* MRBHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBHttpManager.h; sourceTree = "<group>"; };
 		AC75C6521F8657800060CF6B /* MRBHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBHttpManager.m; sourceTree = "<group>"; };
 		AC789C631DE1466200523A12 /* CookieInfoObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieInfoObject.m; sourceTree = "<group>"; };
@@ -604,6 +610,25 @@
 				ACC5C00622890C32004E7C83 /* PicResourceGIFWebmSeparateManager.m */,
 			);
 			path = SitesOrganization;
+			sourceTree = "<group>";
+		};
+		AC564E0A24443CF100B6C9FF /* Temp */ = {
+			isa = PBXGroup;
+			children = (
+				AC564E0B24443D1800B6C9FF /* MRBTemp.h */,
+				AC564E0C24443D1800B6C9FF /* MRBTemp.m */,
+				AC564E0E24443D2400B6C9FF /* Macmini2018 */,
+			);
+			path = Temp;
+			sourceTree = "<group>";
+		};
+		AC564E0E24443D2400B6C9FF /* Macmini2018 */ = {
+			isa = PBXGroup;
+			children = (
+				AC564E0F24445E3100B6C9FF /* MRBMacmini2018ConfigureManager.h */,
+				AC564E1024445E3100B6C9FF /* MRBMacmini2018ConfigureManager.m */,
+			);
+			path = Macmini2018;
 			sourceTree = "<group>";
 		};
 		AC789C6C1DE159B700523A12 /* Resource */ = {
@@ -1132,6 +1157,7 @@
 			isa = PBXGroup;
 			children = (
 				ACF9D91C24139F3100C0019A /* Digital */,
+				AC564E0A24443CF100B6C9FF /* Temp */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1421,6 +1447,7 @@
 				ACF306802424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m in Sources */,
 				AC01F81E240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.m in Sources */,
 				AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */,
+				AC564E0D24443D1800B6C9FF /* MRBTemp.m in Sources */,
 				AC01F814240AF84E0061D719 /* MRBCroppingPictureManager.m in Sources */,
 				ACC8EBB122826785003CF448 /* Rule34DownloadAndOrganizeManager.m in Sources */,
 				AC85090E1DB39677004AFE84 /* MRBUtilityManager.m in Sources */,
@@ -1490,6 +1517,7 @@
 				ACF306842424CD7F00D15F67 /* MRBSitesImageDownloadManager.m in Sources */,
 				ACC8EBAE22826785003CF448 /* Rule34Method.m in Sources */,
 				ACAFAADB21FDB13100323A0A /* PixivGeneralManager.m in Sources */,
+				AC564E1124445E3100B6C9FF /* MRBMacmini2018ConfigureManager.m in Sources */,
 				AC9870691E4C4AB90076DC92 /* MRBSQLiteFMDBManager.m in Sources */,
 				ACE060D722E34280005329C3 /* ExHentaiTitlePixivUrlsManager.m in Sources */,
 				AC19E14E1E4844660084A510 /* PAPIIllustList.m in Sources */,
