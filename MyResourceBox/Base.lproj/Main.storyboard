@@ -1273,7 +1273,7 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="临时" id="kc1-TW-voA">
                                                 <items>
-                                                    <menuItem title="抓取翻新Mac mini 2018的配置价格" tag="1" id="34I-ln-WV3">
+                                                    <menuItem title="抓取翻新Mac mini 2018的配置价格【暂时不用】" tag="1" enabled="NO" id="34I-ln-WV3">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingTemp:" target="Voe-Tx-rLC" id="stT-UM-WJL"/>
