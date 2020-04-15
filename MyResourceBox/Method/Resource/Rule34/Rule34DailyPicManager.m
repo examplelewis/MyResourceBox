@@ -241,12 +241,14 @@ static NSInteger const MRBRule34DailyPicMaxFetchWrongTimes = 3;
 }
 
 - (NSString *)targetFileNameAndExtensionWithData:(NSDictionary *)data typeTags:(NSString *)typeTags usefulTags:(NSString *)usefulTags {
+    NSString *copiedUsefulTags = [usefulTags copy];
+    
     // 如果 usefulTags 中包含 typeTags, 那么需要去除
     if (typeTags && typeTags.length > 0) {
         NSMutableArray *tags = [NSMutableArray arrayWithArray:[usefulTags componentsSeparatedByString:@"+"]];
         if ([tags indexOfObject:typeTags] != NSNotFound) {
             [tags removeObject:typeTags];
-            usefulTags = [tags componentsJoinedByString:@"+"];
+            copiedUsefulTags = [tags componentsJoinedByString:@"+"];
         }
     }
     
@@ -257,11 +259,11 @@ static NSInteger const MRBRule34DailyPicMaxFetchWrongTimes = 3;
             [components addObject:typeTags];
         }
     }
+    if (copiedUsefulTags && copiedUsefulTags.length > 0) {
+        [components addObject:copiedUsefulTags];
+    }
     if (data[@"id"] && [data[@"id"] length] > 0) {
         [components addObject:data[@"id"]];
-    }
-    if (usefulTags && usefulTags.length > 0) {
-        [components addObject:usefulTags];
     }
     
     NSString *targetName = [components componentsJoinedByString:@" - "];
