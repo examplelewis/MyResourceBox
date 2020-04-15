@@ -11,6 +11,8 @@
 #import "MRBHttpManager.h"
 #import "GelbooruHeader.h"
 
+static NSInteger const MRBGelbooruDailyPicMaxFetchWrongTimes = 3;
+
 @interface GelbooruDailyPicManager () {
     NSInteger curPage;
     
@@ -32,6 +34,8 @@
     
     NSDictionary *latestPost;
     NSDictionary *newestPost;
+    
+    NSInteger maxAPIWrongTimes;
 }
 
 @end
@@ -42,6 +46,7 @@
     self = [super init];
     if (self) {
         curPage = 0;
+        maxAPIWrongTimes = 0;
         webmPosts = [NSMutableArray array];
         fatePosts = [NSMutableArray array];
         azurPosts = [NSMutableArray array];
@@ -203,9 +208,17 @@
             [self fetchSingleDailyPostUrl];
         }
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
-        DDLogError(@"%@: %@", errorTitle, errorMsg);
-        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Gelbooru 日常图片地址，遇到错误：%@: %@", errorTitle, errorMsg];
-        [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Gelbooru 日常图片地址：流程结束"];
+        if (self->maxAPIWrongTimes >= MRBGelbooruDailyPicMaxFetchWrongTimes) {
+            self->maxAPIWrongTimes = 0; // 重置错误计数
+            
+            DDLogError(@"%@: %@", errorTitle, errorMsg);
+            [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Gelbooru 日常图片地址，遇到错误：%@: %@", errorTitle, errorMsg];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Gelbooru 日常图片地址，当前获取页码(curPage): %ld", self->curPage];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Gelbooru 日常图片地址：流程结束"];
+        } else {
+            self->maxAPIWrongTimes += 1;
+            [self fetchSingleDailyPostUrl];
+        }
     }];
 }
 - (void)fetchFatePostsSucceed {
