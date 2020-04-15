@@ -858,6 +858,13 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="kJl-cT-xPJ"/>
+                                                    <menuItem title="根据图片获取作品地址" tag="51" id="2PS-y2-9tG">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="3cU-nQ-fKX"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="883-Ko-wPL"/>
                                                     <menuItem title="整理下载好的用户" tag="91" id="SrW-Qj-z2t">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
