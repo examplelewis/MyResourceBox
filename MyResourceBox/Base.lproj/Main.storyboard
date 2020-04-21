@@ -626,16 +626,10 @@
                                                             <action selector="processingExHentai:" target="Voe-Tx-rLC" id="fRo-Hg-EtX"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="解析评论区中的 Pixiv 地址" tag="4" id="VvB-Oq-P5f">
+                                                    <menuItem title="解析页面中的资源地址" tag="4" id="VvB-Oq-P5f">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingExHentai:" target="Voe-Tx-rLC" id="4mX-xa-lKE"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="解析 Title 中的 Pixiv 地址" tag="5" id="qKt-MC-fFm">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="processingExHentai:" target="Voe-Tx-rLC" id="vOD-G6-GF5"/>
                                                         </connections>
                                                     </menuItem>
                                                 </items>

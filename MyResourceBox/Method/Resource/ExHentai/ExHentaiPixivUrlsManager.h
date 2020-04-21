@@ -20,15 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface ExHentaiPixivUrlsManager : NSObject {
-    NSArray *oriExhentaiUrls;
-    NSMutableArray *hasPixivUrlExHentaiUrls;
-    NSMutableArray *pixivUrls;
-    NSMutableDictionary *parseInfo; // hasPixivUrlExHentaiUrls 和 pixivUrls 的对应关系
-    
-    NSInteger downloaded;
-    NSMutableArray *failure;
-}
+@interface ExHentaiPixivUrlsManager : NSObject
 
 @property (weak) id <ExHentaiPixivUrlsDelegate> delegate;
 
