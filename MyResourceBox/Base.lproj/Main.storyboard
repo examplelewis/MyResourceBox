@@ -548,6 +548,12 @@
                                                             <action selector="processingWeibo:" target="Voe-Tx-rLC" id="Cya-8a-cdm"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="下载最新的微博【输入数量 &lt;50】" tag="2" id="h46-cE-q2L">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="cZC-jX-CFT"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="wkT-5K-r4x"/>
                                                     <menuItem title="打开网页请求授权" tag="11" id="34j-Rr-Vq0">
                                                         <modifierMask key="keyEquivalentModifierMask"/>

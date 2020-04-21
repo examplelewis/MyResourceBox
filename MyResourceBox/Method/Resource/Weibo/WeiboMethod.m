@@ -13,6 +13,7 @@
 #import "WeiboBoundaryManager.h"
 #import "WeiboFetchManager.h"
 #import "WeiboFetchedUserManager.h"
+#import "WeiboFetchFirstFavManager.h"
 
 @implementation WeiboMethod
 
@@ -22,6 +23,10 @@
     switch (cellRow) {
         case 1: {
             [[WeiboFetchManager new] getFavorList];
+        }
+            break;
+        case 2: {
+            [[WeiboFetchFirstFavManager new] getFavorList];
         }
             break;
         case 11: {

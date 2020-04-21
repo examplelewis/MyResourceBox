@@ -26,6 +26,7 @@
 		AC19E1581E4857020084A510 /* PixivMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E1571E4857020084A510 /* PixivMethod.m */; };
 		AC19E15B1E4857210084A510 /* PixivUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E15A1E4857210084A510 /* PixivUserManager.m */; };
 		AC19E15E1E4857410084A510 /* PixivIllustManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E15D1E4857410084A510 /* PixivIllustManager.m */; };
+		AC1A6718244EE98400AE1ABD /* WeiboFetchFirstFavManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1A6717244EE98400AE1ABD /* WeiboFetchFirstFavManager.m */; };
 		AC2824ED2445C857000B2589 /* MRBPixivUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2824EC2445C857000B2589 /* MRBPixivUrlManager.m */; };
 		AC2C78492425004400253546 /* MRBSitesImageDownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2C78482425004400253546 /* MRBSitesImageDownloadModel.m */; };
 		AC2D1B151DD0191C0085F8E0 /* MRBDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2D1B131DD0191C0085F8E0 /* MRBDeviceManager.m */; };
@@ -212,6 +213,8 @@
 		AC19E15A1E4857210084A510 /* PixivUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivUserManager.m; sourceTree = "<group>"; };
 		AC19E15C1E4857410084A510 /* PixivIllustManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivIllustManager.h; sourceTree = "<group>"; };
 		AC19E15D1E4857410084A510 /* PixivIllustManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivIllustManager.m; sourceTree = "<group>"; };
+		AC1A6716244EE98400AE1ABD /* WeiboFetchFirstFavManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboFetchFirstFavManager.h; sourceTree = "<group>"; };
+		AC1A6717244EE98400AE1ABD /* WeiboFetchFirstFavManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboFetchFirstFavManager.m; sourceTree = "<group>"; };
 		AC2824EB2445C857000B2589 /* MRBPixivUrlManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBPixivUrlManager.h; sourceTree = "<group>"; };
 		AC2824EC2445C857000B2589 /* MRBPixivUrlManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBPixivUrlManager.m; sourceTree = "<group>"; };
 		AC2C78472425004400253546 /* MRBSitesImageDownloadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBSitesImageDownloadModel.h; sourceTree = "<group>"; };
@@ -1053,6 +1056,8 @@
 				ACE05013227FD9EE00367F3A /* WeiboBoundaryManager.m */,
 				ACE05015227FDAF600367F3A /* WeiboFetchManager.h */,
 				ACE05016227FDAF600367F3A /* WeiboFetchManager.m */,
+				AC1A6716244EE98400AE1ABD /* WeiboFetchFirstFavManager.h */,
+				AC1A6717244EE98400AE1ABD /* WeiboFetchFirstFavManager.m */,
 				ACFFB867229FAB7100FC41AA /* WeiboFetchedUserManager.h */,
 				ACFFB868229FAB7100FC41AA /* WeiboFetchedUserManager.m */,
 			);
@@ -1520,6 +1525,7 @@
 				ACC93EF52277F09400C207E6 /* PixivUserPicManager.m in Sources */,
 				AC19E14D1E4844660084A510 /* PAPIIllust.m in Sources */,
 				ACF306772424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.m in Sources */,
+				AC1A6718244EE98400AE1ABD /* WeiboFetchFirstFavManager.m in Sources */,
 				ACF306842424CD7F00D15F67 /* MRBSitesImageDownloadManager.m in Sources */,
 				ACC8EBAE22826785003CF448 /* Rule34Method.m in Sources */,
 				ACAFAADB21FDB13100323A0A /* PixivGeneralManager.m in Sources */,

@@ -1,12 +1,12 @@
 //
-//  WeiboFetchManager.m
+//  WeiboFetchFirstFavManager.m
 //  MyResourceBox
 //
-//  Created by 龚宇 on 19/05/06.
-//  Copyright © 2019 gongyuTest. All rights reserved.
+//  Created by 龚宇 on 20/04/21.
+//  Copyright © 2020 gongyuTest. All rights reserved.
 //
 
-#import "WeiboFetchManager.h"
+#import "WeiboFetchFirstFavManager.h"
 #import "WeiboHeader.h"
 #import "WeiboStatusObject.h"
 #import "MRBHttpManager.h"
@@ -15,41 +15,48 @@
 #import "MRBSQLiteFMDBManager.h"
 #import "MRBSQLiteManager.h"
 
-@interface WeiboFetchManager () {
+@interface WeiboFetchFirstFavManager () {
     NSMutableDictionary *weiboStatuses;
     NSMutableArray *weiboImages;
     NSMutableArray *weiboObjects;
     NSMutableArray *weiboIds; // 记录当前抓取到的 weibo，用于去重
-    NSInteger fetchedPage;
     NSInteger fetchedCount;
+    NSInteger maxCount;
 }
 
 @end
 
-@implementation WeiboFetchManager
+@implementation WeiboFetchFirstFavManager
 
 - (void)getFavorList {
     weiboStatuses = [NSMutableDictionary dictionary];
     weiboImages = [NSMutableArray array];
     weiboObjects = [NSMutableArray array];
     weiboIds = [NSMutableArray array];
-    fetchedPage = 1;
     fetchedCount = 0;
+    
+    NSString *input = [AppDelegate defaultVC].inputTextView.string;
+    if (input.integerValue <= 0 || input.integerValue > 50) {
+        maxCount = 1;
+    } else {
+        maxCount = input.integerValue;
+    }
     
     [self getFavouristByApi];
 }
 - (void)getFavouristByApi {
-    [[MRBHttpManager sharedManager] getWeiboFavoritesWithPage:fetchedPage start:nil success:^(NSDictionary *dic) {
+    [[MRBHttpManager sharedManager] getWeiboFavoritesWithPage:1 start:nil success:^(NSDictionary *dic) {
         NSArray *favors = dic[@"favorites"];
-        BOOL found = NO;
-        
         for (NSInteger i = 0; i < favors.count; i++) {
+            if (self->fetchedCount >= self->maxCount) {
+                break;
+            }
+            
             NSDictionary *dict = [NSDictionary dictionaryWithDictionary:favors[i]];
             NSDictionary *statusDict = dict[@"status"];
             
             // 先判断是否已经到了边界微博，也就是第一条和资源不相关的微博
             if ([statusDict[@"idstr"] isEqualToString:[MRBUserManager defaultManager].weibo_boundary_id]) {
-                found = YES;
                 break;
             }
             
@@ -81,13 +88,7 @@
             [self->weiboImages addObjectsFromArray:object.img_urls];
         }
         
-        // 如果找到了边界微博，或者一直没有找到，直到取到的微博数量小于50，代表着没有更多收藏微博了，即边界微博出错
-        if (found || favors.count < 50) {
-            [self exportResult];
-        } else {
-            self->fetchedPage += 1; // 计数
-            [self getFavouristByApi];
-        }
+        [self exportResult];
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
         MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
         [alert setMessage:errorTitle infomation:errorMsg];
