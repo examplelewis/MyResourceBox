@@ -84,7 +84,11 @@
     return (AppDelegate *)[[NSApplication sharedApplication] delegate];
 }
 + (ViewController *)defaultVC {
-    AppDelegate *dele = (AppDelegate *)[[NSApplication sharedApplication] delegate];
+    __block AppDelegate *dele;
+    dispatch_main_sync_safe(^() {
+        dele = (AppDelegate *)[[NSApplication sharedApplication] delegate];
+    });
+    
     [dele configureController];
     
     if (!dele.currentVC) {
@@ -96,7 +100,11 @@
     return dele.currentVC;
 }
 + (NSWindow *)defaultWindow {
-    AppDelegate *dele = (AppDelegate *)[[NSApplication sharedApplication] delegate];
+    __block AppDelegate *dele;
+    dispatch_main_sync_safe(^() {
+        dele = (AppDelegate *)[[NSApplication sharedApplication] delegate];
+    });
+    
     [dele configureWindow];
     
     if (!dele.currentWindow) {

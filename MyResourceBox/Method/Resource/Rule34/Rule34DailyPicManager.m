@@ -214,7 +214,8 @@ static NSInteger const MRBRule34DailyPicMaxFetchWrongTimes = 3;
             DDLogError(@"%@: %@", errorTitle, errorMsg);
             [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Rule34 日常图片地址，遇到错误：%@: %@", errorTitle, errorMsg];
             [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Rule34 日常图片地址，当前获取页码(curPage): %ld", self->curPage];
-            [[MRBLogManager defaultManager] showLogWithFormat:@"获取 Rule34 日常图片地址：流程结束"];
+            
+            [self fetchFatePostsSucceed];
         } else {
             self->maxAPIWrongTimes += 1;
             [self fetchSingleDailyPostUrl];
