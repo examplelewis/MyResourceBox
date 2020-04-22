@@ -157,7 +157,7 @@
                                                                             inputEndDate:inputEndDate];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MRBWillStartFetchSiteTagResource" object:model];
     
-    [[NSApplication sharedApplication] stopModalWithCode:self.response];
+//    [[NSApplication sharedApplication] stopModalWithCode:self.response];
 }
 
 @end

@@ -25,4 +25,12 @@
     return self;
 }
 
+- (NSString *)description {
+    if (self.mode == 12) {
+        return [NSString stringWithFormat:@"keyword: %@, url: %@, mode: %ld, startDate: %@, endDate: %@", self.keyword, self.url, self.mode, self.inputStartDate, self.inputEndDate];
+    } else {
+        return [NSString stringWithFormat:@"keyword: %@, url: %@, mode: %ld, start: %ld, end: %ld", self.keyword, self.url, self.mode, self.inputStart, self.inputEnd];
+    }
+}
+
 @end
