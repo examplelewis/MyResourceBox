@@ -67,42 +67,47 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageDownloadAction) {
     [self fetchSinglePost];
 }
 - (void)fetchSinglePost {
+    WS(weakSelf);
     [[MRBHttpManager sharedManager] getResourceSitesPostsWithUrl:self.model.url tag:self.model.keyword page:currentPage success:^(NSArray *array) {
-        MRBSitesImageDownloadAction action = [self actionForThisPageWithResults:array];
+        SS(strongSelf);
+        
+        MRBSitesImageDownloadAction action = [strongSelf actionForThisPageWithResults:array];
         
         switch (action) {
             case MRBSitesImageDownloadActionNext: {
-                [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self.model.keyword, self->currentPage + 1];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", strongSelf.model.keyword, strongSelf->currentPage + 1];
                 
-                self->currentPage += 1;
-                [self fetchSinglePost];
+                strongSelf->currentPage += 1;
+                [strongSelf fetchSinglePost];
             }
                 break;
             case MRBSitesImageDownloadActionContinue: {
-                [self parseFetchedResults:array];
+                [strongSelf parseFetchedResults:array];
                 
-                self->currentPage += 1;
-                [self fetchSinglePost];
+                strongSelf->currentPage += 1;
+                [strongSelf fetchSinglePost];
             }
                 break;
             case MRBSitesImageDownloadActionDone: {
-                [self fetchSucceed];
+                [strongSelf fetchSucceed];
             }
                 break;
             default:
                 break;
         }
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
-        if (self->apiWrongTimes >= MRBSitesImageMaxFetchWrongTimes) {
-            self->apiWrongTimes = 0; // 重置错误计数
+        SS(strongSelf);
+        
+        if (strongSelf->apiWrongTimes >= MRBSitesImageMaxFetchWrongTimes) {
+            strongSelf->apiWrongTimes = 0; // 重置错误计数
             
             DDLogError(@"%@: %@", errorTitle, errorMsg);
             [[MRBLogManager defaultManager] showLogWithFormat:@"获取特定标签的图片地址，遇到错误：%@: %@", errorTitle, errorMsg];
-            [[MRBLogManager defaultManager] showLogWithFormat:@"获取特定标签的图片地址，当前获取页码: %ld, 当前Model: %@", self->currentPage, self.model];
-            [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：流程结束", self.model.keyword];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"获取特定标签的图片地址，当前获取页码: %ld, 当前Model: %@", strongSelf->currentPage, strongSelf.model];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：流程结束", strongSelf.model.keyword];
         } else {
-            self->apiWrongTimes += 1;
-            [self fetchSinglePost];
+            strongSelf->apiWrongTimes += 1;
+            [strongSelf fetchSinglePost];
         }
     }];
 }

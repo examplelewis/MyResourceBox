@@ -15,7 +15,7 @@
     if (self) {
         self.mode = mode;
         self.url = url;
-        self.keyword = keyword;
+        self.keyword = [keyword stringByReplacingOccurrencesOfString:@" " withString:@""];
         self.inputStart = inputStart;
         self.inputEnd = inputEnd;
         self.inputStartDate = inputStartDate;
