@@ -7,14 +7,14 @@
 //
 
 #import "MRBResourceSites.h"
-#import "MRBSitesImageDownloadWindowController.h"
+#import "MRBSitesImageUrlFetchWindowController.h"
 
 @implementation MRBResourceSites
 
 + (void)configMethod:(NSInteger)cellRow {
     switch (cellRow) {
         case 1: {
-            MRBSitesImageDownloadWindowController *wc = [[MRBSitesImageDownloadWindowController alloc] initWithWindowNibName:@"MRBSitesImageDownloadWindowController"];
+            MRBSitesImageUrlFetchWindowController *wc = [[MRBSitesImageUrlFetchWindowController alloc] initWithWindowNibName:@"MRBSitesImageUrlFetchWindowController"];
             NSModalResponse response = [[NSApplication sharedApplication] runModalForWindow:wc.window];
             wc.response = response;
             [wc.window close];

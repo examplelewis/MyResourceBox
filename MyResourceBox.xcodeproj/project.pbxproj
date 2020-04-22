@@ -28,7 +28,6 @@
 		AC19E15E1E4857410084A510 /* PixivIllustManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E15D1E4857410084A510 /* PixivIllustManager.m */; };
 		AC1A6718244EE98400AE1ABD /* WeiboFetchFirstFavManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1A6717244EE98400AE1ABD /* WeiboFetchFirstFavManager.m */; };
 		AC2824ED2445C857000B2589 /* MRBPixivUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2824EC2445C857000B2589 /* MRBPixivUrlManager.m */; };
-		AC2C78492425004400253546 /* MRBSitesImageDownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2C78482425004400253546 /* MRBSitesImageDownloadModel.m */; };
 		AC2D1B151DD0191C0085F8E0 /* MRBDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2D1B131DD0191C0085F8E0 /* MRBDeviceManager.m */; };
 		AC47543F1DCC461800880934 /* OrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC47543E1DCC461800880934 /* OrganizeManager.m */; };
 		AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4754411DCC5B1600880934 /* DownloadMethod.m */; };
@@ -142,17 +141,18 @@
 		ACF3067C2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3067A2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m */; };
 		ACF3067D2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF3067B2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib */; };
 		ACF306802424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3067F2424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m */; };
-		ACF306842424CD7F00D15F67 /* MRBSitesImageDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF306832424CD7F00D15F67 /* MRBSitesImageDownloadManager.m */; };
-		ACF306882424CDA700D15F67 /* MRBSitesImageDownloadWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF306862424CDA700D15F67 /* MRBSitesImageDownloadWindowController.m */; };
-		ACF306892424CDA700D15F67 /* MRBSitesImageDownloadWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF306872424CDA700D15F67 /* MRBSitesImageDownloadWindowController.xib */; };
-		ACF3068D2424CDC400D15F67 /* MRBSitesImageDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3068B2424CDC400D15F67 /* MRBSitesImageDownloadViewController.m */; };
-		ACF3068E2424CDC400D15F67 /* MRBSitesImageDownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF3068C2424CDC400D15F67 /* MRBSitesImageDownloadViewController.xib */; };
 		ACF306922424E4D900D15F67 /* MRBResourceSites.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF306912424E4D900D15F67 /* MRBResourceSites.m */; };
 		ACF9D91F24139F4C00C0019A /* MRBDigital.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF9D91E24139F4C00C0019A /* MRBDigital.m */; };
 		ACF9D9272413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF9D9252413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m */; };
 		ACF9D9282413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF9D9262413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib */; };
 		ACF9D92C2413A10D00C0019A /* MRBScreenSizeResolutionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF9D92A2413A10D00C0019A /* MRBScreenSizeResolutionViewController.m */; };
 		ACF9D92D2413A10D00C0019A /* MRBScreenSizeResolutionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF9D92B2413A10D00C0019A /* MRBScreenSizeResolutionViewController.xib */; };
+		ACFCB87E24505C5500855461 /* MRBSitesImageUrlFetchWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFCB87424505C5400855461 /* MRBSitesImageUrlFetchWindowController.xib */; };
+		ACFCB87F24505C5500855461 /* MRBSitesImageUrlFetchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFCB87524505C5400855461 /* MRBSitesImageUrlFetchViewController.xib */; };
+		ACFCB88024505C5500855461 /* MRBSitesImageUrlFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFCB87624505C5400855461 /* MRBSitesImageUrlFetchManager.m */; };
+		ACFCB88124505C5500855461 /* MRBSitesImageUrlFetchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFCB87824505C5400855461 /* MRBSitesImageUrlFetchModel.m */; };
+		ACFCB88224505C5500855461 /* MRBSitesImageUrlFetchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFCB87B24505C5400855461 /* MRBSitesImageUrlFetchViewController.m */; };
+		ACFCB88324505C5500855461 /* MRBSitesImageUrlFetchWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFCB87D24505C5500855461 /* MRBSitesImageUrlFetchWindowController.m */; };
 		ACFFB866229F7F4D00FC41AA /* ResourceOrganizeMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */; };
 		ACFFB869229FAB7100FC41AA /* WeiboFetchedUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFFB868229FAB7100FC41AA /* WeiboFetchedUserManager.m */; };
 /* End PBXBuildFile section */
@@ -217,8 +217,6 @@
 		AC1A6717244EE98400AE1ABD /* WeiboFetchFirstFavManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboFetchFirstFavManager.m; sourceTree = "<group>"; };
 		AC2824EB2445C857000B2589 /* MRBPixivUrlManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBPixivUrlManager.h; sourceTree = "<group>"; };
 		AC2824EC2445C857000B2589 /* MRBPixivUrlManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBPixivUrlManager.m; sourceTree = "<group>"; };
-		AC2C78472425004400253546 /* MRBSitesImageDownloadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBSitesImageDownloadModel.h; sourceTree = "<group>"; };
-		AC2C78482425004400253546 /* MRBSitesImageDownloadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBSitesImageDownloadModel.m; sourceTree = "<group>"; };
 		AC2D1B131DD0191C0085F8E0 /* MRBDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBDeviceManager.m; sourceTree = "<group>"; };
 		AC2D1B141DD0191C0085F8E0 /* MRBDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBDeviceManager.h; sourceTree = "<group>"; };
 		AC47543D1DCC461800880934 /* OrganizeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizeManager.h; sourceTree = "<group>"; };
@@ -446,14 +444,6 @@
 		ACF3067B2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBShadowsocksXRuleViewController.xib; sourceTree = "<group>"; };
 		ACF3067E2424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBPixivFollowingAndBlockingDuplicateManager.h; sourceTree = "<group>"; };
 		ACF3067F2424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBPixivFollowingAndBlockingDuplicateManager.m; sourceTree = "<group>"; };
-		ACF306822424CD7F00D15F67 /* MRBSitesImageDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBSitesImageDownloadManager.h; sourceTree = "<group>"; };
-		ACF306832424CD7F00D15F67 /* MRBSitesImageDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBSitesImageDownloadManager.m; sourceTree = "<group>"; };
-		ACF306852424CDA700D15F67 /* MRBSitesImageDownloadWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBSitesImageDownloadWindowController.h; sourceTree = "<group>"; };
-		ACF306862424CDA700D15F67 /* MRBSitesImageDownloadWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBSitesImageDownloadWindowController.m; sourceTree = "<group>"; };
-		ACF306872424CDA700D15F67 /* MRBSitesImageDownloadWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBSitesImageDownloadWindowController.xib; sourceTree = "<group>"; };
-		ACF3068A2424CDC400D15F67 /* MRBSitesImageDownloadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBSitesImageDownloadViewController.h; sourceTree = "<group>"; };
-		ACF3068B2424CDC400D15F67 /* MRBSitesImageDownloadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBSitesImageDownloadViewController.m; sourceTree = "<group>"; };
-		ACF3068C2424CDC400D15F67 /* MRBSitesImageDownloadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBSitesImageDownloadViewController.xib; sourceTree = "<group>"; };
 		ACF306902424E4D900D15F67 /* MRBResourceSites.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBResourceSites.h; sourceTree = "<group>"; };
 		ACF306912424E4D900D15F67 /* MRBResourceSites.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBResourceSites.m; sourceTree = "<group>"; };
 		ACF9D91D24139F4C00C0019A /* MRBDigital.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBDigital.h; sourceTree = "<group>"; };
@@ -465,6 +455,16 @@
 		ACF9D92A2413A10D00C0019A /* MRBScreenSizeResolutionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBScreenSizeResolutionViewController.m; sourceTree = "<group>"; };
 		ACF9D92B2413A10D00C0019A /* MRBScreenSizeResolutionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBScreenSizeResolutionViewController.xib; sourceTree = "<group>"; };
 		ACF9FC67228159D600375505 /* MRBCommoms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCommoms.h; sourceTree = "<group>"; };
+		ACFCB87424505C5400855461 /* MRBSitesImageUrlFetchWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRBSitesImageUrlFetchWindowController.xib; sourceTree = "<group>"; };
+		ACFCB87524505C5400855461 /* MRBSitesImageUrlFetchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRBSitesImageUrlFetchViewController.xib; sourceTree = "<group>"; };
+		ACFCB87624505C5400855461 /* MRBSitesImageUrlFetchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBSitesImageUrlFetchManager.m; sourceTree = "<group>"; };
+		ACFCB87724505C5400855461 /* MRBSitesImageUrlFetchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBSitesImageUrlFetchViewController.h; sourceTree = "<group>"; };
+		ACFCB87824505C5400855461 /* MRBSitesImageUrlFetchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBSitesImageUrlFetchModel.m; sourceTree = "<group>"; };
+		ACFCB87924505C5400855461 /* MRBSitesImageUrlFetchWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBSitesImageUrlFetchWindowController.h; sourceTree = "<group>"; };
+		ACFCB87A24505C5400855461 /* MRBSitesImageUrlFetchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBSitesImageUrlFetchModel.h; sourceTree = "<group>"; };
+		ACFCB87B24505C5400855461 /* MRBSitesImageUrlFetchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBSitesImageUrlFetchViewController.m; sourceTree = "<group>"; };
+		ACFCB87C24505C5400855461 /* MRBSitesImageUrlFetchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBSitesImageUrlFetchManager.h; sourceTree = "<group>"; };
+		ACFCB87D24505C5500855461 /* MRBSitesImageUrlFetchWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBSitesImageUrlFetchWindowController.m; sourceTree = "<group>"; };
 		ACFFB864229F7F4D00FC41AA /* ResourceOrganizeMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceOrganizeMethod.h; sourceTree = "<group>"; };
 		ACFFB865229F7F4D00FC41AA /* ResourceOrganizeMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceOrganizeMethod.m; sourceTree = "<group>"; };
 		ACFFB867229FAB7100FC41AA /* WeiboFetchedUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboFetchedUserManager.h; sourceTree = "<group>"; };
@@ -1139,16 +1139,16 @@
 		ACF306812424CD1300D15F67 /* ImageDownload */ = {
 			isa = PBXGroup;
 			children = (
-				ACF306852424CDA700D15F67 /* MRBSitesImageDownloadWindowController.h */,
-				ACF306862424CDA700D15F67 /* MRBSitesImageDownloadWindowController.m */,
-				ACF306872424CDA700D15F67 /* MRBSitesImageDownloadWindowController.xib */,
-				ACF3068A2424CDC400D15F67 /* MRBSitesImageDownloadViewController.h */,
-				ACF3068B2424CDC400D15F67 /* MRBSitesImageDownloadViewController.m */,
-				ACF3068C2424CDC400D15F67 /* MRBSitesImageDownloadViewController.xib */,
-				ACF306822424CD7F00D15F67 /* MRBSitesImageDownloadManager.h */,
-				ACF306832424CD7F00D15F67 /* MRBSitesImageDownloadManager.m */,
-				AC2C78472425004400253546 /* MRBSitesImageDownloadModel.h */,
-				AC2C78482425004400253546 /* MRBSitesImageDownloadModel.m */,
+				ACFCB87924505C5400855461 /* MRBSitesImageUrlFetchWindowController.h */,
+				ACFCB87D24505C5500855461 /* MRBSitesImageUrlFetchWindowController.m */,
+				ACFCB87424505C5400855461 /* MRBSitesImageUrlFetchWindowController.xib */,
+				ACFCB87724505C5400855461 /* MRBSitesImageUrlFetchViewController.h */,
+				ACFCB87B24505C5400855461 /* MRBSitesImageUrlFetchViewController.m */,
+				ACFCB87524505C5400855461 /* MRBSitesImageUrlFetchViewController.xib */,
+				ACFCB87C24505C5400855461 /* MRBSitesImageUrlFetchManager.h */,
+				ACFCB87624505C5400855461 /* MRBSitesImageUrlFetchManager.m */,
+				ACFCB87A24505C5400855461 /* MRBSitesImageUrlFetchModel.h */,
+				ACFCB87824505C5400855461 /* MRBSitesImageUrlFetchModel.m */,
 			);
 			path = ImageDownload;
 			sourceTree = "<group>";
@@ -1319,14 +1319,14 @@
 				ACF3067D2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib in Resources */,
 				AC01F81A240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.xib in Resources */,
 				ACECBDCF240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib in Resources */,
+				ACFCB87F24505C5500855461 /* MRBSitesImageUrlFetchViewController.xib in Resources */,
 				AC01F81F240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.xib in Resources */,
 				AC8508D61DB39146004AFE84 /* Assets.xcassets in Resources */,
 				ACF9D92D2413A10D00C0019A /* MRBScreenSizeResolutionViewController.xib in Resources */,
 				ACF9D9282413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib in Resources */,
 				AC8509221DB3970D004AFE84 /* WeiboTokenWindowController.xib in Resources */,
+				ACFCB87E24505C5500855461 /* MRBSitesImageUrlFetchWindowController.xib in Resources */,
 				AC883A2A1DBB920800CC579E /* WeiboRequestTokenWindowController.xib in Resources */,
-				ACF306892424CDA700D15F67 /* MRBSitesImageDownloadWindowController.xib in Resources */,
-				ACF3068E2424CDC400D15F67 /* MRBSitesImageDownloadViewController.xib in Resources */,
 				ACF306782424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib in Resources */,
 				ACECBDCA240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib in Resources */,
 				AC883A381DBB9DCD00CC579E /* WeiboRequestTokenViewController.xib in Resources */,
@@ -1410,6 +1410,7 @@
 				AC789C681DE1467000523A12 /* MRBCookieManager.m in Sources */,
 				AC9F4C6E1E499BBB00FD01C5 /* MRBDownloadQueueManager.m in Sources */,
 				AC789C881DE15A3600523A12 /* WorldCosplayMethod.m in Sources */,
+				ACFCB88324505C5500855461 /* MRBSitesImageUrlFetchWindowController.m in Sources */,
 				AC789C8B1DE1602500523A12 /* AnalysisMethod.m in Sources */,
 				ACA0F05221E19E200097D144 /* ExHentaiPixivUrlsManager.m in Sources */,
 				AC01F810240AF78E0061D719 /* PictureOperationMethod.m in Sources */,
@@ -1419,7 +1420,6 @@
 				AC85090C1DB39677004AFE84 /* MRBAlert.m in Sources */,
 				AC4AB7E82417E739008FD444 /* MRBSitesOrganizationTagFetchManager.m in Sources */,
 				ACC5C00A22893F06004E7C83 /* ResourceGlobalDownloadManager.m in Sources */,
-				AC2C78492425004400253546 /* MRBSitesImageDownloadModel.m in Sources */,
 				AC85091B1DB39692004AFE84 /* WebArchiveMethod.m in Sources */,
 				ACE05014227FD9EE00367F3A /* WeiboBoundaryManager.m in Sources */,
 				ACC5C00722890C32004E7C83 /* PicResourceGIFWebmSeparateManager.m in Sources */,
@@ -1484,11 +1484,10 @@
 				ACC8EBB222826785003CF448 /* Rule34TagPagePicManager.m in Sources */,
 				ACC93EE92277E92100C207E6 /* BCYHTMLParseManager.m in Sources */,
 				AC789C731DE159B700523A12 /* BCYMethod.m in Sources */,
-				ACF3068D2424CDC400D15F67 /* MRBSitesImageDownloadViewController.m in Sources */,
 				ACC93F0A2277FA3100C207E6 /* PixivOrganizingManager.m in Sources */,
-				ACF306882424CDA700D15F67 /* MRBSitesImageDownloadWindowController.m in Sources */,
 				ACECBDCE240C291400DB92DC /* MRBCroppingPictureCustomViewController.m in Sources */,
 				AC9F4C6B1E499B0E00FD01C5 /* MRBDownloadOperation.m in Sources */,
+				ACFCB88224505C5500855461 /* MRBSitesImageUrlFetchViewController.m in Sources */,
 				ACFFB866229F7F4D00FC41AA /* ResourceOrganizeMethod.m in Sources */,
 				ACCCE26D227E900A00A18C8D /* WebArchiveArchivingManager.m in Sources */,
 				ACC93F072277F98000C207E6 /* PixivFetchingManager.m in Sources */,
@@ -1496,6 +1495,7 @@
 				ACC8DDC0226FFB6A005228D7 /* GelbooruDailyPicManager.m in Sources */,
 				ACA9C91A21FD933500B33CB4 /* PixivHttpSessionManager.m in Sources */,
 				AC85090D1DB39677004AFE84 /* MRBUserManager.m in Sources */,
+				ACFCB88124505C5500855461 /* MRBSitesImageUrlFetchModel.m in Sources */,
 				AC789C751DE159B700523A12 /* WeiboMethod.m in Sources */,
 				ACC93EF82277F20C00C207E6 /* PixivIllustPicManager.m in Sources */,
 				ACA9C91D21FD950E00B33CB4 /* PixivAPIManager.m in Sources */,
@@ -1524,9 +1524,9 @@
 				ACC8DDC3226FFFAE005228D7 /* GelbooruTagPagePicManager.m in Sources */,
 				ACC93EF52277F09400C207E6 /* PixivUserPicManager.m in Sources */,
 				AC19E14D1E4844660084A510 /* PAPIIllust.m in Sources */,
+				ACFCB88024505C5500855461 /* MRBSitesImageUrlFetchManager.m in Sources */,
 				ACF306772424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.m in Sources */,
 				AC1A6718244EE98400AE1ABD /* WeiboFetchFirstFavManager.m in Sources */,
-				ACF306842424CD7F00D15F67 /* MRBSitesImageDownloadManager.m in Sources */,
 				ACC8EBAE22826785003CF448 /* Rule34Method.m in Sources */,
 				ACAFAADB21FDB13100323A0A /* PixivGeneralManager.m in Sources */,
 				AC564E1124445E3100B6C9FF /* MRBMacmini2018ConfigureManager.m in Sources */,

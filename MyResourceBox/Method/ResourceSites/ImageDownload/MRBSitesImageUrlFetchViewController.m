@@ -1,17 +1,17 @@
 //
-//  MRBSitesImageDownloadViewController.m
+//  MRBSitesImageUrlFetchViewController.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 20/03/20.
 //  Copyright © 2020 gongyuTest. All rights reserved.
 //
 
-#import "MRBSitesImageDownloadViewController.h"
+#import "MRBSitesImageUrlFetchViewController.h"
 #import "MRBHttpManager.h"
-#import "MRBSitesImageDownloadModel.h"
+#import "MRBSitesImageUrlFetchModel.h"
 #import <DateTools.h>
 
-@interface MRBSitesImageDownloadViewController () {
+@interface MRBSitesImageUrlFetchViewController () {
     NSInteger selectedRadioButtonTag;
     NSArray *siteUrls;
     
@@ -34,7 +34,7 @@
 
 @end
 
-@implementation MRBSitesImageDownloadViewController
+@implementation MRBSitesImageUrlFetchViewController
 
 #pragma mark - Lifecycle
 - (void)viewDidLoad {
@@ -148,7 +148,7 @@
         return;
     }
     
-    MRBSitesImageDownloadModel *model = [[MRBSitesImageDownloadModel alloc] initWithMode:selectedRadioButtonTag
+    MRBSitesImageUrlFetchModel *model = [[MRBSitesImageUrlFetchModel alloc] initWithMode:selectedRadioButtonTag
                                                                                      url:siteUrls[self.sitesPopupButton.indexOfSelectedItem]
                                                                                  keyword:self.keywordTextField.stringValue
                                                                               inputStart:inputStart

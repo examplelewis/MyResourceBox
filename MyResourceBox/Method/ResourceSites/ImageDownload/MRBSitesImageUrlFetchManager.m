@@ -1,24 +1,24 @@
 //
-//  MRBSitesImageDownloadManager.m
+//  MRBSitesImageUrlFetchManager.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 20/03/20.
 //  Copyright © 2020 gongyuTest. All rights reserved.
 //
 
-#import "MRBSitesImageDownloadManager.h"
+#import "MRBSitesImageUrlFetchManager.h"
 #import "MRBHttpManager.h"
 #import <NSDate+DateTools.h>
 
 static NSInteger const MRBSitesImageMaxFetchWrongTimes = 3;
 
-typedef NS_ENUM(NSUInteger, MRBSitesImageDownloadAction) {
-    MRBSitesImageDownloadActionContinue,
-    MRBSitesImageDownloadActionNext,
-    MRBSitesImageDownloadActionDone
+typedef NS_ENUM(NSUInteger, MRBSitesImageUrlFetchAction) {
+    MRBSitesImageUrlFetchActionContinue,
+    MRBSitesImageUrlFetchActionNext,
+    MRBSitesImageUrlFetchActionDone
 };
 
-@interface MRBSitesImageDownloadManager () {
+@interface MRBSitesImageUrlFetchManager () {
     NSInteger currentPage;
     
     NSMutableArray *posts;
@@ -29,14 +29,14 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageDownloadAction) {
     NSInteger apiWrongTimes;
 }
 
-@property (strong) MRBSitesImageDownloadModel *model;
+@property (strong) MRBSitesImageUrlFetchModel *model;
 
 @end
 
-@implementation MRBSitesImageDownloadManager
+@implementation MRBSitesImageUrlFetchManager
 
 #pragma mark - Lifecycle
-- (instancetype)initWithModel:(MRBSitesImageDownloadModel *)model {
+- (instancetype)initWithModel:(MRBSitesImageUrlFetchModel *)model {
     self = [super init];
     if (self) {
         self.model = model;
@@ -72,23 +72,23 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageDownloadAction) {
     [[MRBHttpManager sharedManager] getResourceSitesPostsWithUrl:self.model.url tag:self.model.keyword page:currentPage success:^(NSArray *array) {
         SS(strongSelf);
         
-        MRBSitesImageDownloadAction action = [strongSelf actionForThisPageWithResults:array];
+        MRBSitesImageUrlFetchAction action = [strongSelf actionForThisPageWithResults:array];
         switch (action) {
-            case MRBSitesImageDownloadActionNext: {
+            case MRBSitesImageUrlFetchActionNext: {
                 [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", strongSelf.model.keyword, blockSelf->currentPage + 1];
                 
                 blockSelf->currentPage += 1;
                 [strongSelf fetchSinglePost];
             }
                 break;
-            case MRBSitesImageDownloadActionContinue: {
+            case MRBSitesImageUrlFetchActionContinue: {
                 [strongSelf parseFetchedResults:array];
                 
                 blockSelf->currentPage += 1;
                 [strongSelf fetchSinglePost];
             }
                 break;
-            case MRBSitesImageDownloadActionDone: {
+            case MRBSitesImageUrlFetchActionDone: {
                 [strongSelf fetchSucceed];
             }
                 break;
@@ -111,29 +111,29 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageDownloadAction) {
         }
     }];
 }
-- (MRBSitesImageDownloadAction)actionForThisPageWithResults:(NSArray *)array {
+- (MRBSitesImageUrlFetchAction)actionForThisPageWithResults:(NSArray *)array {
     // 如果某一页小于100条原始数据，说明是最后一页
     if (array.count != 100) {
-        return MRBSitesImageDownloadActionDone;
+        return MRBSitesImageUrlFetchActionDone;
     }
     
     // API 限制 1000 页
     if (currentPage >= 1000) {
-        return MRBSitesImageDownloadActionDone;
+        return MRBSitesImageUrlFetchActionDone;
     }
     
     switch (self.model.mode) {
         case 10: {
-            return MRBSitesImageDownloadActionContinue;
+            return MRBSitesImageUrlFetchActionContinue;
         }
             break;
         case 11: {
             if ([array.lastObject[@"id"] integerValue] > self.model.inputEnd) {
-                return MRBSitesImageDownloadActionNext;
+                return MRBSitesImageUrlFetchActionNext;
             } else if ([array.firstObject[@"id"] integerValue] < self.model.inputStart) {
-                return MRBSitesImageDownloadActionDone;
+                return MRBSitesImageUrlFetchActionDone;
             } else {
-                return MRBSitesImageDownloadActionContinue;
+                return MRBSitesImageUrlFetchActionContinue;
             }
         }
             break;
@@ -142,26 +142,26 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageDownloadAction) {
             NSDate *lastCreatedAt = [formatter dateFromString:array.lastObject[@"created_at"]];
             
             if ([lastCreatedAt isLaterThan:self.model.inputEndDate]) {
-                return MRBSitesImageDownloadActionNext;
+                return MRBSitesImageUrlFetchActionNext;
             } else if ([firstCreatedAt isEarlierThan:self.model.inputStartDate]) {
-                return MRBSitesImageDownloadActionDone;
+                return MRBSitesImageUrlFetchActionDone;
             } else {
-                return MRBSitesImageDownloadActionContinue;
+                return MRBSitesImageUrlFetchActionContinue;
             }
         }
             break;
         case 13: {
             if (currentPage < self.model.inputStart) {
-                return MRBSitesImageDownloadActionNext;
+                return MRBSitesImageUrlFetchActionNext;
             } else if (currentPage > self.model.inputEnd) {
-                return MRBSitesImageDownloadActionDone;
+                return MRBSitesImageUrlFetchActionDone;
             } else {
-                return MRBSitesImageDownloadActionContinue;
+                return MRBSitesImageUrlFetchActionContinue;
             }
         }
             break;
         default: {
-            return MRBSitesImageDownloadActionDone;
+            return MRBSitesImageUrlFetchActionDone;
         }
             break;
     }
@@ -170,10 +170,10 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageDownloadAction) {
     // Filter
     for (NSInteger i = 0; i < array.count; i++) {
         NSDictionary *data = [NSDictionary dictionaryWithDictionary:array[i]];
-        MRBSitesImageDownloadAction action = [self actionForThisPostWithDictionary:data];
-        if (action == MRBSitesImageDownloadActionNext) {
+        MRBSitesImageUrlFetchAction action = [self actionForThisPostWithDictionary:data];
+        if (action == MRBSitesImageUrlFetchActionNext) {
             continue;
-        } else if (action == MRBSitesImageDownloadActionContinue) {
+        } else if (action == MRBSitesImageUrlFetchActionContinue) {
             // 忽略 webm 文件
             if ([[data[@"file_url"] pathExtension] isEqualToString:@"webm"]) {
                 [webmPosts addObject:data];
@@ -210,19 +210,19 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageDownloadAction) {
     // Log
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self.model.keyword, currentPage + 1];
 }
-- (MRBSitesImageDownloadAction)actionForThisPostWithDictionary:(NSDictionary *)data {
+- (MRBSitesImageUrlFetchAction)actionForThisPostWithDictionary:(NSDictionary *)data {
     switch (self.model.mode) {
         case 10: {
-            return MRBSitesImageDownloadActionContinue;
+            return MRBSitesImageUrlFetchActionContinue;
         }
             break;
         case 11: {
             if ([data[@"id"] integerValue] > self.model.inputEnd) {
-                return MRBSitesImageDownloadActionNext;
+                return MRBSitesImageUrlFetchActionNext;
             } else if ([data[@"id"] integerValue] < self.model.inputStart) {
-                return MRBSitesImageDownloadActionDone;
+                return MRBSitesImageUrlFetchActionDone;
             } else {
-                return MRBSitesImageDownloadActionContinue;
+                return MRBSitesImageUrlFetchActionContinue;
             }
         }
             break;
@@ -230,20 +230,20 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageDownloadAction) {
             NSDate *createdAt = [formatter dateFromString:data[@"created_at"]];
             
             if ([createdAt isLaterThan:self.model.inputEndDate]) {
-                return MRBSitesImageDownloadActionNext;
+                return MRBSitesImageUrlFetchActionNext;
             } else if ([createdAt isEarlierThan:self.model.inputStartDate]) {
-                return MRBSitesImageDownloadActionDone;
+                return MRBSitesImageUrlFetchActionDone;
             } else {
-                return MRBSitesImageDownloadActionContinue;
+                return MRBSitesImageUrlFetchActionContinue;
             }
         }
             break;
         case 13: {
-            return MRBSitesImageDownloadActionContinue;
+            return MRBSitesImageUrlFetchActionContinue;
         }
             break;
         default: {
-            return MRBSitesImageDownloadActionDone;
+            return MRBSitesImageUrlFetchActionDone;
         }
             break;
     }

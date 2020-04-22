@@ -1,5 +1,5 @@
 //
-//  MRBSitesImageDownloadModel.h
+//  MRBSitesImageUrlFetchModel.h
 //  MyResourceBox
 //
 //  Created by 龚宇 on 20/03/20.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MRBSitesImageDownloadModel : NSObject
+@interface MRBSitesImageUrlFetchModel : NSObject
 
 @property (assign) NSInteger mode; // 10: 全部, 11: Image ID, 12: 日期, 13: 页码
 @property (copy) NSString *url;

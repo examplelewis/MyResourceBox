@@ -1,26 +1,26 @@
 //
-//  MRBSitesImageDownloadWindowController.m
+//  MRBSitesImageUrlFetchWindowController.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 20/03/20.
 //  Copyright © 2020 gongyuTest. All rights reserved.
 //
 
-#import "MRBSitesImageDownloadWindowController.h"
-#import "MRBSitesImageDownloadViewController.h"
+#import "MRBSitesImageUrlFetchWindowController.h"
+#import "MRBSitesImageUrlFetchViewController.h"
 
-@interface MRBSitesImageDownloadWindowController ()
+@interface MRBSitesImageUrlFetchWindowController ()
 
 @property (strong) IBOutlet NSView *mainView;
 
 @end
 
-@implementation MRBSitesImageDownloadWindowController
+@implementation MRBSitesImageUrlFetchWindowController
 
 - (void)windowDidLoad {
     [super windowDidLoad];
     
-    MRBSitesImageDownloadViewController *vc = [[MRBSitesImageDownloadViewController alloc] initWithNibName:@"MRBSitesImageDownloadViewController" bundle:nil];
+    MRBSitesImageUrlFetchViewController *vc = [[MRBSitesImageUrlFetchViewController alloc] initWithNibName:@"MRBSitesImageUrlFetchViewController" bundle:nil];
     vc.response = self.response;
     [self.mainView addSubview:vc.view];
     [vc.view mas_makeConstraints:^(MASConstraintMaker *make) {

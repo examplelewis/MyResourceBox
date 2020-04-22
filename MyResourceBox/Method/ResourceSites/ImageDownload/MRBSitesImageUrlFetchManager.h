@@ -1,5 +1,5 @@
 //
-//  MRBSitesImageDownloadManager.h
+//  MRBSitesImageUrlFetchManager.h
 //  MyResourceBox
 //
 //  Created by 龚宇 on 20/03/20.
@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MRBSitesImageDownloadModel.h"
+#import "MRBSitesImageUrlFetchModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MRBSitesImageDownloadManager : NSObject
+@interface MRBSitesImageUrlFetchManager : NSObject
 
-- (instancetype)initWithModel:(MRBSitesImageDownloadModel *)model;
+- (instancetype)initWithModel:(MRBSitesImageUrlFetchModel *)model;
 - (void)prepareFetching;
 
 @end

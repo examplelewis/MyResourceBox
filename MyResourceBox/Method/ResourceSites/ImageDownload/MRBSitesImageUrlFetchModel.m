@@ -1,14 +1,14 @@
 //
-//  MRBSitesImageDownloadModel.m
+//  MRBSitesImageUrlFetchModel.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 20/03/20.
 //  Copyright © 2020 gongyuTest. All rights reserved.
 //
 
-#import "MRBSitesImageDownloadModel.h"
+#import "MRBSitesImageUrlFetchModel.h"
 
-@implementation MRBSitesImageDownloadModel
+@implementation MRBSitesImageUrlFetchModel
 
 - (instancetype)initWithMode:(NSInteger)mode url:(NSString *)url keyword:(NSString *)keyword inputStart:(NSInteger)inputStart inputEnd:(NSInteger)inputEnd inputStartDate:(NSDate *)inputStartDate inputEndDate:(NSDate *)inputEndDate {
     self = [super init];

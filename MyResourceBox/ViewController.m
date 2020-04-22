@@ -10,7 +10,7 @@
 #import <TFHpple.h>
 #import "MRBCroppingPictureManager.h"
 #import "MRBCroppingPictureCustomManager.h"
-#import "MRBSitesImageDownloadManager.h"
+#import "MRBSitesImageUrlFetchManager.h"
 
 @implementation ViewController
 
@@ -121,8 +121,8 @@
 - (void)willStartFetchSiteTagResource:(NSNotification *)notification {
     [MRBLogManager resetCurrentDate];
     
-    MRBSitesImageDownloadModel *model = (MRBSitesImageDownloadModel *)notification.object;
-    MRBSitesImageDownloadManager *manager = [[MRBSitesImageDownloadManager alloc] initWithModel:model];
+    MRBSitesImageUrlFetchModel *model = (MRBSitesImageUrlFetchModel *)notification.object;
+    MRBSitesImageUrlFetchManager *manager = [[MRBSitesImageUrlFetchManager alloc] initWithModel:model];
     [manager prepareFetching];
 }
 
