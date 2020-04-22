@@ -66,6 +66,7 @@
         targetImageFolderPath = [targetImageFolderPath stringByReplacingOccurrencesOfString:@"Gelbooru " withString:@""];
         targetImageFolderPath = [targetImageFolderPath stringByReplacingOccurrencesOfString:rootFolder withString:rootImageFolder];
         
+        WS(weakSelf);
         NSString *urlStr = [[NSString alloc] initWithContentsOfFile:txtFilePath encoding:NSUTF8StringEncoding error:nil];
         MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:[urlStr componentsSeparatedByString:@"\n"]];
         manager.maxConcurrentOperationCount = 3;
@@ -73,7 +74,8 @@
         manager.timeoutInterval = 15;
         manager.downloadPath = targetImageFolderPath;
         manager.finishBlock = ^{
-            [self startSignleDownload];
+            SS(strongSelf);
+            [strongSelf startSignleDownload];
         };
         manager.showAlertAfterFinished = NO;
         
