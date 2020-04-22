@@ -8,6 +8,7 @@
 
 #import "MRBResourceSites.h"
 #import "MRBSitesImageUrlFetchWindowController.h"
+#import "MRBSitesImageDownloadManager.h"
 
 @implementation MRBResourceSites
 
@@ -21,7 +22,7 @@
         }
             break;
         case 2: {
-            
+            [[MRBSitesImageDownloadManager new] chooseDownloadedFiles];
         }
             break;
         case 3: {

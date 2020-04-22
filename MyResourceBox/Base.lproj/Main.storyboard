@@ -1040,6 +1040,12 @@
                                                             <action selector="processingResourceSites:" target="Voe-Tx-rLC" id="A9w-WA-hxZ"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="下载上一阶段获取到的图片" tag="2" id="Jmv-gt-PHw">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingResourceSites:" target="Voe-Tx-rLC" id="Bjf-Hv-jkl"/>
+                                                        </connections>
+                                                    </menuItem>
                                                 </items>
                                             </menu>
                                         </menuItem>

@@ -193,19 +193,12 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageUrlFetchAction) {
     
     // Export
     if (webmPosts.count > 0) {
-//        NSArray *webmIds = [webmPosts valueForKey:@"id"];
-//        NSMutableArray *webmUrls = [NSMutableArray array];
-//        for (NSInteger i = 0; i < webmIds.count; i++) {
-//            [webmUrls addObject:[NSString stringWithFormat:@"https://%@/index.php?page=post&s=view&id=%@", self.model.urlHost, webmIds[i]]];
-//        }
-//        [MRBUtilityManager exportArray:webmUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/%@ %@ WebmUrl.txt", self.model.urlHostName, self.model.keyword]];
-        
         NSArray *webmFileUrls = [webmPosts valueForKey:@"file_url"];
-        [MRBUtilityManager exportArray:webmFileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/%@ %@ WebmPostUrl.txt", self.model.urlHostName, self.model.keyword]];
+        [MRBUtilityManager exportArray:webmFileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/%@ %@ Webm.txt", self.model.urlHostName, self.model.keyword]];
     }
     
     NSArray *urls = [posts valueForKey:@"file_url"];
-    [MRBUtilityManager exportArray:urls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/%@ %@ PostUrl.txt", self.model.urlHostName, self.model.keyword]];
+    [MRBUtilityManager exportArray:urls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/%@ %@.txt", self.model.urlHostName, self.model.keyword]];
     
     // Log
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self.model.keyword, currentPage + 1];
