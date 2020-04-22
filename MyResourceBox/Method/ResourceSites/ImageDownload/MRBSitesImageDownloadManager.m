@@ -50,9 +50,10 @@
 }
 
 - (void)startDownloadFromRootFolder:(NSString *)rootFolder {
-    WS(weakSelf);
-    
     NSString *rootImageFolder = [rootFolder.stringByDeletingLastPathComponent stringByAppendingPathComponent:[NSString stringWithFormat:@"%@ 下载图片", rootFolder.lastPathComponent.stringByDeletingPathExtension]];
+    if (![rootImageFolder hasSuffix:@"/"]) {
+        rootImageFolder = [rootImageFolder stringByAppendingString:@"/"];
+    }
     [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:rootImageFolder];
     
     NSArray *allTxtFilePaths = [[MRBFileManager defaultManager] getSubFilePathsInFolder:rootFolder specificExtensions:@[@"txt"]];
@@ -72,7 +73,7 @@
         manager.timeoutInterval = 15;
         manager.downloadPath = targetImageFolderPath;
         manager.finishBlock = ^{
-            [weakSelf startSignleDownload];
+            [self startSignleDownload];
         };
         manager.showAlertAfterFinished = NO;
         
@@ -84,17 +85,19 @@
 
 - (void)startSignleDownload {
     if (downloading > 0) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"MRBSitesImageDownloadManager 已经下载第 %ld 个 txt 文件内的资源", downloading];
+        MRBDownloadQueueManager *manager = managers[downloading - 1];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"MRBSitesImageDownloadManager 已经下载第 %ld 个 txt 文件内的资源: %@", downloading, manager.downloadPath.lastPathComponent];
     }
     
     if (downloading >= managers.count) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"MRBSitesImageDownloadManager 所有 txt 文件内的资源已下载完成"];
     } else {
         MRBDownloadQueueManager *manager = managers[downloading];
-        [manager startDownload];
         
         downloading += 1;
-        [[MRBLogManager defaultManager] showLogWithFormat:@"MRBSitesImageDownloadManager 即将下载第 %ld 个 txt 文件内的资源", downloading];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"MRBSitesImageDownloadManager 即将下载第 %ld 个 txt 文件内的资源: %@", downloading, manager.downloadPath.lastPathComponent];
+        
+        [manager startDownload];
     }
 }
 
