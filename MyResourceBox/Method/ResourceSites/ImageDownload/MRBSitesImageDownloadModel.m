@@ -16,10 +16,19 @@
         self.mode = mode;
         self.url = url;
         self.keyword = [keyword stringByReplacingOccurrencesOfString:@" " withString:@""];
+        self.urlHost = [NSURL URLWithString:url].host;
         self.inputStart = inputStart;
         self.inputEnd = inputEnd;
         self.inputStartDate = inputStartDate;
         self.inputEndDate = inputEndDate;
+        
+        if ([url containsString:@"gelbooru"]) {
+            self.urlMode = 1;
+            self.urlHostName = @"Gelbooru";
+        } else if ([url containsString:@"rule34"]) {
+            self.urlMode = 2;
+            self.urlHostName = @"Rule34";
+        }
     }
     
     return self;

@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (assign) NSInteger mode; // 10: 全部, 11: Image ID, 12: 日期, 13: 页码
 @property (copy) NSString *url;
+@property (assign) NSInteger urlMode; // 1: Gelbooru; 2: Rule34
+@property (copy) NSString *urlHost;
+@property (copy) NSString *urlHostName; // 1: Gelbooru; 2: Rule34
 @property (copy) NSString *keyword;
 @property (assign) NSInteger inputStart;
 @property (assign) NSInteger inputEnd;

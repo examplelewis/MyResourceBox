@@ -68,23 +68,23 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageDownloadAction) {
 }
 - (void)fetchSinglePost {
     WS(weakSelf);
+    BS(blockSelf);
     [[MRBHttpManager sharedManager] getResourceSitesPostsWithUrl:self.model.url tag:self.model.keyword page:currentPage success:^(NSArray *array) {
         SS(strongSelf);
         
         MRBSitesImageDownloadAction action = [strongSelf actionForThisPageWithResults:array];
-        
         switch (action) {
             case MRBSitesImageDownloadActionNext: {
-                [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", strongSelf.model.keyword, strongSelf->currentPage + 1];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", strongSelf.model.keyword, blockSelf->currentPage + 1];
                 
-                strongSelf->currentPage += 1;
+                blockSelf->currentPage += 1;
                 [strongSelf fetchSinglePost];
             }
                 break;
             case MRBSitesImageDownloadActionContinue: {
                 [strongSelf parseFetchedResults:array];
                 
-                strongSelf->currentPage += 1;
+                blockSelf->currentPage += 1;
                 [strongSelf fetchSinglePost];
             }
                 break;
@@ -98,15 +98,15 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageDownloadAction) {
     } failed:^(NSString *errorTitle, NSString *errorMsg) {
         SS(strongSelf);
         
-        if (strongSelf->apiWrongTimes >= MRBSitesImageMaxFetchWrongTimes) {
-            strongSelf->apiWrongTimes = 0; // 重置错误计数
+        if (blockSelf->apiWrongTimes >= MRBSitesImageMaxFetchWrongTimes) {
+            blockSelf->apiWrongTimes = 0; // 重置错误计数
             
             DDLogError(@"%@: %@", errorTitle, errorMsg);
             [[MRBLogManager defaultManager] showLogWithFormat:@"获取特定标签的图片地址，遇到错误：%@: %@", errorTitle, errorMsg];
-            [[MRBLogManager defaultManager] showLogWithFormat:@"获取特定标签的图片地址，当前获取页码: %ld, 当前Model: %@", strongSelf->currentPage, strongSelf.model];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"获取特定标签的图片地址，当前获取页码: %ld, 当前Model: %@", blockSelf->currentPage, strongSelf.model];
             [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：流程结束", strongSelf.model.keyword];
         } else {
-            strongSelf->apiWrongTimes += 1;
+            blockSelf->apiWrongTimes += 1;
             [strongSelf fetchSinglePost];
         }
     }];
@@ -193,19 +193,19 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageDownloadAction) {
     
     // Export
     if (webmPosts.count > 0) {
-        NSArray *webmIds = [webmPosts valueForKey:@"id"];
-        NSMutableArray *webmUrls = [NSMutableArray array];
-        for (NSInteger i = 0; i < webmIds.count; i++) {
-            [webmUrls addObject:[NSString stringWithFormat:@"https://rule34.xxx/index.php?page=post&s=view&id=%@", webmIds[i]]];
-        }
-        [MRBUtilityManager exportArray:webmUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Rule34 %@ WebmUrl.txt", self.model.keyword]];
+//        NSArray *webmIds = [webmPosts valueForKey:@"id"];
+//        NSMutableArray *webmUrls = [NSMutableArray array];
+//        for (NSInteger i = 0; i < webmIds.count; i++) {
+//            [webmUrls addObject:[NSString stringWithFormat:@"https://%@/index.php?page=post&s=view&id=%@", self.model.urlHost, webmIds[i]]];
+//        }
+//        [MRBUtilityManager exportArray:webmUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/%@ %@ WebmUrl.txt", self.model.urlHostName, self.model.keyword]];
         
         NSArray *webmFileUrls = [webmPosts valueForKey:@"file_url"];
-        [MRBUtilityManager exportArray:webmFileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Rule34 %@ WebmPostUrl.txt", self.model.keyword]];
+        [MRBUtilityManager exportArray:webmFileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/%@ %@ WebmPostUrl.txt", self.model.urlHostName, self.model.keyword]];
     }
     
     NSArray *urls = [posts valueForKey:@"file_url"];
-    [MRBUtilityManager exportArray:urls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/Rule34 %@ PostUrl.txt", self.model.keyword]];
+    [MRBUtilityManager exportArray:urls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/%@ %@ PostUrl.txt", self.model.urlHostName, self.model.keyword]];
     
     // Log
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取 %@ 图片地址：第 %ld 页已获取", self.model.keyword, currentPage + 1];

@@ -533,6 +533,9 @@
                               failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+    manager.requestSerializer.timeoutInterval = 15; // 设置超时时间
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
     [manager GET:url parameters:@{@"pid":@(page), @"tags": tag} progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              NSString *xmlString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
