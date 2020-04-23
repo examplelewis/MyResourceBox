@@ -10,7 +10,7 @@
 
 @implementation MRBSitesImageUrlFetchModel
 
-- (instancetype)initWithMode:(NSInteger)mode url:(NSString *)url keyword:(NSString *)keyword inputStart:(NSInteger)inputStart inputEnd:(NSInteger)inputEnd inputStartDate:(NSDate *)inputStartDate inputEndDate:(NSDate *)inputEndDate {
+- (instancetype)initWithMode:(NSInteger)mode url:(NSString *)url downloadWebm:(BOOL)downloadWebm keyword:(NSString *)keyword inputStart:(NSInteger)inputStart inputEnd:(NSInteger)inputEnd inputStartDate:(NSDate *)inputStartDate inputEndDate:(NSDate *)inputEndDate {
     self = [super init];
     if (self) {
         self.mode = mode;

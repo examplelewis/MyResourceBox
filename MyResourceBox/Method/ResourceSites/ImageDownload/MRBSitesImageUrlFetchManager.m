@@ -174,25 +174,26 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageUrlFetchAction) {
         if (action == MRBSitesImageUrlFetchActionNext) {
             continue;
         } else if (action == MRBSitesImageUrlFetchActionContinue) {
-            // 忽略 webm 文件
+            // webm 文件单独处理
             if ([[data[@"file_url"] pathExtension] isEqualToString:@"webm"]) {
-                [webmPosts addObject:data];
-                continue;
+                if (self.model.downloadWebm) {
+                    [webmPosts addObject:data];
+                }
+            }  else {
+                // 小于 801 * 801 的非 gif 文件将被忽略
+                if ([data[@"width"] integerValue] < 801 && [data[@"height"] integerValue] < 801 && ![[data[@"file_url"] pathExtension] isEqualToString:@"gif"]) {
+                    continue;
+                }
+                
+                [posts addObject:data];
             }
-            
-            // 小于 801 * 801 的非 gif 文件将被忽略
-            if ([data[@"width"] integerValue] < 801 && [data[@"height"] integerValue] < 801 && ![[data[@"file_url"] pathExtension] isEqualToString:@"gif"]) {
-                continue;
-            }
-            
-            [posts addObject:data];
         } else {
             break;
         }
     }
     
     // Export
-    if (webmPosts.count > 0) {
+    if (self.model.downloadWebm && webmPosts.count > 0) {
         NSArray *webmFileUrls = [webmPosts valueForKey:@"file_url"];
         [MRBUtilityManager exportArray:webmFileUrls atPath:[NSString stringWithFormat:@"/Users/Mercury/Downloads/%@ %@ Webm.txt", self.model.urlHostName, self.model.keyword]];
     }

@@ -17,13 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign) NSInteger urlMode; // 1: Gelbooru; 2: Rule34
 @property (copy) NSString *urlHost;
 @property (copy) NSString *urlHostName; // 1: Gelbooru; 2: Rule34
+@property (assign) BOOL downloadWebm;
 @property (copy) NSString *keyword;
 @property (assign) NSInteger inputStart;
 @property (assign) NSInteger inputEnd;
 @property (strong) NSDate *inputStartDate;
 @property (strong) NSDate *inputEndDate;
 
-- (instancetype)initWithMode:(NSInteger)mode url:(NSString *)url keyword:(NSString *)keyword inputStart:(NSInteger)inputStart inputEnd:(NSInteger)inputEnd inputStartDate:(NSDate *)inputStartDate inputEndDate:(NSDate *)inputEndDate;
+- (instancetype)initWithMode:(NSInteger)mode url:(NSString *)url downloadWebm:(BOOL)downloadWebm keyword:(NSString *)keyword inputStart:(NSInteger)inputStart inputEnd:(NSInteger)inputEnd inputStartDate:(NSDate *)inputStartDate inputEndDate:(NSDate *)inputEndDate;
 
 @end
 

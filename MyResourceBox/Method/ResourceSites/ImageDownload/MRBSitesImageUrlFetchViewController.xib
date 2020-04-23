@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,6 +19,7 @@
                 <outlet property="keywordTextField" destination="YyL-mf-HiI" id="CwQ-rv-3SN"/>
                 <outlet property="sitesPopupButton" destination="7De-IE-EXF" id="0va-m2-Ugf"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="webmCheckButton" destination="Nfa-yO-NND" id="EL9-8W-Ovc"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -201,6 +203,13 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nfa-yO-NND">
+                    <rect key="frame" x="193" y="437" width="89" height="18"/>
+                    <buttonCell key="cell" type="check" title="下载Webm" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="H13-Te-nKy">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                    </buttonCell>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="IQU-e8-v76" firstAttribute="top" secondItem="hYh-ia-iCp" secondAttribute="top" id="0I6-Ln-aRH"/>
@@ -208,6 +217,7 @@
                 <constraint firstItem="Saw-uL-r75" firstAttribute="leading" secondItem="cCI-nt-sAR" secondAttribute="trailing" constant="20" id="3zB-Qj-0pK"/>
                 <constraint firstItem="Ww4-Xe-cOg" firstAttribute="leading" secondItem="Saw-uL-r75" secondAttribute="leading" id="44x-w9-1gu"/>
                 <constraint firstItem="QDx-la-TVU" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="5Xa-uY-LH4"/>
+                <constraint firstAttribute="trailing" secondItem="Nfa-yO-NND" secondAttribute="trailing" constant="20" id="AWg-92-ILE"/>
                 <constraint firstItem="fG5-Eu-Wo7" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="CKP-Oc-U3I"/>
                 <constraint firstItem="cCI-nt-sAR" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="H8z-0P-E8d"/>
                 <constraint firstItem="IQU-e8-v76" firstAttribute="leading" secondItem="hYh-ia-iCp" secondAttribute="trailing" constant="20" id="K2V-un-akd"/>
@@ -223,6 +233,7 @@
                 <constraint firstItem="RDA-hu-zSb" firstAttribute="leading" secondItem="fhc-8S-qgR" secondAttribute="trailing" constant="20" id="bdd-rQ-3dR"/>
                 <constraint firstItem="6Vn-Ly-4BH" firstAttribute="top" secondItem="jIO-gr-QKX" secondAttribute="top" id="dKd-2Y-CPI"/>
                 <constraint firstItem="YyL-mf-HiI" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="fJA-oU-h6H"/>
+                <constraint firstItem="Nfa-yO-NND" firstAttribute="centerY" secondItem="7De-IE-EXF" secondAttribute="centerY" id="g8X-S5-7qc"/>
                 <constraint firstItem="NAR-MH-5Qq" firstAttribute="top" secondItem="cCI-nt-sAR" secondAttribute="top" id="h2f-JP-tms"/>
                 <constraint firstAttribute="bottom" secondItem="cLx-fY-hlI" secondAttribute="bottom" constant="20" id="hVN-lv-UbK"/>
                 <constraint firstItem="1ge-zE-Elu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="iwh-TP-Vh0"/>

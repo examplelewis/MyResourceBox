@@ -22,6 +22,7 @@
 }
 
 @property (strong) IBOutlet NSPopUpButton *sitesPopupButton;
+@property (strong) IBOutlet NSButton *webmCheckButton;
 @property (strong) IBOutlet NSTextField *keywordTextField;
 @property (strong) IBOutlet NSTextField *filterLabel;
 @property (strong) IBOutlet NSTextField *filterStartLabel;
@@ -150,6 +151,7 @@
     
     MRBSitesImageUrlFetchModel *model = [[MRBSitesImageUrlFetchModel alloc] initWithMode:selectedRadioButtonTag
                                                                                      url:siteUrls[self.sitesPopupButton.indexOfSelectedItem]
+                                                                            downloadWebm:self.webmCheckButton.state == NSControlStateValueOn
                                                                                  keyword:self.keywordTextField.stringValue
                                                                               inputStart:inputStart
                                                                                 inputEnd:inputEnd
