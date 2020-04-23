@@ -81,6 +81,15 @@ static NSString * const kShowTimeKey = @"kShowTimeKey";
     
     [self showLogWithParameters:@{kShowTimeKey: @(NO)} andAlertString:alertString];
 }
+- (void)showReturnWithCount:(NSInteger)count {
+    // 拼接一条 logEntry
+    NSString *alertString = @"";
+    for (NSInteger i = 0; i < count - 1; i++) {
+        alertString = [alertString stringByAppendingString:@"\n"];
+    }
+    
+    [self showLogWithParameters:@{kShowTimeKey: @(NO)} andAlertString:alertString];
+}
 
 #pragma mark - 显示 Log 的具体实现方法
 - (void)showLogWithParameters:(NSDictionary *)parameters andAlertString:(NSString *)alertString {

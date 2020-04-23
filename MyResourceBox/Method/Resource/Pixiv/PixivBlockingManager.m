@@ -156,6 +156,7 @@
     //为数据库设置缓存，提高查询效率
     [db setShouldCacheStatements:YES];
     
+    [[MRBLogManager defaultManager] showReturnWithCount:1];
     NSArray *urls = [input componentsSeparatedByString:@"\n"];
     for (NSInteger i = 0; i < urls.count; i++) {
         NSString *url = urls[i];
@@ -203,6 +204,7 @@
             }
         }
     }
+    [[MRBLogManager defaultManager] showReturnWithCount:1];
     
     [db close];
     
