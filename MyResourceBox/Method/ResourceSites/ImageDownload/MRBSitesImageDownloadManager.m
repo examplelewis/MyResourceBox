@@ -66,7 +66,6 @@
         targetImageFolderPath = [targetImageFolderPath stringByReplacingOccurrencesOfString:@"Gelbooru " withString:@""];
         targetImageFolderPath = [targetImageFolderPath stringByReplacingOccurrencesOfString:rootFolder withString:rootImageFolder];
         
-        WS(weakSelf);
         NSString *urlStr = [[NSString alloc] initWithContentsOfFile:txtFilePath encoding:NSUTF8StringEncoding error:nil];
         MRBDownloadQueueManager *manager = [[MRBDownloadQueueManager alloc] initWithUrls:[urlStr componentsSeparatedByString:@"\n"]];
         manager.maxConcurrentOperationCount = 3;
@@ -74,8 +73,7 @@
         manager.timeoutInterval = 15;
         manager.downloadPath = targetImageFolderPath;
         manager.finishBlock = ^{
-            SS(strongSelf);
-            [strongSelf startSignleDownload];
+            [self startSignleDownload];
         };
         manager.showAlertAfterFinished = NO;
         
@@ -93,6 +91,11 @@
     
     if (downloading >= managers.count) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"MRBSitesImageDownloadManager 所有 txt 文件内的资源已下载完成"];
+        
+        MRBAlert *alert = [[MRBAlert alloc] initWithAlertStyle:NSAlertStyleCritical];
+        [alert setMessage:@"MRBSitesImageDownloadManager 所有 txt 文件内的资源已下载完成" infomation:nil];
+        [alert setButtonTitle:@"好" keyEquivalent:@"\r"];
+        [alert runModel];
     } else {
         MRBDownloadQueueManager *manager = managers[downloading];
         
