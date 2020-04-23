@@ -183,17 +183,23 @@
         // 如果数据表中没有这个人的记录，那么添加一条记录；如果有记录，并且 block_level 不是 1，即便是 2，也修改成 1
         if (blockLevel == -100) {
             BOOL success = [db executeUpdate:@"INSERT INTO pixivBlockUser (id, member_id, user_name, block_level) values(?, ?, ?, ?)", NULL, @(userId), NULL, @(1)];
-            if (!success) {
+            if (success) {
+                [[MRBLogManager defaultManager] showLogWithFormat:@"Pixiv userId: %ld 已添加状态: 确定拉黑", userId];
+            } else {
                 [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:pixivBlockUser中插入数据时发生错误：%@", [db lastErrorMessage]];
                 [[MRBLogManager defaultManager] showLogWithFormat:@"数据：userId: %ld", userId];
             }
         } else {
             if (blockLevel != 1) {
                 BOOL success = [db executeUpdate:@"UPDATE pixivBlockUser SET block_level = 1 WHERE member_id = ?", @(userId)];
-                if (!success) {
+                if (success) {
+                    [[MRBLogManager defaultManager] showLogWithFormat:@"Pixiv userId: %ld 已更新状态: 确定拉黑", userId];
+                } else {
                     [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:pixivBlockUser中更新数据时发生错误：%@", [db lastErrorMessage]];
                     [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", @{@"userId": @(userId), @"blockLevel": @(blockLevel)}];
                 }
+            } else {
+                [[MRBLogManager defaultManager] showLogWithFormat:@"Pixiv userId: %ld 状态: 确定拉黑", userId];
             }
         }
     }
@@ -251,20 +257,26 @@
         }
         [rs close];
         
-        // 如果数据表中没有这个人的记录，那么添加一条记录；如果有记录，只有 block_level 是 0，才修改成 1
+        // 如果数据表中没有这个人的记录，那么添加一条记录；如果有记录，并且 block_level 不是 2，即便是 1，也修改成 2
         if (blockLevel == -100) {
             BOOL success = [db executeUpdate:@"INSERT INTO pixivBlockUser (id, member_id, user_name, block_level) values(?, ?, ?, ?)", NULL, @(userId), NULL, @(2)];
-            if (!success) {
+            if (success) {
+                [[MRBLogManager defaultManager] showLogWithFormat:@"Pixiv userId: %ld 已添加状态: 不确定拉黑", userId];
+            } else {
                 [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:pixivBlockUser中插入数据时发生错误：%@", [db lastErrorMessage]];
                 [[MRBLogManager defaultManager] showLogWithFormat:@"数据：userId: %ld", userId];
             }
         } else {
-            if (blockLevel == 0) {
+            if (blockLevel != 2) {
                 BOOL success = [db executeUpdate:@"UPDATE pixivBlockUser SET block_level = 2 WHERE member_id = ?", @(userId)];
-                if (!success) {
+                if (success) {
+                    [[MRBLogManager defaultManager] showLogWithFormat:@"Pixiv userId: %ld 已更新状态: 不确定拉黑", userId];
+                } else {
                     [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:pixivBlockUser中更新数据时发生错误：%@", [db lastErrorMessage]];
                     [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", @{@"userId": @(userId), @"blockLevel": @(blockLevel)}];
                 }
+            } else {
+                [[MRBLogManager defaultManager] showLogWithFormat:@"Pixiv userId: %ld 状态: 不确定拉黑", userId];
             }
         }
     }
