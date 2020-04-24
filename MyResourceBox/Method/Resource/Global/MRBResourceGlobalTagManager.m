@@ -95,6 +95,7 @@ static MRBResourceGlobalTagManager *request;
     [mutableGelbooruAnimeTags addObjectsFromArray:gelbooruAnimeAdd];
     [mutableGelbooruAnimeTags removeObjectsInArray:gelbooruAnimeRemove];
     [mutableGelbooruAnimeTags filterUsingPredicate:predicate];
+    [self removeSpaceInTagsFromArray:mutableGelbooruAnimeTags];
     gelbooruAnimeTags = [mutableGelbooruAnimeTags copy];
     gelbooruAnimeTagsSet = [NSSet setWithArray:gelbooruAnimeTags];
     
@@ -102,6 +103,7 @@ static MRBResourceGlobalTagManager *request;
     [mutableGelbooruGameTags addObjectsFromArray:gelbooruGameAdd];
     [mutableGelbooruGameTags removeObjectsInArray:gelbooruGameRemove];
     [mutableGelbooruGameTags filterUsingPredicate:predicate];
+    [self removeSpaceInTagsFromArray:mutableGelbooruGameTags];
     gelbooruGameTags = [mutableGelbooruGameTags copy];
     gelbooruGameTagsSet = [NSSet setWithArray:gelbooruGameTags];
     
@@ -109,6 +111,7 @@ static MRBResourceGlobalTagManager *request;
     [mutableGelbooruHTags addObjectsFromArray:gelbooruHAdd];
     [mutableGelbooruHTags removeObjectsInArray:gelbooruHRemove];
     [mutableGelbooruHTags filterUsingPredicate:predicate];
+    [self removeSpaceInTagsFromArray:mutableGelbooruHTags];
     gelbooruHTags = [mutableGelbooruHTags copy];
     gelbooruHTagsSet = [NSSet setWithArray:gelbooruHTags];
     
@@ -116,6 +119,7 @@ static MRBResourceGlobalTagManager *request;
     [mutableRule34AnimeTags addObjectsFromArray:rule34AnimeAdd];
     [mutableRule34AnimeTags removeObjectsInArray:rule34AnimeRemove];
     [mutableRule34AnimeTags filterUsingPredicate:predicate];
+    [self removeSpaceInTagsFromArray:mutableRule34AnimeTags];
     rule34AnimeTags = [mutableRule34AnimeTags copy];
     rule34AnimeTagsSet = [NSSet setWithArray:rule34AnimeTags];
     
@@ -123,6 +127,7 @@ static MRBResourceGlobalTagManager *request;
     [mutableRule34GameTags addObjectsFromArray:rule34GameAdd];
     [mutableRule34GameTags removeObjectsInArray:rule34GameRemove];
     [mutableRule34GameTags filterUsingPredicate:predicate];
+    [self removeSpaceInTagsFromArray:mutableRule34GameTags];
     rule34GameTags = [mutableRule34GameTags copy];
     rule34GameTagsSet = [NSSet setWithArray:rule34GameTags];
     
@@ -130,18 +135,30 @@ static MRBResourceGlobalTagManager *request;
     [mutableRule34HTags addObjectsFromArray:rule34HAdd];
     [mutableRule34HTags removeObjectsInArray:rule34HRemove];
     [mutableRule34HTags filterUsingPredicate:predicate];
+    [self removeSpaceInTagsFromArray:mutableRule34HTags];
     rule34HTags = [mutableRule34HTags copy];
     rule34HTagsSet = [NSSet setWithArray:rule34HTags];
     
     
     // renameUselessTags
     NSDictionary *renameTags = [NSDictionary dictionaryWithContentsOfFile:kRenameUselessTagsFilePath];
-    renameUselessTags = renameTags[@"default"];
+    NSMutableArray *mutableRenameUselessTags = [NSMutableArray arrayWithArray:renameTags[@"default"]];
+    [self removeSpaceInTagsFromArray:mutableRenameUselessTags];
+    renameUselessTags = [mutableRenameUselessTags copy];
     
     
     // neededTags
     neededTags = [NSDictionary dictionaryWithContentsOfFile:kNeededTagsFilePath];
-    neededTagsSet = [NSSet setWithArray:[[NSString stringWithContentsOfFile:kNeededTagsTxtFilePath encoding:NSUTF8StringEncoding error:nil] componentsSeparatedByString:@"\n"]];
+    NSMutableArray *mutableNeededTagsArray = [NSMutableArray arrayWithArray:[[NSString stringWithContentsOfFile:kNeededTagsTxtFilePath encoding:NSUTF8StringEncoding error:nil] componentsSeparatedByString:@"\n"]];
+    [self removeSpaceInTagsFromArray:mutableNeededTagsArray];
+    neededTagsSet = [NSSet setWithArray:[mutableNeededTagsArray copy]];
+}
+
+- (void)removeSpaceInTagsFromArray:(NSMutableArray *)array {
+    for (NSInteger i = 0; i < array.count; i++) {
+        NSString *tag = array[i];
+        array[i] = [tag stringByReplacingOccurrencesOfString:@" " withString:@""];
+    }
 }
 
 #pragma mark - 查找需要的 Copyright 标签
