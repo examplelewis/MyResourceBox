@@ -1192,23 +1192,30 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="rIp-Ma-bWi"/>
-                                                    <menuItem title="复制文件夹的层级" tag="5" id="HHj-9D-pRD">
+                                                    <menuItem title="复制文件夹的层级" tag="11" id="HHj-9D-pRD">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="Urw-IW-nqW"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="aMS-B4-dG5"/>
-                                                    <menuItem title="提取文件内特定格式的文件【剪切】" tag="6" id="sIt-1D-fNc">
+                                                    <menuItem title="提取文件内特定格式的文件【剪切】" tag="21" id="sIt-1D-fNc">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="U0m-5V-xMi"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="提取文件内 GIF 文件【剪切】" tag="7" id="tWk-vZ-zZc">
+                                                    <menuItem title="提取文件内 GIF 文件【剪切】" tag="22" id="tWk-vZ-zZc">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="WJk-aF-NXS"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="Uzl-PO-W8h"/>
+                                                    <menuItem title="为图片等文件生成32位的随机名称" tag="31" id="TCz-mx-1ah">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="OOV-8S-niq"/>
                                                         </connections>
                                                     </menuItem>
                                                 </items>

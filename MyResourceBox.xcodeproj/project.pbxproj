@@ -29,6 +29,8 @@
 		AC1A6718244EE98400AE1ABD /* WeiboFetchFirstFavManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1A6717244EE98400AE1ABD /* WeiboFetchFirstFavManager.m */; };
 		AC2824ED2445C857000B2589 /* MRBPixivUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2824EC2445C857000B2589 /* MRBPixivUrlManager.m */; };
 		AC2D1B151DD0191C0085F8E0 /* MRBDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2D1B131DD0191C0085F8E0 /* MRBDeviceManager.m */; };
+		AC2E865324519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E865224519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.m */; };
+		AC3A4AB32452823800E52953 /* MRBMD5Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4AB22452823800E52953 /* MRBMD5Generator.m */; };
 		AC47543F1DCC461800880934 /* OrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC47543E1DCC461800880934 /* OrganizeManager.m */; };
 		AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4754411DCC5B1600880934 /* DownloadMethod.m */; };
 		AC4AB7E22417E1F8008FD444 /* MRBSitesOrganizationTagExtractManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4AB7E12417E1F8008FD444 /* MRBSitesOrganizationTagExtractManager.m */; };
@@ -220,6 +222,10 @@
 		AC2824EC2445C857000B2589 /* MRBPixivUrlManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBPixivUrlManager.m; sourceTree = "<group>"; };
 		AC2D1B131DD0191C0085F8E0 /* MRBDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBDeviceManager.m; sourceTree = "<group>"; };
 		AC2D1B141DD0191C0085F8E0 /* MRBDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBDeviceManager.h; sourceTree = "<group>"; };
+		AC2E865124519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBGenerate32BitMD5NameManager.h; sourceTree = "<group>"; };
+		AC2E865224519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBGenerate32BitMD5NameManager.m; sourceTree = "<group>"; };
+		AC3A4AB12452823800E52953 /* MRBMD5Generator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBMD5Generator.h; sourceTree = "<group>"; };
+		AC3A4AB22452823800E52953 /* MRBMD5Generator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBMD5Generator.m; sourceTree = "<group>"; };
 		AC47543D1DCC461800880934 /* OrganizeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizeManager.h; sourceTree = "<group>"; };
 		AC47543E1DCC461800880934 /* OrganizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizeManager.m; sourceTree = "<group>"; };
 		AC4754401DCC5B1600880934 /* DownloadMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadMethod.h; sourceTree = "<group>"; };
@@ -1097,6 +1103,8 @@
 				AC47543E1DCC461800880934 /* OrganizeManager.m */,
 				ACDE0BBB22E98D5E006367D9 /* FOExtractTypesFileManager.h */,
 				ACDE0BBC22E98D5E006367D9 /* FOExtractTypesFileManager.m */,
+				AC2E865124519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.h */,
+				AC2E865224519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.m */,
 			);
 			path = FileOperation;
 			sourceTree = "<group>";
@@ -1206,6 +1214,8 @@
 				ACF9FC67228159D600375505 /* MRBCommoms.h */,
 				AC85090F1DB39692004AFE84 /* Managers */,
 				ACCAA3B4228D11280062BCE6 /* Class */,
+				AC3A4AB12452823800E52953 /* MRBMD5Generator.h */,
+				AC3A4AB22452823800E52953 /* MRBMD5Generator.m */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -1416,6 +1426,7 @@
 				AC9F4C6E1E499BBB00FD01C5 /* MRBDownloadQueueManager.m in Sources */,
 				AC789C881DE15A3600523A12 /* WorldCosplayMethod.m in Sources */,
 				ACFCB88324505C5500855461 /* MRBSitesImageUrlFetchWindowController.m in Sources */,
+				AC2E865324519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.m in Sources */,
 				AC789C8B1DE1602500523A12 /* AnalysisMethod.m in Sources */,
 				ACA0F05221E19E200097D144 /* ExHentaiPixivUrlsManager.m in Sources */,
 				AC01F810240AF78E0061D719 /* PictureOperationMethod.m in Sources */,
@@ -1514,6 +1525,7 @@
 				ACF9D9272413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m in Sources */,
 				AC4AB7E52417E25B008FD444 /* MRBSitesOrganization.m in Sources */,
 				ACE05020227FE62800367F3A /* DeviantartUserManager.m in Sources */,
+				AC3A4AB32452823800E52953 /* MRBMD5Generator.m in Sources */,
 				AC789C651DE1466200523A12 /* CookieInfoObject.m in Sources */,
 				ACCAA0371E1B81250017EDDA /* MRBImageManager.m in Sources */,
 				ACECBDC9240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.m in Sources */,
