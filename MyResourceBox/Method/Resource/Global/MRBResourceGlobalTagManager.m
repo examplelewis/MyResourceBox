@@ -141,15 +141,23 @@ static MRBResourceGlobalTagManager *request;
     
     
     // renameUselessTags
-    NSDictionary *renameTags = [NSDictionary dictionaryWithContentsOfFile:kRenameUselessTagsFilePath];
-    NSMutableArray *mutableRenameUselessTags = [NSMutableArray arrayWithArray:renameTags[@"default"]];
+    NSArray *uselessTag = [NSArray arrayWithContentsOfFile:kRenameUselessTagsFilePath];
+    NSMutableArray *mutableRenameUselessTags = [NSMutableArray array];
+    for (NSInteger i = 0; i < uselessTag.count; i++) {
+        if (![uselessTag[i] isKindOfClass:[NSArray class]]) {
+            continue;
+        }
+        
+        [mutableRenameUselessTags addObjectsFromArray:((NSArray *)uselessTag[i])];
+    }
     [self removeSpaceInTagsFromArray:mutableRenameUselessTags];
     renameUselessTags = [mutableRenameUselessTags copy];
     
     
     // neededTags
     neededTags = [NSDictionary dictionaryWithContentsOfFile:kNeededTagsFilePath];
-    NSMutableArray *mutableNeededTagsArray = [NSMutableArray arrayWithArray:[[NSString stringWithContentsOfFile:kNeededTagsTxtFilePath encoding:NSUTF8StringEncoding error:nil] componentsSeparatedByString:@"\n"]];
+    NSString *neededTagString = [NSString stringWithContentsOfFile:kNeededTagsTxtFilePath encoding:NSUTF8StringEncoding error:nil];
+    NSMutableArray *mutableNeededTagsArray = [NSMutableArray arrayWithArray:[neededTagString componentsSeparatedByString:@"\n"]];
     [self removeSpaceInTagsFromArray:mutableNeededTagsArray];
     neededTagsSet = [NSSet setWithArray:[mutableNeededTagsArray copy]];
 }
