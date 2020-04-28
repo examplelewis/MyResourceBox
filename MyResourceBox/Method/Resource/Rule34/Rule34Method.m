@@ -10,9 +10,6 @@
 #import "Rule34Header.h"
 
 #import "Rule34DailyPicManager.h"
-#import "Rule34TagEndTimePicManager.h"
-#import "Rule34TagPagePicManager.h"
-//#import "Rule34TagPagePicExportTagsManager.h"
 #import "ResourceGlobalDownloadManager.h"
 #import "ResourceGlobalOrganizeManager.h"
 #import "ResourceGlobalFileMoveManager.h"
@@ -130,31 +127,6 @@
             
             ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:plistFilePath targetFolderPath:targetFolderPath];
             [manager startOrganizing];
-        }
-            break;
-        case 31: {
-            Rule34TagPagePicManager *manager = [Rule34TagPagePicManager new];
-            [manager startFetching];
-        }
-            break;
-        case 32: {
-            Rule34TagPagePicManager *manager = [Rule34TagPagePicManager new];
-            [manager startFetchingTagPicCount];
-        }
-            break;
-        case 33: {
-            Rule34TagEndTimePicManager *mananger = [Rule34TagEndTimePicManager new];
-            [mananger prepareFetching];
-        }
-            break;
-        case 34: {
-            Rule34TagEndTimePicManager *mananger = [Rule34TagEndTimePicManager new];
-            [mananger prepareFetchingPicCount];
-        }
-            break;
-        case 35: {
-//            Rule34TagPagePicExportTagsManager *manager = [Rule34TagPagePicExportTagsManager new];
-//            [manager startFetching];
         }
             break;
         default:
