@@ -50,13 +50,13 @@
 - (void)filterIllustUrlsWithInput:(NSString *)input {
     NSArray *urls = [input componentsSeparatedByString:@"\n"];
     NSArray *userUrls = [urls filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return [evaluatedObject containsString:@"users"] || [evaluatedObject containsString:@"member.php"] || [evaluatedObject containsString:@"member_illust.php"];
+        return [evaluatedObject containsString:@"users"] || [evaluatedObject containsString:@"member.php"] || [evaluatedObject containsString:@"member_illust.php"] || [evaluatedObject containsString:@"fanbox"];
     }]];
     originalUserUrls = [NSArray arrayWithArray:userUrls];
     fixedUserUrls = [NSMutableArray arrayWithArray:userUrls];
     
     NSArray *illustUrls = [urls filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return ![evaluatedObject containsString:@"users"] && ![evaluatedObject containsString:@"member.php"] && ![evaluatedObject containsString:@"member_illust.php"];
+        return ![evaluatedObject containsString:@"users"] && ![evaluatedObject containsString:@"member.php"] && ![evaluatedObject containsString:@"member_illust.php"] && ![evaluatedObject containsString:@"fanbox"];
     }]];
     if (illustUrls.count > 0) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条为作品链接，现已全部导出至 PixivUtilFetchIllust.txt 文件中", illustUrls.count];
