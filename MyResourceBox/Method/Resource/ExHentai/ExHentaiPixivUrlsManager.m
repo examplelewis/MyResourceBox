@@ -8,6 +8,12 @@
 
 #import "ExHentaiPixivUrlsManager.h"
 
+static NSString * const kBothUrlPath = @"/Users/Mercury/Downloads/ExHentaiParseResultBothUrls.txt";
+static NSString * const kPixivUrlPath = @"/Users/Mercury/Downloads/ExHentaiParseResultPixivUrls.txt";
+static NSString * const kPatreonUrlPath = @"/Users/Mercury/Downloads/ExHentaiParseResesultPatreonUrls.txt";
+static NSString * const kUselessUrlPath = @"/Users/Mercury/Downloads/ExHentaiParseUselessUrls.txt";
+static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiParseFailureUrls.txt";
+
 @interface ExHentaiPixivUrlsManager () {
     NSArray *allUrls; // 输入的所有URL
     NSMutableArray *usefulUrls; // 有用的URL
@@ -173,6 +179,11 @@
     NSMutableArray *results = [NSMutableArray array];
     NSString *content = ((TFHppleElement *)element.children[0]).content;
     
+    // 只有 Title 中包含 Pixiv，那么再去查找数字
+    if (![content containsString:@"pixiv"]) {
+        return @[];
+    }
+    
     NSError *error = nil;
     NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:@"\\d+" options:0 error:&error];
     NSArray *matches = [regex matchesInString:content options:0 range:NSMakeRange(0, content.length)];
@@ -196,7 +207,7 @@
     NSMutableSet *totalSet = [NSMutableSet setWithArray:allUrls];
     NSMutableSet *usefulSet = [NSMutableSet setWithArray:usefulUrls];
     [totalSet minusSet:usefulSet]; // 取差集后就剩下没有Pixiv的ExHentai地址了
-    NSArray *uselessUrls = totalSet.allObjects;
+    NSMutableArray *uselessUrls = [NSMutableArray arrayWithArray:totalSet.allObjects];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取完成"];
     [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到 %ld 条 Both 数据", bothUrls.count];
@@ -205,11 +216,51 @@
     [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条没有获取到数据", uselessUrls.count];
     [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条数据下载失败", failureUrls.count];
     
-    [MRBUtilityManager exportArray:bothUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParseResultBothUrls.txt"];
-    [MRBUtilityManager exportArray:pixivUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParseResultPixivUrls.txt"];
-    [MRBUtilityManager exportArray:patreonUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParseResesultPatreonUrls.txt"];
-    [MRBUtilityManager exportArray:uselessUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParseUselessUrls.txt"];
-    [MRBUtilityManager exportArray:failureUrls atPath:@"/Users/Mercury/Downloads/ExHentaiParseFailureUrls.txt"];
+    if ([[MRBFileManager defaultManager] isContentExistAtPath:kBothUrlPath]) {
+        NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kBothUrlPath encoding:NSUTF8StringEncoding error:nil];
+        NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
+        
+        [bothUrls insertObjects:existedArray atIndexes:indexSet];
+    }
+    
+    if ([[MRBFileManager defaultManager] isContentExistAtPath:kPixivUrlPath]) {
+        NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kPixivUrlPath encoding:NSUTF8StringEncoding error:nil];
+        NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
+        
+        [pixivUrls insertObjects:existedArray atIndexes:indexSet];
+    }
+    
+    if ([[MRBFileManager defaultManager] isContentExistAtPath:kPatreonUrlPath]) {
+        NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kPatreonUrlPath encoding:NSUTF8StringEncoding error:nil];
+        NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
+        
+        [patreonUrls insertObjects:existedArray atIndexes:indexSet];
+    }
+    
+    if ([[MRBFileManager defaultManager] isContentExistAtPath:kUselessUrlPath]) {
+        NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kUselessUrlPath encoding:NSUTF8StringEncoding error:nil];
+        NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
+        
+        [uselessUrls insertObjects:existedArray atIndexes:indexSet];
+    }
+    
+    if ([[MRBFileManager defaultManager] isContentExistAtPath:kFailureUrlPath]) {
+        NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kFailureUrlPath encoding:NSUTF8StringEncoding error:nil];
+        NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
+        
+        [failureUrls insertObjects:existedArray atIndexes:indexSet];
+    }
+    
+    [MRBUtilityManager exportArray:bothUrls atPath:kBothUrlPath];
+    [MRBUtilityManager exportArray:pixivUrls atPath:kPixivUrlPath];
+    [MRBUtilityManager exportArray:patreonUrls atPath:kPatreonUrlPath];
+    [MRBUtilityManager exportArray:uselessUrls atPath:kUselessUrlPath];
+    [MRBUtilityManager exportArray:failureUrls atPath:kFailureUrlPath];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.delegate && [self.delegate respondsToSelector:@selector(didGetAllPixivUrls:error:)]) {
