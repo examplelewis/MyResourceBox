@@ -180,7 +180,7 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
     NSString *content = ((TFHppleElement *)element.children[0]).content;
     
     // 只有 Title 中包含 Pixiv，那么再去查找数字
-    if (![content containsString:@"pixiv"]) {
+    if ([content rangeOfString:@"pixiv" options:NSCaseInsensitiveSearch].location == NSNotFound) {
         return @[];
     }
     
@@ -189,7 +189,7 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
     NSArray *matches = [regex matchesInString:content options:0 range:NSMakeRange(0, content.length)];
     for (NSTextCheckingResult *match in matches) {
         NSString *strNumber = [content substringWithRange:match.range];
-        [results addObject:[NSString stringWithFormat:@"https://www.pixiv.net/artworks/%@", strNumber]];
+        [results addObject:[NSString stringWithFormat:@"https://www.pixiv.net/users/%@", strNumber]];
     }
     
     return [results copy];
@@ -216,9 +216,11 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
     [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条没有获取到数据", uselessUrls.count];
     [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条数据下载失败", failureUrls.count];
     
+    NSArray *sepArray = @[@"\n", @"----------这是新的记录----------", @"\n"]; // 分割线
     if ([[MRBFileManager defaultManager] isContentExistAtPath:kBothUrlPath]) {
         NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kBothUrlPath encoding:NSUTF8StringEncoding error:nil];
         NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
+        existedArray = [existedArray arrayByAddingObjectsFromArray:sepArray];
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
         
         [bothUrls insertObjects:existedArray atIndexes:indexSet];
@@ -227,6 +229,7 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
     if ([[MRBFileManager defaultManager] isContentExistAtPath:kPixivUrlPath]) {
         NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kPixivUrlPath encoding:NSUTF8StringEncoding error:nil];
         NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
+        existedArray = [existedArray arrayByAddingObjectsFromArray:sepArray];
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
         
         [pixivUrls insertObjects:existedArray atIndexes:indexSet];
@@ -235,6 +238,7 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
     if ([[MRBFileManager defaultManager] isContentExistAtPath:kPatreonUrlPath]) {
         NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kPatreonUrlPath encoding:NSUTF8StringEncoding error:nil];
         NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
+        existedArray = [existedArray arrayByAddingObjectsFromArray:sepArray];
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
         
         [patreonUrls insertObjects:existedArray atIndexes:indexSet];
@@ -243,6 +247,7 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
     if ([[MRBFileManager defaultManager] isContentExistAtPath:kUselessUrlPath]) {
         NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kUselessUrlPath encoding:NSUTF8StringEncoding error:nil];
         NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
+        existedArray = [existedArray arrayByAddingObjectsFromArray:sepArray];
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
         
         [uselessUrls insertObjects:existedArray atIndexes:indexSet];
@@ -251,6 +256,7 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
     if ([[MRBFileManager defaultManager] isContentExistAtPath:kFailureUrlPath]) {
         NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kFailureUrlPath encoding:NSUTF8StringEncoding error:nil];
         NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
+        existedArray = [existedArray arrayByAddingObjectsFromArray:sepArray];
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
         
         [failureUrls insertObjects:existedArray atIndexes:indexSet];
