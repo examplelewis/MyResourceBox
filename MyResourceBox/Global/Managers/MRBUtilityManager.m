@@ -12,6 +12,11 @@
 
 #pragma mark - 写入读取文本文件
 + (void)exportString:(NSString *)string atPath:(NSString *)path {
+    if (string.length == 0) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"输出到: %@ 的内容为空，已忽略", path];
+        return;
+    }
+    
     NSError *error;
     BOOL success = [string writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
     
@@ -22,6 +27,11 @@
     }
 }
 + (void)exportArray:(NSArray *)array atPath:(NSString *)path {
+    if (array.count == 0) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"输出到: %@ 的内容为空，已忽略", path];
+        return;
+    }
+    
     NSError *error;
     NSString *content = [MRBUtilityManager convertResultArray:array];
     if (!content) {
@@ -37,6 +47,11 @@
     }
 }
 + (void)exportDictionary:(NSDictionary *)dictionary atPath:(NSString *)path {
+    if (dictionary.count == 0) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"输出到: %@ 的内容为空，已忽略", path];
+        return;
+    }
+    
     NSError *error;
     NSString *content = [MRBUtilityManager convertResultDict:dictionary];
     
@@ -48,8 +63,12 @@
     }
 }
 + (void)exportArray:(NSArray *)array atPlistPath:(NSString *)plistPath {
-    NSError *error;
+    if (array.count == 0) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"输出到: %@ 的内容为空，已忽略", plistPath];
+        return;
+    }
     
+    NSError *error;
     NSData *plistData = [NSPropertyListSerialization dataWithPropertyList:array format:NSPropertyListBinaryFormat_v1_0 options:0 error:&error];
     BOOL success = [plistData writeToFile:plistPath atomically:YES];
     if (!success) {
@@ -59,8 +78,12 @@
     }
 }
 + (void)exportDictionary:(NSDictionary *)dictionary atPlistPath:(NSString *)plistPath {
-    NSError *error;
+    if (dictionary.count == 0) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"输出到: %@ 的内容为空，已忽略", plistPath];
+        return;
+    }
     
+    NSError *error;
     NSData *plistData = [NSPropertyListSerialization dataWithPropertyList:dictionary format:NSPropertyListBinaryFormat_v1_0 options:0 error:&error];
     BOOL success = [plistData writeToFile:plistPath atomically:YES];
     if (!success) {
