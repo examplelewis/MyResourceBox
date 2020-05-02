@@ -95,6 +95,7 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
                     [self->pixivUrls addObjectsFromArray:[pixivR valueForKeyPath:@"URL.absoluteString"]];
                     [self->usefulUrls addObject:response.URL.absoluteString];
                 } else if (patreonR.count > 0) {
+                    [self->patreonUrls addObject:response.URL.absoluteString];
                     [self->patreonUrls addObjectsFromArray:[patreonR valueForKeyPath:@"URL.absoluteString"]];
                     [self->usefulUrls addObject:response.URL.absoluteString];
                 } else {
