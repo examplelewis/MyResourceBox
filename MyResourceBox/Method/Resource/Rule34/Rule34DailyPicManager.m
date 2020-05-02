@@ -63,7 +63,7 @@ static NSInteger const MRBRule34DailyPicMaxFetchWrongTimes = 3;
         webmNameInfo = [NSMutableDictionary dictionary];
         
         NSString *filePath = [[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"FetchResource/Rule34LatestPost.plist"];
-        latestPost = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath]; // 获取之前保存的Post信息
+        latestPost = [NSDictionary dictionaryWithContentsOfFile:filePath]; // 获取之前保存的Post信息
     }
     
     return self;
@@ -227,7 +227,7 @@ static NSInteger const MRBRule34DailyPicMaxFetchWrongTimes = 3;
     if (!!newestPost) {
         NSString *dest = [[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"FetchResource/Rule34LatestPost.plist"];
         
-        BOOL success = [NSKeyedArchiver archiveRootObject:newestPost toFile:dest];
+        BOOL success = [newestPost writeToFile:dest atomically:YES];
         if (success) {
             [[MRBLogManager defaultManager] showLogWithFormat:@"已成功保存最新的Post, id: %@", newestPost[@"id"]];
             

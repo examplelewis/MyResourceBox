@@ -11,6 +11,7 @@
 #import "FOFilteredImageManager.h"
 #import "FOFolderManager.h"
 #import "FOExtractTypesFileManager.h"
+#import "MRBGenerate32BitMD5NameManager.h"
 
 @implementation FileOperationMethod
 
@@ -34,16 +35,20 @@
             [FOFilteredImageManager prepareOrganizingPhotos];
         }
             break;
-        case 5: {
+        case 11: {
             [FOFolderManager prepareCopyingFolder];
         }
             break;
-        case 6: {
+        case 21: {
             [[FOExtractTypesFileManager new] startExtractingSpecificTypes:nil];
         }
             break;
-        case 7: {
+        case 22: {
             [[FOExtractTypesFileManager new] startExtractingSpecificTypes:@[@"gif"]];
+        }
+            break;
+        case 31: {
+            [[MRBGenerate32BitMD5NameManager new] chooseFiles];
         }
             break;
         default:

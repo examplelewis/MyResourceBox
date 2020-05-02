@@ -10,9 +10,6 @@
 #import "GelbooruHeader.h"
 
 #import "GelbooruDailyPicManager.h"
-#import "GelbooruTagEndTimePicManager.h"
-#import "GelbooruTagPagePicManager.h"
-//#import "GelbooruTagPagePicExportTagsManager.h"
 #import "ResourceGlobalDownloadManager.h"
 #import "ResourceGlobalOrganizeManager.h"
 #import "ResourceGlobalFileMoveManager.h"
@@ -130,31 +127,6 @@
             
             ResourceGlobalOrganizeManager *manager = [[ResourceGlobalOrganizeManager alloc] initWithPlistFilePath:plistFilePath targetFolderPath:targetFolderPath];
             [manager startOrganizing];
-        }
-            break;
-        case 31: {
-            GelbooruTagPagePicManager *manager = [GelbooruTagPagePicManager new];
-            [manager startFetching];
-        }
-            break;
-        case 32: {
-            GelbooruTagPagePicManager *manager = [GelbooruTagPagePicManager new];
-            [manager startFetchingTagPicCount];
-        }
-            break;
-        case 33: {
-            GelbooruTagEndTimePicManager *mananger = [GelbooruTagEndTimePicManager new];
-            [mananger prepareFetching];
-        }
-            break;
-        case 34: {
-            GelbooruTagEndTimePicManager *mananger = [GelbooruTagEndTimePicManager new];
-            [mananger prepareFetchingPicCount];
-        }
-            break;
-        case 35: {
-//            GelbooruTagPagePicExportTagsManager *manager = [GelbooruTagPagePicExportTagsManager new];
-//            [manager startFetching];
         }
             break;
         default:
