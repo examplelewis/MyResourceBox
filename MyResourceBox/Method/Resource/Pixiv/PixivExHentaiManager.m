@@ -28,10 +28,7 @@
         return;
     }
     
-    NSArray *urls = [input componentsSeparatedByString:@"\n"];
-    originalUserUrls = [NSArray arrayWithArray:urls];
-    fixedUserUrls = [NSMutableArray arrayWithArray:urls];
-    
+    [self filterIllustUrlsWithInput:input];
     [self fixPixivUrls];
     [self duplicateRemoval];
     // 如果全都关注了,那就终止操作
@@ -48,6 +45,23 @@
     [self checkFetched];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"整理ExHentai导出的用户，流程结束"];
+}
+// Step 0: 查找作品链接
+- (void)filterIllustUrlsWithInput:(NSString *)input {
+    NSArray *urls = [input componentsSeparatedByString:@"\n"];
+    NSArray *userUrls = [urls filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [evaluatedObject containsString:@"users"] || [evaluatedObject containsString:@"member.php"] || [evaluatedObject containsString:@"member_illust.php"];
+    }]];
+    originalUserUrls = [NSArray arrayWithArray:userUrls];
+    fixedUserUrls = [NSMutableArray arrayWithArray:userUrls];
+    
+    NSArray *illustUrls = [urls filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return ![evaluatedObject containsString:@"users"] && ![evaluatedObject containsString:@"member.php"] && ![evaluatedObject containsString:@"member_illust.php"];
+    }]];
+    if (illustUrls.count > 0) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条为作品链接，现已全部导出至 PixivUtilFetchIllust.txt 文件中", illustUrls.count];
+        [MRBUtilityManager exportArray:illustUrls atPath:@"/Users/Mercury/Downloads/PixivUtilFetchIllust.txt"];
+    }
 }
 
 // Step 1: 将 url 全部修正成 userId 的格式
