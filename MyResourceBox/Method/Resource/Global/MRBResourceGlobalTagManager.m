@@ -190,7 +190,10 @@ static MRBResourceGlobalTagManager *request;
 //
 //        }
 //    }
-    NSMutableSet *tags = [NSMutableSet setWithArray:[tagStr componentsSeparatedByString:@" "]];
+     
+    NSArray *tagsArray = [tagStr componentsSeparatedByString:@" "];
+    tagsArray = [tagsArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"length > 0"]]; // 去除 空字符串 的 tag
+    NSMutableSet *tags = [NSMutableSet setWithArray:tagsArray];
     [tags intersectSet:neededTagsSet];
     
     return [tags.allObjects componentsJoinedByString:@"+"];
