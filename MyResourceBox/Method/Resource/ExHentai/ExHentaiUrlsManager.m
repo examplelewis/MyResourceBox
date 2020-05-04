@@ -66,9 +66,14 @@
                     NSArray *imgArray = [xpathParser searchWithXPathQuery:@"//img"];
                     for (TFHppleElement *elemnt in imgArray) {
                         NSString *href = [elemnt attributes][@"src"];
-                        if ([href hasPrefix:@"http://1"] || [href hasPrefix:@"http://2"] || [href hasPrefix:@"http://3"] || [href hasPrefix:@"http://4"] || [href hasPrefix:@"http://5"] || [href hasPrefix:@"http://6"] || [href hasPrefix:@"http://7"] || [href hasPrefix:@"http://8"] || [href hasPrefix:@"http://9"]) {
+                        NSString *attrId = [elemnt attributes][@"id"];
+                        if ([attrId isEqualToString:@"img"]) {
                             [self->resultArray addObject:href];
                         }
+                        
+//                        if ([href hasPrefix:@"http://1"] || [href hasPrefix:@"http://2"] || [href hasPrefix:@"http://3"] || [href hasPrefix:@"http://4"] || [href hasPrefix:@"http://5"] || [href hasPrefix:@"http://6"] || [href hasPrefix:@"http://7"] || [href hasPrefix:@"http://8"] || [href hasPrefix:@"http://9"]) {
+//                            [self->resultArray addObject:href];
+//                        }
                     }
                 }
             }
