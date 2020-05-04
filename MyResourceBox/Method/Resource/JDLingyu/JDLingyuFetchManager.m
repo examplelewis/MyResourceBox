@@ -55,7 +55,13 @@
                 NSMutableArray *fetchArray = [NSMutableArray array];
                 for (TFHppleElement *elemnt in imgArray) {
                     NSString *srcString = [elemnt attributes][@"src"];
-                    if ([srcString containsString:@"jp235.cn"]) {
+//                    if ([srcString containsString:@"jp235.cn"]) {
+//                        [fetchArray addObject:srcString];
+//                    }
+                    if ([srcString containsString:@"img.jdlingyu.net/images"]) {
+                        [fetchArray addObject:srcString];
+                    }
+                    if ([srcString containsString:@"https://www.jdlingyu.mobi/wp-content/uploads"]) {
                         [fetchArray addObject:srcString];
                     }
                 }
