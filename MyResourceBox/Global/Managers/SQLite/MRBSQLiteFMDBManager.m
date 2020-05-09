@@ -610,7 +610,7 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboFilteredUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboUsers中插入数据时发生错误：%@", [db lastErrorMessage]];
         
         return;
     }
@@ -623,9 +623,9 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
         for (NSInteger i = 0; i < weiboUsers.count; i++) {
             NSDictionary *weiboUser = weiboUsers[i];
             
-            BOOL weiboUserSuccess = [db executeUpdate:@"INSERT INTO weiboFilteredUser (id, screen_name, user_url, add_time, status) values(?, ?, ?, ?, ?)", NULL, weiboUser[@"screenName"], weiboUser[@"userUrl"], [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"], @(status)];
+            BOOL weiboUserSuccess = [db executeUpdate:@"INSERT INTO weiboUsers (id, screen_name, user_url, add_time, status) values(?, ?, ?, ?, ?)", NULL, weiboUser[@"screenName"], weiboUser[@"userUrl"], [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"], @(status)];
             if (!weiboUserSuccess) {
-                [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboFilteredUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboUsers中插入数据时发生错误：%@", [db lastErrorMessage]];
                 [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", weiboUser];
             }
         }
@@ -647,7 +647,7 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboFilteredUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboUsers中插入数据时发生错误：%@", [db lastErrorMessage]];
         
         return;
     }
@@ -660,10 +660,10 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
         for (NSInteger i = 0; i < weiboUserScreenNames.count; i++) {
             NSString *weiboUserScreenName = weiboUserScreenNames[i];
             
-            NSString *sqliteStr = [NSString stringWithFormat:@"UPDATE weiboFilteredUser SET status = %ld WHERE screen_name = %@", status, weiboUserScreenName];
+            NSString *sqliteStr = [NSString stringWithFormat:@"UPDATE weiboUsers SET status = %ld WHERE screen_name = %@", status, weiboUserScreenName];
             BOOL weiboUserSuccess = [db executeUpdate:sqliteStr];
             if (!weiboUserSuccess) {
-                [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboFilteredUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboUsers中插入数据时发生错误：%@", [db lastErrorMessage]];
                 [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", weiboUserScreenName];
             }
         }
