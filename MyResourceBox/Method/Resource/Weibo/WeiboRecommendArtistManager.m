@@ -60,6 +60,7 @@
             }
             
             MRBWeiboStatusRecommendArtisModel *model = [[MRBWeiboStatusRecommendArtisModel alloc] initWithDictionary:sDict];
+            model.id_original_str = statusDict[@"idstr"];
             
             // 如果在当前抓取的流程中出现了重复的 id，那么跳过
             if ([self->weiboIds containsObject:model.id_str]) {
@@ -78,7 +79,7 @@
                 [self->recommendDesc appendFormat:@"%@\n", model.recommendDescription];
             }
             
-            [self->needDeletes addObject:model.id_str];
+            [self->needDeletes addObject:model.id_original_str];
         }
         
         // 如果找到了边界微博，或者一直没有找到，直到取到的微博数量小于50，代表着没有更多收藏微博了，即边界微博出错

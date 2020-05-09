@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (copy) NSArray *recommendSites;
 @property (copy) NSString *recommendDescription;
+@property (copy) NSString *id_original_str;
 
 @end
 
