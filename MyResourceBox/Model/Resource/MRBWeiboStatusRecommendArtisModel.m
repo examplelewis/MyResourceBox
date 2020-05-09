@@ -22,10 +22,11 @@
         NSArray *twitterComps = [textComps filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF BEGINSWITH 'twi'"]];
         for (NSInteger i = 0; i < twitterComps.count; i++) {
             NSString *text = twitterComps[i];
-            text = [text stringByReplacingOccurrencesOfString:@"twitter:" withString:@""];
-            text = [text stringByReplacingOccurrencesOfString:@"twitter：" withString:@""];
-            text = [text stringByReplacingOccurrencesOfString:@"twi:" withString:@""];
-            text = [text stringByReplacingOccurrencesOfString:@"twi：" withString:@""];
+            
+            text = [text stringByReplacingOccurrencesOfString:@"twitter:" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, text.length)];
+            text = [text stringByReplacingOccurrencesOfString:@"twitter：" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, text.length)];
+            text = [text stringByReplacingOccurrencesOfString:@"twi:" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, text.length)];
+            text = [text stringByReplacingOccurrencesOfString:@"twi：" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, text.length)];
             text = [text stringByReplacingOccurrencesOfString:@" " withString:@""];
             
             [artists addObject:@{@"twitter": text}];
