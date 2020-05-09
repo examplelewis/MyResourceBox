@@ -21,9 +21,9 @@
     BOOL success = [string writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
     
     if (!success) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"导出结果文件出错：%@\n", [error localizedDescription]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"导出结果文件出错：%@", [error localizedDescription]];
     } else {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"结果文件导出成功，请查看：%@\n", path];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"结果文件导出成功，请查看：%@", path];
     }
 }
 + (void)exportArray:(NSArray *)array atPath:(NSString *)path {
@@ -57,9 +57,9 @@
     
     BOOL success = [content writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
     if (!success) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"导出结果文件出错：%@\n", [error localizedDescription]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"导出结果文件出错：%@", [error localizedDescription]];
     } else {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"结果文件导出成功，请查看：%@\n", path];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"结果文件导出成功，请查看：%@", path];
     }
 }
 + (void)exportArray:(NSArray *)array atPlistPath:(NSString *)plistPath {
@@ -72,9 +72,9 @@
     NSData *plistData = [NSPropertyListSerialization dataWithPropertyList:array format:NSPropertyListBinaryFormat_v1_0 options:0 error:&error];
     BOOL success = [plistData writeToFile:plistPath atomically:YES];
     if (!success) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"导出结果文件出错：%@\n", [error localizedDescription]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"导出结果文件出错：%@", [error localizedDescription]];
     } else {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"结果文件导出成功，请查看：%@\n", plistPath];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"结果文件导出成功，请查看：%@", plistPath];
     }
 }
 + (void)exportDictionary:(NSDictionary *)dictionary atPlistPath:(NSString *)plistPath {
@@ -87,9 +87,9 @@
     NSData *plistData = [NSPropertyListSerialization dataWithPropertyList:dictionary format:NSPropertyListBinaryFormat_v1_0 options:0 error:&error];
     BOOL success = [plistData writeToFile:plistPath atomically:YES];
     if (!success) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"导出结果文件出错：%@\n", [error localizedDescription]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"导出结果文件出错：%@", [error localizedDescription]];
     } else {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"结果文件导出成功，请查看：%@\n", plistPath];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"结果文件导出成功，请查看：%@", plistPath];
     }
 }
 
