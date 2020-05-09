@@ -23,7 +23,9 @@
         for (NSInteger i = 0; i < twitterComps.count; i++) {
             NSString *text = twitterComps[i];
             text = [text stringByReplacingOccurrencesOfString:@"twitter:" withString:@""];
+            text = [text stringByReplacingOccurrencesOfString:@"twitter：" withString:@""];
             text = [text stringByReplacingOccurrencesOfString:@"twi:" withString:@""];
+            text = [text stringByReplacingOccurrencesOfString:@"twi：" withString:@""];
             text = [text stringByReplacingOccurrencesOfString:@" " withString:@""];
             
             [artists addObject:@{@"twitter": text}];
