@@ -679,4 +679,78 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     [db close];
 }
 
+#pragma mark - WeiboRecommendArtists
+- (void)insertSingleWeiboRecommendArtistWithWeiboStatus:(MRBWeiboStatusRecommendArtisModel *)model {
+    //先判断数据库是否存在，如果不存在，创建数据库
+    if (!db) {
+        [self createDatabase];
+    }
+    //判断数据库是否已经打开，如果没有打开，提示失败
+    if (![db open]) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboUsers中插入数据时发生错误：%@", [db lastErrorMessage]];
+        
+        return;
+    }
+    
+    [db beginTransaction];
+    
+    BOOL isRollBack = NO;
+    
+    @try {
+        for (NSInteger i = 0; i < model.recommendSites.count; i++) {
+            NSDictionary *site = model.recommendSites[i];
+            
+            NSString *url = @"";
+            if ([site.allKeys[0] isEqualToString:@"twitter"]) {
+                url = [NSString stringWithFormat:@"https://twitter.com/%@", site.allValues[0]];
+            }
+            
+            BOOL success = [db executeUpdate:@"INSERT INTO weiboRecommendArtists (id, weiboUserId, weiboUser, weiboStatus, recommendSite, recommendAccount, recommendUrl, recordTime) values(?, ?, ?, ?, ?, ?, ?, ?)", NULL, model.user_id_str, model.user_screen_name, model.text, site.allKeys[0], site.allValues[0], url, [[NSDate date] formattedDateWithFormat:@"yyyy-MM-dd HH:mm:ss"]];
+            if (!success) {
+                [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboRecommendArtists中插入数据时发生错误：%@", [db lastErrorMessage]];
+                [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", model];
+            }
+        }
+    } @catch (NSException *exception) {
+        isRollBack = YES;
+        [db rollback];
+    } @finally {
+        if (!isRollBack) {
+            [db commit];
+        }
+    }
+    
+    [db close];
+}
+- (BOOL)isExistingWeiboRecommendArtist:(MRBWeiboStatusRecommendArtisModel *)model {
+    //先判断数据库是否存在，如果不存在，创建数据库
+    if (!db) {
+        [self createDatabase];
+    }
+    //判断数据库是否已经打开，如果没有打开，提示失败
+    if (![db open]) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表:bcyImageLink中查询数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", model];
+        
+        return NO;
+    }
+    //为数据库设置缓存，提高查询效率
+    [db setShouldCacheStatements:YES];
+    
+    NSInteger foundCount = 0;
+    for (NSInteger i = 0; i < model.recommendSites.count; i++) {
+        NSDictionary *site = model.recommendSites[i];
+        
+        FMResultSet *rs = [db executeQuery:@"select * from weiboRecommendArtists where weiboUserId = ? and recommendSite = ? and recommendAccount = ?", model.user_id_str, site.allKeys[0], site.allValues[0]];
+        while ([rs next]) {
+            foundCount += 1;
+        }
+        [rs close];
+    }
+    
+    [db close];
+    
+    return foundCount != 0;
+}
+
 @end

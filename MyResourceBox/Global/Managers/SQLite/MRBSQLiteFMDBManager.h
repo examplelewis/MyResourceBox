@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <FMDB.h>
 #import "WeiboStatusObject.h"
+#import "MRBWeiboStatusRecommendArtisModel.h"
 
 @interface MRBSQLiteFMDBManager : NSObject {
     FMDatabase *db;
@@ -47,5 +48,9 @@
 #pragma mark - WeiboFetchedUser
 - (void)insertWeiboFetchedUserIntoDatabase:(NSArray *)weiboUsers status:(NSInteger)status;
 - (void)updateFetchedUserStatus:(NSArray *)weiboUserScreenNames status:(NSInteger)status;
+
+#pragma mark - WeiboRecommendArtists
+- (void)insertSingleWeiboRecommendArtistWithWeiboStatus:(MRBWeiboStatusRecommendArtisModel *)model;
+- (BOOL)isExistingWeiboRecommendArtist:(MRBWeiboStatusRecommendArtisModel *)model;
 
 @end

@@ -14,6 +14,7 @@
 #import "WeiboFetchManager.h"
 #import "WeiboFetchedUserManager.h"
 #import "WeiboFetchFirstFavManager.h"
+#import "WeiboRecommendArtistManager.h"
 
 @implementation WeiboMethod
 
@@ -27,6 +28,14 @@
             break;
         case 2: {
             [[WeiboFetchFirstFavManager new] getFavorList];
+        }
+            break;
+        case 3: {
+            [[WeiboRecommendArtistManager new] start];
+        }
+            break;
+        case 4: {
+            [WeiboRecommendArtistManager destoryWeiboFavourites];
         }
             break;
         case 11: {

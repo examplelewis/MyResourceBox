@@ -30,6 +30,8 @@
 		AC2824ED2445C857000B2589 /* MRBPixivUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2824EC2445C857000B2589 /* MRBPixivUrlManager.m */; };
 		AC2D1B151DD0191C0085F8E0 /* MRBDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2D1B131DD0191C0085F8E0 /* MRBDeviceManager.m */; };
 		AC2E865324519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E865224519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.m */; };
+		AC2F8C2A2464FEC20016D1FF /* MRBWeiboStatusRecommendArtisModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F8C292464FEC20016D1FF /* MRBWeiboStatusRecommendArtisModel.m */; };
+		AC2F8C2D246509C70016D1FF /* WeiboRecommendArtistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F8C2C246509C70016D1FF /* WeiboRecommendArtistManager.m */; };
 		AC3A4AB32452823800E52953 /* MRBMD5Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3A4AB22452823800E52953 /* MRBMD5Generator.m */; };
 		AC47543F1DCC461800880934 /* OrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC47543E1DCC461800880934 /* OrganizeManager.m */; };
 		AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4754411DCC5B1600880934 /* DownloadMethod.m */; };
@@ -220,6 +222,10 @@
 		AC2D1B141DD0191C0085F8E0 /* MRBDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBDeviceManager.h; sourceTree = "<group>"; };
 		AC2E865124519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBGenerate32BitMD5NameManager.h; sourceTree = "<group>"; };
 		AC2E865224519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBGenerate32BitMD5NameManager.m; sourceTree = "<group>"; };
+		AC2F8C282464FEC20016D1FF /* MRBWeiboStatusRecommendArtisModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBWeiboStatusRecommendArtisModel.h; sourceTree = "<group>"; };
+		AC2F8C292464FEC20016D1FF /* MRBWeiboStatusRecommendArtisModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBWeiboStatusRecommendArtisModel.m; sourceTree = "<group>"; };
+		AC2F8C2B246509C70016D1FF /* WeiboRecommendArtistManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboRecommendArtistManager.h; sourceTree = "<group>"; };
+		AC2F8C2C246509C70016D1FF /* WeiboRecommendArtistManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboRecommendArtistManager.m; sourceTree = "<group>"; };
 		AC3A4AB12452823800E52953 /* MRBMD5Generator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBMD5Generator.h; sourceTree = "<group>"; };
 		AC3A4AB22452823800E52953 /* MRBMD5Generator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBMD5Generator.m; sourceTree = "<group>"; };
 		AC47543D1DCC461800880934 /* OrganizeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizeManager.h; sourceTree = "<group>"; };
@@ -829,6 +835,8 @@
 			children = (
 				AC9870511E4C4A650076DC92 /* WeiboStatusObject.h */,
 				AC9870521E4C4A650076DC92 /* WeiboStatusObject.m */,
+				AC2F8C282464FEC20016D1FF /* MRBWeiboStatusRecommendArtisModel.h */,
+				AC2F8C292464FEC20016D1FF /* MRBWeiboStatusRecommendArtisModel.m */,
 				AC98705A1E4C4A980076DC92 /* PixivObject */,
 				ACDE0BBE22E99D89006367D9 /* FOExtractTypesFileModel.h */,
 				ACDE0BBF22E99D89006367D9 /* FOExtractTypesFileModel.m */,
@@ -1049,6 +1057,8 @@
 				AC1A6717244EE98400AE1ABD /* WeiboFetchFirstFavManager.m */,
 				ACFFB867229FAB7100FC41AA /* WeiboFetchedUserManager.h */,
 				ACFFB868229FAB7100FC41AA /* WeiboFetchedUserManager.m */,
+				AC2F8C2B246509C70016D1FF /* WeiboRecommendArtistManager.h */,
+				AC2F8C2C246509C70016D1FF /* WeiboRecommendArtistManager.m */,
 			);
 			path = Weibo;
 			sourceTree = "<group>";
@@ -1405,6 +1415,7 @@
 				AC789C681DE1467000523A12 /* MRBCookieManager.m in Sources */,
 				AC9F4C6E1E499BBB00FD01C5 /* MRBDownloadQueueManager.m in Sources */,
 				AC789C881DE15A3600523A12 /* WorldCosplayMethod.m in Sources */,
+				AC2F8C2D246509C70016D1FF /* WeiboRecommendArtistManager.m in Sources */,
 				ACFCB88324505C5500855461 /* MRBSitesImageUrlFetchWindowController.m in Sources */,
 				AC2E865324519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.m in Sources */,
 				AC789C8B1DE1602500523A12 /* AnalysisMethod.m in Sources */,
@@ -1497,6 +1508,7 @@
 				AC1401A8240BA99F00C77F73 /* MRBCroppingPictureEdgeInsets.m in Sources */,
 				ACC3149B21773BFF00DA5276 /* XMLReader.m in Sources */,
 				ACC5C0102289404A004E7C83 /* ResourceGlobalFileMoveManager.m in Sources */,
+				AC2F8C2A2464FEC20016D1FF /* MRBWeiboStatusRecommendArtisModel.m in Sources */,
 				AC789C7F1DE159E100523A12 /* ExHentaiUrlsManager.m in Sources */,
 				AC19E1581E4857020084A510 /* PixivMethod.m in Sources */,
 				AC1401AC240BAF9D00C77F73 /* NSString+MRBString.m in Sources */,

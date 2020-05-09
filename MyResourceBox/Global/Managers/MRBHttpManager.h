@@ -30,6 +30,11 @@
                             start:(void(^)(void))start
                           success:(void(^)(NSDictionary *dic))success
                            failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
+// 取消微博收藏
+- (void)deleteWeiboFavoriteWithId:(NSString *)statusId
+                            start:(void(^)(void))start
+                          success:(void(^)(NSDictionary *dic))success
+                           failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
 
 #pragma mark - Danbooru
 // Posts

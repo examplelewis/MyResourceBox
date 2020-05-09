@@ -162,6 +162,43 @@
         start();
     }
 }
+// 取消微博收藏
+- (void)deleteWeiboFavoriteWithId:(NSString *)statusId
+                            start:(void(^)(void))start
+                          success:(void(^)(NSDictionary *dic))success
+                           failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed {
+    NSString *url = @"https://api.weibo.com/2/favorites/destroy.json";
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"access_token"] = [MRBUserManager defaultManager].weibo_token;
+    parameters[@"id"] = @(statusId.integerValue);
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *error;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+        if (error) { // 如果解析出现错误
+            if (failed) {
+                failed(@"数据解析发生错误", [error localizedDescription]);
+            }
+        } else {
+            if (success) {
+                success(dict);
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failed) {
+            failed(@"服务器通讯发生错误", [error localizedDescription]);
+        }
+    }];
+    
+    if(start){
+        start();
+    }
+}
 
 #pragma mark - Gelbooru
 // Posts

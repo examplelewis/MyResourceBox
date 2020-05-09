@@ -554,6 +554,18 @@
                                                             <action selector="processingWeibo:" target="Voe-Tx-rLC" id="cZC-jX-CFT"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="整理微博用户推荐的Artist" tag="3" id="Gia-fO-3AU">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="2yt-df-7Ac"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="取消收藏包含用户推荐的微博" tag="4" id="k4Q-cV-4cD">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="bs5-Sw-ZSX"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="wkT-5K-r4x"/>
                                                     <menuItem title="打开网页请求授权" tag="11" id="34j-Rr-Vq0">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
