@@ -18,8 +18,8 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
     NSArray *allUrls; // 输入的所有URL
     NSMutableArray *usefulUrls; // 有用的URL
     NSMutableArray *pixivUrls; // 查找到的Pixiv
-    NSMutableArray *patreonUrls; // 查找到的Patreon
-    NSMutableArray *bothUrls; // 查找到的Pixiv和Patreon
+//    NSMutableArray *patreonUrls; // 查找到的Patreon
+//    NSMutableArray *bothUrls; // 查找到的Pixiv和Patreon
     
     NSInteger downloaded;
     NSMutableArray *failureUrls; // 接口调用出错的URL
@@ -35,8 +35,8 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
         allUrls = [NSArray arrayWithArray:urls];
         usefulUrls = [NSMutableArray array];
         pixivUrls = [NSMutableArray array];
-        patreonUrls = [NSMutableArray array];
-        bothUrls = [NSMutableArray array];
+//        patreonUrls = [NSMutableArray array];
+//        bothUrls = [NSMutableArray array];
         
         downloaded = 0;
         failureUrls = [NSMutableArray array];
@@ -49,8 +49,8 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
 - (void)startFetching {
     [usefulUrls removeAllObjects];
     [pixivUrls removeAllObjects];
-    [patreonUrls removeAllObjects];
-    [bothUrls removeAllObjects];
+//    [patreonUrls removeAllObjects];
+//    [bothUrls removeAllObjects];
     
     downloaded = 0;
     [failureUrls removeAllObjects];
@@ -85,18 +85,21 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
                 }];
                 NSArray *comments = [divArray filteredArrayUsingPredicate:divPredicate];
                 
-                NSArray *bothR = [self parseBothUrlsWithComments:comments];
+//                NSArray *bothR = [self parseBothUrlsWithComments:comments];
                 NSArray *pixivR = [self parseUsefulUrlsWithComments:comments host:@"www.pixiv.net"];
-                NSArray *patreonR = [self parseUsefulUrlsWithComments:comments host:@"www.patreon.com"];
-                if (bothR.count > 0) {
-                    [self->bothUrls addObjectsFromArray:[bothR valueForKeyPath:@"URL.absoluteString"]];
-                    [self->usefulUrls addObject:response.URL.absoluteString];
-                } else if (pixivR.count > 0) {
+//                NSArray *patreonR = [self parseUsefulUrlsWithComments:comments host:@"www.patreon.com"];
+//                if (bothR.count > 0) {
+//                    [self->bothUrls addObjectsFromArray:[bothR valueForKeyPath:@"URL.absoluteString"]];
+//                    [self->usefulUrls addObject:response.URL.absoluteString];
+//                } else if (pixivR.count > 0) {
+//                    [self->pixivUrls addObjectsFromArray:[pixivR valueForKeyPath:@"URL.absoluteString"]];
+//                    [self->usefulUrls addObject:response.URL.absoluteString];
+//                } else if (patreonR.count > 0) {
+//                    [self->patreonUrls addObject:response.URL.absoluteString];
+//                    [self->patreonUrls addObjectsFromArray:[patreonR valueForKeyPath:@"URL.absoluteString"]];
+//                    [self->usefulUrls addObject:response.URL.absoluteString];
+                if (pixivR.count > 0) {
                     [self->pixivUrls addObjectsFromArray:[pixivR valueForKeyPath:@"URL.absoluteString"]];
-                    [self->usefulUrls addObject:response.URL.absoluteString];
-                } else if (patreonR.count > 0) {
-                    [self->patreonUrls addObject:response.URL.absoluteString];
-                    [self->patreonUrls addObjectsFromArray:[patreonR valueForKeyPath:@"URL.absoluteString"]];
                     [self->usefulUrls addObject:response.URL.absoluteString];
                 } else {
                     // 如果抓取不到 pixiv 和 patreon 的地址，再尝试解析 Title 中的 Pixiv ID
@@ -211,21 +214,21 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
     NSMutableArray *uselessUrls = [NSMutableArray arrayWithArray:totalSet.allObjects];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"获取完成"];
-    [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到 %ld 条 Both 数据", bothUrls.count];
+//    [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到 %ld 条 Both 数据", bothUrls.count];
     [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到 %ld 条 Pixiv 数据", pixivUrls.count];
-    [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到 %ld 条 Patreon 数据", patreonUrls.count];
+//    [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到 %ld 条 Patreon 数据", patreonUrls.count];
     [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条没有获取到数据", uselessUrls.count];
     [[MRBLogManager defaultManager] showLogWithFormat:@"有 %ld 条数据下载失败", failureUrls.count];
     
     NSArray *sepArray = @[@"\n", @"----------这是新的记录----------", @"\n"]; // 分割线
-    if ([[MRBFileManager defaultManager] isContentExistAtPath:kBothUrlPath]) {
-        NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kBothUrlPath encoding:NSUTF8StringEncoding error:nil];
-        NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
-        existedArray = [existedArray arrayByAddingObjectsFromArray:sepArray];
-        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
-        
-        [bothUrls insertObjects:existedArray atIndexes:indexSet];
-    }
+//    if ([[MRBFileManager defaultManager] isContentExistAtPath:kBothUrlPath]) {
+//        NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kBothUrlPath encoding:NSUTF8StringEncoding error:nil];
+//        NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
+//        existedArray = [existedArray arrayByAddingObjectsFromArray:sepArray];
+//        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
+//
+//        [bothUrls insertObjects:existedArray atIndexes:indexSet];
+//    }
     
     if ([[MRBFileManager defaultManager] isContentExistAtPath:kPixivUrlPath]) {
         NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kPixivUrlPath encoding:NSUTF8StringEncoding error:nil];
@@ -236,14 +239,14 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
         [pixivUrls insertObjects:existedArray atIndexes:indexSet];
     }
     
-    if ([[MRBFileManager defaultManager] isContentExistAtPath:kPatreonUrlPath]) {
-        NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kPatreonUrlPath encoding:NSUTF8StringEncoding error:nil];
-        NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
-        existedArray = [existedArray arrayByAddingObjectsFromArray:sepArray];
-        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
-        
-        [patreonUrls insertObjects:existedArray atIndexes:indexSet];
-    }
+//    if ([[MRBFileManager defaultManager] isContentExistAtPath:kPatreonUrlPath]) {
+//        NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kPatreonUrlPath encoding:NSUTF8StringEncoding error:nil];
+//        NSArray *existedArray = [existedStr componentsSeparatedByString:@"\n"];
+//        existedArray = [existedArray arrayByAddingObjectsFromArray:sepArray];
+//        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, existedArray.count)];
+//
+//        [patreonUrls insertObjects:existedArray atIndexes:indexSet];
+//    }
     
     if ([[MRBFileManager defaultManager] isContentExistAtPath:kUselessUrlPath]) {
         NSString *existedStr = [[NSString alloc] initWithContentsOfFile:kUselessUrlPath encoding:NSUTF8StringEncoding error:nil];
@@ -263,9 +266,9 @@ static NSString * const kFailureUrlPath = @"/Users/Mercury/Downloads/ExHentaiPar
         [failureUrls insertObjects:existedArray atIndexes:indexSet];
     }
     
-    [MRBUtilityManager exportArray:bothUrls atPath:kBothUrlPath];
+//    [MRBUtilityManager exportArray:bothUrls atPath:kBothUrlPath];
     [MRBUtilityManager exportArray:pixivUrls atPath:kPixivUrlPath];
-    [MRBUtilityManager exportArray:patreonUrls atPath:kPatreonUrlPath];
+//    [MRBUtilityManager exportArray:patreonUrls atPath:kPatreonUrlPath];
     [MRBUtilityManager exportArray:uselessUrls atPath:kUselessUrlPath];
     [MRBUtilityManager exportArray:failureUrls atPath:kFailureUrlPath];
     
