@@ -14,6 +14,7 @@
 		AC01F81A240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC01F818240AFC370061D719 /* MRBCroppingPictureInputParamsWindowController.xib */; };
 		AC01F81E240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01F81C240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.m */; };
 		AC01F81F240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC01F81D240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.xib */; };
+		AC0D8D5F2468E24900639082 /* PixivUserStateExamineManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0D8D5E2468E24900639082 /* PixivUserStateExamineManager.m */; };
 		AC1401A8240BA99F00C77F73 /* MRBCroppingPictureEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1401A7240BA99F00C77F73 /* MRBCroppingPictureEdgeInsets.m */; };
 		AC1401AC240BAF9D00C77F73 /* NSString+MRBString.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1401AB240BAF9D00C77F73 /* NSString+MRBString.m */; };
 		AC1401B2240BE78400C77F73 /* MRBCroppingPictureOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1401B1240BE78400C77F73 /* MRBCroppingPictureOperation.m */; };
@@ -190,6 +191,8 @@
 		AC01F81B240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureInputParamsViewController.h; sourceTree = "<group>"; };
 		AC01F81C240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureInputParamsViewController.m; sourceTree = "<group>"; };
 		AC01F81D240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBCroppingPictureInputParamsViewController.xib; sourceTree = "<group>"; };
+		AC0D8D5D2468E24900639082 /* PixivUserStateExamineManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixivUserStateExamineManager.h; sourceTree = "<group>"; };
+		AC0D8D5E2468E24900639082 /* PixivUserStateExamineManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PixivUserStateExamineManager.m; sourceTree = "<group>"; };
 		AC1401A6240BA99F00C77F73 /* MRBCroppingPictureEdgeInsets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureEdgeInsets.h; sourceTree = "<group>"; };
 		AC1401A7240BA99F00C77F73 /* MRBCroppingPictureEdgeInsets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureEdgeInsets.m; sourceTree = "<group>"; };
 		AC1401AA240BAF9D00C77F73 /* NSString+MRBString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MRBString.h"; sourceTree = "<group>"; };
@@ -603,6 +606,8 @@
 				ACF3067F2424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m */,
 				AC2824EB2445C857000B2589 /* MRBPixivUrlManager.h */,
 				AC2824EC2445C857000B2589 /* MRBPixivUrlManager.m */,
+				AC0D8D5D2468E24900639082 /* PixivUserStateExamineManager.h */,
+				AC0D8D5E2468E24900639082 /* PixivUserStateExamineManager.m */,
 				ACC93EF22277EF6900C207E6 /* Managers */,
 			);
 			path = Pixiv;
@@ -1475,6 +1480,7 @@
 				AC9870621E4C4A980076DC92 /* PixivMangaObject.m in Sources */,
 				ACCFA0BA226D5D3D007514C0 /* MRBCatchCrashManager.m in Sources */,
 				AC2D1B151DD0191C0085F8E0 /* MRBDeviceManager.m in Sources */,
+				AC0D8D5F2468E24900639082 /* PixivUserStateExamineManager.m in Sources */,
 				AC789C821DE15A1D00523A12 /* JDLingyuMethod.m in Sources */,
 				ACC93EF02277EBCD00C207E6 /* BCYOrganizingManager.m in Sources */,
 				ACC5C001228907C0004E7C83 /* ToolOperationMethod.m in Sources */,

@@ -824,6 +824,12 @@
                                                             <action selector="processingPixiv:" target="Voe-Tx-rLC" id="iyC-GD-ki7"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="检查用户状态" tag="24" id="aVj-Ed-XHf">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="VyG-Nn-8lN"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="ffj-SK-2b3"/>
                                                     <menuItem title="整理 ExHentai 导出的用户" tag="31" id="dlH-bb-rc9">
                                                         <modifierMask key="keyEquivalentModifierMask"/>

@@ -18,6 +18,7 @@
 #import "PixivOrganizingManager.h"
 #import "MRBPixivFollowingAndBlockingDuplicateManager.h"
 #import "MRBPixivUrlManager.h"
+#import "PixivUserStateExamineManager.h"
 
 @implementation PixivMethod
 
@@ -95,6 +96,10 @@
             break;
         case 23: {
             [PixivFetchingManager checkPixivUtilHasFetched];
+        }
+            break;
+        case 24: {
+            [[PixivUserStateExamineManager new] start];
         }
             break;
         case 31: {
