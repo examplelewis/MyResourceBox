@@ -209,7 +209,7 @@
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被拉黑，流程结束"];
     
-    return news == 0;
+    return news.count == 0;
 }
 
 // Step 5: 查询是否有抓取过
