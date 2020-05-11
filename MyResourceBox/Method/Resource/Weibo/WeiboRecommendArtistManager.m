@@ -124,8 +124,11 @@
 + (void)destoryWeiboFavourites {
     NSString *weiboIdStr = [NSString stringWithContentsOfFile:weiboRemoveFavouriteTxtFilePath encoding:NSUTF8StringEncoding error:nil];
     if (weiboIdStr.length == 0) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
-        return;
+        weiboIdStr = [AppDelegate defaultVC].inputTextView.string;
+        if (weiboIdStr.length == 0) {
+            [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+            return;
+        }
     }
     
     NSArray *weiboIds = [weiboIdStr componentsSeparatedByString:@"\n"];

@@ -23,11 +23,26 @@
         for (NSInteger i = 0; i < twitterComps.count; i++) {
             NSString *text = twitterComps[i];
             
+            text = [text stringByReplacingOccurrencesOfString:@"：" withString:@":" options:NSCaseInsensitiveSearch range:NSMakeRange(0, text.length)];
             text = [text stringByReplacingOccurrencesOfString:@"twitter:" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, text.length)];
             text = [text stringByReplacingOccurrencesOfString:@"twitter：" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, text.length)];
             text = [text stringByReplacingOccurrencesOfString:@"twi:" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, text.length)];
-            text = [text stringByReplacingOccurrencesOfString:@"twi：" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, text.length)];
+            text = [text stringByReplacingOccurrencesOfString:@"twi：" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, text.length)];
             text = [text stringByReplacingOccurrencesOfString:@" " withString:@""];
+            
+            if ([text hasPrefix:@"twi:"] || [text hasPrefix:@"twi："]) {
+                text = [text substringFromIndex:4];
+            }
+            if ([text hasPrefix:@"Twi:"] || [text hasPrefix:@"Twi："]) {
+                text = [text substringFromIndex:4];
+            }
+            
+            if ([text hasPrefix:@"Twitter:"] || [text hasPrefix:@"Twitter："]) {
+                text = [text substringFromIndex:8];
+            }
+            if ([text hasPrefix:@"Twitter:"] || [text hasPrefix:@"Twitter："]) {
+                text = [text substringFromIndex:8];
+            }
             
             [artists addObject:@{@"twitter": text}];
             [desc appendFormat:@"https://twitter.com/%@\n", text];
