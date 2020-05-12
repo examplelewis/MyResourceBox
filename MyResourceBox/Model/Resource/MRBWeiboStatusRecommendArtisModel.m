@@ -19,7 +19,7 @@
         NSArray *textComps = [self.text componentsSeparatedByString:@"\n"];
         
         // twitter
-        NSArray *twitterComps = [textComps filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF BEGINSWITH 'twi'"]];
+        NSArray *twitterComps = [textComps filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF BEGINSWITH[c] 'twi'"]];
         for (NSInteger i = 0; i < twitterComps.count; i++) {
             NSString *text = twitterComps[i];
             
