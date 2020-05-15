@@ -103,7 +103,7 @@
     [[MRBLogManager defaultManager] showLogWithFormat:@"一共抓取到 %ld 条微博推荐，去重后剩余 %ld 条，重复 %ld 条", needDeletes.count, fetchedCount, needDeletes.count - fetchedCount];
     
     if (needDeletes.count > 0) {
-        [MRBUtilityManager exportArray:needDeletes atPath:weiboRemoveFavouriteTxtFilePath];
+//        [MRBUtilityManager exportArray:needDeletes atPath:weiboRemoveFavouriteTxtFilePath];
         [[MRBLogManager defaultManager] showLogWithFormat:@"需要取消收藏的微博如下:\n%@", [MRBUtilityManager convertResultArray:needDeletes]];
     } else {
         [[MRBLogManager defaultManager] showLogWithFormat:@"没有需要取消收藏的微博"];
@@ -114,7 +114,7 @@
             [recommendDesc deleteCharactersInRange:NSMakeRange(recommendDesc.length - 1, 1)];
         }
         
-        [MRBUtilityManager exportString:recommendDesc atPath:weiboRecommendArtisTxtFilePath];
+//        [MRBUtilityManager exportString:recommendDesc atPath:weiboRecommendArtisTxtFilePath];
         [[MRBLogManager defaultManager] showLogWithFormat:@"已获取到的推荐列表:\n%@", recommendDesc];
     } else {
         [[MRBLogManager defaultManager] showLogWithFormat:@"没有获取到推荐用户"];
