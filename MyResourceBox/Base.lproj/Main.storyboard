@@ -1002,6 +1002,12 @@
                                                             <action selector="processingResourceSites:" target="Voe-Tx-rLC" id="Bjf-Hv-jkl"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="重命名上一阶段下载的图片" tag="3" id="875-om-3nK">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingResourceSites:" target="Voe-Tx-rLC" id="ckF-UU-5yX"/>
+                                                        </connections>
+                                                    </menuItem>
                                                 </items>
                                             </menu>
                                         </menuItem>

@@ -9,10 +9,13 @@
 #import "MRBResourceSites.h"
 #import "MRBSitesImageUrlFetchWindowController.h"
 #import "MRBSitesImageDownloadManager.h"
+#import "MRBSitesImageRenameManager.h"
 
 @implementation MRBResourceSites
 
 + (void)configMethod:(NSInteger)cellRow {
+    [MRBLogManager resetCurrentDate];
+    
     switch (cellRow) {
         case 1: {
             MRBSitesImageUrlFetchWindowController *wc = [[MRBSitesImageUrlFetchWindowController alloc] initWithWindowNibName:@"MRBSitesImageUrlFetchWindowController"];
@@ -26,7 +29,7 @@
         }
             break;
         case 3: {
-            
+            [[MRBSitesImageRenameManager new] chooseDownloadedFiles];
         }
             break;
         default:
