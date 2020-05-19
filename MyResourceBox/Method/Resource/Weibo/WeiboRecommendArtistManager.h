@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)start;
 + (void)destoryWeiboFavourites;
++ (void)manuallyImportRecommedArtists;
 
 @end
 

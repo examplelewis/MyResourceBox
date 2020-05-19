@@ -566,6 +566,12 @@
                                                             <action selector="processingWeibo:" target="Voe-Tx-rLC" id="bs5-Sw-ZSX"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="手动添加推荐的Artist" tag="5" id="ojC-pf-Neh">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="xHA-Hi-29L"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="wkT-5K-r4x"/>
                                                     <menuItem title="打开网页请求授权" tag="11" id="34j-Rr-Vq0">
                                                         <modifierMask key="keyEquivalentModifierMask"/>

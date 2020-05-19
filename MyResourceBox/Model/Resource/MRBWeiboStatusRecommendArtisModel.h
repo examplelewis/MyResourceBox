@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy) NSString *recommendDescription;
 @property (copy) NSString *id_original_str;
 
++ (NSDictionary *)generateDictionaryWithText:(NSString *)text;
+
 @end
 
 NS_ASSUME_NONNULL_END

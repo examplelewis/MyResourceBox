@@ -687,7 +687,7 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboUsers中插入数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"往数据表:weiboRecommendArtists中插入数据时发生错误：%@", [db lastErrorMessage]];
         
         return;
     }
@@ -729,7 +729,7 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     }
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表:bcyImageLink中查询数据时发生错误：%@", [db lastErrorMessage]];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"从数据表:weiboRecommendArtists中查询数据时发生错误：%@", [db lastErrorMessage]];
         [[MRBLogManager defaultManager] showLogWithFormat:@"数据：%@", model];
         
         return NO;
@@ -741,7 +741,7 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     for (NSInteger i = 0; i < model.recommendSites.count; i++) {
         NSDictionary *site = model.recommendSites[i];
         
-        FMResultSet *rs = [db executeQuery:@"select * from weiboRecommendArtists where weiboUserId = ? and recommendSite = ? and recommendAccount = ?", model.user_id_str, site.allKeys[0], site.allValues[0]];
+        FMResultSet *rs = [db executeQuery:@"select * from weiboRecommendArtists where recommendSite = ? and recommendAccount = ?", site.allKeys[0], site.allValues[0]];
         while ([rs next]) {
             foundCount += 1;
         }

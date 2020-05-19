@@ -38,6 +38,10 @@
             [WeiboRecommendArtistManager destoryWeiboFavourites];
         }
             break;
+        case 5: {
+            [WeiboRecommendArtistManager manuallyImportRecommedArtists];
+        }
+            break;
         case 11: {
             WeiboRequestTokenWindowController *wc = [[WeiboRequestTokenWindowController alloc] initWithWindowNibName:@"WeiboRequestTokenWindowController"];
             [[NSApplication sharedApplication].mainWindow addChildWindow:wc.window ordered:NSWindowAbove];

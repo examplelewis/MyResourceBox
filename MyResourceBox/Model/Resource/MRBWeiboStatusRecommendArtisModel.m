@@ -66,4 +66,8 @@
     return [NSString stringWithFormat:@"created_at: %@\nid_str: %@\nimg_urls_str: %@\nuser_screen_name: %@\nuser_id_str: %@\nrecommendSites: %@", self.created_at, self.id_str, self.img_urls_str, self.user_screen_name, self.user_id_str, _recommendSites];
 }
 
++ (NSDictionary *)generateDictionaryWithText:(NSString *)text {    
+    return @{@"user": @{@"screen_name": @"NULL", @"idstr": @"NULL"}, @"text": text};
+}
+
 @end

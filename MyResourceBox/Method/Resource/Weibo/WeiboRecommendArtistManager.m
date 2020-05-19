@@ -121,6 +121,40 @@
     }
 }
 
++ (void)manuallyImportRecommedArtists {
+    NSString *inputString = [AppDelegate defaultVC].inputTextView.string;
+    if (inputString.length == 0) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        return;
+    }
+    
+    if (![inputString containsString:@"\n\n\n"]) {
+        [[MRBLogManager defaultManager] showLogWithFormat:@"多条微博请使用三个换行符隔开；如果只有一条微博，需要在微博后添加三个换行符"];
+        return;
+    }
+    
+    [[MRBLogManager defaultManager] showLogWithFormat:@"手动添加微博推荐用户，流程开始"];
+    NSArray *weiboTexts = [inputString componentsSeparatedByString:@"\n\n\n"];
+    for (NSInteger i = 0; i < weiboTexts.count; i++) {
+        NSString *weiboText = weiboTexts[i];
+        NSDictionary *dict = [MRBWeiboStatusRecommendArtisModel generateDictionaryWithText:weiboText];
+        MRBWeiboStatusRecommendArtisModel *model = [[MRBWeiboStatusRecommendArtisModel alloc] initWithDictionary:dict];
+        
+        // 如果没有查找到推荐内容，跳过
+        if (model.recommendSites.count == 0) {
+            continue;
+        }
+        
+        if (![[MRBSQLiteFMDBManager defaultDBManager] isExistingWeiboRecommendArtist:model]) {
+            [[MRBSQLiteFMDBManager defaultDBManager] insertSingleWeiboRecommendArtistWithWeiboStatus:model];
+        } else {
+            [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 已存在, 忽略", weiboText];
+        }
+    }
+    
+    [[MRBLogManager defaultManager] showLogWithFormat:@"手动添加微博推荐用户，流程结束"];
+}
+
 + (void)destoryWeiboFavourites {
     NSString *weiboIdStr = [NSString stringWithContentsOfFile:weiboRemoveFavouriteTxtFilePath encoding:NSUTF8StringEncoding error:nil];
     if (weiboIdStr.length == 0) {
