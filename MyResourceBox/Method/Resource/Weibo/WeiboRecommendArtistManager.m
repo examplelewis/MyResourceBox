@@ -134,6 +134,7 @@
     }
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"手动添加微博推荐用户，流程开始"];
+    NSMutableArray *urls = [NSMutableArray array];
     NSArray *weiboTexts = [inputString componentsSeparatedByString:@"\n\n\n"];
     for (NSInteger i = 0; i < weiboTexts.count; i++) {
         NSString *weiboText = weiboTexts[i];
@@ -147,11 +148,13 @@
         
         if (![[MRBSQLiteFMDBManager defaultDBManager] isExistingWeiboRecommendArtist:model]) {
             [[MRBSQLiteFMDBManager defaultDBManager] insertSingleWeiboRecommendArtistWithWeiboStatus:model];
+            [urls addObject:model.recommendDescription];
         } else {
             [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 已存在, 忽略", weiboText];
         }
     }
     
+    [[MRBLogManager defaultManager] showLogWithFormat:@"查找到如下推荐用户:\n%@", [urls componentsJoinedByString:@"\n"]];
     [[MRBLogManager defaultManager] showLogWithFormat:@"手动添加微博推荐用户，流程结束"];
 }
 
