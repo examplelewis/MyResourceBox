@@ -150,7 +150,7 @@
             [[MRBSQLiteFMDBManager defaultDBManager] insertSingleWeiboRecommendArtistWithWeiboStatus:model];
             [urls addObject:model.recommendDescription];
         } else {
-            [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 已存在, 忽略", weiboText];
+            [[MRBLogManager defaultManager] showLogWithFormat:@"\n%@\n对应的如下用户:\n%@\n已存在, 忽略", weiboText, model.recommendDescription];
         }
     }
     

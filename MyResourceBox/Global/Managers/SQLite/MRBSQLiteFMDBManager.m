@@ -741,6 +741,11 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     for (NSInteger i = 0; i < model.recommendSites.count; i++) {
         NSDictionary *site = model.recommendSites[i];
         
+        if ([self foundByDifferentEncodingValue:site.allValues[0]]) {
+            foundCount = 1;
+            break;
+        }
+        
         FMResultSet *rs = [db executeQuery:@"select * from weiboRecommendArtists where recommendSite = ? and recommendAccount = ?", site.allKeys[0], site.allValues[0]];
         while ([rs next]) {
             foundCount += 1;
@@ -751,6 +756,21 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
     [db close];
     
     return foundCount != 0;
+}
+
+- (BOOL)foundByDifferentEncodingValue:(NSString *)value {
+    NSArray *values = @[@"limesaurus"];
+    BOOL found = NO;
+    
+    for (NSInteger i = 0; i < values.count; i++) {
+        // 因为编码不同，导致可能输出的字符是一样的，但是单纯的进行 isEqualToString: 比较会返回NO
+        if ([[value stringByRemovingPercentEncoding] isEqualToString:[values[i] stringByRemovingPercentEncoding]]) {
+            found = YES;
+            break;
+        }
+    }
+    
+    return found;
 }
 
 @end
