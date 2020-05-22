@@ -8,13 +8,13 @@
 
 #import "WeiboMethod.h"
 #import "WeiboHeader.h"
-#import "WeiboTokenWindowController.h"
 #import "WeiboRequestTokenWindowController.h"
 #import "WeiboBoundaryManager.h"
 #import "WeiboFetchManager.h"
 #import "WeiboFetchedUserManager.h"
 #import "WeiboFetchFirstFavManager.h"
 #import "WeiboRecommendArtistManager.h"
+#import "MRBHttpManager.h"
 
 @implementation WeiboMethod
 
@@ -49,11 +49,18 @@
             [wc showWindow:nil];
         }
             break;
-        case 12: {
-            WeiboTokenWindowController *wc = [[WeiboTokenWindowController alloc] initWithWindowNibName:@"WeiboTokenWindowController"];
-            [[NSApplication sharedApplication].mainWindow addChildWindow:wc.window ordered:NSWindowAbove];
-            [wc becomeFirstResponder];
-            [wc showWindow:nil];
+        case 12: {            
+            [[MRBHttpManager sharedManager] getWeiboTokenInfoWithStart:nil success:^(NSDictionary *dic) {
+                [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到Token信息:\n%@", dic];
+            } failed:^(NSString *errorTitle, NSString *errorMsg) {
+                [[MRBLogManager defaultManager] showLogWithFormat:@"获取Token信息发生错误：%@，原因：%@", errorTitle, errorMsg];
+            }];
+            
+            [[MRBHttpManager sharedManager] getWeiboLimitInfoWithStart:nil success:^(NSDictionary *dic) {
+                [[MRBLogManager defaultManager] showLogWithFormat:@"成功获取到Token的Limit信息:\n%@", dic];
+            } failed:^(NSString *errorTitle, NSString *errorMsg) {
+                [[MRBLogManager defaultManager] showLogWithFormat:@"获取Token的limit信息发生错误：%@，原因：%@", errorTitle, errorMsg];
+            }];
         }
             break;
         case 21: {

@@ -67,8 +67,6 @@
 		AC85090E1DB39677004AFE84 /* MRBUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509091DB39677004AFE84 /* MRBUtilityManager.m */; };
 		AC8509191DB39692004AFE84 /* MRBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509111DB39692004AFE84 /* MRBFileManager.m */; };
 		AC85091B1DB39692004AFE84 /* WebArchiveMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8509161DB39692004AFE84 /* WebArchiveMethod.m */; };
-		AC8509211DB3970D004AFE84 /* WeiboTokenWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC85091F1DB3970D004AFE84 /* WeiboTokenWindowController.m */; };
-		AC8509221DB3970D004AFE84 /* WeiboTokenWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8509201DB3970D004AFE84 /* WeiboTokenWindowController.xib */; };
 		AC883A291DBB920800CC579E /* WeiboRequestTokenWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC883A271DBB920800CC579E /* WeiboRequestTokenWindowController.m */; };
 		AC883A2A1DBB920800CC579E /* WeiboRequestTokenWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC883A281DBB920800CC579E /* WeiboRequestTokenWindowController.xib */; };
 		AC883A331DBB9D9500CC579E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC883A321DBB9D9500CC579E /* WebKit.framework */; };
@@ -300,9 +298,6 @@
 		AC8509111DB39692004AFE84 /* MRBFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBFileManager.m; sourceTree = "<group>"; };
 		AC8509151DB39692004AFE84 /* WebArchiveMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebArchiveMethod.h; sourceTree = "<group>"; };
 		AC8509161DB39692004AFE84 /* WebArchiveMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebArchiveMethod.m; sourceTree = "<group>"; };
-		AC85091E1DB3970D004AFE84 /* WeiboTokenWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboTokenWindowController.h; sourceTree = "<group>"; };
-		AC85091F1DB3970D004AFE84 /* WeiboTokenWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboTokenWindowController.m; sourceTree = "<group>"; };
-		AC8509201DB3970D004AFE84 /* WeiboTokenWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeiboTokenWindowController.xib; sourceTree = "<group>"; };
 		AC883A261DBB920800CC579E /* WeiboRequestTokenWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboRequestTokenWindowController.h; sourceTree = "<group>"; };
 		AC883A271DBB920800CC579E /* WeiboRequestTokenWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboRequestTokenWindowController.m; sourceTree = "<group>"; };
 		AC883A281DBB920800CC579E /* WeiboRequestTokenWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeiboRequestTokenWindowController.xib; sourceTree = "<group>"; };
@@ -831,9 +826,6 @@
 				AC883A341DBB9DCD00CC579E /* WeiboRequestTokenViewController.h */,
 				AC883A351DBB9DCD00CC579E /* WeiboRequestTokenViewController.m */,
 				AC883A361DBB9DCD00CC579E /* WeiboRequestTokenViewController.xib */,
-				AC85091E1DB3970D004AFE84 /* WeiboTokenWindowController.h */,
-				AC85091F1DB3970D004AFE84 /* WeiboTokenWindowController.m */,
-				AC8509201DB3970D004AFE84 /* WeiboTokenWindowController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1339,7 +1331,6 @@
 				AC8508D61DB39146004AFE84 /* Assets.xcassets in Resources */,
 				ACF9D92D2413A10D00C0019A /* MRBScreenSizeResolutionViewController.xib in Resources */,
 				ACF9D9282413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib in Resources */,
-				AC8509221DB3970D004AFE84 /* WeiboTokenWindowController.xib in Resources */,
 				ACFCB87E24505C5500855461 /* MRBSitesImageUrlFetchWindowController.xib in Resources */,
 				AC883A2A1DBB920800CC579E /* WeiboRequestTokenWindowController.xib in Resources */,
 				ACF306782424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib in Resources */,
@@ -1445,7 +1436,6 @@
 				ACDE0BBD22E98D5E006367D9 /* FOExtractTypesFileManager.m in Sources */,
 				ACC3145C217726D900DA5276 /* GelbooruMethod.m in Sources */,
 				ACCCE269227E8F4D00A18C8D /* AnalysisFileManager.m in Sources */,
-				AC8509211DB3970D004AFE84 /* WeiboTokenWindowController.m in Sources */,
 				ACE0501D227FE52A00367F3A /* DeviantartFeedsManager.m in Sources */,
 				AC883A371DBB9DCD00CC579E /* WeiboRequestTokenViewController.m in Sources */,
 				AC8508D41DB39146004AFE84 /* ViewController.m in Sources */,
