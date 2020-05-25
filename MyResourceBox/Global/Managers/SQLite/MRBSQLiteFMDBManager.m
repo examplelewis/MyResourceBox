@@ -746,7 +746,7 @@ static MRBSQLiteFMDBManager *_sharedDBManager;
             break;
         }
         
-        FMResultSet *rs = [db executeQuery:@"select * from weiboRecommendArtists where recommendSite = ? and recommendAccount = ?", site.allKeys[0], site.allValues[0]];
+        FMResultSet *rs = [db executeQuery:@"select * from weiboRecommendArtists where recommendSite = ? COLLATE NOCASE and recommendAccount = ? COLLATE NOCASE", site.allKeys[0], site.allValues[0]];
         while ([rs next]) {
             foundCount += 1;
         }
