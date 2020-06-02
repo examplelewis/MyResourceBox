@@ -29,6 +29,7 @@
             text = [text stringByReplacingOccurrencesOfString:@"twi:" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, text.length)];
             text = [text stringByReplacingOccurrencesOfString:@"twi：" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, text.length)];
             text = [text stringByReplacingOccurrencesOfString:@" " withString:@""];
+            text = [text stringByReplacingOccurrencesOfString:@"@" withString:@""];
             
             if ([text hasPrefix:@"twi:"] || [text hasPrefix:@"twi："]) {
                 text = [text substringFromIndex:4];
