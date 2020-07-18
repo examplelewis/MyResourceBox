@@ -70,16 +70,16 @@
         
         totalCount += 1;
         
-//        FOExtractTypesFileModel *model = [FOExtractTypesFileModel new];
-//        model.type = subfilePath.pathExtension;
-//        model.original = subfilePath;
-//        model.rootFolder = rootFolder;
-//        [model setupData];
-//
-//        if (![[MRBFileManager defaultManager] isContentExistAtPath:model.containerFolder]) {
-//            [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:model.containerFolder];
-//        }
-//        [[MRBFileManager defaultManager] moveItemAtPath:model.original toDestPath:model.target];
+        FOExtractTypesFileModel *model = [FOExtractTypesFileModel new];
+        model.type = subfilePath.pathExtension;
+        model.original = subfilePath;
+        model.rootFolder = rootFolder;
+        [model setupData];
+
+        if (![[MRBFileManager defaultManager] isContentExistAtPath:model.containerFolder]) {
+            [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:model.containerFolder];
+        }
+        [[MRBFileManager defaultManager] moveItemAtPath:model.original toDestPath:model.target];
     }
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"提取 %@ 类型的文件，流程已经结束", [specificTypes componentsJoinedByString:@" ,"]];
