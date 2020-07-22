@@ -48,7 +48,11 @@
         }
             break;
         case 31: {
-            [[MRBGenerate32BitMD5NameManager new] chooseFiles];
+            [[MRBGenerate32BitMD5NameManager new] startGenerateFileNamesByFolderWithRootFolder];
+        }
+            break;
+        case 32: {
+            [[MRBGenerate32BitMD5NameManager new] startGenerateFileNamesByFileWithRootFolder];
         }
             break;
         default:

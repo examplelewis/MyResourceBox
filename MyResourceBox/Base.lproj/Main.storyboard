@@ -1180,10 +1180,16 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="Uzl-PO-W8h"/>
-                                                    <menuItem title="为图片等文件生成32位的随机名称" tag="31" id="TCz-mx-1ah">
+                                                    <menuItem title="为文件生成32位的随机名称【以文件夹分类】" tag="31" id="TCz-mx-1ah">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="OOV-8S-niq"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="为文件生成32位的随机名称【以单个文件分类】" tag="32" id="BjD-5b-sGL">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="bAn-ME-8WA"/>
                                                         </connections>
                                                     </menuItem>
                                                 </items>

@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MRBGenerate32BitMD5NameManager : NSObject
 
-- (void)chooseFiles;
+- (void)startGenerateFileNamesByFolderWithRootFolder;
+- (void)startGenerateFileNamesByFileWithRootFolder;
 
 @end
 
