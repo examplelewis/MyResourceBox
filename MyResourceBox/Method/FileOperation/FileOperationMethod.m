@@ -60,5 +60,39 @@
     }
 }
 
+// 将每一个单独的文件移动到新的文件夹中，即每一个文件夹中只有一个文件。将导出的图片归类的时候需要使用，使用之后将其导入到iPhoto中可以方便整理归类
+- (void)moveSingleFileToEachFolder {
+    NSString *folder = @"/Users/mercury/Downloads/运动/~单独的图片";
+    NSArray *files = [[MRBFileManager defaultManager] getFilePathsInFolder:folder];
+    for (NSInteger i = 0; i < files.count; i++) {
+        NSString *filePath = files[i];
+        
+        NSString *folderPath = [NSString stringWithFormat:@"/Users/mercury/Downloads/运动/~单独的图片/~单独的图片 %03ld", i + 1];
+        [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:folderPath];
+        
+        NSString *destPath = [filePath stringByReplacingOccurrencesOfString:@"~单独的图片" withString:[NSString stringWithFormat:@"~单独的图片/~单独的图片 %03ld", i + 1]];
+        
+        [[MRBFileManager defaultManager] moveItemAtPath:filePath toDestPath:destPath];
+    }
+    
+    [[MRBLogManager defaultManager] showLogWithFormat:@"Done"];
+}
+
+// 用文件夹的名字来修改文件的名字，只针对每一个文件夹中只有一个文件的情况
+- (void)modifyFileNameUsingFolderName {
+    NSString *folder = @"/Users/mercury/Downloads/秀人网视频合集";
+    NSArray *folders = [[MRBFileManager defaultManager] getFolderPathsInFolder:folder];
+    for (NSInteger i = 0; i < folders.count; i++) {
+        NSString *folderPath = folders[i];
+        NSArray *folderFiles = [[MRBFileManager defaultManager] getFilePathsInFolder:folderPath];
+        
+        NSString *filePath = folderFiles[0];
+        NSString *destPath = [filePath stringByReplacingOccurrencesOfString:filePath.lastPathComponent.stringByDeletingPathExtension withString:folderPath.lastPathComponent];
+        
+        [[MRBFileManager defaultManager] moveItemAtPath:filePath toDestPath:destPath];
+    }
+    
+    [[MRBLogManager defaultManager] showLogWithFormat:@"Done"];
+}
 
 @end

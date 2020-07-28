@@ -70,9 +70,9 @@
 - (NSString *)path_root_folder {
     if (!_path_root_folder) {
         if (self.modelType == MacModelTypeMacMini2014) {
-            _path_root_folder = @"/Users/Mercury/Documents/同步文档/MyResourceBox";
+            _path_root_folder = @"/Users/Mercury/OneDrive/同步文件夹/同步文档/MyResourceBox";
         } else {
-            _path_root_folder = @"/Users/Mercury/Documents/同步文档/MyResourceBox";
+            _path_root_folder = @"/Users/Mercury/OneDrive/同步文件夹/同步文档/MyResourceBox";
         }
     }
     

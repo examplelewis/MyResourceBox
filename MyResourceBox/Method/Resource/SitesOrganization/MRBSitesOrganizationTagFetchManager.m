@@ -30,7 +30,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        NSString *rootPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+        NSString *rootPath = @"/Users/Mercury/OneDrive/同步文件夹";
         preferencePath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Preference.plist"];
         tagsFolderPath = [rootPath stringByAppendingPathComponent:@"同步文档/MyResourceBox/Tags"];
         totalTagsFilePath = [rootPath stringByAppendingPathComponent:@"Tool/DanbooruDownloader/tags.xml"];
@@ -98,7 +98,7 @@
 }
 - (void)organizeAllFetchedTags {
     NSArray<NSString *> *xmls = [[MRBFileManager defaultManager] getFilePathsInFolder:tagsFolderPath];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF BEGINSWITH '/Users/Mercury/Documents/同步文档/MyResourceBox/Tags/FetchedTags_'"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF BEGINSWITH '/Users/Mercury/OneDrive/同步文件夹/同步文档/MyResourceBox/Tags/FetchedTags_'"];
     NSArray *filter = [xmls filteredArrayUsingPredicate:predicate];
     if (filter.count == 0) {
         return;
