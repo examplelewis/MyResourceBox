@@ -29,7 +29,7 @@
     NSMutableArray *exists = [NSMutableArray array]; // 存在的地址
     NSMutableArray *news = [NSMutableArray array]; // 不存在的地址
     
-    FMDatabase *db = [FMDatabase databaseWithPath:@"/Users/Mercury/Documents/Tool/pixivutil/db.sqlite"];
+    FMDatabase *db = [FMDatabase databaseWithPath:@"/Users/Mercury/OneDrive/同步文件夹/Tool/pixivutil/db.sqlite"];
     //判断数据库是否已经打开，如果没有打开，提示失败
     if (![db open]) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"查询Pixiv用户是否被抓取 时发生错误：%@", [db lastErrorMessage]];
