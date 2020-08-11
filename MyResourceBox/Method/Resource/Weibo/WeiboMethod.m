@@ -32,7 +32,7 @@
         }
             break;
         case 3: {
-            [[WeiboRecommendArtistManager new] start];
+            [[WeiboDuplicateFavouriteManager new] fetchDuplicateFarouriteIDs];
         }
             break;
         case 4: {
@@ -40,11 +40,11 @@
         }
             break;
         case 5: {
-            [WeiboRecommendArtistManager manuallyImportRecommedArtists];
+            [[WeiboRecommendArtistManager new] start];
         }
             break;
         case 6: {
-            [[WeiboDuplicateFavouriteManager new] fetchDuplicateFarouriteIDs];
+            [WeiboRecommendArtistManager manuallyImportRecommedArtists];
         }
             break;
         case 11: {

@@ -554,28 +554,28 @@
                                                             <action selector="processingWeibo:" target="Voe-Tx-rLC" id="cZC-jX-CFT"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="整理微博用户推荐的Artist" tag="3" id="Gia-fO-3AU">
+                                                    <menuItem title="获取重复收藏的ID" tag="3" id="SKi-Gm-LnR">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
-                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="2yt-df-7Ac"/>
+                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="snX-xk-CkS"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="取消收藏包含用户推荐的微博" tag="4" id="k4Q-cV-4cD">
+                                                    <menuItem title="取消收藏的微博【输入ID】" tag="4" id="k4Q-cV-4cD">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingWeibo:" target="Voe-Tx-rLC" id="bs5-Sw-ZSX"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="手动添加推荐的Artist" tag="5" id="ojC-pf-Neh">
+                                                    <menuItem title="获取微博用户推荐的Artist" tag="5" id="Gia-fO-3AU">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="2yt-df-7Ac"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="手动添加推荐的Artist" tag="6" id="ojC-pf-Neh">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingWeibo:" target="Voe-Tx-rLC" id="xHA-Hi-29L"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="获取重复收藏的ID" tag="6" id="SKi-Gm-LnR">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="processingWeibo:" target="Voe-Tx-rLC" id="snX-xk-CkS"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="wkT-5K-r4x"/>
