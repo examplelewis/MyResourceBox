@@ -14,6 +14,7 @@
 #import "WeiboFetchedUserManager.h"
 #import "WeiboFetchFirstFavManager.h"
 #import "WeiboRecommendArtistManager.h"
+#import "WeiboDuplicateFavouriteManager.h"
 #import "MRBHttpManager.h"
 
 @implementation WeiboMethod
@@ -40,6 +41,10 @@
             break;
         case 5: {
             [WeiboRecommendArtistManager manuallyImportRecommedArtists];
+        }
+            break;
+        case 6: {
+            [[WeiboDuplicateFavouriteManager new] fetchDuplicateFarouriteIDs];
         }
             break;
         case 11: {

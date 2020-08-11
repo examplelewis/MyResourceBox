@@ -144,6 +144,7 @@
 		ACF3067D2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF3067B2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.xib */; };
 		ACF306802424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3067F2424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m */; };
 		ACF306922424E4D900D15F67 /* MRBResourceSites.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF306912424E4D900D15F67 /* MRBResourceSites.m */; };
+		ACF3705324E2E5A10093E02F /* WeiboDuplicateFavouriteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3705224E2E5A10093E02F /* WeiboDuplicateFavouriteManager.m */; };
 		ACF9D91F24139F4C00C0019A /* MRBDigital.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF9D91E24139F4C00C0019A /* MRBDigital.m */; };
 		ACF9D9272413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF9D9252413A08F00C0019A /* MRBScreenSizeResolutionWindowController.m */; };
 		ACF9D9282413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF9D9262413A08F00C0019A /* MRBScreenSizeResolutionWindowController.xib */; };
@@ -454,6 +455,8 @@
 		ACF3067F2424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBPixivFollowingAndBlockingDuplicateManager.m; sourceTree = "<group>"; };
 		ACF306902424E4D900D15F67 /* MRBResourceSites.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBResourceSites.h; sourceTree = "<group>"; };
 		ACF306912424E4D900D15F67 /* MRBResourceSites.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBResourceSites.m; sourceTree = "<group>"; };
+		ACF3705124E2E5A10093E02F /* WeiboDuplicateFavouriteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboDuplicateFavouriteManager.h; sourceTree = "<group>"; };
+		ACF3705224E2E5A10093E02F /* WeiboDuplicateFavouriteManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboDuplicateFavouriteManager.m; sourceTree = "<group>"; };
 		ACF9D91D24139F4C00C0019A /* MRBDigital.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBDigital.h; sourceTree = "<group>"; };
 		ACF9D91E24139F4C00C0019A /* MRBDigital.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBDigital.m; sourceTree = "<group>"; };
 		ACF9D9242413A08F00C0019A /* MRBScreenSizeResolutionWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBScreenSizeResolutionWindowController.h; sourceTree = "<group>"; };
@@ -1077,6 +1080,8 @@
 				ACFFB868229FAB7100FC41AA /* WeiboFetchedUserManager.m */,
 				AC2F8C2B246509C70016D1FF /* WeiboRecommendArtistManager.h */,
 				AC2F8C2C246509C70016D1FF /* WeiboRecommendArtistManager.m */,
+				ACF3705124E2E5A10093E02F /* WeiboDuplicateFavouriteManager.h */,
+				ACF3705224E2E5A10093E02F /* WeiboDuplicateFavouriteManager.m */,
 			);
 			path = Weibo;
 			sourceTree = "<group>";
@@ -1442,6 +1447,7 @@
 				AC01F810240AF78E0061D719 /* PictureOperationMethod.m in Sources */,
 				AC19E14C1E4844660084A510 /* PAPIAuthor.m in Sources */,
 				AC19E15B1E4857210084A510 /* PixivUserManager.m in Sources */,
+				ACF3705324E2E5A10093E02F /* WeiboDuplicateFavouriteManager.m in Sources */,
 				ACFCB88624505CC000855461 /* MRBSitesImageDownloadManager.m in Sources */,
 				AC85090C1DB39677004AFE84 /* MRBAlert.m in Sources */,
 				AC4AB7E82417E739008FD444 /* MRBSitesOrganizationTagFetchManager.m in Sources */,
