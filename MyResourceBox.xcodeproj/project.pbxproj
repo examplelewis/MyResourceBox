@@ -30,6 +30,8 @@
 		AC19E15E1E4857410084A510 /* PixivIllustManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC19E15D1E4857410084A510 /* PixivIllustManager.m */; };
 		AC1A6718244EE98400AE1ABD /* WeiboFetchFirstFavManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1A6717244EE98400AE1ABD /* WeiboFetchFirstFavManager.m */; };
 		AC2824ED2445C857000B2589 /* MRBPixivUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2824EC2445C857000B2589 /* MRBPixivUrlManager.m */; };
+		AC2B404D24DFCDCB0071502D /* MRBMediaOperationMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2B404C24DFCDCB0071502D /* MRBMediaOperationMethod.m */; };
+		AC2B405024DFCEDE0071502D /* MRBMediaLizhiPodcastInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2B404F24DFCEDE0071502D /* MRBMediaLizhiPodcastInfoManager.m */; };
 		AC2D1B151DD0191C0085F8E0 /* MRBDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2D1B131DD0191C0085F8E0 /* MRBDeviceManager.m */; };
 		AC2E865324519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E865224519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.m */; };
 		AC2F8C2A2464FEC20016D1FF /* MRBWeiboStatusRecommendArtisModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2F8C292464FEC20016D1FF /* MRBWeiboStatusRecommendArtisModel.m */; };
@@ -222,6 +224,10 @@
 		AC1A6717244EE98400AE1ABD /* WeiboFetchFirstFavManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboFetchFirstFavManager.m; sourceTree = "<group>"; };
 		AC2824EB2445C857000B2589 /* MRBPixivUrlManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBPixivUrlManager.h; sourceTree = "<group>"; };
 		AC2824EC2445C857000B2589 /* MRBPixivUrlManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBPixivUrlManager.m; sourceTree = "<group>"; };
+		AC2B404B24DFCDCB0071502D /* MRBMediaOperationMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBMediaOperationMethod.h; sourceTree = "<group>"; };
+		AC2B404C24DFCDCB0071502D /* MRBMediaOperationMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBMediaOperationMethod.m; sourceTree = "<group>"; };
+		AC2B404E24DFCEDE0071502D /* MRBMediaLizhiPodcastInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBMediaLizhiPodcastInfoManager.h; sourceTree = "<group>"; };
+		AC2B404F24DFCEDE0071502D /* MRBMediaLizhiPodcastInfoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBMediaLizhiPodcastInfoManager.m; sourceTree = "<group>"; };
 		AC2D1B131DD0191C0085F8E0 /* MRBDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBDeviceManager.m; sourceTree = "<group>"; };
 		AC2D1B141DD0191C0085F8E0 /* MRBDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBDeviceManager.h; sourceTree = "<group>"; };
 		AC2E865124519EC600B18BA1 /* MRBGenerate32BitMD5NameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBGenerate32BitMD5NameManager.h; sourceTree = "<group>"; };
@@ -611,6 +617,17 @@
 			path = Pixiv;
 			sourceTree = "<group>";
 		};
+		AC2B404A24DFCD9E0071502D /* MediaOperation */ = {
+			isa = PBXGroup;
+			children = (
+				AC2B404B24DFCDCB0071502D /* MRBMediaOperationMethod.h */,
+				AC2B404C24DFCDCB0071502D /* MRBMediaOperationMethod.m */,
+				AC2B404E24DFCEDE0071502D /* MRBMediaLizhiPodcastInfoManager.h */,
+				AC2B404F24DFCEDE0071502D /* MRBMediaLizhiPodcastInfoManager.m */,
+			);
+			path = MediaOperation;
+			sourceTree = "<group>";
+		};
 		AC4AB7DF2417E1C7008FD444 /* SitesOrganization */ = {
 			isa = PBXGroup;
 			children = (
@@ -813,6 +830,7 @@
 				ACC5BFFE228907A6004E7C83 /* ToolOperation */,
 				AC01F80D240AF7680061D719 /* PictureOpperation */,
 				ACF3068F2424E43C00D15F67 /* ResourceSites */,
+				AC2B404A24DFCD9E0071502D /* MediaOperation */,
 			);
 			path = Method;
 			sourceTree = "<group>";
@@ -1444,6 +1462,7 @@
 				ACE0502D22802CDD00367F3A /* FOFilteredImageManager.m in Sources */,
 				AC4AB7EB2417E93B008FD444 /* MRBResourceGlobalTagManager.m in Sources */,
 				ACC93EFB2277F41100C207E6 /* PixivPicDownloadManager.m in Sources */,
+				AC2B404D24DFCDCB0071502D /* MRBMediaOperationMethod.m in Sources */,
 				AC47543F1DCC461800880934 /* OrganizeManager.m in Sources */,
 				AC9F4C711E49B06E00FD01C5 /* PixivDownloadManager.m in Sources */,
 				AC883A291DBB920800CC579E /* WeiboRequestTokenWindowController.m in Sources */,
@@ -1488,6 +1507,7 @@
 				ACA5162D220175F20074AB73 /* DeviantartMethod.m in Sources */,
 				ACC93EEC2277E9DD00C207E6 /* BCYFetchManager.m in Sources */,
 				ACCCE266227E8F0700A18C8D /* AnalysisInputManager.m in Sources */,
+				AC2B405024DFCEDE0071502D /* MRBMediaLizhiPodcastInfoManager.m in Sources */,
 				ACC5C00D22893FC0004E7C83 /* ResourceGlobalOrganizeManager.m in Sources */,
 				ACC93EE92277E92100C207E6 /* BCYHTMLParseManager.m in Sources */,
 				AC789C731DE159B700523A12 /* BCYMethod.m in Sources */,

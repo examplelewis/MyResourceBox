@@ -1276,6 +1276,20 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="fOE-4A-O0x"/>
+                                        <menuItem title="多媒体" id="580-7b-Olu">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="多媒体" id="IPJ-6t-qey">
+                                                <items>
+                                                    <menuItem title="获取荔枝FM上播客的信息" tag="1" id="4sc-DW-EKe">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingMediaOperation:" target="Voe-Tx-rLC" id="kM5-OL-E4t"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>

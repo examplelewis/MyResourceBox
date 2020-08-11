@@ -27,6 +27,7 @@
 #import "MRBSitesOrganization.h"
 #import "ToolOperationMethod.h"
 #import "PictureOperationMethod.h"
+#import "MRBMediaOperationMethod.h"
 
 #import "MRBDigital.h"
 #import "MRBTemp.h"
@@ -174,6 +175,9 @@
 }
 - (IBAction)processingTemp:(NSMenuItem *)sender {
     [MRBTemp configMethod:sender.tag];
+}
+- (IBAction)processingMediaOperation:(NSMenuItem *)sender {
+    [MRBMediaOperationMethod configMethod:sender.tag];
 }
 
 
