@@ -12,6 +12,7 @@
 #import "FOFolderManager.h"
 #import "FOExtractTypesFileManager.h"
 #import "MRBGenerate32BitMD5NameManager.h"
+#import "MRBFileNameFindSpecificCharactersManager.h"
 
 @implementation FileOperationMethod
 
@@ -53,6 +54,22 @@
             break;
         case 32: {
             [[MRBGenerate32BitMD5NameManager new] startGenerateFileNamesByFileWithRootFolder];
+        }
+            break;
+        case 41: {
+            [[[MRBFileNameFindSpecificCharactersManager alloc] initWithCharacters:@"* ? \\ \" < > |"] selectRootFolder];
+        }
+            break;
+        case 42: {
+            [[[MRBFileNameFindSpecificCharactersManager alloc] initWithCharacters:nil] selectRootFolder];
+        }
+            break;
+        case 51: {
+            [[[MRBFileNameFindSpecificCharactersManager alloc] initWithCharacters:@"* ? \\ \" < > |"] modifyFileNames];
+        }
+            break;
+        case 52: {
+            [[[MRBFileNameFindSpecificCharactersManager alloc] initWithCharacters:nil] modifyFileNames];
         }
             break;
         default:

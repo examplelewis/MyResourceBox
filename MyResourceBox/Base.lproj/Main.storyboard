@@ -1198,6 +1198,32 @@
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="bAn-ME-8WA"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="V9X-4K-W46"/>
+                                                    <menuItem title="检查文件名是否包含OneDrive禁止的字符" tag="41" id="HHv-pb-oM8">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="2t5-WO-40a"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="检查文件名是否包含特定字符【用空格区分字符】" tag="42" id="Ser-kC-Hxy">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="7mQ-RW-5rR"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="N5l-j0-YJw"/>
+                                                    <menuItem title="修改文件名中包含OneDrive禁止的字符" tag="51" id="kld-S5-s6b">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="ajy-E8-2u6"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="修改文件名中包含特定的字符【用空格区分字符】" tag="52" id="Lh0-Na-fWe">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="1XY-PJ-0Wy"/>
+                                                        </connections>
+                                                    </menuItem>
                                                 </items>
                                             </menu>
                                         </menuItem>

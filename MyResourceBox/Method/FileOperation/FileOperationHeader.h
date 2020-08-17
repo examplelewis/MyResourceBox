@@ -9,5 +9,6 @@
 #ifndef FileOperationHeader_h
 #define FileOperationHeader_h
 
+static NSString * const MRBFileOperationFindSpecificCharactersExportTXTPath = @"/Users/Mercury/Downloads/findSpecificCharacters.txt";
 
 #endif /* FileOperationHeader_h */
