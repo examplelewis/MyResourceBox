@@ -78,6 +78,7 @@
                 NSString *folderPath = panel.URLs.firstObject.absoluteString;
                 folderPath = [folderPath stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
                 folderPath = [folderPath stringByReplacingOccurrencesOfString:@"file://" withString:@""];
+                folderPath = [folderPath stringByRemovingPercentEncoding];
                 
                 [self startWithRootFolder:folderPath];
             });
@@ -142,6 +143,10 @@
     
     for (NSInteger i = 0; i < filePaths.count; i++) {
         NSString *filePath = filePaths[i];
+        // 如果文件不存在，那么可能是因为之前的操作把文件夹都改掉了
+        if (![[MRBFileManager defaultManager] isContentExistAtPath:filePath]) {
+            continue;
+        }
         NSMutableArray *filePathComponents = [filePath.pathComponents mutableCopy];
         
         // 去除包含 / 的路径
