@@ -64,7 +64,9 @@
     NSInteger totalCount = 0;
     for (NSInteger i = 0; i < subPaths.count; i++) {
         NSString *subfilePath = subPaths[i];
-        if (![specificTypes containsObject:subfilePath.pathExtension]) {
+        if ([specificTypes indexOfObjectPassingTest:^BOOL(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            return [obj.lowercaseString isEqualToString:subfilePath.pathExtension.lowercaseString];
+        }] == NSNotFound) {
             continue;
         }
         
