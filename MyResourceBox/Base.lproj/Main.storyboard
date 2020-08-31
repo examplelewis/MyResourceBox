@@ -1376,7 +1376,7 @@
                 </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-182" y="-142"/>
+            <point key="canvasLocation" x="-203" y="-278"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -1397,7 +1397,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114" y="277"/>
+            <point key="canvasLocation" x="114" y="313"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">

@@ -9,9 +9,9 @@
 #import "MRBSitesOrganizationTagExtractManager.h"
 #import "XMLReader.h"
 
-static NSString * const kGelbooruTagXMLFilePath = @"/Users/Mercury/OneDrive/同步文件夹/Tool/DanbooruDownloader/tags.xml";
-static NSString * const kNeededTagsTxtPath = @"/Users/Mercury/OneDrive/同步文件夹/同步文档/MyResourceBox/FetchResource/NeededTags.txt";
-static NSString * const kNeededTagsPlistPath = @"/Users/Mercury/OneDrive/同步文件夹/同步文档/MyResourceBox/FetchResource/NeededTags.plist";
+static NSString * const kGelbooruTagXMLFilePath = @"/Users/mercury/SynologyDrive/~同步文件夹/Tool/DanbooruDownloader/tags.xml";
+static NSString * const kNeededTagsTxtPath = @"/Users/mercury/SynologyDrive/~同步文件夹/同步文档/MyResourceBox/FetchResource/NeededTags.txt";
+static NSString * const kNeededTagsPlistPath = @"/Users/mercury/SynologyDrive/~同步文件夹/同步文档/MyResourceBox/FetchResource/NeededTags.plist";
 
 @interface MRBSitesOrganizationTagExtractManager () {
     NSArray *neededTags; // 包括 copyright 和 character 的标签

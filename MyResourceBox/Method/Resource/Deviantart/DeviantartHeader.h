@@ -9,7 +9,7 @@
 #ifndef DeviantartHeader_h
 #define DeviantartHeader_h
 
-static NSString * const loginInfoFilePath = @"/Users/Mercury/OneDrive/同步文件夹/同步文档/MyResourceBox/DeviantartLoginInfo.plist";
-static NSString * const deviantartPrefsFilePath = @"/Users/Mercury/OneDrive/同步文件夹/同步文档/MyResourceBox/DeviantartPres.plist";
+static NSString * const loginInfoFilePath = @"/Users/mercury/SynologyDrive/~同步文件夹/同步文档/MyResourceBox/DeviantartLoginInfo.plist";
+static NSString * const deviantartPrefsFilePath = @"/Users/mercury/SynologyDrive/~同步文件夹/同步文档/MyResourceBox/DeviantartPres.plist";
 
 #endif /* DeviantartHeader_h */

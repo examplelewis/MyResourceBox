@@ -8,10 +8,10 @@
 
 #import "MRBResourceGlobalTagManager.h"
 
-static NSString * const kResourceTagsFilePath = @"/Users/Mercury/OneDrive/同步文件夹/同步文档/MyResourceBox/FetchResource/ResourceTags.plist";
-static NSString * const kNeededTagsFilePath = @"/Users/Mercury/OneDrive/同步文件夹/同步文档/MyResourceBox/FetchResource/NeededTags.plist";
-static NSString * const kNeededTagsTxtFilePath = @"/Users/Mercury/OneDrive/同步文件夹/同步文档/MyResourceBox/FetchResource/NeededTags.txt";
-static NSString * const kRenameUselessTagsFilePath = @"/Users/Mercury/OneDrive/同步文件夹/同步文档/MyResourceBox/FetchResource/RenameUselessTags.plist";
+static NSString * const kResourceTagsFilePath = @"/Users/mercury/SynologyDrive/~同步文件夹/同步文档/MyResourceBox/FetchResource/ResourceTags.plist";
+static NSString * const kNeededTagsFilePath = @"/Users/mercury/SynologyDrive/~同步文件夹/同步文档/MyResourceBox/FetchResource/NeededTags.plist";
+static NSString * const kNeededTagsTxtFilePath = @"/Users/mercury/SynologyDrive/~同步文件夹/同步文档/MyResourceBox/FetchResource/NeededTags.txt";
+static NSString * const kRenameUselessTagsFilePath = @"/Users/mercury/SynologyDrive/~同步文件夹/同步文档/MyResourceBox/FetchResource/RenameUselessTags.plist";
 
 @interface MRBResourceGlobalTagManager () {
     NSString *neededTagsFolderPath; // NeededTags 文件夹的路径

@@ -60,7 +60,7 @@
 }
 - (void)fetchingFeedsAfterRefreshingToken {
     if (![[MRBFileManager defaultManager] isContentExistAtPath:deviantartPrefsFilePath]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"/Users/Mercury/OneDrive/同步文件夹/同步文档/MyResourceBox/DeviantartPres.plist 文件不存在，流程终止"];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"/Users/mercury/SynologyDrive/~同步文件夹/同步文档/MyResourceBox/DeviantartPres.plist 文件不存在，流程终止"];
         return;
     }
     
