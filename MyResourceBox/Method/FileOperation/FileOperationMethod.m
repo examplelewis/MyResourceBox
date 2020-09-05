@@ -48,6 +48,10 @@
             [[FOExtractTypesFileManager new] startExtractingSpecificTypes:@[@"gif"]];
         }
             break;
+        case 23: {
+            [[FOExtractTypesFileManager new] startExtractingSpecificTypes:[MRBUserManager defaultManager].mime_video_types];
+        }
+            break;
         case 31: {
             [[MRBGenerate32BitMD5NameManager new] startGenerateFileNamesByFolderWithRootFolder];
         }

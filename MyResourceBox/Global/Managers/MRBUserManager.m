@@ -35,7 +35,7 @@
     prefDict = [NSMutableDictionary dictionaryWithContentsOfFile:[[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"Preference.plist"]];
     
     [self configureWeiboInfo];
-    [self configureWebArchiveInfo];
+    [self configureMIMETypes];
 }
 - (void)configureWeiboInfo {
     _weibo_url = authDict[@"weibo_url"];
@@ -47,8 +47,9 @@
     _weibo_boundary_text = authDict[@"weibo_boundary_text"];
     _weibo_boundary_author = authDict[@"weibo_boundary_author"];
 }
-- (void)configureWebArchiveInfo {
-    _web_archive_mime_type = [NSArray arrayWithArray:prefDict[@"web_archive_mime_type"]];
+- (void)configureMIMETypes {
+    _mime_image_types = [NSArray arrayWithArray:prefDict[@"mime_image_types"]];
+    _mime_video_types = [NSArray arrayWithArray:prefDict[@"mime_video_types"]];
 }
 
 #pragma mark -- 存取方法 --
@@ -101,8 +102,15 @@
 - (void)saveAuthDictIntoPlistFile {
     [authDict writeToFile:[[MRBUserManager defaultManager].path_root_folder stringByAppendingPathComponent:@"Authorization.plist"] atomically:YES];
 }
-- (BOOL)mimeTypeExistsInFormats:(NSString *)format {
-    return [_web_archive_mime_type containsObject:format];
+- (BOOL)mimeImageTypeExistsInFormats:(NSString *)format {
+    BOOL isContained = NO;
+    for (NSInteger i = 0; i < self.mime_image_types.count; i++) {
+        NSString *mimeImageType = self.mime_image_types[i];
+        isContained = [format caseInsensitiveCompare:mimeImageType] == NSOrderedSame;
+        if (isContained) break;
+    }
+    
+    return isContained;
 }
 
 @end

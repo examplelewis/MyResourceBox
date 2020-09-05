@@ -68,7 +68,7 @@
         DTWebResource *resource = (DTWebResource *)archive.subresources[i];
         
         NSString *format = [resource.MIMEType componentsSeparatedByString:@"/"].lastObject;
-        //        if (![[MRBUserManager defaultManager] mimeTypeExistsInFormats:format] || resource.data.length < 25600) { // 忽略 不符合类型 或者 小于25KB 的文件
+        //        if (![[MRBUserManager defaultManager] mimeImageTypeExistsInFormats:format] || resource.data.length < 25600) { // 忽略 不符合类型 或者 小于25KB 的文件
         //            continue;
         //        }
         
@@ -94,7 +94,7 @@
     NSArray<NSString *> *imageFilePaths = @[];
     for (NSInteger i = 0; i < targetFolderPaths.count; i++) {
         NSString *targetFolderPath = targetFolderPaths[i];
-        NSArray<NSString *> *targetFolderImageFilePaths = [[MRBFileManager defaultManager] getFilePathsInFolder:targetFolderPath specificExtensions:[MRBUserManager defaultManager].web_archive_mime_type];
+        NSArray<NSString *> *targetFolderImageFilePaths = [[MRBFileManager defaultManager] getFilePathsInFolder:targetFolderPath specificExtensions:[MRBUserManager defaultManager].mime_image_types];
         imageFilePaths = [imageFilePaths arrayByAddingObjectsFromArray:targetFolderImageFilePaths];
     }
     

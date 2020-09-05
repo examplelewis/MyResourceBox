@@ -1192,6 +1192,12 @@
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="WJk-aF-NXS"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="提取文件内视频文件【剪切】" tag="23" id="XdZ-3i-qWL">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="4OO-Z6-wi2"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="Uzl-PO-W8h"/>
                                                     <menuItem title="为文件生成32位的随机名称【以文件夹分类】" tag="31" id="TCz-mx-1ah">
                                                         <modifierMask key="keyEquivalentModifierMask"/>

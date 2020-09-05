@@ -21,12 +21,14 @@
 @property (nonatomic, copy) NSString *weibo_boundary_id;
 @property (nonatomic, copy) NSString *weibo_boundary_text;
 @property (nonatomic, copy) NSString *weibo_boundary_author;
-// WebArchive 相关
-@property (nonatomic, copy, readonly) NSArray *web_archive_mime_type;
+
+// MIME TYPEs
+@property (nonatomic, copy, readonly) NSArray *mime_image_types;
+@property (nonatomic, copy, readonly) NSArray *mime_video_types;
 
 + (MRBUserManager *)defaultManager;
 - (void)configureData;
 - (void)saveAuthDictIntoPlistFile;
-- (BOOL)mimeTypeExistsInFormats:(NSString *)mimeType;
+- (BOOL)mimeImageTypeExistsInFormats:(NSString *)mimeType;
 
 @end
