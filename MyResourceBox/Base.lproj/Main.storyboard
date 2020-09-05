@@ -1179,6 +1179,12 @@
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="Urw-IW-nqW"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="提取解压文件夹层级" tag="12" id="b8r-40-DG0">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="jhN-mL-tdm"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="aMS-B4-dG5"/>
                                                     <menuItem title="提取文件内特定格式的文件【剪切】" tag="21" id="sIt-1D-fNc">
                                                         <modifierMask key="keyEquivalentModifierMask"/>

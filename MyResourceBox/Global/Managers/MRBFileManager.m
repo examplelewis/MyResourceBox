@@ -285,10 +285,10 @@ static MRBFileManager *inputInstance;
     NSMutableArray<NSString *> *results = [NSMutableArray array];
     
     NSArray *contents = [fm contentsOfDirectoryAtPath:folderPath error:nil];
-    if (contents.count == 1) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"没有在：%@ 中获取到解压好的文件，已跳过", folderPath];
-        return nil;
-    }
+//    if (contents.count == 1) {
+//        [[MRBLogManager defaultManager] showLogWithFormat:@"没有在：%@ 中获取到解压好的文件，已跳过", folderPath];
+//        return nil;
+//    }
     
     for (NSString *fileName in contents) {
         if ([fileName hasSuffix:@"DS_Store"]) {
@@ -371,10 +371,10 @@ static MRBFileManager *inputInstance;
     NSMutableArray<NSString *> *results = [NSMutableArray array];
     
     NSArray *subpaths = [fm subpathsOfDirectoryAtPath:folderPath error:nil]; //所有的文件【递归】
-    if (subpaths.count == 1) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"没有在：%@ 中获取到解压好的文件，已跳过", folderPath];
-        return nil;
-    }
+//    if (subpaths.count == 1) {
+//        [[MRBLogManager defaultManager] showLogWithFormat:@"没有在：%@ 中获取到解压好的文件，已跳过", folderPath];
+//        return nil;
+//    }
     
     for (NSString *fileName in subpaths) {
         if ([fileName hasSuffix:@"DS_Store"]) {

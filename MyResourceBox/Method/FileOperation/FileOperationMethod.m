@@ -13,6 +13,7 @@
 #import "FOExtractTypesFileManager.h"
 #import "MRBGenerate32BitMD5NameManager.h"
 #import "MRBFileNameFindSpecificCharactersManager.h"
+#import "MRBExtraceUnzipFolderManager.h"
 
 @implementation FileOperationMethod
 
@@ -38,6 +39,10 @@
             break;
         case 11: {
             [FOFolderManager prepareCopyingFolder];
+        }
+            break;
+        case 12: {
+            [[MRBExtraceUnzipFolderManager new] start];
         }
             break;
         case 21: {
