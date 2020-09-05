@@ -14,6 +14,7 @@
 #import "MRBGenerate32BitMD5NameManager.h"
 #import "MRBFileNameFindSpecificCharactersManager.h"
 #import "MRBExtraceUnzipFolderManager.h"
+#import "MRBRenameSingleSubFolderNameManager.h"
 
 @implementation FileOperationMethod
 
@@ -43,6 +44,10 @@
             break;
         case 12: {
             [[MRBExtraceUnzipFolderManager new] start];
+        }
+            break;
+        case 13: {
+            [[MRBRenameSingleSubFolderNameManager new] start];
         }
             break;
         case 21: {

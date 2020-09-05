@@ -1,20 +1,20 @@
 //
-//  MRBExtraceUnzipFolderManager.m
+//  MRBRenameSingleSubFolderNameManager.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 20/09/05.
 //  Copyright © 2020 gongyuTest. All rights reserved.
 //
 
-#import "MRBExtraceUnzipFolderManager.h"
+#import "MRBRenameSingleSubFolderNameManager.h"
 
-@interface MRBExtraceUnzipFolderManager ()
+@interface MRBRenameSingleSubFolderNameManager ()
 
 @property (copy) NSString *rootFolderPath;
 
 @end
 
-@implementation MRBExtraceUnzipFolderManager
+@implementation MRBRenameSingleSubFolderNameManager
 
 - (void)start {
     [self chooseRootFolder];
@@ -22,7 +22,7 @@
 
 - (void)chooseRootFolder {
     NSOpenPanel *panel = [NSOpenPanel openPanel];
-    [panel setMessage:@"请选择需要提取的根文件夹"];
+    [panel setMessage:@"请选择需要重新命名的根文件夹"];
     panel.prompt = @"确定";
     panel.canChooseDirectories = YES;
     panel.canCreateDirectories = NO;
@@ -37,18 +37,17 @@
                 folderPath = [folderPath stringByReplacingOccurrencesOfString:@"file://" withString:@""];
                 folderPath = [folderPath stringByRemovingPercentEncoding];
                 
-                DDLogInfo(@"已选择需要提取的根文件夹：%@", folderPath);
-                [[MRBLogManager defaultManager] showLogWithFormat:@"已选择需要提取的根文件夹：%@", folderPath];
+                DDLogInfo(@"已选择需要重新命名的根文件夹：%@", folderPath);
+                [[MRBLogManager defaultManager] showLogWithFormat:@"已选择需要重新命名的根文件夹：%@", folderPath];
                 
-                [self startExtractingWithRootFolderPath:folderPath];
+                [self startRenamWithRootFolderPath:folderPath];
             });
         }
     }];
 }
 
-- (void)startExtractingWithRootFolderPath:(NSString *)rootFolderPath {
+- (void)startRenamWithRootFolderPath:(NSString *)rootFolderPath {
     self.rootFolderPath = rootFolderPath;
-    NSString *extractRootFolderPath = [rootFolderPath.stringByDeletingLastPathComponent stringByAppendingPathComponent:[NSString stringWithFormat:@"%@ Extract", rootFolderPath.lastPathComponent]];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"开始提取 %@ 的文件夹", rootFolderPath];
     
@@ -65,20 +64,14 @@
         if (subFilesPaths.count != 0) {
             continue;
         }
+        
+        // 重命名
         NSString *subFolderPath = subFolderPaths.firstObject;
-        if (![subFolderPath.lastPathComponent isEqualToString:folderPath.lastPathComponent]) {
-            continue;
-        }
-        
-        // 先创建提取的根文件夹
-        [[MRBFileManager defaultManager] createFolderAtPathIfNotExist:extractRootFolderPath];
-        
-        // 移动
-        NSString *destFolderPath = [extractRootFolderPath stringByAppendingPathComponent:folderPath.lastPathComponent];
+        NSString *destFolderPath = [subFolderPath.stringByDeletingLastPathComponent stringByAppendingPathComponent:folderPath.lastPathComponent];
         [[MRBFileManager defaultManager] moveItemAtPath:subFolderPath toDestPath:destFolderPath];
         
-        [[MRBLogManager defaultManager] showLogWithFormat:@"提取: %@", subFolderPath];
-        [[MRBLogManager defaultManager] showLogWithFormat:@"至: %@", destFolderPath];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"将: %@", subFolderPath];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"重命名为: %@", destFolderPath];
     }
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"完成提取 %@ 的文件夹", rootFolderPath];

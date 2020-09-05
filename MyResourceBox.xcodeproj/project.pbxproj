@@ -134,6 +134,7 @@
 		ACE0503022802DF200367F3A /* FOFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0502F22802DF200367F3A /* FOFolderManager.m */; };
 		ACE060D722E34280005329C3 /* ExHentaiTitlePixivUrlsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE060D622E34280005329C3 /* ExHentaiTitlePixivUrlsManager.m */; };
 		ACE6944B2503D64200F2F91A /* MRBExtraceUnzipFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE6944A2503D64200F2F91A /* MRBExtraceUnzipFolderManager.m */; };
+		ACE6944E2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE6944D2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.m */; };
 		ACECBDC9240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDC7240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.m */; };
 		ACECBDCA240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACECBDC8240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib */; };
 		ACECBDCE240C291400DB92DC /* MRBCroppingPictureCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDCC240C291400DB92DC /* MRBCroppingPictureCustomViewController.m */; };
@@ -442,6 +443,8 @@
 		ACE060D622E34280005329C3 /* ExHentaiTitlePixivUrlsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExHentaiTitlePixivUrlsManager.m; sourceTree = "<group>"; };
 		ACE694492503D64200F2F91A /* MRBExtraceUnzipFolderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBExtraceUnzipFolderManager.h; sourceTree = "<group>"; };
 		ACE6944A2503D64200F2F91A /* MRBExtraceUnzipFolderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBExtraceUnzipFolderManager.m; sourceTree = "<group>"; };
+		ACE6944C2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBRenameSingleSubFolderNameManager.h; sourceTree = "<group>"; };
+		ACE6944D2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBRenameSingleSubFolderNameManager.m; sourceTree = "<group>"; };
 		ACECBDC6240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureCustomWindowController.h; sourceTree = "<group>"; };
 		ACECBDC7240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureCustomWindowController.m; sourceTree = "<group>"; };
 		ACECBDC8240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBCroppingPictureCustomWindowController.xib; sourceTree = "<group>"; };
@@ -1133,6 +1136,8 @@
 				AC45F67C24E8156300B77180 /* MRBFileNameFindSpecificCharactersManager.m */,
 				ACE694492503D64200F2F91A /* MRBExtraceUnzipFolderManager.h */,
 				ACE6944A2503D64200F2F91A /* MRBExtraceUnzipFolderManager.m */,
+				ACE6944C2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.h */,
+				ACE6944D2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.m */,
 			);
 			path = FileOperation;
 			sourceTree = "<group>";
@@ -1489,6 +1494,7 @@
 				AC883A291DBB920800CC579E /* WeiboRequestTokenWindowController.m in Sources */,
 				AC19E1511E4844660084A510 /* SAPIIllust.m in Sources */,
 				AC8508D11DB39146004AFE84 /* main.m in Sources */,
+				ACE6944E2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.m in Sources */,
 				ACF9D92C2413A10D00C0019A /* MRBScreenSizeResolutionViewController.m in Sources */,
 				AC9870611E4C4A980076DC92 /* PixivDownloadObject.m in Sources */,
 				AC2824ED2445C857000B2589 /* MRBPixivUrlManager.m in Sources */,
