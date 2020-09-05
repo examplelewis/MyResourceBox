@@ -15,6 +15,7 @@
 #import "MRBFileNameFindSpecificCharactersManager.h"
 #import "MRBExtraceUnzipFolderManager.h"
 #import "MRBRenameSingleSubFolderNameManager.h"
+#import "MRBCleanNoneItemSubFolderManager.h"
 
 @implementation FileOperationMethod
 
@@ -48,6 +49,10 @@
             break;
         case 13: {
             [[MRBRenameSingleSubFolderNameManager new] start];
+        }
+            break;
+        case 14: {
+            [[MRBCleanNoneItemSubFolderManager new] start];
         }
             break;
         case 21: {

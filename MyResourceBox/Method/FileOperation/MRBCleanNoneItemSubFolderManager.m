@@ -1,20 +1,20 @@
 //
-//  MRBRenameSingleSubFolderNameManager.m
+//  MRBCleanNoneItemSubFolderManager.m
 //  MyResourceBox
 //
 //  Created by 龚宇 on 20/09/05.
 //  Copyright © 2020 gongyuTest. All rights reserved.
 //
 
-#import "MRBRenameSingleSubFolderNameManager.h"
+#import "MRBCleanNoneItemSubFolderManager.h"
 
-@interface MRBRenameSingleSubFolderNameManager ()
+@interface MRBCleanNoneItemSubFolderManager ()
 
 @property (copy) NSString *rootFolderPath;
 
 @end
 
-@implementation MRBRenameSingleSubFolderNameManager
+@implementation MRBCleanNoneItemSubFolderManager
 
 - (void)start {
     [self chooseRootFolder];
@@ -22,7 +22,7 @@
 
 - (void)chooseRootFolder {
     NSOpenPanel *panel = [NSOpenPanel openPanel];
-    [panel setMessage:@"请选择需要重新命名的根文件夹"];
+    [panel setMessage:@"请选择需要清空没有项目的根文件夹"];
     panel.prompt = @"确定";
     panel.canChooseDirectories = YES;
     panel.canCreateDirectories = NO;
@@ -37,19 +37,19 @@
                 folderPath = [folderPath stringByReplacingOccurrencesOfString:@"file://" withString:@""];
                 folderPath = [folderPath stringByRemovingPercentEncoding];
                 
-                DDLogInfo(@"已选择需要重新命名的根文件夹：%@", folderPath);
-                [[MRBLogManager defaultManager] showLogWithFormat:@"已选择需要重新命名的根文件夹：%@", folderPath];
+                DDLogInfo(@"已选择需要清空没有项目的根文件夹：%@", folderPath);
+                [[MRBLogManager defaultManager] showLogWithFormat:@"已选择需要清空没有项目的根文件夹：%@", folderPath];
                 
-                [self startRenameWithRootFolderPath:folderPath];
+                [self startClearNoneItemFolderWithRootFolderPath:folderPath];
             });
         }
     }];
 }
 
-- (void)startRenameWithRootFolderPath:(NSString *)rootFolderPath {
+- (void)startClearNoneItemFolderWithRootFolderPath:(NSString *)rootFolderPath {
     self.rootFolderPath = rootFolderPath;
     
-    [[MRBLogManager defaultManager] showLogWithFormat:@"开始重新命名 %@ 的文件夹", rootFolderPath];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"开始清空没有项目 %@ 的文件夹", rootFolderPath];
     
     NSArray *folderPaths = [[MRBFileManager defaultManager] getFolderPathsInFolder:rootFolderPath];
     for (NSInteger i = 0; i < folderPaths.count; i++) {
@@ -57,24 +57,22 @@
         NSArray *subFolderPaths = [[MRBFileManager defaultManager] getFolderPathsInFolder:folderPath];
         NSArray *subFilesPaths = [[MRBFileManager defaultManager] getFilePathsInFolder:folderPath];
         
-        // 满足条件：文件夹的子文件夹只有一个，没有文件
-        if (subFolderPaths.count != 1) {
+        // 满足条件：文件夹的没有子文件夹，没有文件
+        if (subFolderPaths.count != 0) {
             continue;
         }
         if (subFilesPaths.count != 0) {
             continue;
         }
         
-        // 重命名
-        NSString *subFolderPath = subFolderPaths.firstObject;
-        NSString *destFolderPath = [subFolderPath.stringByDeletingLastPathComponent stringByAppendingPathComponent:folderPath.lastPathComponent];
-        [[MRBFileManager defaultManager] moveItemAtPath:subFolderPath toDestPath:destFolderPath];
+        // 删除文件夹
+        [[MRBFileManager defaultManager] trashFilesAtPaths:@[[NSURL fileURLWithPath:folderPath]]];
         
-        [[MRBLogManager defaultManager] showLogWithFormat:@"将: %@", subFolderPath];
-        [[MRBLogManager defaultManager] showLogWithFormat:@"重命名为: %@", destFolderPath];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"移动到废纸篓: %@", folderPath];
     }
     
-    [[MRBLogManager defaultManager] showLogWithFormat:@"完成重新命名 %@ 的文件夹", rootFolderPath];
+    [[MRBLogManager defaultManager] showLogWithFormat:@"完成清空没有项目 %@ 的文件夹", rootFolderPath];
 }
+// 清空没有项目的子文件夹
 
 @end

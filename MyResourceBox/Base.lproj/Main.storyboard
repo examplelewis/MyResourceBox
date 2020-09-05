@@ -1191,6 +1191,12 @@
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="4gI-pH-ZhE"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="清空没有项目的子文件夹" tag="14" id="iap-Xd-zIY">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="6jR-XU-aYR"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="aMS-B4-dG5"/>
                                                     <menuItem title="提取文件内特定格式的文件【剪切】" tag="21" id="sIt-1D-fNc">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
