@@ -15,6 +15,8 @@
 @property (strong) MRBCroppingPictureEdgeInsets *edgeInsets;
 @property (assign) NSInteger currentIndex;
 
+@property (strong) NSImage *originalImage;
+
 @end
 
 @implementation MRBCroppingPictureOperation
@@ -33,64 +35,59 @@
     if (!self.isCancelled) {
         [[MRBLogManager defaultManager] showLogWithFormat:@"开始裁剪第 %ld 张图片", _currentIndex];
         
-        CFStringRef imageType = NULL;
-        if ([_fromPath.pathExtension caseInsensitiveCompare:@"jpeg"] == NSOrderedSame || [_fromPath.pathExtension caseInsensitiveCompare:@"jpg"] == NSOrderedSame) {
-            imageType = kUTTypeJPEG;
-        } else if ([_fromPath.pathExtension caseInsensitiveCompare:@"png"] == NSOrderedSame) {
-            imageType = kUTTypePNG;
+        NSInteger width = 0;
+        NSInteger height = 0;
+        NSArray *imageReps = [NSBitmapImageRep imageRepsWithContentsOfFile:self.fromPath];
+        for (NSImageRep *imageRep in imageReps) {
+            if ([imageRep pixelsWide] > width) {
+                width = [imageRep pixelsWide];
+            }
+            if ([imageRep pixelsHigh] > height) {
+                height = [imageRep pixelsHigh];
+            }
         }
-        if (imageType == NULL) {
-            [[MRBLogManager defaultManager] showLogWithFormat:@"需要裁剪的图片: %@ 类型未知，跳过", _fromPath];
-            return;
-        }
+        self.originalImage = [[NSImage alloc] initWithSize:NSMakeSize((CGFloat)width, (CGFloat)height)];
+        [self.originalImage addRepresentations:imageReps];
         
-        // 获取当前图片
-        CGImageRef imageRef = NULL;
-        CFURLRef imageUrl = (__bridge CFURLRef)[NSURL fileURLWithPath:_fromPath];
-        CGImageSourceRef loadRef = CGImageSourceCreateWithURL(imageUrl, NULL);
-        if (loadRef != NULL) {
-            imageRef = CGImageSourceCreateImageAtIndex(loadRef, 0, NULL);
-            CFRelease(loadRef); // Release CGImageSource reference
-        }
+        // Cropping
+        NSRect croppedRect = [self croppedRect];
+        [[MRBLogManager defaultManager] showLogWithFormat:@"图片：%@\n设置参数：%@\n图片尺寸：%@\n计算后的尺寸：%@", self.fromPath, self.edgeInsets, NSStringFromSize(self.originalImage.size), NSStringFromRect(croppedRect)];
+        NSImage *croppedImage = [[NSImage alloc] initWithSize:NSMakeSize(croppedRect.size.width, croppedRect.size.height)];
+        [croppedImage lockFocus];
+        [self.originalImage drawInRect:CGRectMake(0, 0, croppedRect.size.width, croppedRect.size.height) fromRect:croppedRect operation:NSCompositingOperationCopy fraction:1.0f];
+        [croppedImage unlockFocus];
         
-        // 尺寸
-        CGSize originalSize = CGSizeMake(CGImageGetWidth(imageRef), CGImageGetHeight(imageRef));
-        CGRect croppedRect = [self croppedRectFromOriginalSize:originalSize];
-        if (CGRectEqualToRect(croppedRect, CGRectZero)) {
-            return;
+        // Export
+        NSBitmapImageRep *croppedBitmapImageRep = [[NSBitmapImageRep alloc] initWithData:croppedImage.TIFFRepresentation];
+        if ([self.fromPath.pathExtension caseInsensitiveCompare:@"png"] == NSOrderedSame) {
+            NSData *croppedImageData = [croppedBitmapImageRep representationUsingType:NSBitmapImageFileTypePNG properties:@{}];
+            [croppedImageData writeToFile:self.toPath atomically:YES];
+        } else if ([self.fromPath.pathExtension caseInsensitiveCompare:@"tiff"] == NSOrderedSame) {
+            NSData *croppedImageData = [croppedBitmapImageRep representationUsingType:NSBitmapImageFileTypeTIFF properties:@{NSImageCompressionFactor: @(1.0)}];
+            [croppedImageData writeToFile:self.toPath atomically:YES];
+        } else {
+            NSData *croppedImageData = [croppedBitmapImageRep representationUsingType:NSBitmapImageFileTypeJPEG properties:@{NSImageCompressionFactor: @(1.0)}];
+            [croppedImageData writeToFile:self.toPath atomically:YES];
         }
-        [[MRBLogManager defaultManager] showLogWithFormat:@"图片：%@\n设置参数：%@\n图片尺寸：%@\n计算后的尺寸：%@", self.fromPath, self.edgeInsets, NSStringFromSize(originalSize), NSStringFromRect(croppedRect)];
-        
-        // 进行裁剪
-        CGImageRef croppedImage = CGImageCreateWithImageInRect(imageRef, croppedRect);
-        CFURLRef saveUrl = (__bridge CFURLRef)[NSURL fileURLWithPath:_toPath];
-        CGImageDestinationRef destination = CGImageDestinationCreateWithURL(saveUrl, imageType, 1, NULL);
-        CGImageDestinationAddImage(destination, croppedImage, nil);
-        if (!CGImageDestinationFinalize(destination)) {
-            [[MRBLogManager defaultManager] showLogWithFormat:@"图片: %@ 裁剪出错，跳过", _fromPath];
-        }
-        
-        // 手动 Release
-        // CFURLRef imageUrl 和 [NSURL fileURLWithPath:] 创建的对象本质上指向的是同一块内存地址，当 NSURL 对象消失后，imageUrl 自然变为 NULL，而 CFRelease 一个 NULL 的对象就会报 野指针(EXC_BAD_ACCESS) 错误
-        CFRelease(imageRef);
-        CFRelease(croppedImage);
-        CFRelease(destination);
     }
 }
 
 // 计算裁剪后的 Rect
-- (CGRect)croppedRectFromOriginalSize:(CGSize)size {
+- (CGRect)croppedRect {
+    NSSize size = self.originalImage.size;
+    
     CGFloat x = 0;
     CGFloat y = 0;
     CGFloat width = size.width;
     CGFloat height = size.height;
     
     // 计算
-    if (self.edgeInsets.top.enabled) {
-        if (self.edgeInsets.top.unit == 1) {
-            y = ceil(size.height * self.edgeInsets.top.value / 100.0f);
+    // NSImage 左下角为 {0, 0}
+    if (self.edgeInsets.bottom.enabled) {
+        if (self.edgeInsets.bottom.unit == 1) {
+            y = ceil(size.height * self.edgeInsets.bottom.value / 100.0f);
         } else {
-            y = ceil(self.edgeInsets.top.value);
+            y = ceil(self.edgeInsets.bottom.value);
         }
     }
     
@@ -102,15 +99,15 @@
         }
     }
     
-    if (self.edgeInsets.bottom.enabled) {
-        CGFloat paddingBottom = 0;
-        if (self.edgeInsets.bottom.unit == 1) {
-            paddingBottom = ceil(size.height * self.edgeInsets.bottom.value / 100.0f);
+    if (self.edgeInsets.top.enabled) {
+        CGFloat paddingTop = 0;
+        if (self.edgeInsets.top.unit == 1) {
+            paddingTop = ceil(size.height * self.edgeInsets.top.value / 100.0f);
         } else {
-            paddingBottom = ceil(self.edgeInsets.bottom.value);
+            paddingTop = ceil(self.edgeInsets.top.value);
         }
         
-        height = size.height - y - paddingBottom;
+        height = size.height - y - paddingTop;
     } else {
         height = size.height - y;
     }
