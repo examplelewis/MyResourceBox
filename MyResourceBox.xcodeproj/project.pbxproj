@@ -136,6 +136,7 @@
 		ACE6944B2503D64200F2F91A /* MRBExtraceUnzipFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE6944A2503D64200F2F91A /* MRBExtraceUnzipFolderManager.m */; };
 		ACE6944E2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE6944D2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.m */; };
 		ACE694512503E05700F2F91A /* MRBCleanNoneItemSubFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE694502503E05700F2F91A /* MRBCleanNoneItemSubFolderManager.m */; };
+		ACE694542503E33900F2F91A /* MRBAddSubFolderNameWithFolderNameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE694532503E33900F2F91A /* MRBAddSubFolderNameWithFolderNameManager.m */; };
 		ACECBDC9240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDC7240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.m */; };
 		ACECBDCA240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACECBDC8240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib */; };
 		ACECBDCE240C291400DB92DC /* MRBCroppingPictureCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDCC240C291400DB92DC /* MRBCroppingPictureCustomViewController.m */; };
@@ -448,6 +449,8 @@
 		ACE6944D2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBRenameSingleSubFolderNameManager.m; sourceTree = "<group>"; };
 		ACE6944F2503E05700F2F91A /* MRBCleanNoneItemSubFolderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCleanNoneItemSubFolderManager.h; sourceTree = "<group>"; };
 		ACE694502503E05700F2F91A /* MRBCleanNoneItemSubFolderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCleanNoneItemSubFolderManager.m; sourceTree = "<group>"; };
+		ACE694522503E33900F2F91A /* MRBAddSubFolderNameWithFolderNameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBAddSubFolderNameWithFolderNameManager.h; sourceTree = "<group>"; };
+		ACE694532503E33900F2F91A /* MRBAddSubFolderNameWithFolderNameManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBAddSubFolderNameWithFolderNameManager.m; sourceTree = "<group>"; };
 		ACECBDC6240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureCustomWindowController.h; sourceTree = "<group>"; };
 		ACECBDC7240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureCustomWindowController.m; sourceTree = "<group>"; };
 		ACECBDC8240C28FD00DB92DC /* MRBCroppingPictureCustomWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBCroppingPictureCustomWindowController.xib; sourceTree = "<group>"; };
@@ -1143,6 +1146,8 @@
 				ACE6944D2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.m */,
 				ACE6944F2503E05700F2F91A /* MRBCleanNoneItemSubFolderManager.h */,
 				ACE694502503E05700F2F91A /* MRBCleanNoneItemSubFolderManager.m */,
+				ACE694522503E33900F2F91A /* MRBAddSubFolderNameWithFolderNameManager.h */,
+				ACE694532503E33900F2F91A /* MRBAddSubFolderNameWithFolderNameManager.m */,
 			);
 			path = FileOperation;
 			sourceTree = "<group>";
@@ -1556,6 +1561,7 @@
 				ACC93F072277F98000C207E6 /* PixivFetchingManager.m in Sources */,
 				ACE0502A22802BAC00367F3A /* FODayFolderManager.m in Sources */,
 				ACC8DDC0226FFB6A005228D7 /* GelbooruDailyPicManager.m in Sources */,
+				ACE694542503E33900F2F91A /* MRBAddSubFolderNameWithFolderNameManager.m in Sources */,
 				ACA9C91A21FD933500B33CB4 /* PixivHttpSessionManager.m in Sources */,
 				AC85090D1DB39677004AFE84 /* MRBUserManager.m in Sources */,
 				ACFCB88124505C5500855461 /* MRBSitesImageUrlFetchModel.m in Sources */,

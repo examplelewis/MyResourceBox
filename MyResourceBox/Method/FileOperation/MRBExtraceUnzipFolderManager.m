@@ -8,12 +8,6 @@
 
 #import "MRBExtraceUnzipFolderManager.h"
 
-@interface MRBExtraceUnzipFolderManager ()
-
-@property (copy) NSString *rootFolderPath;
-
-@end
-
 @implementation MRBExtraceUnzipFolderManager
 
 - (void)start {
@@ -47,7 +41,6 @@
 }
 
 - (void)startExtractingWithRootFolderPath:(NSString *)rootFolderPath {
-    self.rootFolderPath = rootFolderPath;
     NSString *extractRootFolderPath = [rootFolderPath.stringByDeletingLastPathComponent stringByAppendingPathComponent:[NSString stringWithFormat:@"%@ Extract", rootFolderPath.lastPathComponent]];
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"开始提取 %@ 的文件夹", rootFolderPath];

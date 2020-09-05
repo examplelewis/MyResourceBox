@@ -16,6 +16,7 @@
 #import "MRBExtraceUnzipFolderManager.h"
 #import "MRBRenameSingleSubFolderNameManager.h"
 #import "MRBCleanNoneItemSubFolderManager.h"
+#import "MRBAddSubFolderNameWithFolderNameManager.h"
 
 @implementation FileOperationMethod
 
@@ -53,6 +54,10 @@
             break;
         case 14: {
             [[MRBCleanNoneItemSubFolderManager new] start];
+        }
+            break;
+        case 15: {
+            [[MRBAddSubFolderNameWithFolderNameManager new] start];
         }
             break;
         case 21: {

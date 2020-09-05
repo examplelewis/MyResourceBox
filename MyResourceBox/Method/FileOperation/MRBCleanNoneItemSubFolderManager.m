@@ -8,12 +8,6 @@
 
 #import "MRBCleanNoneItemSubFolderManager.h"
 
-@interface MRBCleanNoneItemSubFolderManager ()
-
-@property (copy) NSString *rootFolderPath;
-
-@end
-
 @implementation MRBCleanNoneItemSubFolderManager
 
 - (void)start {
@@ -47,8 +41,6 @@
 }
 
 - (void)startClearNoneItemFolderWithRootFolderPath:(NSString *)rootFolderPath {
-    self.rootFolderPath = rootFolderPath;
-    
     [[MRBLogManager defaultManager] showLogWithFormat:@"开始清空没有项目 %@ 的文件夹", rootFolderPath];
     
     NSArray *folderPaths = [[MRBFileManager defaultManager] getFolderPathsInFolder:rootFolderPath];
@@ -73,6 +65,5 @@
     
     [[MRBLogManager defaultManager] showLogWithFormat:@"完成清空没有项目 %@ 的文件夹", rootFolderPath];
 }
-// 清空没有项目的子文件夹
 
 @end

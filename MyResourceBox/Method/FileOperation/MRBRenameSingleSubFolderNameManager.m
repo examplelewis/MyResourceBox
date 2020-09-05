@@ -8,12 +8,6 @@
 
 #import "MRBRenameSingleSubFolderNameManager.h"
 
-@interface MRBRenameSingleSubFolderNameManager ()
-
-@property (copy) NSString *rootFolderPath;
-
-@end
-
 @implementation MRBRenameSingleSubFolderNameManager
 
 - (void)start {
@@ -47,8 +41,6 @@
 }
 
 - (void)startRenameWithRootFolderPath:(NSString *)rootFolderPath {
-    self.rootFolderPath = rootFolderPath;
-    
     [[MRBLogManager defaultManager] showLogWithFormat:@"开始重新命名 %@ 的文件夹", rootFolderPath];
     
     NSArray *folderPaths = [[MRBFileManager defaultManager] getFolderPathsInFolder:rootFolderPath];

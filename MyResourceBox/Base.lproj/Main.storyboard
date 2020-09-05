@@ -1197,6 +1197,12 @@
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="6jR-XU-aYR"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="将所有子文件夹的名称前加上父文件夹的名称" tag="15" id="EFL-FL-VMy">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="Y2H-be-7fZ"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="aMS-B4-dG5"/>
                                                     <menuItem title="提取文件内特定格式的文件【剪切】" tag="21" id="sIt-1D-fNc">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
