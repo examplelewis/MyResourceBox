@@ -19,6 +19,7 @@
 #import "MRBPixivFollowingAndBlockingDuplicateManager.h"
 #import "MRBPixivUrlManager.h"
 #import "PixivUserStateExamineManager.h"
+#import "MRBPixivDeleteWillDownloadUserEntriesManager.h"
 
 @implementation PixivMethod
 
@@ -113,6 +114,10 @@
             break;
         case 51: {
             [[MRBPixivUrlManager new] start];
+        }
+            break;
+        case 61: {
+            [[MRBPixivDeleteWillDownloadUserEntriesManager new] start];
         }
             break;
         case 91: {

@@ -139,6 +139,7 @@
 		ACECBDCF240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACECBDCD240C291400DB92DC /* MRBCroppingPictureCustomViewController.xib */; };
 		ACECBDD2240C292C00DB92DC /* MRBCroppingPictureCustomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD1240C292C00DB92DC /* MRBCroppingPictureCustomManager.m */; };
 		ACECBDDA240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD9240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m */; };
+		ACF0371625037D8F0072267C /* MRBPixivDeleteWillDownloadUserEntriesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF0371525037D8F0072267C /* MRBPixivDeleteWillDownloadUserEntriesManager.m */; };
 		ACF306772424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF306752424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.m */; };
 		ACF306782424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF306762424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib */; };
 		ACF3067C2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3067A2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m */; };
@@ -448,6 +449,8 @@
 		ACECBDD1240C292C00DB92DC /* MRBCroppingPictureCustomManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureCustomManager.m; sourceTree = "<group>"; };
 		ACECBDD8240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBCroppingPictureCustomWeiboWaterprintOperation.h; sourceTree = "<group>"; };
 		ACECBDD9240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureCustomWeiboWaterprintOperation.m; sourceTree = "<group>"; };
+		ACF0371425037D8F0072267C /* MRBPixivDeleteWillDownloadUserEntriesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBPixivDeleteWillDownloadUserEntriesManager.h; sourceTree = "<group>"; };
+		ACF0371525037D8F0072267C /* MRBPixivDeleteWillDownloadUserEntriesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBPixivDeleteWillDownloadUserEntriesManager.m; sourceTree = "<group>"; };
 		ACF306742424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBShadowsocksXRuleWindowController.h; sourceTree = "<group>"; };
 		ACF306752424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBShadowsocksXRuleWindowController.m; sourceTree = "<group>"; };
 		ACF306762424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBShadowsocksXRuleWindowController.xib; sourceTree = "<group>"; };
@@ -618,6 +621,8 @@
 				AC2824EC2445C857000B2589 /* MRBPixivUrlManager.m */,
 				AC0D8D5D2468E24900639082 /* PixivUserStateExamineManager.h */,
 				AC0D8D5E2468E24900639082 /* PixivUserStateExamineManager.m */,
+				ACF0371425037D8F0072267C /* MRBPixivDeleteWillDownloadUserEntriesManager.h */,
+				ACF0371525037D8F0072267C /* MRBPixivDeleteWillDownloadUserEntriesManager.m */,
 				ACC93EF22277EF6900C207E6 /* Managers */,
 			);
 			path = Pixiv;
@@ -1506,6 +1511,7 @@
 				AC9870621E4C4A980076DC92 /* PixivMangaObject.m in Sources */,
 				ACCFA0BA226D5D3D007514C0 /* MRBCatchCrashManager.m in Sources */,
 				AC2D1B151DD0191C0085F8E0 /* MRBDeviceManager.m in Sources */,
+				ACF0371625037D8F0072267C /* MRBPixivDeleteWillDownloadUserEntriesManager.m in Sources */,
 				AC0D8D5F2468E24900639082 /* PixivUserStateExamineManager.m in Sources */,
 				AC789C821DE15A1D00523A12 /* JDLingyuMethod.m in Sources */,
 				ACC93EF02277EBCD00C207E6 /* BCYOrganizingManager.m in Sources */,

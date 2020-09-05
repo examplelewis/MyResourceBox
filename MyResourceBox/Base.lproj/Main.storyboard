@@ -864,6 +864,13 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="883-Ko-wPL"/>
+                                                    <menuItem title="删除将要下载用户的下载记录" tag="61" id="aPk-cT-wKZ">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingPixiv:" target="Voe-Tx-rLC" id="keM-nW-S0z"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="6KA-eA-sDL"/>
                                                     <menuItem title="整理下载好的用户" tag="91" id="SrW-Qj-z2t">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
