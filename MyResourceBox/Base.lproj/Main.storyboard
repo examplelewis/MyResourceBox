@@ -1191,13 +1191,19 @@
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="4gI-pH-ZhE"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="清空没有项目的子文件夹" tag="14" id="iap-Xd-zIY">
+                                                    <menuItem title="将单个子文件的名称命名为父文件夹" tag="14" id="Pv6-Mf-6iT">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="Odw-k7-VoP"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="清空没有项目的子文件夹" tag="15" id="iap-Xd-zIY">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="6jR-XU-aYR"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="将所有子文件夹的名称前加上父文件夹的名称" tag="15" id="EFL-FL-VMy">
+                                                    <menuItem title="将所有子文件夹的名称前加上父文件夹的名称" tag="16" id="EFL-FL-VMy">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="Y2H-be-7fZ"/>

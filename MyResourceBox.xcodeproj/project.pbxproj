@@ -44,6 +44,7 @@
 		AC4AB7E52417E25B008FD444 /* MRBSitesOrganization.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4AB7E42417E25B008FD444 /* MRBSitesOrganization.m */; };
 		AC4AB7E82417E739008FD444 /* MRBSitesOrganizationTagFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4AB7E72417E739008FD444 /* MRBSitesOrganizationTagFetchManager.m */; };
 		AC4AB7EB2417E93B008FD444 /* MRBResourceGlobalTagManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4AB7EA2417E93B008FD444 /* MRBResourceGlobalTagManager.m */; };
+		AC55334D25048F3600FE5A5F /* MRBRenameSingleSubFileNameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC55334C25048F3600FE5A5F /* MRBRenameSingleSubFileNameManager.m */; };
 		AC564E0D24443D1800B6C9FF /* MRBTemp.m in Sources */ = {isa = PBXBuildFile; fileRef = AC564E0C24443D1800B6C9FF /* MRBTemp.m */; };
 		AC564E1124445E3100B6C9FF /* MRBMacmini2018ConfigureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC564E1024445E3100B6C9FF /* MRBMacmini2018ConfigureManager.m */; };
 		AC75C6531F8657800060CF6B /* MRBHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC75C6521F8657800060CF6B /* MRBHttpManager.m */; };
@@ -259,6 +260,8 @@
 		AC4AB7E72417E739008FD444 /* MRBSitesOrganizationTagFetchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBSitesOrganizationTagFetchManager.m; sourceTree = "<group>"; };
 		AC4AB7E92417E93B008FD444 /* MRBResourceGlobalTagManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBResourceGlobalTagManager.h; sourceTree = "<group>"; };
 		AC4AB7EA2417E93B008FD444 /* MRBResourceGlobalTagManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBResourceGlobalTagManager.m; sourceTree = "<group>"; };
+		AC55334B25048F3600FE5A5F /* MRBRenameSingleSubFileNameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBRenameSingleSubFileNameManager.h; sourceTree = "<group>"; };
+		AC55334C25048F3600FE5A5F /* MRBRenameSingleSubFileNameManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBRenameSingleSubFileNameManager.m; sourceTree = "<group>"; };
 		AC564E0B24443D1800B6C9FF /* MRBTemp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBTemp.h; sourceTree = "<group>"; };
 		AC564E0C24443D1800B6C9FF /* MRBTemp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBTemp.m; sourceTree = "<group>"; };
 		AC564E0F24445E3100B6C9FF /* MRBMacmini2018ConfigureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBMacmini2018ConfigureManager.h; sourceTree = "<group>"; };
@@ -1144,6 +1147,8 @@
 				ACE6944A2503D64200F2F91A /* MRBExtraceUnzipFolderManager.m */,
 				ACE6944C2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.h */,
 				ACE6944D2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.m */,
+				AC55334B25048F3600FE5A5F /* MRBRenameSingleSubFileNameManager.h */,
+				AC55334C25048F3600FE5A5F /* MRBRenameSingleSubFileNameManager.m */,
 				ACE6944F2503E05700F2F91A /* MRBCleanNoneItemSubFolderManager.h */,
 				ACE694502503E05700F2F91A /* MRBCleanNoneItemSubFolderManager.m */,
 				ACE694522503E33900F2F91A /* MRBAddSubFolderNameWithFolderNameManager.h */,
@@ -1549,6 +1554,7 @@
 				ACCCE266227E8F0700A18C8D /* AnalysisInputManager.m in Sources */,
 				AC2B405024DFCEDE0071502D /* MRBMediaLizhiPodcastInfoManager.m in Sources */,
 				ACC5C00D22893FC0004E7C83 /* ResourceGlobalOrganizeManager.m in Sources */,
+				AC55334D25048F3600FE5A5F /* MRBRenameSingleSubFileNameManager.m in Sources */,
 				ACC93EE92277E92100C207E6 /* BCYHTMLParseManager.m in Sources */,
 				AC789C731DE159B700523A12 /* BCYMethod.m in Sources */,
 				ACC93F0A2277FA3100C207E6 /* PixivOrganizingManager.m in Sources */,
