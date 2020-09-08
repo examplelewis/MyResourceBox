@@ -92,12 +92,22 @@
     for (NSInteger i = 0; i < allFilePaths.count; i++) {
         BOOL found = NO;
         NSString *filePath = allFilePaths[i];
-        NSArray *filePathComponents = filePath.pathComponents;
+        NSMutableArray *filePathComponents = [filePath.pathComponents mutableCopy];
+        
+        // 去除包含 / 的路径
+        [filePathComponents filterUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString * _Nullable charStr, NSDictionary<NSString *,id> * _Nullable bindings) {
+            return ![charStr isEqualToString:@"/"];
+        }]];
+        
+        if ([filePathComponents.lastObject hasPrefix:@"(C89) [AGOI亭 (三九呂)]"]) {
+            NSLog(@"haha");
+        }
         
         for (NSInteger j = 0; j < filePathComponents.count; j++) {
             for (NSInteger k = 0; k < self.characters.count; k++) {
                 if ([filePathComponents[j] rangeOfString:self.characters[k]].location != NSNotFound) {
                     found = YES;
+     
                     goto outer;
                 }
             }
@@ -157,7 +167,7 @@
         for (NSInteger j = 0; j < filePathComponents.count; j++) {
             for (NSInteger k = 0; k < self.characters.count; k++) {
                 if ([filePathComponents[j] rangeOfString:self.characters[k]].location != NSNotFound) {
-                    filePathComponents[j] = [filePathComponents[j] stringByReplacingOccurrencesOfString:self.characters[k] withString:@""];
+                    filePathComponents[j] = [filePathComponents[j] stringByReplacingOccurrencesOfString:self.characters[k] withString:@" "];
                 }
             }
         }

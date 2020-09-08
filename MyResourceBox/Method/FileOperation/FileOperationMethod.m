@@ -86,7 +86,9 @@
         }
             break;
         case 41: {
-            [[[MRBFileNameFindSpecificCharactersManager alloc] initWithCharacters:@"* ? \\ \" < > |"] selectRootFolder];
+            // 本来是防止 components 中包含 / 的，但是系统会将 / 转译成 :
+            //   是不一样的
+            [[[MRBFileNameFindSpecificCharactersManager alloc] initWithCharacters:@"* ? \\ \" < > | / :  "] selectRootFolder];
         }
             break;
         case 42: {
@@ -94,7 +96,9 @@
         }
             break;
         case 51: {
-            [[[MRBFileNameFindSpecificCharactersManager alloc] initWithCharacters:@"* ? \\ \" < > |"] modifyFileNames];
+            // 本来是防止 components 中包含 / 的，但是系统会将 / 转译成 :
+            //   是不一样的
+            [[[MRBFileNameFindSpecificCharactersManager alloc] initWithCharacters:@"* ? \\ \" < > | / :  "] modifyFileNames];
         }
             break;
         case 52: {
