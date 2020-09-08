@@ -18,6 +18,7 @@
 #import "MRBRenameSingleSubFileNameManager.h"
 #import "MRBCleanNoneItemSubFolderManager.h"
 #import "MRBAddSubFolderNameWithFolderNameManager.h"
+#import "MRBSearchHiddenFileManager.h"
 
 @implementation FileOperationMethod
 
@@ -103,6 +104,10 @@
             break;
         case 52: {
             [[[MRBFileNameFindSpecificCharactersManager alloc] initWithCharacters:nil] modifyFileNames];
+        }
+            break;
+        case 61: {
+            [[MRBSearchHiddenFileManager new] start];
         }
             break;
         default:

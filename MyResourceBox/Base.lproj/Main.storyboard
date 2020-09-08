@@ -1267,6 +1267,13 @@
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="1XY-PJ-0Wy"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="tCH-fa-ZNn"/>
+                                                    <menuItem title="查找文件夹中的隐藏文件【.开头】" tag="61" id="TvW-p5-cKW">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="ykE-2d-iCi"/>
+                                                        </connections>
+                                                    </menuItem>
                                                 </items>
                                             </menu>
                                         </menuItem>
