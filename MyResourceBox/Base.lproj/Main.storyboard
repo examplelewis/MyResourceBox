@@ -1154,12 +1154,6 @@
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="f55-NC-Bug"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="整理导出的图片" tag="2" id="LOc-8C-xYF">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="UvZ-zK-2mR"/>
-                                                        </connections>
-                                                    </menuItem>
                                                     <menuItem title="整理筛选好的图片【数据库】" tag="3" id="RZq-h6-fqw">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>

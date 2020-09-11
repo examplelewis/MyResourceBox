@@ -30,10 +30,6 @@
             [FODayFolderManager start];
         }
             break;
-        case 2: {
-            [FOFilteredImageManager organizingExportPhotos];
-        }
-            break;
         case 3: {
             [FOFilteredImageManager organizingDatabase];
         }

@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)organizingDatabase;
 + (void)prepareOrganizingPhotos;
-+ (void)organizingExportPhotos;
 
 @end
 
