@@ -146,6 +146,7 @@
 		ACECBDD2240C292C00DB92DC /* MRBCroppingPictureCustomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD1240C292C00DB92DC /* MRBCroppingPictureCustomManager.m */; };
 		ACECBDDA240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ACECBDD9240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m */; };
 		ACF0371625037D8F0072267C /* MRBPixivDeleteWillDownloadUserEntriesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF0371525037D8F0072267C /* MRBPixivDeleteWillDownloadUserEntriesManager.m */; };
+		ACF04FED2516ED1500FF470D /* MRBExtractTorrentDownloadFolderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF04FEC2516ED1500FF470D /* MRBExtractTorrentDownloadFolderManager.m */; };
 		ACF306772424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF306752424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.m */; };
 		ACF306782424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF306762424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib */; };
 		ACF3067C2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3067A2424A4F700D15F67 /* MRBShadowsocksXRuleViewController.m */; };
@@ -469,6 +470,8 @@
 		ACECBDD9240C409600DB92DC /* MRBCroppingPictureCustomWeiboWaterprintOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBCroppingPictureCustomWeiboWaterprintOperation.m; sourceTree = "<group>"; };
 		ACF0371425037D8F0072267C /* MRBPixivDeleteWillDownloadUserEntriesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBPixivDeleteWillDownloadUserEntriesManager.h; sourceTree = "<group>"; };
 		ACF0371525037D8F0072267C /* MRBPixivDeleteWillDownloadUserEntriesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBPixivDeleteWillDownloadUserEntriesManager.m; sourceTree = "<group>"; };
+		ACF04FEB2516ED1500FF470D /* MRBExtractTorrentDownloadFolderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBExtractTorrentDownloadFolderManager.h; sourceTree = "<group>"; };
+		ACF04FEC2516ED1500FF470D /* MRBExtractTorrentDownloadFolderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBExtractTorrentDownloadFolderManager.m; sourceTree = "<group>"; };
 		ACF306742424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRBShadowsocksXRuleWindowController.h; sourceTree = "<group>"; };
 		ACF306752424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRBShadowsocksXRuleWindowController.m; sourceTree = "<group>"; };
 		ACF306762424A4E100D15F67 /* MRBShadowsocksXRuleWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRBShadowsocksXRuleWindowController.xib; sourceTree = "<group>"; };
@@ -1148,6 +1151,8 @@
 				AC45F67C24E8156300B77180 /* MRBFileNameFindSpecificCharactersManager.m */,
 				ACE694492503D64200F2F91A /* MRBExtraceUnzipFolderManager.h */,
 				ACE6944A2503D64200F2F91A /* MRBExtraceUnzipFolderManager.m */,
+				ACF04FEB2516ED1500FF470D /* MRBExtractTorrentDownloadFolderManager.h */,
+				ACF04FEC2516ED1500FF470D /* MRBExtractTorrentDownloadFolderManager.m */,
 				ACE6944C2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.h */,
 				ACE6944D2503DDE000F2F91A /* MRBRenameSingleSubFolderNameManager.m */,
 				AC55334B25048F3600FE5A5F /* MRBRenameSingleSubFileNameManager.h */,
@@ -1532,6 +1537,7 @@
 				AC45F67D24E8156300B77180 /* MRBFileNameFindSpecificCharactersManager.m in Sources */,
 				ACF306802424B70E00D15F67 /* MRBPixivFollowingAndBlockingDuplicateManager.m in Sources */,
 				AC01F81E240AFC5C0061D719 /* MRBCroppingPictureInputParamsViewController.m in Sources */,
+				ACF04FED2516ED1500FF470D /* MRBExtractTorrentDownloadFolderManager.m in Sources */,
 				AC4754421DCC5B1600880934 /* DownloadMethod.m in Sources */,
 				AC564E0D24443D1800B6C9FF /* MRBTemp.m in Sources */,
 				AC01F814240AF84E0061D719 /* MRBCroppingPictureManager.m in Sources */,

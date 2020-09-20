@@ -1203,6 +1203,12 @@
                                                             <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="Y2H-be-7fZ"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="提取单个子文件和父文件夹同名的文件（针对用种子下载好的压缩包）" tag="17" id="8fA-i5-Swk">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="processingFileOperation:" target="Voe-Tx-rLC" id="BAG-7a-2Ko"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="aMS-B4-dG5"/>
                                                     <menuItem title="提取文件内特定格式的文件【剪切】" tag="21" id="sIt-1D-fNc">
                                                         <modifierMask key="keyEquivalentModifierMask"/>

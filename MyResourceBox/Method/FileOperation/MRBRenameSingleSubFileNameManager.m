@@ -61,7 +61,14 @@
         
         // 重命名
         NSString *subFilePath = subFilesPaths.firstObject;
-        NSString *newFileName = [NSString stringWithFormat:@"%@.%@", folderPath.lastPathComponent, subFilePath.pathExtension];
+        NSString *newFileName = @"";
+        // 如果文件夹的带文件格式，那么判断一下和文件的格式是否一样，一样的话就不用添加了
+        if ([folderPath.lastPathComponent.pathExtension caseInsensitiveCompare:subFilePath.pathExtension] == NSOrderedSame) {
+            newFileName = [NSString stringWithFormat:@"%@.%@", folderPath.lastPathComponent.stringByDeletingPathExtension, subFilePath.pathExtension];
+        } else {
+            newFileName = [NSString stringWithFormat:@"%@.%@", folderPath.lastPathComponent, subFilePath.pathExtension];
+        }
+        
         NSString *destFilePath = [subFilePath.stringByDeletingLastPathComponent stringByAppendingPathComponent:newFileName];
         [[MRBFileManager defaultManager] moveItemAtPath:subFilePath toDestPath:destFilePath];
         

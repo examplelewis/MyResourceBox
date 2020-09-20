@@ -19,6 +19,7 @@
 #import "MRBCleanNoneItemSubFolderManager.h"
 #import "MRBAddSubFolderNameWithFolderNameManager.h"
 #import "MRBSearchHiddenFileManager.h"
+#import "MRBExtractTorrentDownloadFolderManager.h"
 
 @implementation FileOperationMethod
 
@@ -60,6 +61,10 @@
             break;
         case 16: {
             [[MRBAddSubFolderNameWithFolderNameManager new] start];
+        }
+            break;
+        case 17: {
+            [[MRBExtractTorrentDownloadFolderManager new] start];
         }
             break;
         case 21: {
