@@ -64,12 +64,13 @@
                     TFHppleElement *firstChild = (TFHppleElement *)elemnt.children.firstObject;
                     
                     if (firstChild && [firstChild.content containsString:@"Torrent Download"] && [self findNumFromStr:firstChild.content] > 0) {
-                        NSString *ops = [elemnt attributes][@"onClick"];
+                        NSString *ops = [elemnt attributes][@"onclick"];
                         NSDataDetector *detector = [[NSDataDetector alloc] initWithTypes:NSTextCheckingTypeLink error:nil];
                         [detector enumerateMatchesInString:ops options:NSMatchingReportCompletion range:NSMakeRange(0, ops.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-                            
+                            if (result.range.location != NSNotFound) {
+                                [self->resultArray addObject:[ops substringWithRange:result.range]];
+                            }
                         }];
-                        [self->resultArray addObject:[elemnt attributes][@"href"]];
                     }
                 }
             }
