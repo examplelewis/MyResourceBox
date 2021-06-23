@@ -89,6 +89,7 @@ typedef NS_ENUM(NSUInteger, MRBSitesImageUrlFetchAction) {
             }
                 break;
             case MRBSitesImageUrlFetchActionDone: {
+                [strongSelf parseFetchedResults:array];
                 [strongSelf fetchSucceed];
             }
                 break;
